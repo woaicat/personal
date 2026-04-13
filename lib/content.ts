@@ -9,8 +9,10 @@ function buildSite(): SiteContent {
       title: "你好，欢迎来到我的个人作品集和资料库！",
       description: "这里持续更新我的个人介绍、文章创作、项目经历和知识库沉淀，展示从思考到落地的完整过程。",
       ctaText: "联系我",
-      ctaUrl: "#about",
-      visualText: "图片区（待上传）"
+      ctaUrl: "#subscribe-anchor",
+      visualImage: "/hero-top.png",
+      visualCaption: "用实验和指标推动产品快速迭代",
+      visualText: "顶部展示图"
     },
     topTabs: [
       { label: "个人介绍", href: "#profile-intro" },

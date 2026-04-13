@@ -189,8 +189,15 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                 {data.site.profile.ctaText}
               </a>
             </div>
-            <div className="profile-visual" role="img" aria-label={data.site.profile.visualText}>
-              <span>{data.site.profile.visualText}</span>
+            <div className="profile-media">
+              <div className="profile-visual">
+                <img
+                  className="profile-visual-image"
+                  src={data.site.profile.visualImage}
+                  alt={data.site.profile.visualText}
+                />
+              </div>
+              <p className="profile-visual-caption">{data.site.profile.visualCaption}</p>
             </div>
           </div>
         </section>

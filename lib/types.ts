@@ -118,6 +118,8 @@ export interface ProfileContent {
   description: string;
   ctaText: string;
   ctaUrl: string;
+  visualImage: string;
+  visualCaption: string;
   visualText: string;
 }
 
