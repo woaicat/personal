@@ -1,0 +1,5 @@
+项目名称,项目链接,摘要,标签
+评测方案设计智能体,https://github.com/woaicat/-,基于  LangGraph 构建的评测方案设计智能体 支持上传需求文档，自动规划执行并生成评测方案 数据集规范与样本文件 通过 SSE 实时反馈任务进度与产物。,AI智能体|评测方案|LangGraph
+营销材料审核,/Users/gaojiaxuan/Desktop/就是变/job-hunt个人材料/问题整理/项目复盘-营销材料审核.md,面向营销材料合规场景设计 AI 助审流程 通过提示词迭代与评测体系搭建平衡召回率与精确率 上线后审核时长下降约50% 并显著降低人工负担。,AI合规|营销审核|提示词优化
+批量素材生成AI插件,https://github.com/woaicat/AI-GAME/tree/main/%E7%B4%A0%E6%9D%90%E6%89%B9%E9%87%8F%E7%94%9F%E4%BA%A7%E6%8F%92%E4%BB%B6,面向游戏买量场景的 Figma 插件 支持多尺寸素材一键裂变 自动替换图文并接入 Gemini 生成文案和背景图 提升设计产出效率,Figma插件|素材生成|AIGC|游戏买量
+法规智能分析skill,https://github.com/woaicat/-skills-regulation-diff,用于新旧法规对比的自动化 Skill 支持中文 docx 条文抽取 差异识别与影响分析 并输出可汇报的 Markdown CSV 差异表与总结文档。,法规对比|合规分析|Skill
