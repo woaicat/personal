@@ -127,7 +127,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         description: "围绕智能体、效率工具和内容产品持续构建项目，用真实场景验证需求、体验与可持续增长模型。",
         ctaText: "浏览项目",
         ctaUrl: "#projects-content",
-        stats: [],
+        stats: [{ label: "项目", value: "4" }],
         featured: {
           eyebrow: "精选项目",
           title: "评测方案设计智能体",
@@ -198,7 +198,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         description: "从查找信息到发掘洞见，加速学习进程，深化学习层次。",
         ctaText: "浏览知识库",
         ctaUrl: "#knowledge-content",
-        stats: [],
+        stats: [{ label: "知识库", value: "6" }],
         featured: {
           eyebrow: "精选知识库",
           title: "AI三巨头的工程实践",
