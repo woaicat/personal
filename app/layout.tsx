@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Source_Serif_4 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -28,7 +29,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN">
-      <body className={`${spaceGrotesk.variable} ${sourceSerif.variable}`}>{children}</body>
+      <body className={`${spaceGrotesk.variable} ${sourceSerif.variable}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

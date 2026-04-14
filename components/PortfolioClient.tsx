@@ -11,6 +11,28 @@ const TRACKED_SECTION_IDS = ["profile-intro", "articles", "projects", "knowledge
 const ARTICLES_PER_PAGE = 6;
 const PROJECTS_PER_PAGE = 6;
 const KNOWLEDGE_PER_PAGE = 6;
+const PROFILE_VALUES = [
+  {
+    label: "成长型思维",
+    description: "从过往经历中吸取经验教训，持续积累真正的解决问题的能力"
+  },
+  {
+    label: "坚持",
+    description: "即使面对困难，也能以长期视角继续前行"
+  },
+  {
+    label: "善良",
+    description: "与人为善，愿意帮助身边的人"
+  },
+  {
+    label: "坚定表达",
+    description: "尊重他人的同时，坦诚地表达自己的观点和立场"
+  },
+  {
+    label: "正念",
+    description: "对当下的体验保持察觉，用好奇的心态活在此刻"
+  }
+] as const;
 const parsePublishDateToTimestamp = (value: string) => {
   const parts = value
     .split(/[^\d]+/)
@@ -31,6 +53,7 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [projectPage, setProjectPage] = useState<number>(1);
   const [knowledgePage, setKnowledgePage] = useState<number>(1);
+  const [activeValue, setActiveValue] = useState<string>(PROFILE_VALUES[0].label);
   const getOutboundLinkProps = (href: string) => {
     if (!href || href.startsWith("#")) {
       return {};
@@ -221,6 +244,25 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
               </div>
             </div>
 
+            <div className="bio-values">
+              <h4>价值观</h4>
+              <div className="value-tabs">
+                {PROFILE_VALUES.map((item) => (
+                  <button
+                    key={item.label}
+                    className={`value-chip${activeValue === item.label ? " active" : ""}`}
+                    type="button"
+                    onClick={() => setActiveValue(item.label)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              <p className="value-detail is-visible">
+                {activeValue}：{PROFILE_VALUES.find((item) => item.label === activeValue)?.description}
+              </p>
+            </div>
+
             <div className="bio-card">
               <div className="bio-block">
                 <h4>专精领域</h4>
@@ -244,6 +286,21 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                   <div className="bio-item">
                     <span>在一家教育公司做管培生</span>
                     <span>2021年-2022年</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bio-block">
+                <h4>我的三个超能力</h4>
+                <div className="bio-list">
+                  <div className="bio-item">
+                    <span>1、此人对自己负责的事有超乎寻常的责任心和主动性</span>
+                  </div>
+                  <div className="bio-item">
+                    <span>2、动手能力极强</span>
+                  </div>
+                  <div className="bio-item">
+                    <span>3、擅长和周围的人建立友好人际关系</span>
                   </div>
                 </div>
               </div>
