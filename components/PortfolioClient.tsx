@@ -7,10 +7,11 @@ interface PortfolioClientProps {
   data: PortfolioData;
 }
 
-const TRACKED_SECTION_IDS = ["profile-intro", "articles", "projects", "knowledge"];
+const TRACKED_SECTION_IDS = ["profile-intro", "articles", "projects", "knowledge", "media"];
 const ARTICLES_PER_PAGE = 6;
 const PROJECTS_PER_PAGE = 6;
 const KNOWLEDGE_PER_PAGE = 6;
+const MEDIA_PER_PAGE = 6;
 const PROFILE_VALUES = [
   {
     label: "成长型思维",
@@ -33,6 +34,15 @@ const PROFILE_VALUES = [
     description: "对当下的体验保持察觉，用好奇的心态活在此刻"
   }
 ] as const;
+const MEDIA_ICON_MAP: Record<
+  PortfolioData["media"]["cards"][number]["mediaType"],
+  { iconText: string; iconClassName: string }
+> = {
+  YouTube: { iconText: "▶", iconClassName: "youtube" },
+  Newsletter: { iconText: "NEW", iconClassName: "newsletter" },
+  微信公众号: { iconText: "💬", iconClassName: "wechat" },
+  B站: { iconText: "📺", iconClassName: "bilibili" }
+};
 const parsePublishDateToTimestamp = (value: string) => {
   const parts = value
     .split(/[^\d]+/)
@@ -53,6 +63,7 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [projectPage, setProjectPage] = useState<number>(1);
   const [knowledgePage, setKnowledgePage] = useState<number>(1);
+  const [mediaPage, setMediaPage] = useState<number>(1);
   const [activeValue, setActiveValue] = useState<string>(PROFILE_VALUES[0].label);
   const getOutboundLinkProps = (href: string) => {
     if (!href || href.startsWith("#")) {
@@ -86,6 +97,11 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
     const startIndex = (knowledgePage - 1) * KNOWLEDGE_PER_PAGE;
     return data.knowledge.cards.slice(startIndex, startIndex + KNOWLEDGE_PER_PAGE);
   }, [data.knowledge.cards, knowledgePage]);
+  const totalMediaPages = Math.max(1, Math.ceil(data.media.cards.length / MEDIA_PER_PAGE));
+  const paginatedMediaCards = useMemo(() => {
+    const startIndex = (mediaPage - 1) * MEDIA_PER_PAGE;
+    return data.media.cards.slice(startIndex, startIndex + MEDIA_PER_PAGE);
+  }, [data.media.cards, mediaPage]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -102,6 +118,12 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
       setKnowledgePage(totalKnowledgePages);
     }
   }, [knowledgePage, totalKnowledgePages]);
+
+  useEffect(() => {
+    if (mediaPage > totalMediaPages) {
+      setMediaPage(totalMediaPages);
+    }
+  }, [mediaPage, totalMediaPages]);
 
   useEffect(() => {
     if (projectPage > totalProjectPages) {
@@ -683,6 +705,114 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                   type="button"
                   onClick={() => setKnowledgePage((prev) => Math.min(totalKnowledgePages, prev + 1))}
                   disabled={knowledgePage >= totalKnowledgePages}
+                >
+                  下一页
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section className="media section-anchor" id="media">
+          <div className="container media-intro">
+            <div className="media-intro-grid">
+              <div className="media-copy">
+                <p className="eyebrow">{data.media.intro.eyebrow}</p>
+                <h2>{data.media.intro.title}</h2>
+                <p className="lede">{data.media.intro.description}</p>
+                <div className="hero-cta">
+                  <a className="btn btn-primary" href={data.media.intro.ctaUrl}>
+                    {data.media.intro.ctaText}
+                  </a>
+                </div>
+                {data.media.intro.stats.length > 0 && (
+                  <div className="meta-row">
+                    {data.media.intro.stats.map((item) => (
+                      <div key={`${item.label}-${item.value}`}>
+                        <div className="meta-title">{item.value}</div>
+                        <div className="meta-sub">{item.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="media-panel">
+                <div className="media-panel-card">
+                  <p className="panel-eyebrow">{data.media.intro.featured.eyebrow}</p>
+                  <h3>{data.media.intro.featured.title}</h3>
+                  <p className="panel-body">{data.media.intro.featured.description}</p>
+                  {data.media.intro.featured.linkLabel.trim() !== "" && (
+                    <a
+                      className="text-link"
+                      href={data.media.intro.featured.linkUrl}
+                      {...getOutboundLinkProps(data.media.intro.featured.linkUrl)}
+                    >
+                      {data.media.intro.featured.linkLabel}
+                    </a>
+                  )}
+                </div>
+                {data.media.intro.panelTags.length > 0 && (
+                  <div className="panel-strip">
+                    {data.media.intro.panelTags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="container" id="media-content">
+            <div className="section-head">
+              <h2>{data.media.sectionHeader.title}</h2>
+              <p>{data.media.sectionHeader.description}</p>
+            </div>
+            <div className="media-grid">
+              {paginatedMediaCards.map((item) => {
+                const iconMeta = MEDIA_ICON_MAP[item.mediaType];
+                return (
+                  <article className="media-card" key={item.id}>
+                    <div className="media-head">
+                      <div className={`media-icon ${iconMeta.iconClassName}`} aria-hidden="true">
+                        {iconMeta.iconText}
+                      </div>
+                      <a
+                        className="media-arrow"
+                        href={item.url}
+                        aria-label={`访问媒体 ${item.name}`}
+                        {...getOutboundLinkProps(item.url)}
+                      >
+                        ↗
+                      </a>
+                    </div>
+                    <h3>{item.name}</h3>
+                    <p>{item.mainContent}</p>
+                    <div className="media-tags">
+                      <span className="media-type">{item.mediaType}</span>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+            <section className="pagination media-pagination">
+              <div className="pager">
+                <button
+                  className="btn btn-ghost"
+                  type="button"
+                  onClick={() => setMediaPage((prev) => Math.max(1, prev - 1))}
+                  disabled={mediaPage <= 1}
+                >
+                  上一页
+                </button>
+                <span>
+                  第 {mediaPage} 页，共 {totalMediaPages} 页
+                </span>
+                <button
+                  className="btn btn-ghost"
+                  type="button"
+                  onClick={() => setMediaPage((prev) => Math.min(totalMediaPages, prev + 1))}
+                  disabled={mediaPage >= totalMediaPages}
                 >
                   下一页
                 </button>

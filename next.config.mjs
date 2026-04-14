@@ -4,6 +4,18 @@ const nextConfig = {
     typedRoutes: true
   },
   async headers() {
+    const isProduction = process.env.NODE_ENV === 'production';
+    const scriptSrc = [
+      "'self'",
+      "'unsafe-inline'",
+      'https://va.vercel-scripts.com',
+      ...(!isProduction ? ["'unsafe-eval'"] : [])
+    ].join(' ');
+    const connectSrc = [
+      "'self'",
+      'https:',
+      ...(!isProduction ? ['http:', 'ws:', 'wss:'] : [])
+    ].join(' ');
     const contentSecurityPolicy = [
       "default-src 'self'",
       "base-uri 'self'",
@@ -13,9 +25,9 @@ const nextConfig = {
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
       "style-src 'self' 'unsafe-inline'",
-      "script-src 'self' 'unsafe-inline'",
-      "connect-src 'self' https:",
-      "upgrade-insecure-requests"
+      `script-src ${scriptSrc}`,
+      `connect-src ${connectSrc}`,
+      ...(isProduction ? ['upgrade-insecure-requests'] : [])
     ].join('; ');
 
     return [

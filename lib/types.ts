@@ -107,6 +107,36 @@ export interface KnowledgeContent {
   cards: KnowledgeCard[];
 }
 
+export interface MediaIntro {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaUrl: string;
+  stats: MetaStat[];
+  featured: FeaturedCard;
+  panelTags: string[];
+}
+
+export interface MediaSectionHeader {
+  title: string;
+  description: string;
+}
+
+export interface MediaCard {
+  id: string;
+  mediaType: "YouTube" | "Newsletter" | "微信公众号" | "B站";
+  name: string;
+  mainContent: string;
+  url: string;
+}
+
+export interface MediaContent {
+  intro: MediaIntro;
+  sectionHeader: MediaSectionHeader;
+  cards: MediaCard[];
+}
+
 export interface ContactItem {
   platform: string;
   account: string;
@@ -136,4 +166,5 @@ export interface PortfolioData {
   articles: ArticlesContent;
   projects: ProjectsContent;
   knowledge: KnowledgeContent;
+  media: MediaContent;
 }

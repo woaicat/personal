@@ -14,7 +14,7 @@
 - `components/PortfolioClient.tsx`：页面结构与前端交互（顶部 tab 高亮、文章标签筛选）
 - `lib/content.ts`：页面静态数据源
 - `app/api/content/route.ts`：后端 API 示例（返回当前静态数据）
-- `articles_data.csv` / `projects_data.csv` / `knowledge_data.csv`：你可填写的数据模板
+- `articles_data.csv` / `projects_data.csv` / `knowledge_data.csv` / `media_data.csv`：你可填写的数据模板
 - `scripts/sync-articles-from-csv.mjs`：将 `articles_data.csv` 同步回 `lib/content.ts` 的脚本
 
 ## 本地运行

@@ -18,7 +18,8 @@ function buildSite(): SiteContent {
       { label: "个人介绍", href: "#profile-intro" },
       { label: "文章创作", href: "#articles" },
       { label: "项目经历", href: "#projects" },
-      { label: "知识库", href: "#knowledge" }
+      { label: "知识库", href: "#knowledge" },
+      { label: "媒体推荐", href: "#media" }
     ]
   };
 }
@@ -273,6 +274,110 @@ export async function getPortfolioData(): Promise<PortfolioData> {
           summary: "这些资料全面探讨了提示词工程（Prompt Engineering）从人工调优向自动化与系统化转型的趋势。",
           url: "https://notebooklm.google.com/notebook/410b350a-1a9e-473d-a21e-377b8db59e54",
           tags: ["提示词"]
+        }
+      ]
+    },
+    media: {
+      intro: {
+        eyebrow: "媒体推荐",
+        title: "我持续消费并反复回看的高质量媒体源",
+        description: "聚焦 AI 产品、工程实践与产业趋势，覆盖视频、Newsletter、公众号与 B 站内容。",
+        ctaText: "浏览媒体推荐",
+        ctaUrl: "#media-content",
+        stats: [
+          { label: "媒体源", value: "11" },
+          { label: "平台类型", value: "4" }
+        ],
+        featured: {
+          eyebrow: "优先推荐",
+          title: "猫猫观察员的AI思考",
+          description: "我就是要自卖自夸，在这里可以看到我最新的AI实践！不要错过✌️",
+          linkLabel: "访问公众号 →",
+          linkUrl: "https://mp.weixin.qq.com/s/osXllm-9V5m25bi1Rm8AHg"
+        },
+        panelTags: ["AI趋势", "产品案例", "工程实践"]
+      },
+      sectionHeader: {
+        title: "媒体推荐",
+        description: "按媒体类型整理我长期关注的内容来源，便于快速建立稳定的信息输入系统。"
+      },
+      cards: [
+        {
+          id: "media-1",
+          mediaType: "YouTube",
+          name: "樂易講堂-王思迅官方頻道",
+          mainContent: "围绕易经与国学经典做系统讲解，以读书会和案例解读帮助理解卦象背后的处世方法。",
+          url: "https://www.youtube.com/@book-of-changes"
+        },
+        {
+          id: "media-2",
+          mediaType: "Newsletter",
+          name: "Kyle Poyar",
+          mainContent: "聚焦 B2B SaaS 与 AI 时代 GTM 增长策略，提供数据报告、案例拆解与可执行增长打法。",
+          url: "https://www.growthunhinged.com/?utm_source=www.growthunhinged.com&utm_medium=newsletter&utm_campaign=the-emerging-ai-growth-playbook&_bhlid=418889ca749e1dbef3b520d6f3f6c3e6e676242f"
+        },
+        {
+          id: "media-3",
+          mediaType: "微信公众号",
+          name: "猫猫观察员的AI思考",
+          mainContent: "AI 产品落地、提示词工程、智能体实践与复盘。",
+          url: "https://mp.weixin.qq.com/s/osXllm-9V5m25bi1Rm8AHg"
+        },
+        {
+          id: "media-4",
+          mediaType: "B站",
+          name: "next蔡蔡",
+          mainContent: "关注 AI 编程与 AI Agent 实践，分享工具实测、学习方法与产品化思考。",
+          url: "https://space.bilibili.com/3546627946056357?spm_id_from=333.337.0.0"
+        },
+        {
+          id: "media-5",
+          mediaType: "YouTube",
+          name: "马克的技术工作坊",
+          mainContent: "聚焦大模型与 AI 工程实战，涵盖模型评测、本地部署、知识库搭建与效率工具教程。",
+          url: "https://www.youtube.com/@%E9%A9%AC%E5%85%8B%E7%9A%84%E6%8A%80%E6%9C%AF%E5%B7%A5%E4%BD%9C%E5%9D%8A"
+        },
+        {
+          id: "media-6",
+          mediaType: "YouTube",
+          name: "OpenAI",
+          mainContent: "官方模型发布、产品能力演示与开发者案例。",
+          url: "https://www.youtube.com/@OpenAI"
+        },
+        {
+          id: "media-7",
+          mediaType: "Newsletter",
+          name: "Lenny's Newsletter",
+          mainContent: "产品增长、用户研究和团队管理的系统化方法。",
+          url: "https://www.lennysnewsletter.com/"
+        },
+        {
+          id: "media-8",
+          mediaType: "Newsletter",
+          name: "新闻实验室",
+          mainContent: "从传媒、科技与社会视角提供深度解读，覆盖媒体创新案例、传播理论与时事观察。",
+          url: "https://newsletter.newslab.info/"
+        },
+        {
+          id: "media-9",
+          mediaType: "微信公众号",
+          name: "阿里云开发者",
+          mainContent: "面向开发者分享云计算与 AI 工程实践，涵盖 Agent、Prompt/Context 和架构落地方法。",
+          url: "https://mp.weixin.qq.com/s/JycTfNd7EnmWCnJK-QCf0Q"
+        },
+        {
+          id: "media-10",
+          mediaType: "微信公众号",
+          name: "有赞coder",
+          mainContent: "聚焦电商与 SaaS 技术实践，分享 AI 客服、工作流设计、知识工程与评测优化经验。",
+          url: "https://mp.weixin.qq.com/s/1cTYhrydtLu9ff3qO2w6LQ"
+        },
+        {
+          id: "media-11",
+          mediaType: "Newsletter",
+          name: "ByteByteGo",
+          mainContent: "用图解方式讲解系统设计与分布式架构，帮助建立后端工程与架构设计的核心认知。",
+          url: "https://substack.com/@bytebytego399569"
         }
       ]
     }

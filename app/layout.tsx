@@ -16,7 +16,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jiaxuanstudio.com"),
   title: "个人作品集",
   description: "个人介绍、文章创作、项目经历与知识库展示网站。",
   openGraph: {

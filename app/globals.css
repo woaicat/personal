@@ -460,14 +460,16 @@ button {
 
 .hero-panel,
 .projects-panel,
-.knowledge-panel {
+.knowledge-panel,
+.media-panel {
   display: grid;
   gap: 1.2rem;
 }
 
 .panel-card,
 .projects-panel-card,
-.knowledge-panel-card {
+.knowledge-panel-card,
+.media-panel-card {
   background: var(--card);
   border: 1px solid var(--line);
   padding: 1.6rem;
@@ -634,7 +636,8 @@ button {
 }
 
 .projects-pagination,
-.knowledge-pagination {
+.knowledge-pagination,
+.media-pagination {
   padding-bottom: 0;
 }
 
@@ -657,12 +660,14 @@ button {
 }
 
 .projects-intro,
-.knowledge-intro {
+.knowledge-intro,
+.media-intro {
   padding-bottom: 3rem;
 }
 
 .projects-intro-grid,
-.knowledge-intro-grid {
+.knowledge-intro-grid,
+.media-intro-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 3rem;
@@ -670,7 +675,8 @@ button {
 }
 
 .projects-copy h2,
-.knowledge-copy h2 {
+.knowledge-copy h2,
+.media-copy h2 {
   font-size: clamp(2.4rem, 4.2vw, 3.6rem);
   line-height: 1.08;
 }
@@ -863,6 +869,123 @@ button {
   text-transform: uppercase;
 }
 
+.media {
+  padding: 4.5rem 0 4rem;
+  background-color: rgb(231, 237, 255);
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  border-top: 1px solid #d5def8;
+  border-bottom: 1px solid #d5def8;
+}
+
+.media-panel-card {
+  border-color: #d5def8;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.media-card {
+  background: #fff;
+  border: 1px solid #d8def5;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  transition: all 200ms ease;
+}
+
+.media-card:hover {
+  border-color: #b7c5ef;
+  box-shadow: var(--shadow);
+}
+
+.media-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.6rem;
+}
+
+.media-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.media-icon.youtube {
+  color: #e53935;
+  background: #fdeaea;
+}
+
+.media-icon.newsletter {
+  color: #3b5ccf;
+  background: #e9eeff;
+  font-size: 1.02rem;
+  letter-spacing: 0.08em;
+}
+
+.media-icon.wechat {
+  color: #1f9d3a;
+  background: #e6f7eb;
+  font-size: 1.45rem;
+}
+
+.media-icon.bilibili {
+  color: #c03f76;
+  background: #ffe7f1;
+  font-size: 1.45rem;
+}
+
+.media-arrow {
+  font-size: 2rem;
+  line-height: 1;
+  color: #5366b8;
+}
+
+.media-card h3 {
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.media-card p {
+  font-size: 1rem;
+  font-family: var(--font-serif), "Noto Serif SC", Georgia, serif;
+  margin-bottom: 1.4rem;
+}
+
+.media-tags {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #d8dff1;
+}
+
+.media-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.8rem;
+  border-radius: 10px;
+  background: #e9edf9;
+  color: #53608f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .about {
   padding: 4rem 0;
 }
@@ -928,10 +1051,12 @@ button {
   .profile-grid,
   .projects-intro-grid,
   .knowledge-intro-grid,
+  .media-intro-grid,
   .filter-grid,
   .card-grid,
   .projects-grid,
   .knowledge-grid,
+  .media-grid,
   .press-grid,
   .about-grid,
   .footer-grid {
@@ -994,12 +1119,14 @@ button {
   }
 
   .knowledge,
-  .projects {
+  .projects,
+  .media {
     padding-top: 3rem;
   }
 
   .projects-copy h2,
-  .knowledge-copy h2 {
+  .knowledge-copy h2,
+  .media-copy h2 {
     font-size: clamp(2rem, 10vw, 2.6rem);
   }
 
