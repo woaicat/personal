@@ -40,7 +40,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         ctaText: "浏览文章",
         ctaUrl: "#articles",
         stats: [
-          { label: "文章", value: "7" },
+          { label: "文章", value: "9" },
           { label: "专题", value: "5" }
         ],
         featured: {
@@ -63,8 +63,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
           id: "article-1",
           category: "产品评测",
           title: "从听不懂到完全信任：我的 Codex 深度产品体验",
-          summary:
-            "基于高频实战复盘 Codex 的交付完整性与排错稳定性，并结合 Agent Loop 机制与产品指标解释其为何成为核心工作流工具。",
+          summary: "基于高频实战复盘 Codex 的交付完整性与排错稳定性，并结合 Agent Loop 机制与产品指标解释其为何成为核心工作流工具。",
           publishDate: "2026/4/12",
           url: "https://www.woshipm.com/ai/6344250.html"
         },
@@ -104,8 +103,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
           id: "article-6",
           category: "经验复盘",
           title: "Vibe Coding实践：绕远路是最快的捷径",
-          summary:
-            "基于真实实践总结 Vibe Coding 的核心方法与边界：先规划后执行并通过高质量上下文补齐降低返工，强调把它作为提效工具而非万能方案，在持续复盘中形成个人开发流程。",
+          summary: "基于真实实践总结 Vibe Coding 的核心方法与边界：先规划后执行并通过高质量上下文补齐降低返工，强调把它作为提效工具而非万能方案，在持续复盘中形成个人开发流程。",
           publishDate: "2025/11/10",
           url: "https://mp.weixin.qq.com/s/Q1Fh4e3NkBrit8oE7Pu2xw"
         },
@@ -113,10 +111,25 @@ export async function getPortfolioData(): Promise<PortfolioData> {
           id: "article-7",
           category: "智能体实践",
           title: "智能体产品落地实践：20%的智能+80%的苦工",
-          summary:
-            "结合落地项目总结智能体工程化常见坑点，覆盖产品定义架构选择上下文策略评测与可观测性，强调先跑通最小闭环再迭代优化。",
+          summary: "结合落地项目总结智能体工程化常见坑点，覆盖产品定义架构选择上下文策略评测与可观测性，强调先跑通最小闭环再迭代优化。",
           publishDate: "2025/12/5",
           url: "https://www.woshipm.com/ai/6301184.html"
+        },
+        {
+          id: "article-8",
+          category: "提示词",
+          title: "没有功德圆满，没有一步登天，一些提示词撰写的个人体会",
+          summary: "基于提示词工程实战，系统总结“提示词与模型都非万能”的边界，强调通过持续迭代、工程化实验记录与简洁表达，在资源受限场景下提升AI落地效果。",
+          publishDate: "2025/4/22",
+          url: "https://www.woshipm.com/ai/6207661.html"
+        },
+        {
+          id: "article-9",
+          category: "方法论总结",
+          title: "2026 实践计划：在AI时代，做坚定不移的人本主义者",
+          summary: "提出2026年在AI时代坚持人本主义的年度计划，围绕AI to B的业务价值、应用技术与长期纪律展开，并给出输入收敛、四类内容输出与持续实践的行动路径。",
+          publishDate: "2026/1/13",
+          url: "https://mp.weixin.qq.com/s/bhZO6iCxdSSwuMMhumvudw"
         }
       ]
     },

@@ -1,6 +1,6 @@
 # 个人作品集（Next.js + Vercel）
 
-这是一个可直接部署到 Vercel 的完整项目，当前使用静态代码数据渲染页面（不读取 CSV）。
+这是一个可直接部署到 Vercel 的完整项目，当前使用静态代码数据渲染页面。
 
 ## 技术栈
 
@@ -14,7 +14,8 @@
 - `components/PortfolioClient.tsx`：页面结构与前端交互（顶部 tab 高亮、文章标签筛选）
 - `lib/content.ts`：页面静态数据源
 - `app/api/content/route.ts`：后端 API 示例（返回当前静态数据）
-- `articles_data.csv` / `projects_data.csv` / `knowledge_data.csv`：你可填写的数据模板（暂不接入渲染）
+- `articles_data.csv` / `projects_data.csv` / `knowledge_data.csv`：你可填写的数据模板
+- `scripts/sync-articles-from-csv.mjs`：将 `articles_data.csv` 同步回 `lib/content.ts` 的脚本
 
 ## 本地运行
 
@@ -39,6 +40,20 @@ npm run check:deploy
 ```
 
 该命令会依次执行类型检查和生产构建。
+
+## 更新文章内容（CSV 同步方式）
+
+1. 编辑 `articles_data.csv`（列名保持：`标题,标签,跳转链接,摘要,发布日期`）
+2. 执行同步命令：
+
+```bash
+npm run sync:articles
+```
+
+3. 该命令会更新 `lib/content.ts` 中的：
+- `articles.cards`
+- `articles.filters`
+- `articles.intro.stats`（文章数、专题数）
 
 ## 环境变量
 

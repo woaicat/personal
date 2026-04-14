@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "sync:articles": "node scripts/sync-articles-from-csv.mjs",
     "typecheck": "tsc --noEmit",
     "check:deploy": "npm run typecheck && npm run build"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "^15.2.8",
     "react": "19.0.0",
     "react-dom": "19.0.0"
