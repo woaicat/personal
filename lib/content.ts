@@ -10,9 +10,38 @@ function buildSite(): SiteContent {
       description: "这里持续更新我的个人介绍、文章创作、项目经历和知识库沉淀，展示从思考到落地的完整过程。",
       ctaText: "联系我",
       ctaUrl: "#subscribe-anchor",
-      visualImage: "/hero-top.png",
-      visualCaption: "用实验和指标推动产品快速迭代",
-      visualText: "顶部展示图"
+      visualSlides: [
+        {
+          image: "/hero-slide-05.jpg",
+          alt: "顶部轮播图05",
+          caption: "做价值驱动的产品经理"
+        },
+        {
+          image: "/hero-slide-04.jpg",
+          alt: "顶部轮播图04",
+          caption: "2021年摄于家中"
+        },
+        {
+          image: "/hero-top.png",
+          alt: "顶部展示图",
+          caption: "用实验和指标推动产品快速迭代"
+        },
+        {
+          image: "/hero-slide-01.jpg",
+          alt: "顶部轮播图01",
+          caption: "2026年4月摄于烟台"
+        },
+        {
+          image: "/hero-slide-02.jpg",
+          alt: "顶部轮播图02",
+          caption: "不畏浮云遮望眼"
+        },
+        {
+          image: "/hero-slide-03.jpg",
+          alt: "顶部轮播图03",
+          caption: "等一个自然而然的晴天 我想去海边"
+        }
+      ]
     },
     topTabs: [
       { label: "个人介绍", href: "#profile-intro" },

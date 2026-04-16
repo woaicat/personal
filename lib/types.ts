@@ -148,9 +148,11 @@ export interface ProfileContent {
   description: string;
   ctaText: string;
   ctaUrl: string;
-  visualImage: string;
-  visualCaption: string;
-  visualText: string;
+  visualSlides: Array<{
+    image: string;
+    alt: string;
+    caption: string;
+  }>;
 }
 
 export interface SiteContent {

@@ -208,6 +208,9 @@ button {
 }
 
 .profile-visual {
+  position: relative;
+  width: 100%;
+  height: 336px;
   min-height: 336px;
   border-radius: 28px;
   background: linear-gradient(135deg, #eef1f6 0%, #e7edf8 100%);
@@ -223,8 +226,74 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   border-radius: inherit;
+}
+
+.hero-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 2.35rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-shadow: 0 1px 4px rgba(15, 23, 42, 0.45);
+  opacity: 0.62;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.hero-carousel-btn:hover {
+  opacity: 0.78;
+}
+
+.hero-carousel-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.hero-carousel-btn-prev {
+  left: 6px;
+}
+
+.hero-carousel-btn-next {
+  right: 6px;
+}
+
+.hero-carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.25);
+}
+
+.hero-carousel-dot {
+  width: 18px;
+  height: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.hero-carousel-dot.is-active {
+  width: 30px;
+  background: #fff;
 }
 
 .profile-visual-caption {
@@ -1070,7 +1139,26 @@ button {
   }
 
   .profile-visual {
+    height: 256px;
     min-height: 256px;
+  }
+
+  .hero-carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 2rem;
+  }
+
+  .hero-carousel-btn-prev {
+    left: 4px;
+  }
+
+  .hero-carousel-btn-next {
+    right: 4px;
+  }
+
+  .hero-carousel-dots {
+    bottom: 12px;
   }
 
   .bio-item {

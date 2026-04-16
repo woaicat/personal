@@ -12,6 +12,7 @@ const ARTICLES_PER_PAGE = 6;
 const PROJECTS_PER_PAGE = 6;
 const KNOWLEDGE_PER_PAGE = 6;
 const MEDIA_PER_PAGE = 6;
+const HERO_ROTATE_MS = 10000;
 const PROFILE_VALUES = [
   {
     label: "成长型思维",
@@ -58,13 +59,20 @@ const parsePublishDateToTimestamp = (value: string) => {
 };
 
 export default function PortfolioClient({ data }: PortfolioClientProps) {
+  const heroSlides =
+    data.site.profile.visualSlides.length > 0
+      ? data.site.profile.visualSlides
+      : [{ image: "/hero-top.png", alt: "顶部展示图", caption: "用实验和指标推动产品快速迭代" }];
+  const hasMultipleHeroSlides = heroSlides.length > 1;
   const [activeFilter, setActiveFilter] = useState<string>(data.articles.filters[0] ?? "全部");
   const [activeTab, setActiveTab] = useState<string>("profile-intro");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [projectPage, setProjectPage] = useState<number>(1);
   const [knowledgePage, setKnowledgePage] = useState<number>(1);
   const [mediaPage, setMediaPage] = useState<number>(1);
+  const [heroSlideIndex, setHeroSlideIndex] = useState<number>(0);
   const [activeValue, setActiveValue] = useState<string>(PROFILE_VALUES[0].label);
+  const activeHeroSlide = heroSlides[heroSlideIndex] ?? heroSlides[0];
   const getOutboundLinkProps = (href: string) => {
     if (!href || href.startsWith("#")) {
       return {};
@@ -130,6 +138,30 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
       setProjectPage(totalProjectPages);
     }
   }, [projectPage, totalProjectPages]);
+
+  useEffect(() => {
+    setHeroSlideIndex(0);
+  }, [heroSlides.length]);
+
+  useEffect(() => {
+    if (!hasMultipleHeroSlides) {
+      return;
+    }
+
+    const timerId = window.setInterval(() => {
+      setHeroSlideIndex((prev) => (prev + 1) % heroSlides.length);
+    }, HERO_ROTATE_MS);
+
+    return () => window.clearInterval(timerId);
+  }, [hasMultipleHeroSlides, heroSlides.length]);
+
+  const handleHeroPrev = () => {
+    setHeroSlideIndex((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const handleHeroNext = () => {
+    setHeroSlideIndex((prev) => (prev + 1) % heroSlides.length);
+  };
 
   useEffect(() => {
     const updateActiveTabByScroll = () => {
@@ -235,14 +267,47 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
               </a>
             </div>
             <div className="profile-media">
-              <div className="profile-visual">
+              <div className="profile-visual" role="region" aria-label="顶部图片轮播">
                 <img
                   className="profile-visual-image"
-                  src={data.site.profile.visualImage}
-                  alt={data.site.profile.visualText}
+                  src={activeHeroSlide.image}
+                  alt={activeHeroSlide.alt}
                 />
+                {hasMultipleHeroSlides && (
+                  <>
+                    <button
+                      className="hero-carousel-btn hero-carousel-btn-prev"
+                      type="button"
+                      aria-label="上一张图片"
+                      onClick={handleHeroPrev}
+                    >
+                      ‹
+                    </button>
+                    <button
+                      className="hero-carousel-btn hero-carousel-btn-next"
+                      type="button"
+                      aria-label="下一张图片"
+                      onClick={handleHeroNext}
+                    >
+                      ›
+                    </button>
+                    <div className="hero-carousel-dots" role="tablist" aria-label="轮播分页">
+                      {heroSlides.map((slide, index) => (
+                        <button
+                          key={`${slide.image}-${index}`}
+                          className={`hero-carousel-dot${index === heroSlideIndex ? " is-active" : ""}`}
+                          type="button"
+                          role="tab"
+                          aria-label={`切换到第 ${index + 1} 张图片`}
+                          aria-selected={index === heroSlideIndex}
+                          onClick={() => setHeroSlideIndex(index)}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
-              <p className="profile-visual-caption">{data.site.profile.visualCaption}</p>
+              <p className="profile-visual-caption">{activeHeroSlide.caption}</p>
             </div>
           </div>
         </section>
