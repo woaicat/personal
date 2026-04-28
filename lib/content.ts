@@ -70,7 +70,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         ctaText: "浏览文章",
         ctaUrl: "#articles",
         stats: [
-          { label: "文章", value: "9" },
+          { label: "文章", value: "10" },
           { label: "专题", value: "5" }
         ],
         featured: {
@@ -160,6 +160,14 @@ export async function getPortfolioData(): Promise<PortfolioData> {
           summary: "提出2026年在AI时代坚持人本主义的年度计划，围绕AI to B的业务价值、应用技术与长期纪律展开，并给出输入收敛、四类内容输出与持续实践的行动路径。",
           publishDate: "2026/1/13",
           url: "https://mp.weixin.qq.com/s/bhZO6iCxdSSwuMMhumvudw"
+        },
+        {
+          id: "article-10",
+          category: "产品评测",
+          title: "AI产品测评：Wegic（AI建站工具）",
+          summary: "围绕 Wegic 的建站流程、交互体验与成站质量进行实测，评估其在 AI 辅助建站场景下的效率提升与适用边界。",
+          publishDate: "2026/4/15",
+          url: "https://mp.weixin.qq.com/s/wA06nuvhDJV6yICNhYRMpQ"
         }
       ]
     },
