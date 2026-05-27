@@ -48,7 +48,8 @@ function buildSite(): SiteContent {
       { label: "文章创作", href: "#articles" },
       { label: "项目经历", href: "#projects" },
       { label: "知识库", href: "#knowledge" },
-      { label: "媒体推荐", href: "#media" }
+      { label: "媒体推荐", href: "#media" },
+      { label: "ACT", href: "/act.html" }
     ]
   };
 }

@@ -233,12 +233,15 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
             {data.site.topTabs.map((tab) => {
               const sectionId = tab.href.startsWith("#") ? tab.href.slice(1) : "";
               const isActive = sectionId !== "" && sectionId === activeTab;
+              const shouldOpenInNewTab = !tab.href.startsWith("#");
               return (
                 <a
                   key={tab.href}
                   className={`top-tab${isActive ? " active" : ""}`}
                   href={tab.href}
                   onClick={() => handleTopTabClick(tab.href)}
+                  target={shouldOpenInNewTab ? "_blank" : undefined}
+                  rel={shouldOpenInNewTab ? "noreferrer" : undefined}
                 >
                   {tab.label}
                 </a>
