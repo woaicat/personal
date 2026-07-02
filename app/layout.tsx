@@ -15,8 +15,11 @@ const sourceSerif = Source_Serif_4({
   display: "swap"
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jiaxuanstudio.com";
+const ogImageUrl = new URL("/og-image-v2.jpg", siteUrl).toString();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jiaxuanstudio.com"),
+  metadataBase: new URL(siteUrl),
   title: "JiaXuan GAO | AI产品经理",
   description: "智能体实践、产品评测与 ToB 产品落地记录。",
   openGraph: {
@@ -27,9 +30,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
-        width: 1731,
-        height: 909,
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
         alt: "JiaXuan GAO AI产品经理网站预览图"
       }
     ]
@@ -38,7 +42,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JiaXuan GAO | AI产品经理",
     description: "智能体实践、产品评测与 ToB 产品落地记录。",
-    images: ["/og-image.png"]
+    images: [ogImageUrl]
+  },
+  other: {
+    image: ogImageUrl,
+    thumbnail: ogImageUrl,
+    "twitter:image:src": ogImageUrl
   }
 };
 
