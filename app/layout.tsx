@@ -17,12 +17,28 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jiaxuanstudio.com"),
-  title: "个人作品集",
-  description: "个人介绍、文章创作、项目经历与知识库展示网站。",
+  title: "JiaXuan GAO | AI产品经理",
+  description: "智能体实践、产品评测与 ToB 产品落地记录。",
   openGraph: {
-    title: "个人作品集",
-    description: "个人介绍、文章创作、项目经历与知识库展示网站。",
-    type: "website"
+    title: "JiaXuan GAO | AI产品经理",
+    description: "智能体实践、产品评测与 ToB 产品落地记录。",
+    url: "/",
+    siteName: "JiaXuan GAO",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1731,
+        height: 909,
+        alt: "JiaXuan GAO AI产品经理网站预览图"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JiaXuan GAO | AI产品经理",
+    description: "智能体实践、产品评测与 ToB 产品落地记录。",
+    images: ["/og-image.png"]
   }
 };
 

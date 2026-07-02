@@ -73,6 +73,7 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
   const [heroSlideIndex, setHeroSlideIndex] = useState<number>(0);
   const [activeValue, setActiveValue] = useState<string>(PROFILE_VALUES[0].label);
   const activeHeroSlide = heroSlides[heroSlideIndex] ?? heroSlides[0];
+  const profileTitleLines = data.site.profile.title.split("\n");
   const getOutboundLinkProps = (href: string) => {
     if (!href || href.startsWith("#")) {
       return {};
@@ -263,7 +264,13 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                   <span>{data.site.profile.name}</span>
                 </div>
               </div>
-              <h2>{data.site.profile.title}</h2>
+              <h2>
+                {profileTitleLines.map((line, index) => (
+                  <span className={index === 0 ? "profile-title-main" : "profile-title-focus"} key={`${line}-${index}`}>
+                    {line}
+                  </span>
+                ))}
+              </h2>
               <p className="profile-desc">{data.site.profile.description}</p>
               <a className="btn btn-dark" href={data.site.profile.ctaUrl}>
                 {data.site.profile.ctaText}
@@ -311,6 +318,24 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                 )}
               </div>
               <p className="profile-visual-caption">{activeHeroSlide.caption}</p>
+            </div>
+          </div>
+        </section>
+
+        <div id="subscribe-anchor" className="anchor-offset" />
+        <section className="press" id="subscribe">
+          <div className="container press-grid">
+            <div>
+              <h2>在这里可以找到我</h2>
+              <p>欢迎通过以下平台和账号与我交流。</p>
+            </div>
+            <div className="logos">
+              {data.contacts.map((contact) => (
+                <div className="platform-item" key={`${contact.platform}-${contact.account}`}>
+                  <div className="platform-name">{contact.platform}</div>
+                  <div className="platform-account">{contact.account}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -399,24 +424,6 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                 <h4>正在寻找</h4>
                 <p>新的AI产品工作（ToB领域 、泛营销等领域）</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <div id="subscribe-anchor" className="anchor-offset" />
-        <section className="press" id="subscribe">
-          <div className="container press-grid">
-            <div>
-              <h2>在这里可以找到我</h2>
-              <p>欢迎通过以下平台和账号与我交流。</p>
-            </div>
-            <div className="logos">
-              {data.contacts.map((contact) => (
-                <div className="platform-item" key={`${contact.platform}-${contact.account}`}>
-                  <div className="platform-name">{contact.platform}</div>
-                  <div className="platform-account">{contact.account}</div>
-                </div>
-              ))}
             </div>
           </div>
         </section>

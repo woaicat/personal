@@ -185,6 +185,23 @@ button {
   margin-bottom: 0.8rem;
 }
 
+.profile-copy h2 span {
+  display: block;
+}
+
+.profile-title-focus {
+  margin-top: 0.35rem;
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 1160px) {
+  .profile-title-focus {
+    white-space: nowrap;
+  }
+}
+
 .profile-desc {
   max-width: 34rem;
 }
