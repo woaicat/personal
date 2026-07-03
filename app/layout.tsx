@@ -17,16 +17,39 @@ const sourceSerif = Source_Serif_4({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jiaxuanstudio.com";
 const ogImageUrl = new URL("/og-image-v2.jpg", siteUrl).toString();
+const siteTitle = "JiaXuan GAO | AI产品经理｜智能体实践、AI产品测评与ToB落地";
+const siteDescription =
+  "高佳璇的个人作品集，记录 AI 产品经理在智能体实践、AI 产品测评、ToB 产品落地、知识库建设与方法论总结中的项目经验和文章创作。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "JiaXuan GAO | AI产品经理",
-  description: "智能体实践、产品评测与 ToB 产品落地记录。",
+  applicationName: "JiaXuan GAO",
+  title: siteTitle,
+  description: siteDescription,
+  authors: [{ name: "JiaXuan GAO", url: siteUrl }],
+  creator: "JiaXuan GAO",
+  publisher: "JiaXuan GAO",
+  keywords: ["AI产品经理", "智能体实践", "AI产品测评", "ToB产品", "知识工作者", "个人作品集"],
+  alternates: {
+    canonical: "/"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  },
   openGraph: {
-    title: "JiaXuan GAO | AI产品经理",
-    description: "智能体实践、产品评测与 ToB 产品落地记录。",
+    title: siteTitle,
+    description: siteDescription,
     url: "/",
     siteName: "JiaXuan GAO",
+    locale: "zh_CN",
     type: "website",
     images: [
       {
@@ -40,8 +63,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JiaXuan GAO | AI产品经理",
-    description: "智能体实践、产品评测与 ToB 产品落地记录。",
+    title: siteTitle,
+    description: siteDescription,
     images: [ogImageUrl]
   },
   other: {

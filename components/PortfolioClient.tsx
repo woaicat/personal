@@ -264,13 +264,13 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
                   <span>{data.site.profile.name}</span>
                 </div>
               </div>
-              <h2>
+              <h1>
                 {profileTitleLines.map((line, index) => (
                   <span className={index === 0 ? "profile-title-main" : "profile-title-focus"} key={`${line}-${index}`}>
                     {line}
                   </span>
                 ))}
-              </h2>
+              </h1>
               <p className="profile-desc">{data.site.profile.description}</p>
               <a className="btn btn-dark" href={data.site.profile.ctaUrl}>
                 {data.site.profile.ctaText}
@@ -432,7 +432,7 @@ export default function PortfolioClient({ data }: PortfolioClientProps) {
           <div className="container hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">{data.articles.intro.eyebrow}</p>
-              <h1>{data.articles.intro.title}</h1>
+              <h2>{data.articles.intro.title}</h2>
               <p className="lede">{data.articles.intro.description}</p>
               <div className="hero-cta">
                 <a className="btn btn-primary" href={data.articles.intro.ctaUrl}>

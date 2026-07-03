@@ -13,32 +13,32 @@ function buildSite(): SiteContent {
       visualSlides: [
         {
           image: "/hero-slide-05.jpg",
-          alt: "顶部轮播图05",
+          alt: "橘白色猫趴在窗边，作为 JiaXuan GAO 个人作品集首页轮播图",
           caption: "做价值驱动的产品经理"
         },
         {
           image: "/hero-slide-04.jpg",
-          alt: "顶部轮播图04",
+          alt: "家中橘白色猫的生活照片，作为个人作品集首页轮播图",
           caption: "2021年摄于家中"
         },
         {
           image: "/hero-top.png",
-          alt: "顶部展示图",
+          alt: "个人作品集首页展示图，表达用实验和指标推动产品快速迭代",
           caption: "用实验和指标推动产品快速迭代"
         },
         {
           image: "/hero-slide-01.jpg",
-          alt: "顶部轮播图01",
+          alt: "2026年4月烟台海边照片，作为个人作品集首页轮播图",
           caption: "2026年4月摄于烟台"
         },
         {
           image: "/hero-slide-02.jpg",
-          alt: "顶部轮播图02",
+          alt: "树木与天空照片，表达不畏浮云遮望眼",
           caption: "不畏浮云遮望眼"
         },
         {
           image: "/hero-slide-03.jpg",
-          alt: "顶部轮播图03",
+          alt: "海边晴天照片，表达等一个自然而然的晴天去海边",
           caption: "等一个自然而然的晴天 我想去海边"
         }
       ]

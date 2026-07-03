@@ -179,13 +179,13 @@ button {
   gap: 0.8rem;
 }
 
-.profile-copy h2 {
+.profile-copy h1 {
   font-size: clamp(2rem, 4.2vw, 3.1rem);
   line-height: 1.1;
   margin-bottom: 0.8rem;
 }
 
-.profile-copy h2 span {
+.profile-copy h1 span {
   display: block;
 }
 
@@ -512,7 +512,7 @@ button {
   color: var(--muted);
 }
 
-.hero-copy h1 {
+.hero-copy h2 {
   font-size: clamp(2.8rem, 5vw, 4.6rem);
   line-height: 1.05;
 }
@@ -1219,7 +1219,7 @@ button {
     padding-top: 1.6rem;
   }
 
-  .profile-copy h2 {
+  .profile-copy h1 {
     font-size: clamp(1.8rem, 9vw, 2.4rem);
   }
 
