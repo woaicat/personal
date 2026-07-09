@@ -114,6 +114,15 @@ button {
   color: var(--accent);
 }
 
+.top-tab-featured {
+  color: #f05a2a;
+}
+
+.top-tab-featured:hover,
+.top-tab-featured:focus-visible {
+  color: #dc4820;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

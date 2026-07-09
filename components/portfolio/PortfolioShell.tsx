@@ -16,11 +16,12 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
             const sectionId = tab.href.startsWith("#") ? tab.href.slice(1) : "";
             const isActive = sectionId !== "" && sectionId === activeTab;
             const shouldOpenInNewTab = !tab.href.startsWith("#");
+            const isAiKnowledgeTab = tab.href === "/ai-knowledge";
 
             return (
               <a
                 key={tab.href}
-                className={`top-tab${isActive ? " active" : ""}`}
+                className={`top-tab${isActive ? " active" : ""}${isAiKnowledgeTab ? " top-tab-featured" : ""}`}
                 href={tab.href}
                 onClick={() => onTopTabClick(tab.href)}
                 target={shouldOpenInNewTab ? "_blank" : undefined}

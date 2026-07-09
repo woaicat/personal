@@ -40,6 +40,7 @@
 
 .ai-knowledge-page
 {
+  --fixed-nav-height: 68px;
   color: var(--ink);
   background: var(--canvas);
   font-family: var(--font-sans);
@@ -90,13 +91,14 @@
 
 .ai-knowledge-page .top-visual
 {
-  --top-nav-height: 68px;
+  --top-nav-height: var(--fixed-nav-height);
   --top-visual-height: clamp(460px, 34vw, 520px);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   width: 100%;
   min-height: var(--top-visual-height);
+  padding-top: var(--top-nav-height);
   color: var(--inverse-ink);
   background: var(--brand-deeper);
 }
@@ -134,7 +136,6 @@
   background-size: cover, cover, contain;
 }
 
-.ai-knowledge-page .top-visual .site-header,
 .ai-knowledge-page .top-visual .hero-shell
 {
   position: relative;
@@ -143,14 +144,16 @@
 
 .ai-knowledge-page .site-header
 {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  right: 0;
+  left: 0;
+  z-index: 100;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 24px;
   align-items: center;
-  min-height: 68px;
+  min-height: var(--fixed-nav-height);
   padding: 0 clamp(18px, 2.4vw, 42px);
   border-bottom: 1px solid rgba(228, 236, 234, 0.7);
   color: var(--ink);
@@ -286,7 +289,7 @@
 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--inverse-ink);
-  background: rgba(0, 29, 29, 0.18);
+  background: rgba(0, 29, 29, 0.72);
   backdrop-filter: blur(8px) saturate(1.1);
 }
 
@@ -970,7 +973,7 @@
 {
   width: min(1100px, 100%);
   margin: 0 auto;
-  padding: 30px clamp(16px, 3vw, 24px) 54px;
+  padding: calc(var(--fixed-nav-height) + 30px) clamp(16px, 3vw, 24px) 54px;
 }
 
 .ai-knowledge-page .back-link
@@ -1119,8 +1122,13 @@
 }
 
 @media (max-width: 1180px) {
+  .ai-knowledge-page
+  {
+    --fixed-nav-height: 124px;
+  }
+
   .ai-knowledge-page .site-header
-{
+  {
     grid-template-columns: 1fr auto;
   }
 
