@@ -4,22 +4,18 @@ import { ArticleCard } from "./ArticleCard";
 import type { ArticleMeta, ColumnItem, NewsItem } from "@/lib/ai-knowledge/types";
 import { AI_KNOWLEDGE_BASE_PATH, knowledgeRoute } from "@/lib/ai-knowledge/url";
 
-type CategoryTabsProps = {
-  categories: string[];
-  selectedCategory: string;
+type SubsectionTabsProps = {
+  section: string;
+  subsections: string[];
+  selectedSubsection?: string;
   query?: string;
 };
 
-function categoryHref(category: string, query?: string) {
-  if (category === "推荐") {
-    return query ? `${AI_KNOWLEDGE_BASE_PATH}?q=${encodeURIComponent(query)}#articles` : `${AI_KNOWLEDGE_BASE_PATH}#articles`;
+function subsectionHref(section: string, subsection?: string, query?: string) {
+  const params = new URLSearchParams({ section });
+  if (subsection) {
+    params.set("subsection", subsection);
   }
-
-  if (category === "AI 情报") {
-    return `${AI_KNOWLEDGE_BASE_PATH}#news`;
-  }
-
-  const params = new URLSearchParams({ category });
   if (query) {
     params.set("q", query);
   }
@@ -27,12 +23,20 @@ function categoryHref(category: string, query?: string) {
   return `${AI_KNOWLEDGE_BASE_PATH}?${params.toString()}#articles`;
 }
 
-export function CategoryTabs({ categories, selectedCategory, query }: CategoryTabsProps) {
+export function SubsectionTabs({ section, subsections, selectedSubsection, query }: SubsectionTabsProps) {
+  if (subsections.length === 0) {
+    return null;
+  }
+
   return (
     <nav className="category-tabs" aria-label="内容分类">
-      {categories.map((category) => (
-        <Link key={category} className={category === selectedCategory ? "active" : ""} href={knowledgeRoute(categoryHref(category, query))}>
-          {category}
+      {subsections.map((subsection) => (
+        <Link
+          key={subsection}
+          className={subsection === selectedSubsection ? "active" : ""}
+          href={knowledgeRoute(subsectionHref(section, subsection, query))}
+        >
+          {subsection}
         </Link>
       ))}
     </nav>

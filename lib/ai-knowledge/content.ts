@@ -7,6 +7,18 @@ import type { Article, ArticleCategory, ArticleMeta, SiteData } from "./types";
 import { knowledgeAssetPath, knowledgeHref } from "./url";
 
 const articlesDirectory = path.join(process.cwd(), "content", "ai-knowledge", "articles");
+const DEFAULT_SECTION = "AI产品落地";
+
+const articleSectionFallbacks: Record<string, { section: string; subsection?: string }> = {
+  "ai-product-thinking-framework": { section: "AI产品落地", subsection: "需求判断" },
+  "requirement-fit-for-ai": { section: "AI产品落地", subsection: "需求判断" },
+  "ai-product-methodology": { section: "AI产品落地", subsection: "方案选择" },
+  "evaluation-driven-iteration": { section: "AI产品落地", subsection: "评测驱动迭代" },
+  "large-model-map": { section: "AI技术基础" },
+  "agent-design-pattern": { section: "AI Agent", subsection: "Agent组件" },
+  "ai-case-library": { section: "AI Agent", subsection: "案例库" },
+  "fangxiawan-column": { section: "放下碗专栏" }
+};
 
 function toSlug(fileName: string) {
   return fileName.replace(/\.md$/, "");
@@ -24,6 +36,7 @@ function normalizeSiteData(site: SiteData): SiteData {
   return {
     ...site,
     navigation: site.navigation.map((item) => ({ ...item, href: knowledgeHref(item.href) })),
+    sections: site.sections,
     news: site.news.map((item) => ({
       ...item,
       href: knowledgeHref(item.href),
@@ -45,6 +58,7 @@ function normalizeSiteData(site: SiteData): SiteData {
 
 function parseArticle(fileName: string): Article {
   const slug = toSlug(fileName);
+  const fallback = articleSectionFallbacks[slug] ?? { section: DEFAULT_SECTION };
   const fullPath = path.join(articlesDirectory, fileName);
   const file = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(file);
@@ -54,6 +68,8 @@ function parseArticle(fileName: string): Article {
     title: assertString(data.title, slug),
     description: assertString(data.description),
     category: assertString(data.category, "导读") as ArticleCategory,
+    section: assertString(data.section, fallback.section),
+    subsection: optionalString(data.subsection) ?? fallback.subsection,
     date: assertString(data.date),
     author: assertString(data.author, "周周 Jinno"),
     readCount: assertString(data.readCount, "0"),
@@ -97,21 +113,23 @@ export function getHotArticles() {
     .sort((a, b) => (a.hotRank ?? 99) - (b.hotRank ?? 99));
 }
 
-export function filterArticles(params: { category?: string; q?: string }) {
+export function filterArticles(params: { category?: string; q?: string; section?: string; subsection?: string }) {
   const query = params.q?.trim().toLowerCase();
   const category = params.category && params.category !== "推荐" ? params.category : undefined;
   const base = category === "热门" ? getHotArticles() : getArticleMetas();
 
   return base.filter((article) => {
     const matchesCategory = !category || category === "热门" || article.category === category;
+    const matchesSection = !params.section || article.section === params.section;
+    const matchesSubsection = !params.subsection || article.subsection === params.subsection;
     const matchesQuery =
       !query ||
-      [article.title, article.description, article.category, article.author]
+      [article.title, article.description, article.category, article.section, article.subsection, article.author]
         .join(" ")
         .toLowerCase()
         .includes(query);
 
-    return matchesCategory && matchesQuery;
+    return matchesCategory && matchesSection && matchesSubsection && matchesQuery;
   });
 }
 

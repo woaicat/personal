@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Source_Serif_4 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import "./ai-knowledge/ai-knowledge.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],

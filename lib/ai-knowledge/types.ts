@@ -12,6 +12,8 @@ export type ArticleMeta = {
   title: string;
   description: string;
   category: ArticleCategory;
+  section: string;
+  subsection?: string;
   date: string;
   author: string;
   readCount: string;
@@ -29,6 +31,11 @@ export type SiteLink = {
   label: string;
   href: string;
   value?: string;
+};
+
+export type KnowledgeSection = {
+  label: string;
+  subsections?: string[];
 };
 
 export type NewsItem = {
@@ -49,6 +56,7 @@ export type ColumnItem = {
 
 export type SiteData = {
   navigation: SiteLink[];
+  sections: KnowledgeSection[];
   categories: string[];
   hero: {
     title: string;

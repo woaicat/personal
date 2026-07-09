@@ -1,13 +1,44 @@
 {
   "navigation": [
-    { "label": "博客", "href": "/#articles" },
-    { "label": "成长指南", "href": "/#guide" },
-    { "label": "方法论", "href": "/?category=方法论#articles" },
-    { "label": "技术基础", "href": "/?category=技术基础#articles" },
-    { "label": "Agent", "href": "/?category=Agent#articles" },
-    { "label": "案例库", "href": "/?category=案例库#articles" },
-    { "label": "百宝箱", "href": "/#resources" },
-    { "label": "关于", "href": "/#about" }
+    { "label": "AI产品落地", "href": "/?section=AI产品落地#articles" },
+    { "label": "提示词", "href": "/?section=提示词#articles" },
+    { "label": "AI Agent", "href": "/?section=AI Agent#articles" },
+    { "label": "AI在现实世界", "href": "/?section=AI在现实世界#articles" },
+    { "label": "AI技术基础", "href": "/?section=AI技术基础#articles" },
+    { "label": "放下碗专栏", "href": "/?section=放下碗专栏#articles" }
+  ],
+  "sections": [
+    {
+      "label": "AI产品落地",
+      "subsections": [
+        "需求判断",
+        "可行性验证",
+        "方案选择",
+        "产品指标",
+        "评测驱动迭代",
+        "安全与合规",
+        "体验与性能",
+        "成本优化"
+      ]
+    },
+    {
+      "label": "提示词",
+      "subsections": ["模型基础", "提示词工程", "RAG"]
+    },
+    {
+      "label": "AI Agent",
+      "subsections": ["Agent组件", "案例库"]
+    },
+    {
+      "label": "AI在现实世界",
+      "subsections": ["AI在企业内部的落地", "AI在百行千业", "AI对不同职业的影响", "AI对传统软件的影响"]
+    },
+    {
+      "label": "AI技术基础"
+    },
+    {
+      "label": "放下碗专栏"
+    }
   ],
   "categories": ["推荐", "热门", "导读", "产品经理", "方法论", "技术基础", "Agent", "案例库", "AI 情报"],
   "hero": {

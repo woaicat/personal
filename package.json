@@ -7,14 +7,16 @@
     "build": "next build",
     "start": "next start",
     "sync:articles": "node scripts/sync-articles-from-csv.mjs",
-    "typecheck": "tsc --noEmit",
-    "check:deploy": "npm run typecheck && npm run build"
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "check": "npm run lint && npm run typecheck",
+    "check:deploy": "npm run check && npm run build"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.468.0",
-    "next": "^15.2.8",
+    "next": "^15.5.20",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-markdown": "^10.1.0",
@@ -24,6 +26,11 @@
     "@types/node": "22.13.9",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
+    "eslint": "9.39.4",
+    "eslint-config-next": "15.5.20",
     "typescript": "5.8.3"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   }
 }

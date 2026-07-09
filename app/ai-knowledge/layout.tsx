@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import "./ai-knowledge.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "AI 产品经理知识体系",
-    template: "%s · AI 产品经理知识体系"
+    default: "AI产品经理知识库",
+    template: "%s · AI产品经理知识库"
   },
   description: "面向 AI 产品经理的个人知识库，整理方法论、技术基础、Agent、案例库和行业观察。",
   robots: {

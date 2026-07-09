@@ -211,7 +211,8 @@
 }
 
 .ai-knowledge-page .site-nav a:hover,
-.ai-knowledge-page .site-nav a:focus-visible
+.ai-knowledge-page .site-nav a:focus-visible,
+.ai-knowledge-page .site-nav a.active
 {
   color: var(--brand-mid);
   border-color: var(--brand-mid);
@@ -296,7 +297,8 @@
 }
 
 .ai-knowledge-page .top-visual .site-nav a:hover,
-.ai-knowledge-page .top-visual .site-nav a:focus-visible
+.ai-knowledge-page .top-visual .site-nav a:focus-visible,
+.ai-knowledge-page .top-visual .site-nav a.active
 {
   color: var(--inverse-ink);
   border-color: rgba(255, 255, 255, 0.86);

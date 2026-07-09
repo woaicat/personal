@@ -48,7 +48,7 @@ export default async function AiKnowledgeArticlePage({ params }: { params: Artic
 
   return (
     <>
-      <SiteHeader navigation={site.navigation} />
+      <SiteHeader navigation={site.navigation} activeSection={article.section} selectedSubsection={article.subsection} />
       <main className="article-page">
         <Link className="back-link" href={knowledgeRoute(`${AI_KNOWLEDGE_BASE_PATH}#articles`)}>
           <ArrowLeft size={17} aria-hidden="true" />
