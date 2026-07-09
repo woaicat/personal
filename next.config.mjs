@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typedRoutes: true,
+  devIndicators: false,
   async headers() {
     const isProduction = process.env.NODE_ENV === 'production';
     const scriptSrc = [
