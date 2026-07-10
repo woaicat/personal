@@ -9,6 +9,28 @@ type HeroProps = {
 };
 
 export function Hero({ title, subtitle, hotArticles }: HeroProps) {
+  function renderHotArticle(article: ArticleMeta) {
+    const content = (
+      <>
+        <span className="rank">{article.hotRank}</span>
+        <span>
+          <strong>{article.title}</strong>
+          <small>{article.hotSummary || article.description}</small>
+        </span>
+      </>
+    );
+
+    if (article.externalUrl) {
+      return (
+        <a href={article.externalUrl} target="_blank" rel="noopener noreferrer">
+          {content}
+        </a>
+      );
+    }
+
+    return <Link href={knowledgeRoute(`${AI_KNOWLEDGE_BASE_PATH}/articles/${article.slug}`)}>{content}</Link>;
+  }
+
   return (
     <section className="hero-shell" aria-labelledby="hero-title">
       <div className="hero-copy">
@@ -31,13 +53,7 @@ export function Hero({ title, subtitle, hotArticles }: HeroProps) {
         <ol className="hot-list">
           {hotArticles.slice(0, 4).map((article) => (
             <li key={article.slug}>
-              <Link href={knowledgeRoute(`${AI_KNOWLEDGE_BASE_PATH}/articles/${article.slug}`)}>
-                <span className="rank">{article.hotRank}</span>
-                <span>
-                  <strong>{article.title}</strong>
-                  <small>{article.hotSummary || article.description}</small>
-                </span>
-              </Link>
+              {renderHotArticle(article)}
             </li>
           ))}
         </ol>

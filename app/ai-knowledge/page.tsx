@@ -24,13 +24,14 @@ export default async function AiKnowledgeHome({ searchParams }: { searchParams?:
 
   return (
     <>
+      <SiteHeader
+        navigation={site.navigation}
+        activeSection={selectedSection}
+        defaultQuery={query}
+        selectedSubsection={selectedSubsection}
+        tone="dark"
+      />
       <div className="top-visual">
-        <SiteHeader
-          navigation={site.navigation}
-          activeSection={selectedSection}
-          defaultQuery={query}
-          selectedSubsection={selectedSubsection}
-        />
         <Hero title={site.hero.title} subtitle={site.hero.subtitle} hotArticles={getHotArticles()} />
       </div>
       <main className="page-shell">

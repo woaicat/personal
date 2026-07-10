@@ -2,13 +2,14 @@
 title: "需求判断：这个需求是否适合用 AI 做？"
 description: "从需求价值、输入质量、模型能力和失败成本四个角度判断 AI 适配度。"
 category: "产品经理"
+section: "AI产品落地"
+subsection: "需求判断"
 date: "2026-07-06"
 author: "紫砂思考"
 readCount: "4.1k"
 image: "/images/article-lake-2.png"
 featured: true
-hotRank: 2
-hotSummary: "从产品经理视角拆解 AI 需求立项前的核心问题。"
+status: "published"
 ---
 
 ## 不要从模型能力倒推需求

@@ -2,13 +2,14 @@
 title: "Agent 设计模式：从单体到协作多智能体"
 description: "按观察、思考、行动、反馈拆解 Agent 系统的核心组件。"
 category: "Agent"
+section: "AI Agent"
+subsection: "Agent组件"
 date: "2026-07-03"
 author: "周周 Jinno"
 readCount: "5.0k"
 image: "/images/article-valley.png"
 featured: true
-hotRank: 5
-hotSummary: "从需求拆解到产品实施全流程理解 Agent 设计。"
+status: "published"
 ---
 
 ## Agent 的基本循环

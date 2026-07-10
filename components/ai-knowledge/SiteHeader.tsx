@@ -8,11 +8,14 @@ type SiteHeaderProps = {
   activeSection?: string;
   defaultQuery?: string;
   selectedSubsection?: string;
+  tone?: "light" | "dark";
 };
 
-export function SiteHeader({ navigation, activeSection, defaultQuery = "", selectedSubsection }: SiteHeaderProps) {
+export function SiteHeader({ navigation, activeSection, defaultQuery = "", selectedSubsection, tone = "light" }: SiteHeaderProps) {
+  const className = tone === "dark" ? "site-header site-header-over-hero" : "site-header";
+
   return (
-    <header className="site-header">
+    <header className={className}>
       <Link className="brand" href={knowledgeRoute(AI_KNOWLEDGE_BASE_PATH)} aria-label="AI 产品经理知识体系首页">
         <span className="brand-name">AI产品经理知识库</span>
       </Link>

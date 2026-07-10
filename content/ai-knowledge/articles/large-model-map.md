@@ -2,13 +2,13 @@
 title: "大模型技术图谱：原理、演进与应用边界"
 description: "用产品经理能理解的方式梳理模型、多模态、RAG 和提示词工程。"
 category: "技术基础"
+section: "AI技术基础"
 date: "2026-07-04"
 author: "程序员与产品经理"
 readCount: "6.6k"
 image: "/images/article-city.png"
 featured: true
-hotRank: 4
-hotSummary: "理解大模型能力边界，避免把技术概念误用成产品承诺。"
+status: "published"
 ---
 
 ## 产品经理需要懂到什么程度

@@ -2,11 +2,14 @@
 title: "评测驱动迭代：如何建立样本集、评测标准与错误分析"
 description: "把 AI 产品迭代从调 Prompt 的手感，变成有证据的版本管理。"
 category: "方法论"
+section: "AI产品落地"
+subsection: "评测驱动迭代"
 date: "2026-07-01"
 author: "方法论工坊"
 readCount: "3.9k"
 image: "/images/article-lake-2.png"
 featured: false
+status: "published"
 ---
 
 ## 为什么评测要提前

@@ -2,13 +2,14 @@
 title: "AI 产品案例解析：拆解两个优秀产品"
 description: "从真实案例中观察产品定位、核心流程、能力边界和增长路径。"
 category: "案例库"
+section: "AI Agent"
+subsection: "案例库"
 date: "2026-07-02"
 author: "老 W 小课"
 readCount: "4.3k"
 image: "/images/article-storm-lake.png"
 featured: true
-hotRank: 6
-hotSummary: "用案例训练对 AI 产品形态和商业机会的判断。"
+status: "published"
 ---
 
 ## 为什么要做案例库

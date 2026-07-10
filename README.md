@@ -55,6 +55,19 @@ npm run sync:articles
 - `articles.filters`
 - `articles.intro.stats`（文章数、专题数）
 
+## 维护 AI 知识库
+
+AI 知识库使用独立的 Markdown 内容目录，不通过首页 CSV 维护：
+
+```bash
+npm run content:new -- article-slug
+npm run content:check
+```
+
+- `content:new`：按统一模板创建一篇草稿。
+- `content:check`：检查字段、分类、图片、HTTPS 外链、正文和热门推荐排名。
+- 详细规则见 `content/ai-knowledge/README.md`。
+
 ## 环境变量
 
 复制 `.env.example` 为 `.env.local`（本地）或在 Vercel 中配置：

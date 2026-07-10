@@ -3,7 +3,7 @@ import path from "node:path";
 import { cache } from "react";
 import matter from "gray-matter";
 import siteDataJson from "@/content/ai-knowledge/site.json";
-import type { Article, ArticleCategory, ArticleMeta, SiteData } from "./types";
+import type { Article, ArticleCategory, ArticleMeta, ArticleStatus, SiteData } from "./types";
 import { knowledgeAssetPath, knowledgeHref } from "./url";
 
 const articlesDirectory = path.join(process.cwd(), "content", "ai-knowledge", "articles");
@@ -30,6 +30,32 @@ function assertString(value: unknown, fallback = "") {
 
 function optionalString(value: unknown) {
   return typeof value === "string" && value.length > 0 ? value : undefined;
+}
+
+function parseExternalUrl(value: unknown, fileName: string) {
+  const externalUrl = optionalString(value);
+
+  if (!externalUrl) {
+    return undefined;
+  }
+
+  try {
+    const parsed = new URL(externalUrl);
+    if (parsed.protocol !== "https:") {
+      throw new Error("only HTTPS links are allowed");
+    }
+    return parsed.toString();
+  } catch {
+    throw new Error(`[ai-knowledge] ${fileName} contains an invalid externalUrl`);
+  }
+}
+
+function parseStatus(value: unknown, fileName: string): ArticleStatus {
+  if (value === "draft" || value === "published") {
+    return value;
+  }
+
+  throw new Error(`[ai-knowledge] ${fileName} contains an invalid status`);
 }
 
 function normalizeSiteData(site: SiteData): SiteData {
@@ -62,6 +88,8 @@ function parseArticle(fileName: string): Article {
   const fullPath = path.join(articlesDirectory, fileName);
   const file = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(file);
+  const externalUrl = parseExternalUrl(data.externalUrl, fileName);
+  const status = parseStatus(data.status, fileName);
 
   return {
     slug,
@@ -70,6 +98,9 @@ function parseArticle(fileName: string): Article {
     category: assertString(data.category, "导读") as ArticleCategory,
     section: assertString(data.section, fallback.section),
     subsection: optionalString(data.subsection) ?? fallback.subsection,
+    contentType: externalUrl ? "link" : "markdown",
+    externalUrl,
+    status,
     date: assertString(data.date),
     author: assertString(data.author, "周周 Jinno"),
     readCount: assertString(data.readCount, "0"),
@@ -88,15 +119,22 @@ export const getArticles = cache((): Article[] => {
     return [];
   }
 
+  const includeDrafts = process.env.NODE_ENV !== "production";
+
   return fs
     .readdirSync(articlesDirectory)
     .filter((fileName) => fileName.endsWith(".md"))
     .map(parseArticle)
+    .filter((article) => includeDrafts || article.status === "published")
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 });
 
 export function getArticle(slug: string) {
-  return getArticles().find((article) => article.slug === slug);
+  return getMarkdownArticles().find((article) => article.slug === slug);
+}
+
+export function getMarkdownArticles() {
+  return getArticles().filter((article) => article.contentType === "markdown");
 }
 
 export function getArticleMetas(): ArticleMeta[] {

@@ -2,11 +2,13 @@
 title: "放下碗专栏：记录一个 AI 产品从业者的真实判断"
 description: "对行业现象、产品乱象、概念泡沫和真实机会做冷静观察。"
 category: "放下碗"
+section: "放下碗专栏"
 date: "2026-06-30"
 author: "周周 Jinno"
 readCount: "2.8k"
 image: "/images/article-mountain-purple.png"
 featured: false
+status: "published"
 ---
 
 ## 这个专栏写什么

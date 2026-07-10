@@ -2,13 +2,14 @@
 title: "从 0 到 1 构建 AI 产品思维框架"
 description: "建立系统化思考，避免把 AI 当成万能能力，也避免只停留在模型功能层面。"
 category: "导读"
+section: "AI产品落地"
+subsection: "需求判断"
 date: "2026-07-07"
 author: "周周 Jinno"
 readCount: "6.2k"
 image: "/images/article-lake-1.png"
 featured: true
-hotRank: 1
-hotSummary: "如何建立真正以用户为中心的 AI 产品判断框架。"
+status: "published"
 ---
 
 ## 为什么需要 AI 产品思维框架

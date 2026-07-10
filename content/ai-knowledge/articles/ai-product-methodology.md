@@ -2,13 +2,14 @@
 title: "AI 产品方法论：从流程到方案的系统应用"
 description: "把需求、模型、工作流、评测、成本和安全连接成一套产品方案。"
 category: "方法论"
+section: "AI产品落地"
+subsection: "方案选择"
 date: "2026-07-05"
 author: "方法论工坊"
 readCount: "3.7k"
 image: "/images/article-mountain-purple.png"
 featured: true
-hotRank: 3
-hotSummary: "验证价值、优化体验、实现增长的 AI 产品路径。"
+status: "published"
 ---
 
 ## AI 产品方案不是功能清单

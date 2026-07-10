@@ -6,13 +6,13 @@ import { ArticleCard } from "@/components/ai-knowledge/ArticleCard";
 import { MarkdownContent } from "@/components/ai-knowledge/MarkdownContent";
 import { SiteFooter } from "@/components/ai-knowledge/SiteFooter";
 import { SiteHeader } from "@/components/ai-knowledge/SiteHeader";
-import { getArticle, getArticles, getRelatedArticles, getSiteData } from "@/lib/ai-knowledge/content";
+import { getArticle, getMarkdownArticles, getRelatedArticles, getSiteData } from "@/lib/ai-knowledge/content";
 import { AI_KNOWLEDGE_BASE_PATH, knowledgeRoute } from "@/lib/ai-knowledge/url";
 
 type ArticleParams = Promise<{ slug: string }>;
 
 export function generateStaticParams() {
-  return getArticles().map((article) => ({ slug: article.slug }));
+  return getMarkdownArticles().map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: { params: ArticleParams }): Promise<Metadata> {

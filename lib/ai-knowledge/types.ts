@@ -7,6 +7,8 @@ export type ArticleCategory =
   | "案例库"
   | "放下碗";
 
+export type ArticleStatus = "draft" | "published";
+
 export type ArticleMeta = {
   slug: string;
   title: string;
@@ -14,6 +16,9 @@ export type ArticleMeta = {
   category: ArticleCategory;
   section: string;
   subsection?: string;
+  contentType: "markdown" | "link";
+  externalUrl?: string;
+  status: ArticleStatus;
   date: string;
   author: string;
   readCount: string;

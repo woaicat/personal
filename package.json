@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "sync:articles": "node scripts/sync-articles-from-csv.mjs",
+    "content:new": "node scripts/new-ai-knowledge-article.mjs",
+    "content:check": "node scripts/check-ai-knowledge-content.mjs",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
-    "check": "npm run lint && npm run typecheck",
+    "check": "npm run lint && npm run typecheck && npm run content:check",
     "check:deploy": "npm run check && npm run build"
   },
   "dependencies": {
