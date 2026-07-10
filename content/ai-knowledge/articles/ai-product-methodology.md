@@ -5,9 +5,9 @@ category: "方法论"
 section: "AI产品落地"
 subsection: "方案选择"
 date: "2026-07-05"
-author: "方法论工坊"
+author: "jiaxuan"
 readCount: "3.7k"
-image: "/images/article-mountain-purple.png"
+image: "/images/cover-motion-wheat.png"
 featured: true
 status: "published"
 ---

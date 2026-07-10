@@ -47,16 +47,10 @@ export type NewsItem = {
   title: string;
   summary: string;
   href: string;
-  time: string;
-  image: string;
-};
-
-export type ColumnItem = {
-  label: string;
-  title: string;
-  summary: string;
-  href: string;
-  image: string;
+  date: string;
+  source: string;
+  tag: string;
+  featured?: boolean;
 };
 
 export type SiteData = {
@@ -67,12 +61,9 @@ export type SiteData = {
     title: string;
     subtitle: string;
   };
+  newsUpdatedAt: string;
   news: NewsItem[];
-  columns: ColumnItem[];
   footer: {
     contact: SiteLink[];
-    resources: SiteLink[];
-    articleMap: SiteLink[];
-    archive: string[];
   };
 };

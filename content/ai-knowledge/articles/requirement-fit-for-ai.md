@@ -5,9 +5,9 @@ category: "产品经理"
 section: "AI产品落地"
 subsection: "需求判断"
 date: "2026-07-06"
-author: "紫砂思考"
+author: "jiaxuan"
 readCount: "4.1k"
-image: "/images/article-lake-2.png"
+image: "/images/cover-motion-lilac.png"
 featured: true
 status: "published"
 ---

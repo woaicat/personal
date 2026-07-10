@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight, NotebookPen } from "lucide-react";
 import { ArticleCard } from "./ArticleCard";
-import type { ArticleMeta, ColumnItem, NewsItem } from "@/lib/ai-knowledge/types";
+import type { ArticleMeta, NewsItem } from "@/lib/ai-knowledge/types";
 import { AI_KNOWLEDGE_BASE_PATH, knowledgeRoute } from "@/lib/ai-knowledge/url";
 
 type SubsectionTabsProps = {
@@ -72,67 +72,60 @@ export function ArticleGrid({ articles, query }: ArticleGridProps) {
 
 type NewsPanelProps = {
   news: NewsItem[];
+  updatedAt: string;
 };
 
-export function NewsPanel({ news }: NewsPanelProps) {
+export function NewsPanel({ news, updatedAt }: NewsPanelProps) {
+  const displayDate = updatedAt ? updatedAt.replace(/^(\d{4})-(\d{2})-(\d{2})$/, "$1年$2月$3日") : "持续更新";
+
   return (
     <section id="news" className="content-panel news-panel" aria-labelledby="news-title">
-      <div className="section-heading">
-        <div>
+      <header className="news-heading">
+        <div className="news-title-group">
+          <p className="news-eyebrow">AI SIGNALS · 每周精选</p>
           <h2 id="news-title">AI 情报</h2>
-          <p>AI 产品与行业动态速递</p>
+          <p>筛掉热闹，留下值得产品经理继续追踪的行业信号。</p>
         </div>
-        <Link className="text-link" href={knowledgeRoute(`${AI_KNOWLEDGE_BASE_PATH}#articles`)}>
-          查看文章
-          <ArrowRight size={15} aria-hidden="true" />
-        </Link>
-      </div>
-      <div className="news-list">
-        {news.map((item) => (
-          <Link key={item.title} className="news-item" href={knowledgeRoute(item.href)}>
-            <img src={item.image} alt="" />
-            <span>
-              <strong>{item.title}</strong>
-              <small>{item.summary}</small>
-            </span>
-            <time>{item.time}</time>
-          </Link>
+        <time dateTime={updatedAt}>{displayDate}</time>
+      </header>
+      <ol className="news-list">
+        {news.map((item, index) => (
+          <li key={item.title} className={item.featured ? "news-item featured" : "news-item"}>
+            <a href={item.href} target="_blank" rel="noopener noreferrer">
+              <span className="news-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <span className="news-copy">
+                <span className="news-meta">
+                  <em>{item.tag}</em>
+                  <span>{item.source}</span>
+                  <time dateTime={item.date}>{item.date}</time>
+                </span>
+                <strong>{item.title}</strong>
+                <small>{item.summary}</small>
+              </span>
+              <ArrowUpRight className="news-arrow" size={20} aria-hidden="true" />
+            </a>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
   );
 }
 
-type ColumnPanelProps = {
-  columns: ColumnItem[];
-};
-
-export function ColumnPanel({ columns }: ColumnPanelProps) {
+export function ColumnPanel() {
   return (
     <section id="guide" className="content-panel column-panel" aria-labelledby="column-title">
       <div className="section-heading">
         <div>
           <h2 id="column-title">放下碗专栏</h2>
-          <p>与你分享经验一起探索产品方法论</p>
+          <p>一些需要慢一点想、再认真写下来的内容。</p>
         </div>
       </div>
-      <div className="column-list">
-        {columns.map((item) => (
-          <Link key={item.title} className="column-item" href={knowledgeRoute(item.href)}>
-            <img src={item.image} alt="" />
-            <span>
-              <em>{item.label}</em>
-              <strong>{item.title}</strong>
-              <small>{item.summary}</small>
-            </span>
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
-        ))}
+      <div className="column-coming-soon">
+        <NotebookPen size={28} strokeWidth={1.7} aria-hidden="true" />
+        <p className="column-kicker">COMING SOON</p>
+        <h3>先把值得写的内容攒够</h3>
+        <p>最近还没有适合放进专栏的完整文章。等观点真正想清楚，再端上来。</p>
       </div>
-      <Link className="column-more" href={knowledgeRoute(`${AI_KNOWLEDGE_BASE_PATH}/articles/fangxiawan-column`)}>
-        查看更多专栏文章
-        <ArrowRight size={16} aria-hidden="true" />
-      </Link>
     </section>
   );
 }

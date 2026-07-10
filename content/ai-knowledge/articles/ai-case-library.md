@@ -5,7 +5,7 @@ category: "案例库"
 section: "AI Agent"
 subsection: "案例库"
 date: "2026-07-02"
-author: "老 W 小课"
+author: "jiaxuan"
 readCount: "4.3k"
 image: "/images/article-storm-lake.png"
 featured: true

@@ -36,7 +36,7 @@ category: "方法论"
 section: "AI产品落地"
 subsection: "评测驱动迭代"
 date: "2026-07-10"
-author: "作者或来源"
+author: "jiaxuan"
 readCount: "0"
 image: "/images/article-lake-1.png"
 featured: false
@@ -46,6 +46,7 @@ externalUrl: "https://example.com/article"
 ```
 
 - `category`：文章内容类型，可选值为导读、产品经理、方法论、技术基础、Agent、案例库、放下碗。
+- `author`：站内原创统一填写 `jiaxuan`；发布在个人外部平台的文章使用 `猫猫观察员的AI思考`。第三方原文保留真实来源名称。
 - `section/subsection`：必须来自 `site.json` 的知识体系分类。
 - `date`：优先填写原文发布日期；无法确认时填写知识库收录日期。
 - `image`：必须指向 `public/ai-knowledge/images` 中真实存在的图片。

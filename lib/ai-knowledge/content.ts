@@ -65,19 +65,10 @@ function normalizeSiteData(site: SiteData): SiteData {
     sections: site.sections,
     news: site.news.map((item) => ({
       ...item,
-      href: knowledgeHref(item.href),
-      image: knowledgeAssetPath(item.image)
-    })),
-    columns: site.columns.map((item) => ({
-      ...item,
-      href: knowledgeHref(item.href),
-      image: knowledgeAssetPath(item.image)
+      href: knowledgeHref(item.href)
     })),
     footer: {
-      contact: site.footer.contact.map((item) => ({ ...item, href: knowledgeHref(item.href) })),
-      resources: site.footer.resources.map((item) => ({ ...item, href: knowledgeHref(item.href) })),
-      articleMap: site.footer.articleMap.map((item) => ({ ...item, href: knowledgeHref(item.href) })),
-      archive: site.footer.archive
+      contact: site.footer.contact.map((item) => ({ ...item, href: knowledgeHref(item.href) }))
     }
   };
 }
@@ -102,7 +93,7 @@ function parseArticle(fileName: string): Article {
     externalUrl,
     status,
     date: assertString(data.date),
-    author: assertString(data.author, "周周 Jinno"),
+    author: assertString(data.author, "jiaxuan"),
     readCount: assertString(data.readCount, "0"),
     image: knowledgeAssetPath(assertString(data.image, "/images/article-lake-1.png")),
     featured: Boolean(data.featured),

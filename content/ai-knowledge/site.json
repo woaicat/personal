@@ -45,88 +45,55 @@
     "title": "如何构建面向真实落地的 AI 产品知识体系",
     "subtitle": "从思维到方法，从需求到实现，构建更具 AI 产品核心能力。"
   },
+  "newsUpdatedAt": "2026-07-10",
   "news": [
     {
-      "title": "方法论专题：需求判断与可行性验证已整理",
-      "summary": "围绕需求、数据、执行逻辑、模型能力和最低可用标准建立判断框架。",
-      "href": "/articles/requirement-fit-for-ai",
-      "time": "更新中",
-      "image": "/images/article-lake-1.png"
+      "title": "OpenAI 发布 GPT-5.6，强化复杂任务与多智能体协作",
+      "summary": "Sol、Terra、Luna 覆盖不同成本与能力层级，程序化工具调用和多智能体成为复杂知识工作的关键方向。",
+      "href": "https://openai.com/index/gpt-5-6/",
+      "date": "2026-07-09",
+      "source": "OpenAI",
+      "tag": "模型发布",
+      "featured": true
     },
     {
-      "title": "技术基础：模型、提示词、RAG 目录搭好",
-      "summary": "面向产品经理整理大模型、知识库、检索与重排等基础概念。",
-      "href": "/articles/large-model-map",
-      "time": "计划中",
-      "image": "/images/article-city.png"
+      "title": "GPT-Live 让语音对话能够边听、边说、边调用工具",
+      "summary": "全双工架构改善停顿、打断和轮次衔接，并把复杂搜索与推理委托给后端模型处理。",
+      "href": "https://openai.com/index/introducing-gpt-live/",
+      "date": "2026-07-08",
+      "source": "OpenAI",
+      "tag": "语音交互"
     },
     {
-      "title": "Agent 实现：上下文、记忆与工具管理",
-      "summary": "按 Agent 系统核心组件展开，补齐权限、安全和可观测性。",
-      "href": "/articles/agent-design-pattern",
-      "time": "更新中",
-      "image": "/images/article-valley.png"
+      "title": "加拿大阿尔伯塔政府用 Claude 审查 4.66 亿行代码",
+      "summary": "约 50 个智能体并行完成漏洞发现、修复与测试，展示 AI 在大型遗留系统治理中的真实落地价值。",
+      "href": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
+      "date": "2026-07-06",
+      "source": "Anthropic",
+      "tag": "企业落地"
     },
     {
-      "title": "现实世界专题：企业内部落地与行业观察",
-      "summary": "观察 AI 如何改变组织、职业和传统软件形态。",
-      "href": "/?category=产品经理#articles",
-      "time": "待补充",
-      "image": "/images/article-storm-lake.png"
+      "title": "Claude Sonnet 5 发布，Agent 能力向更低成本模型下沉",
+      "summary": "工具使用、编码和知识工作能力进一步增强，显示高自治智能体不再只依赖最昂贵的旗舰模型。",
+      "href": "https://www.anthropic.com/news/claude-sonnet-5",
+      "date": "2026-06-30",
+      "source": "Anthropic",
+      "tag": "模型发布"
     },
     {
-      "title": "放下碗专栏：对概念泡沫和伪需求做复盘",
-      "summary": "记录 AI 产品从业者对行业现象、产品乱象和真实机会的判断。",
-      "href": "/articles/fangxiawan-column",
-      "time": "长期更新",
-      "image": "/images/article-mountain-purple.png"
-    }
-  ],
-  "columns": [
-    {
-      "label": "产品思考",
-      "title": "AI 产品经理的五项真实体会",
-      "summary": "在不确定性中，把价值、可控性、影响力与长期主义连接起来。",
-      "href": "/articles/ai-product-thinking-framework",
-      "image": "/images/article-lake-2.png"
-    },
-    {
-      "label": "实战复盘",
-      "title": "读懂被包装的产品这次",
-      "summary": "复盘真实用户眼里的设计选择，如何做出更耐用的产品。",
-      "href": "/articles/fangxiawan-column",
-      "image": "/images/article-city.png"
-    },
-    {
-      "label": "方法论",
-      "title": "下一阶段，AI 产品的重点是什么？",
-      "summary": "从结果到能力，核心竞争力将从模型吐槽能力转向落地价值。",
-      "href": "/articles/evaluation-driven-iteration",
-      "image": "/images/article-mountain-purple.png"
+      "title": "Figma 获得 ISO 42001 认证，AI 产品治理开始标准化",
+      "summary": "认证覆盖 Figma Make、Design、FigJam 等 AI 功能，说明设计工具正在把可审计的 AI 管理体系纳入产品基础设施。",
+      "href": "https://www.figma.com/blog/figma-is-now-iso-42001-certified/",
+      "date": "2026-07-01",
+      "source": "Figma",
+      "tag": "AI 治理"
     }
   ],
   "footer": {
     "contact": [
-      { "label": "邮箱", "value": "botian.sun@inno.com", "href": "mailto:botian.sun@inno.com" },
-      { "label": "公众号", "value": "AI 产品经理之路", "href": "/#about" },
-      { "label": "GitHub", "value": "/inno-vision", "href": "https://github.com/" }
-    ],
-    "resources": [
-      { "label": "如何撰写产品需求文档？", "href": "/articles/ai-product-methodology" },
-      { "label": "AI 产品经理入门路线", "href": "/articles/ai-product-thinking-framework" },
-      { "label": "AI 产品经理学习路线", "href": "/articles/large-model-map" },
-      { "label": "产品经理面试题库", "href": "/#resources" }
-    ],
-    "articleMap": [
-      { "label": "需求挖掘", "href": "/articles/requirement-fit-for-ai" },
-      { "label": "产品设计", "href": "/articles/ai-product-methodology" },
-      { "label": "技术治理", "href": "/articles/large-model-map" },
-      { "label": "增长策略", "href": "/articles/evaluation-driven-iteration" }
-    ],
-    "archive": [
-      "2026-07-07",
-      "首版知识库框架搭建完成",
-      "持续补充文章与跳转链接"
+      { "label": "邮箱", "value": "gjx19990911@gmail.com", "href": "mailto:gjx19990911@gmail.com" },
+      { "label": "公众号", "value": "猫猫观察员的AI思考", "href": "" },
+      { "label": "GitHub", "value": "woaicat", "href": "https://github.com/woaicat" }
     ]
   }
 }

@@ -38,8 +38,8 @@ export default async function AiKnowledgeHome({ searchParams }: { searchParams?:
         <SubsectionTabs section={selectedSection} subsections={subsections} selectedSubsection={selectedSubsection} query={query} />
         <ArticleGrid articles={visibleArticles} query={query} />
         <div className="lower-grid">
-          <NewsPanel news={site.news} />
-          <ColumnPanel columns={site.columns} />
+          <NewsPanel news={site.news} updatedAt={site.newsUpdatedAt} />
+          <ColumnPanel />
         </div>
       </main>
       <SiteFooter footer={site.footer} />

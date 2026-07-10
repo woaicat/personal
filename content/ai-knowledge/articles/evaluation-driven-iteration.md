@@ -5,9 +5,9 @@ category: "方法论"
 section: "AI产品落地"
 subsection: "评测驱动迭代"
 date: "2026-07-01"
-author: "方法论工坊"
+author: "jiaxuan"
 readCount: "3.9k"
-image: "/images/article-lake-2.png"
+image: "/images/cover-motion-coral.png"
 featured: false
 status: "published"
 ---

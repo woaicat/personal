@@ -5,9 +5,9 @@ category: "导读"
 section: "AI产品落地"
 subsection: "需求判断"
 date: "2026-07-07"
-author: "周周 Jinno"
+author: "jiaxuan"
 readCount: "6.2k"
-image: "/images/article-lake-1.png"
+image: "/images/cover-motion-orange.png"
 featured: true
 status: "published"
 ---

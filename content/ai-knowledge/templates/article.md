@@ -5,7 +5,7 @@ category: "方法论"
 section: "AI产品落地"
 subsection: "需求判断"
 date: "{{date}}"
-author: "待填写作者"
+author: "jiaxuan"
 readCount: "0"
 image: "/images/article-lake-1.png"
 featured: false
