@@ -6,7 +6,7 @@ section: "AI在现实世界"
 subsection: "AI对传统软件的影响"
 date: "2026-07-21"
 author: "jiaxuan"
-readCount: "0"
+readCount: "1k"
 image: "/images/cover-motion-wheat.png"
 featured: false
 status: "published"
