@@ -47,6 +47,52 @@
   },
   "newsEditions": [
     {
+      "collectedAt": "2026-07-21",
+      "items": [
+        {
+          "title": "微软将 AMD Helios 与新一代 EPYC 引入 Azure AI 基础设施",
+          "summary": "Azure 新增面向生产推理、AI 数据处理和芯片设计的专用计算方案，继续推动多芯片、异构 AI 基础设施规模化。",
+          "href": "https://blogs.microsoft.com/blog/2026/07/20/microsoft-expands-azure-ai-and-hpc-infrastructure-with-amd/",
+          "date": "2026-07-20",
+          "source": "Microsoft",
+          "tag": "AI 基建",
+          "featured": true
+        },
+        {
+          "title": "Anthropic 启动罕见病 AI 科研资助计划",
+          "summary": "研究团队和早期生物科技公司可获得最长六个月、最高 5 万美元的 Claude 额度，用于疾病机制发现、临床开发和监管材料处理。",
+          "href": "https://www.anthropic.com/news/rare-disease-research-grants",
+          "date": "2026-07-20",
+          "source": "Anthropic",
+          "tag": "行业落地"
+        },
+        {
+          "title": "OpenAI 提出 AI 时代价值指标：每一美元能完成多少有效工作",
+          "summary": "用“有效智能 / 美元”替代单纯的席位、活跃度和 Token 单价，综合衡量任务价值、成功成本、结果可靠性与规模化收益。",
+          "href": "https://openai.com/index/a-scorecard-for-the-ai-age/",
+          "date": "2026-07-17",
+          "source": "OpenAI",
+          "tag": "产品指标"
+        },
+        {
+          "title": "NotebookLM 升级为 Gemini Notebook，并获得安全云端计算机",
+          "summary": "每个 Notebook 可在来源约束下原生编写和执行代码，支持更深的数据分析，并逐步与 Gemini 应用和 Google 搜索同步。",
+          "href": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/",
+          "date": "2026-07-16",
+          "source": "Google",
+          "tag": "知识工具"
+        },
+        {
+          "title": "ChatGPT 桌面端打通 Chat、Work、Projects 与跨设备任务续接",
+          "summary": "新版桌面体验提供 ChatGPT 与 Codex 全局切换、统一最近记录、项目上下文和云端 Work 跨设备同步，进一步整合对话与任务执行。",
+          "href": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+          "date": "2026-07-16",
+          "source": "OpenAI",
+          "tag": "产品更新"
+        }
+      ]
+    },
+    {
       "collectedAt": "2026-07-10",
       "items": [
         {
