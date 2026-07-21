@@ -77,3 +77,13 @@ hotSummary: "用于首页热门区域的一句话推荐理由。"
 - 热门推荐是否恰好为 4 篇且排名连续。
 
 模板文件位于 `content/ai-knowledge/templates/article.md`。网站导航、栏目和页脚等全站配置继续在 `content/ai-knowledge/site.json` 中维护。
+
+## 维护 AI 情报
+
+AI 情报按“收集批次”维护在 `site.json` 的 `newsEditions` 中。数组必须按日期从新到旧排列，页面默认展示第一期；每一期包含：
+
+- `collectedAt`：情报收集日期，格式为 `YYYY-MM-DD`。
+- `items`：该日期对应的情报列表，每条需包含标题、摘要、HTTPS 原文链接、发布日期、来源和标签。
+- `featured`：可选；设为 `true` 时作为本期重点情报突出显示。
+
+新增一期时，将新对象放到 `newsEditions` 最前面，再运行 `npm run content:check`。校验脚本会检查批次日期、排序、重复日期、空列表、字段完整性与链接安全性。

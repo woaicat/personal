@@ -53,6 +53,11 @@ export type NewsItem = {
   featured?: boolean;
 };
 
+export type NewsEdition = {
+  collectedAt: string;
+  items: NewsItem[];
+};
+
 export type SiteData = {
   navigation: SiteLink[];
   sections: KnowledgeSection[];
@@ -61,8 +66,7 @@ export type SiteData = {
     title: string;
     subtitle: string;
   };
-  newsUpdatedAt: string;
-  news: NewsItem[];
+  newsEditions: NewsEdition[];
   footer: {
     contact: SiteLink[];
   };

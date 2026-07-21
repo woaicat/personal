@@ -63,9 +63,12 @@ function normalizeSiteData(site: SiteData): SiteData {
     ...site,
     navigation: site.navigation.map((item) => ({ ...item, href: knowledgeHref(item.href) })),
     sections: site.sections,
-    news: site.news.map((item) => ({
-      ...item,
-      href: knowledgeHref(item.href)
+    newsEditions: site.newsEditions.map((edition) => ({
+      ...edition,
+      items: edition.items.map((item) => ({
+        ...item,
+        href: knowledgeHref(item.href)
+      }))
     })),
     footer: {
       contact: site.footer.contact.map((item) => ({ ...item, href: knowledgeHref(item.href) }))

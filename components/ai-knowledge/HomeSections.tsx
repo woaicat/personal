@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, NotebookPen } from "lucide-react";
+import { NotebookPen } from "lucide-react";
 import { ArticleCard } from "./ArticleCard";
-import type { ArticleMeta, NewsItem } from "@/lib/ai-knowledge/types";
+import type { ArticleMeta } from "@/lib/ai-knowledge/types";
 import { AI_KNOWLEDGE_BASE_PATH, knowledgeRoute } from "@/lib/ai-knowledge/url";
 
 type SubsectionTabsProps = {
@@ -66,47 +66,6 @@ export function ArticleGrid({ articles, query }: ArticleGridProps) {
           <span>{query ? "换个关键词试试，或者先从推荐文章开始。" : "这个栏目还在补充文章。"}</span>
         </div>
       )}
-    </section>
-  );
-}
-
-type NewsPanelProps = {
-  news: NewsItem[];
-  updatedAt: string;
-};
-
-export function NewsPanel({ news, updatedAt }: NewsPanelProps) {
-  const displayDate = updatedAt ? updatedAt.replace(/^(\d{4})-(\d{2})-(\d{2})$/, "$1年$2月$3日") : "持续更新";
-
-  return (
-    <section id="news" className="content-panel news-panel" aria-labelledby="news-title">
-      <header className="news-heading">
-        <div className="news-title-group">
-          <p className="news-eyebrow">AI SIGNALS · 每周精选</p>
-          <h2 id="news-title">AI 情报</h2>
-          <p>筛掉热闹，留下值得产品经理继续追踪的行业信号。</p>
-        </div>
-        <time dateTime={updatedAt}>{displayDate}</time>
-      </header>
-      <ol className="news-list">
-        {news.map((item, index) => (
-          <li key={item.title} className={item.featured ? "news-item featured" : "news-item"}>
-            <a href={item.href} target="_blank" rel="noopener noreferrer">
-              <span className="news-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-              <span className="news-copy">
-                <span className="news-meta">
-                  <em>{item.tag}</em>
-                  <span>{item.source}</span>
-                  <time dateTime={item.date}>{item.date}</time>
-                </span>
-                <strong>{item.title}</strong>
-                <small>{item.summary}</small>
-              </span>
-              <ArrowUpRight className="news-arrow" size={20} aria-hidden="true" />
-            </a>
-          </li>
-        ))}
-      </ol>
     </section>
   );
 }

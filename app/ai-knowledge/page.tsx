@@ -1,5 +1,6 @@
-import { ArticleGrid, ColumnPanel, NewsPanel, SubsectionTabs } from "@/components/ai-knowledge/HomeSections";
+import { ArticleGrid, ColumnPanel, SubsectionTabs } from "@/components/ai-knowledge/HomeSections";
 import { Hero } from "@/components/ai-knowledge/Hero";
+import { NewsPanel } from "@/components/ai-knowledge/NewsPanel";
 import { SiteFooter } from "@/components/ai-knowledge/SiteFooter";
 import { SiteHeader } from "@/components/ai-knowledge/SiteHeader";
 import { filterArticles, getHotArticles, getSiteData } from "@/lib/ai-knowledge/content";
@@ -38,7 +39,7 @@ export default async function AiKnowledgeHome({ searchParams }: { searchParams?:
         <SubsectionTabs section={selectedSection} subsections={subsections} selectedSubsection={selectedSubsection} query={query} />
         <ArticleGrid articles={visibleArticles} query={query} />
         <div className="lower-grid">
-          <NewsPanel news={site.news} updatedAt={site.newsUpdatedAt} />
+          <NewsPanel editions={site.newsEditions} />
           <ColumnPanel />
         </div>
       </main>

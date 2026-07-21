@@ -45,48 +45,58 @@
     "title": "如何构建面向真实落地的 AI 产品知识体系",
     "subtitle": "从思维到方法，从需求到实现，构建更具 AI 产品核心能力。"
   },
-  "newsUpdatedAt": "2026-07-10",
-  "news": [
+  "newsEditions": [
     {
-      "title": "OpenAI 发布 GPT-5.6，强化复杂任务与多智能体协作",
-      "summary": "Sol、Terra、Luna 覆盖不同成本与能力层级，程序化工具调用和多智能体成为复杂知识工作的关键方向。",
-      "href": "https://openai.com/index/gpt-5-6/",
-      "date": "2026-07-09",
-      "source": "OpenAI",
-      "tag": "模型发布",
-      "featured": true
+      "collectedAt": "2026-07-10",
+      "items": [
+        {
+          "title": "OpenAI 发布 GPT-5.6，强化复杂任务与多智能体协作",
+          "summary": "Sol、Terra、Luna 覆盖不同成本与能力层级，程序化工具调用和多智能体成为复杂知识工作的关键方向。",
+          "href": "https://openai.com/index/gpt-5-6/",
+          "date": "2026-07-09",
+          "source": "OpenAI",
+          "tag": "模型发布",
+          "featured": true
+        },
+        {
+          "title": "GPT-Live 让语音对话能够边听、边说、边调用工具",
+          "summary": "全双工架构改善停顿、打断和轮次衔接，并把复杂搜索与推理委托给后端模型处理。",
+          "href": "https://openai.com/index/introducing-gpt-live/",
+          "date": "2026-07-08",
+          "source": "OpenAI",
+          "tag": "语音交互"
+        },
+        {
+          "title": "加拿大阿尔伯塔政府用 Claude 审查 4.66 亿行代码",
+          "summary": "约 50 个智能体并行完成漏洞发现、修复与测试，展示 AI 在大型遗留系统治理中的真实落地价值。",
+          "href": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
+          "date": "2026-07-06",
+          "source": "Anthropic",
+          "tag": "企业落地"
+        }
+      ]
     },
     {
-      "title": "GPT-Live 让语音对话能够边听、边说、边调用工具",
-      "summary": "全双工架构改善停顿、打断和轮次衔接，并把复杂搜索与推理委托给后端模型处理。",
-      "href": "https://openai.com/index/introducing-gpt-live/",
-      "date": "2026-07-08",
-      "source": "OpenAI",
-      "tag": "语音交互"
-    },
-    {
-      "title": "加拿大阿尔伯塔政府用 Claude 审查 4.66 亿行代码",
-      "summary": "约 50 个智能体并行完成漏洞发现、修复与测试，展示 AI 在大型遗留系统治理中的真实落地价值。",
-      "href": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
-      "date": "2026-07-06",
-      "source": "Anthropic",
-      "tag": "企业落地"
-    },
-    {
-      "title": "Claude Sonnet 5 发布，Agent 能力向更低成本模型下沉",
-      "summary": "工具使用、编码和知识工作能力进一步增强，显示高自治智能体不再只依赖最昂贵的旗舰模型。",
-      "href": "https://www.anthropic.com/news/claude-sonnet-5",
-      "date": "2026-06-30",
-      "source": "Anthropic",
-      "tag": "模型发布"
-    },
-    {
-      "title": "Figma 获得 ISO 42001 认证，AI 产品治理开始标准化",
-      "summary": "认证覆盖 Figma Make、Design、FigJam 等 AI 功能，说明设计工具正在把可审计的 AI 管理体系纳入产品基础设施。",
-      "href": "https://www.figma.com/blog/figma-is-now-iso-42001-certified/",
-      "date": "2026-07-01",
-      "source": "Figma",
-      "tag": "AI 治理"
+      "collectedAt": "2026-07-03",
+      "items": [
+        {
+          "title": "Figma 获得 ISO 42001 认证，AI 产品治理开始标准化",
+          "summary": "认证覆盖 Figma Make、Design、FigJam 等 AI 功能，说明设计工具正在把可审计的 AI 管理体系纳入产品基础设施。",
+          "href": "https://www.figma.com/blog/figma-is-now-iso-42001-certified/",
+          "date": "2026-07-01",
+          "source": "Figma",
+          "tag": "AI 治理",
+          "featured": true
+        },
+        {
+          "title": "Claude Sonnet 5 发布，Agent 能力向更低成本模型下沉",
+          "summary": "工具使用、编码和知识工作能力进一步增强，显示高自治智能体不再只依赖最昂贵的旗舰模型。",
+          "href": "https://www.anthropic.com/news/claude-sonnet-5",
+          "date": "2026-06-30",
+          "source": "Anthropic",
+          "tag": "模型发布"
+        }
+      ]
     }
   ],
   "footer": {

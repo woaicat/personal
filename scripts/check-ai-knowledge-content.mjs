@@ -18,6 +18,7 @@ const ALLOWED_FIELDS = new Set([
   "hotRank",
   "hotSummary"
 ]);
+const REQUIRED_NEWS_FIELDS = ["title", "summary", "href", "date", "source", "tag"];
 
 const errors = [];
 const externalUrls = new Map();
@@ -114,8 +115,90 @@ function validateHotRecommendation(fileName, data) {
   }
 }
 
+function validateNewsEditions(site) {
+  if (!Array.isArray(site.newsEditions) || site.newsEditions.length === 0) {
+    addError("site.json", "newsEditions 必须至少包含一期情报");
+    return;
+  }
+
+  const collectedDates = new Set();
+  const newsUrls = new Map();
+
+  site.newsEditions.forEach((edition, editionIndex) => {
+    const editionName = `site.json newsEditions[${editionIndex}]`;
+
+    if (!isValidIsoDate(edition.collectedAt)) {
+      addError(editionName, "collectedAt 必须是有效的 YYYY-MM-DD 日期");
+    } else if (collectedDates.has(edition.collectedAt)) {
+      addError(editionName, `collectedAt ${edition.collectedAt} 重复`);
+    } else {
+      collectedDates.add(edition.collectedAt);
+    }
+
+    const previousEdition = site.newsEditions[editionIndex - 1];
+    if (previousEdition && previousEdition.collectedAt <= edition.collectedAt) {
+      addError(editionName, "newsEditions 必须按 collectedAt 从新到旧排列");
+    }
+
+    if (!Array.isArray(edition.items) || edition.items.length === 0) {
+      addError(editionName, "items 必须至少包含一条情报");
+      return;
+    }
+
+    let featuredCount = 0;
+
+    edition.items.forEach((item, itemIndex) => {
+      const itemName = `${editionName}.items[${itemIndex}]`;
+
+      for (const field of REQUIRED_NEWS_FIELDS) {
+        if (typeof item[field] !== "string" || item[field].trim() === "") {
+          addError(itemName, `缺少有效字段 ${field}`);
+        }
+      }
+
+      if (!isValidIsoDate(item.date)) {
+        addError(itemName, "date 必须是有效的 YYYY-MM-DD 日期");
+      } else if (isValidIsoDate(edition.collectedAt) && item.date > edition.collectedAt) {
+        addError(itemName, "date 不能晚于本期 collectedAt");
+      }
+
+      if (item.featured !== undefined && typeof item.featured !== "boolean") {
+        addError(itemName, "featured 必须是 true 或 false");
+      }
+
+      if (item.featured) {
+        featuredCount += 1;
+      }
+
+      if (typeof item.href === "string") {
+        try {
+          const parsed = new URL(item.href);
+          if (parsed.protocol !== "https:") {
+            addError(itemName, "href 只允许 HTTPS 链接");
+          } else {
+            const normalized = parsed.toString();
+            const duplicate = newsUrls.get(normalized);
+            if (duplicate) {
+              addError(itemName, `href 与 ${duplicate} 重复`);
+            } else {
+              newsUrls.set(normalized, itemName);
+            }
+          }
+        } catch {
+          addError(itemName, "href 不是有效 URL");
+        }
+      }
+    });
+
+    if (featuredCount > 1) {
+      addError(editionName, "每期最多设置一条 featured 情报");
+    }
+  });
+}
+
 function main() {
   const site = JSON.parse(fs.readFileSync(SITE_PATH, "utf8"));
+  validateNewsEditions(site);
   const sections = new Map(site.sections.map((section) => [section.label, new Set(section.subsections ?? [])]));
   const files = fs.readdirSync(ARTICLES_DIR).filter((fileName) => fileName.endsWith(".md")).sort();
 
@@ -187,7 +270,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`[content:check] ${files.length} 篇文章校验通过，热门推荐 4 篇。`);
+  console.log(`[content:check] ${files.length} 篇文章、热门推荐 4 篇、AI 情报 ${site.newsEditions.length} 期校验通过。`);
 }
 
 main();
