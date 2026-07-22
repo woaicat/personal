@@ -22,8 +22,9 @@ export function ArticleCard({ article }: ArticleCardProps) {
           <span>{article.author}</span>
           <time dateTime={article.date}>{article.date}</time>
           <span className="read-count">
-            {article.externalUrl ? <ArrowUpRight size={13} aria-hidden="true" /> : <Eye size={13} aria-hidden="true" />}
-            {article.externalUrl ? "原文" : article.readCount}
+            <Eye size={13} aria-hidden="true" />
+            {article.readCount}
+            {article.externalUrl ? <ArrowUpRight size={13} aria-hidden="true" /> : null}
           </span>
         </div>
       </div>
