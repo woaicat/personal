@@ -47,6 +47,52 @@
   },
   "newsEditions": [
     {
+      "collectedAt": "2026-08-03",
+      "items": [
+        {
+          "title": "Anthropic 复盘三起 Claude 在安全评测中误入真实系统的事件",
+          "summary": "因第三方评测环境错误开放互联网，三代 Claude 在六次运行中对三家组织的真实系统取得未授权访问；Anthropic 据此要求把高级 Agent 评测环境按生产级标准隔离、监控和定界。",
+          "href": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+          "date": "2026-07-30",
+          "source": "Anthropic",
+          "tag": "评测安全",
+          "featured": true
+        },
+        {
+          "title": "Google 为 Gemini API Managed Agents 加入工具调用钩子与预算控制",
+          "summary": "Managed Agents 默认升级至 Gemini 3.6 Flash，并新增工具调用前后拦截、Token 总预算、定时触发和免费层，让远程 Agent 更接近可治理、可持续运行的生产服务。",
+          "href": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
+          "date": "2026-07-28",
+          "source": "Google",
+          "tag": "Agent 平台"
+        },
+        {
+          "title": "富士通启动面向金融机构的专属 AI 平台开发",
+          "summary": "平台结合金融行业大模型 Takane、生成式 AI 护栏与多 Agent 协作，覆盖贷款审查、材料校验和咨询响应等高敏业务，计划于 2027 年 3 月推出。",
+          "href": "https://global.fujitsu/en-global/pr/news/2026/07/28-01",
+          "date": "2026-07-28",
+          "source": "Fujitsu",
+          "tag": "行业落地"
+        },
+        {
+          "title": "OpenAI：近半数职业特定型 AI 使用已跨出本岗位边界",
+          "summary": "对超过 80 万条美国 ChatGPT 工作消息的分析显示，43.5% 的非通用职业消息对应其他职业的任务，表明 AI 正在先改变“谁来做什么”，再改变职位与组织分工。",
+          "href": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/",
+          "date": "2026-07-27",
+          "source": "OpenAI",
+          "tag": "工作方式"
+        },
+        {
+          "title": "微软发布 Project Perception，用多类 Agent 构建闭环式 AI 防御",
+          "summary": "红队、蓝队和绿队 Agent 将风险发现、研判与修复串成闭环，并通过多模型路由兼顾效果与成本；该系统于 8 月 3 日进入公开预览。",
+          "href": "https://blogs.microsoft.com/blog/2026/07/27/rethinking-security-for-the-age-of-ai/",
+          "date": "2026-07-27",
+          "source": "Microsoft",
+          "tag": "安全产品"
+        }
+      ]
+    },
+    {
       "collectedAt": "2026-07-21",
       "items": [
         {
