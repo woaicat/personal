@@ -1,0 +1,385 @@
+.sql-learning-root {
+  color: #353c46;
+  background: #f2f0eb;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+}
+
+.sql-learning-root * { box-sizing: border-box; }
+
+.sql-learning-root {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #f7f5f0 0%, #efede7 100%);
+}
+
+.sql-learning-root button, .sql-learning-root textarea { font: inherit; }
+.sql-learning-root button { cursor: pointer; }
+.sql-learning-root button:disabled { cursor: not-allowed; }
+
+.sql-learning-root .site-shell {
+  position: relative;
+  width: min(1180px, calc(100% - 32px));
+  min-height: calc(100vh - 72px);
+  margin: 24px auto 48px;
+  overflow: visible;
+  border-top: 5px solid #246fe0;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(42, 47, 54, .12);
+}
+
+.sql-learning-root .site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 108px;
+  padding: 25px 30px 22px;
+}
+
+.sql-learning-root .brand { display: flex; align-items: center; gap: 13px; }
+.sql-learning-root .brand-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 2px solid #49525d;
+  border-radius: 50% 50% 42% 42%;
+  color: #246fe0;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1;
+  transform: rotate(-4deg);
+}
+.sql-learning-root .brand-name { color: #2f3844; font-size: 25px; font-weight: 750; letter-spacing: -.7px; }
+.sql-learning-root .brand p { margin: 2px 0 0; color: #68717c; font-size: 15px; }
+
+.sql-learning-root .site-header nav { display: flex; align-items: center; }
+.sql-learning-root .course-menu-trigger { position: relative; }
+.sql-learning-root .site-header nav button, .sql-learning-root .site-header nav a {
+  border: 0;
+  padding: 10px 12px;
+  color: #515b67;
+  background: transparent;
+  font-size: 17px;
+  font-weight: 650;
+  text-decoration: none;
+}
+.sql-learning-root .site-header nav button:hover, .sql-learning-root .site-header nav button[aria-expanded="true"], .sql-learning-root .site-header nav a:hover { color: #246fe0; }
+
+.sql-learning-root .course-menu {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 5px);
+  right: 0;
+  width: min(620px, calc(100vw - 48px));
+  padding: 18px;
+  border: 1px solid #dedbd2;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(48, 53, 60, .18);
+}
+.sql-learning-root .course-menu h2 { margin: 0 0 10px; font-size: 20px; }
+.sql-learning-root .course-menu a {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  border: 0;
+  color: #246fe0;
+  background: transparent;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.sql-learning-root .course-menu a:hover { color: #185fc6; text-decoration: underline; }
+.sql-learning-root .course-menu a.current { color: #313942; cursor: default; }
+.sql-learning-root .course-menu a.planned { color: #8b9097; cursor: not-allowed; }
+.sql-learning-root .course-menu small { margin-left: 8px; color: #969ba2; font-size: 11px; font-weight: 500; }
+
+.sql-learning-root .lesson-content { padding: 0 30px 30px; }
+.sql-learning-root .lesson-article h1 { margin: 6px 0 14px; font-size: clamp(25px, 3vw, 31px); letter-spacing: -.5px; }
+.sql-learning-root .lesson-article p {
+  margin: 0 0 13px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.sql-learning-root .lesson-article p:last-child { margin-bottom: 0; }
+.sql-learning-root .lesson-section {
+  margin-top: 30px;
+  padding-top: 2px;
+}
+.sql-learning-root .lesson-section h2 {
+  margin: 0 0 11px;
+  padding: 10px 0 8px;
+  border-bottom: 2px solid #eeece5;
+  color: #3b424b;
+  font-size: 21px;
+}
+.sql-learning-root .lesson-section h3 {
+  margin: 0 0 8px;
+  color: #666e78;
+  font-size: 14px;
+  font-weight: 700;
+}
+.sql-learning-root .syntax-card {
+  max-width: 770px;
+  margin: 20px 16px;
+  padding: 15px 18px;
+  border-radius: 5px;
+  color: #252a31;
+  background: #eeece5;
+}
+.sql-learning-root .syntax-card.compact { margin: 16px 0; }
+.sql-learning-root .syntax-card > div { margin-bottom: 8px; color: #707579; font-size: 14px; }
+.sql-learning-root .syntax-card pre {
+  margin: 0;
+  color: #24518e;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+.sql-learning-root .learning-tip {
+  margin: 14px 0 0 !important;
+  padding: 10px 13px;
+  border-left: 4px solid #79a6e8;
+  color: #4a5664;
+  background: #f2f6fd;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+.sql-learning-root .reference-table-wrap {
+  margin: 16px 0;
+  padding: 14px;
+  border: 1px solid #e5e2da;
+  background: #fbfaf7;
+}
+.sql-learning-root .reference-table-scroll { overflow-x: auto; }
+.sql-learning-root .reference-table { min-width: 680px; font-size: 14px; }
+.sql-learning-root .reference-table th {
+  position: static;
+  padding: 10px 12px;
+  color: #343b43;
+  background: #dedbd2;
+  font-size: 14px;
+}
+.sql-learning-root .reference-table td { padding: 10px 12px; white-space: normal; line-height: 1.5; }
+
+.sql-learning-root .exercise-section > h2 {
+  margin: 24px 0 0;
+  padding: 12px 0 10px;
+  border-bottom: 3px solid #eeece5;
+  color: #3b424b;
+  font-size: 20px;
+}
+.sql-learning-root .exercise-lead { margin: 12px 0 16px; color: #444d57; font-size: 16px; line-height: 1.7; }
+.sql-learning-root .source-tables {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 1px solid #e6e3dc;
+  background: #f2f0e9;
+}
+.sql-learning-root .source-table-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e4e1d8;
+  background: #fbfaf7;
+}
+.sql-learning-root .source-table-card .table-label { margin-bottom: 8px; }
+.sql-learning-root .source-table-card .table-scroll { max-height: 245px; }
+.sql-learning-root .source-table-card table { min-width: 420px; font-size: 12px; }
+.sql-learning-root .source-table-card th { padding: 8px 9px; }
+.sql-learning-root .source-table-card td { padding: 7px 9px; }
+.sql-learning-root .result-table-card { min-width: 0; }
+.sql-learning-root .workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(290px, .92fr);
+  overflow: hidden;
+  border: 1px solid #e6e3dc;
+  background: #f2f0e9;
+}
+.sql-learning-root .query-area { min-width: 0; padding: 16px; }
+.sql-learning-root .table-label { margin-bottom: 10px; color: #666e78; font-size: 15px; font-weight: 700; }
+.sql-learning-root .table-scroll { max-height: 320px; overflow: auto; background: #fff; }
+.sql-learning-root .result-summary { margin: 8px 0 0; color: #777e86; font-size: 12px; }
+.sql-learning-root table { width: 100%; border-collapse: collapse; color: #3e4650; font-size: 13px; }
+.sql-learning-root th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 9px 10px;
+  color: #4d545d;
+  background: #dcdad1;
+  text-align: left;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.sql-learning-root th > span { display: block; }
+.sql-learning-root th code {
+  display: block;
+  margin-top: 2px;
+  color: #777d85;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+}
+.sql-learning-root td { padding: 8px 10px; border-top: 1px solid #e6e4dd; white-space: nowrap; }
+.sql-learning-root tbody tr:nth-child(even) { background: #f4f3ee; }
+
+.sql-learning-root textarea {
+  display: block;
+  width: 100%;
+  min-height: 193px;
+  padding: 18px;
+  border: 0;
+  border-top: 1px solid #e2e0d9;
+  color: #242931;
+  background: #fff;
+  resize: vertical;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  line-height: 1.65;
+  outline: 0;
+}
+.sql-learning-root .editor-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 12px 12px;
+  background: #fff;
+}
+.sql-learning-root .editor-buttons { display: flex; flex: none; flex-wrap: wrap; gap: 8px; }
+.sql-learning-root .run-button, .sql-learning-root .reset-button, .sql-learning-root .restart-button {
+  border-radius: 3px;
+  padding: 9px 14px;
+  font-size: 14px;
+  font-weight: 750;
+}
+.sql-learning-root .run-button { border: 0; color: #fff; background: #246fe0; }
+.sql-learning-root .run-button:hover:not(:disabled) { background: #185fc6; }
+.sql-learning-root .run-button:disabled { background: #9fbee8; }
+.sql-learning-root .reset-button { border: 1px solid #d6d5ce; color: #6d747c; background: #fff; }
+.sql-learning-root .reset-button:hover:not(:disabled) { border-color: #9ebbe9; color: #246fe0; }
+.sql-learning-root .restart-button { border: 1px solid #d6d5ce; color: #8b5d30; background: #fffaf3; }
+.sql-learning-root .restart-button:hover:not(:disabled) { border-color: #e6bc87; color: #9b5a1c; background: #fff5e9; }
+.sql-learning-root .status { max-width: 62%; color: #747b84; font-size: 13px; line-height: 1.45; text-align: right; }
+.sql-learning-root .status.success { color: #25835c; font-weight: 650; }
+.sql-learning-root .status.error {
+  padding: 7px 10px;
+  border: 1px solid #f0b4b8;
+  border-radius: 4px;
+  color: #c9343d;
+  background: #fff1f2;
+  font-weight: 700;
+}
+
+.sql-learning-root .celebration {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sql-learning-root .celebration-message {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  padding: 9px 17px;
+  border-radius: 999px;
+  color: #fff;
+  background: #25835c;
+  box-shadow: 0 8px 18px rgba(37, 131, 92, .25);
+  font-size: 17px;
+  font-weight: 750;
+  transform: translate(-50%, -50%);
+  animation: celebration-message 1.55s ease-out forwards;
+}
+.sql-learning-root .confetti-piece {
+  position: absolute;
+  top: 23%;
+  left: calc(50% + var(--confetti-start-x));
+  width: 9px;
+  height: 16px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: confetti-fall 1.55s cubic-bezier(.16, .72, .34, 1) forwards;
+}
+@keyframes celebration-message {
+  0% { opacity: 0; transform: translate(-50%, -30%) scale(.7); }
+  15%, 68% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -80%) scale(.9); }
+}
+@keyframes confetti-fall {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--confetti-end-x), var(--confetti-fall)) rotate(var(--confetti-turn)); }
+}
+
+.sql-learning-root .tasks-panel {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #dedbd2;
+  background: #e8e5dc;
+}
+.sql-learning-root .tasks-content { flex: 1; min-height: 374px; padding: 18px; }
+.sql-learning-root .tasks-content h3 { margin: 0 0 12px; color: #737a86; font-size: 19px; font-weight: 500; }
+.sql-learning-root .tasks-content ol { margin: 0; padding-left: 24px; }
+.sql-learning-root .tasks-content li {
+  padding: 10px 2px;
+  border-bottom: 1px solid #d7d4cc;
+  color: #8c9094;
+  font-size: 14px;
+  line-height: 1.52;
+}
+.sql-learning-root .tasks-content li.active { color: #333b45; font-weight: 650; }
+.sql-learning-root .tasks-content li.done { color: #25835c; font-weight: 650; }
+.sql-learning-root .tasks-content li.done::marker { content: "✓  "; font-weight: 800; }
+.sql-learning-root .task-hint { margin: 18px 0 0; color: #85898d; font-size: 13px; line-height: 1.55; }
+.sql-learning-root .task-hint button { padding: 0; border: 0; color: #246fe0; background: transparent; font: inherit; font-weight: 650; }
+.sql-learning-root .complete-button {
+  width: 100%;
+  padding: 17px 12px;
+  border: 0;
+  color: #fff;
+  background: #b4b5b5;
+  font-size: 21px;
+  font-weight: 600;
+}
+.sql-learning-root .complete-button.ready { background: #246fe0; }
+
+.sql-learning-root .lesson-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 20px;
+  padding: 22px 0 0;
+  color: #727982;
+  font-size: 14px;
+}
+.sql-learning-root .lesson-footer a { color: #246fe0; text-decoration: none; font-weight: 650; }
+.sql-learning-root .lesson-footer span { text-align: right; }
+
+@media (max-width: 760px) {
+  .sql-learning-root .site-shell { width: calc(100% - 20px); margin-top: 10px; }
+  .sql-learning-root .site-header { min-height: auto; padding: 20px; }
+  .sql-learning-root .brand-name { max-width: 220px; font-size: 19px; line-height: 1.25; }
+  .sql-learning-root .brand p { display: none; }
+  .sql-learning-root .lesson-content { padding: 0 18px 24px; }
+  .sql-learning-root .syntax-card { margin: 16px 0; }
+  .sql-learning-root .course-menu { right: -2px; width: min(620px, calc(100vw - 24px)); overflow-x: auto; }
+  .sql-learning-root .source-tables { grid-template-columns: 1fr; padding: 12px; }
+  .sql-learning-root .workspace { grid-template-columns: 1fr; }
+  .sql-learning-root .tasks-panel { border-top: 1px solid #dedbd2; border-left: 0; }
+  .sql-learning-root .tasks-content { min-height: 290px; }
+  .sql-learning-root .editor-actions { align-items: flex-start; flex-direction: column; }
+  .sql-learning-root .status { max-width: 100%; text-align: left; }
+  .sql-learning-root .lesson-footer { display: flex; flex-direction: column; gap: 8px; }
+  .sql-learning-root .lesson-footer span { text-align: left; }
+}
