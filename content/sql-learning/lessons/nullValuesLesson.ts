@@ -44,6 +44,10 @@ WHERE close_date IS NULL;`,
   ],
   exerciseLead: "请使用 IS NULL 或 IS NOT NULL。系统会验证所有缺失记录，而不是只检查结果中的一条示例。",
   datasetLabel: "accounts（客户档案）",
+  sourceTables: [
+    { label: "accounts（客户档案）", query: "SELECT account, subsidiary_of FROM accounts LIMIT 8;" },
+    { label: "sales_pipeline（商机）", query: "SELECT opportunity_id, sales_agent, deal_stage, close_date FROM sales_pipeline LIMIT 8;" },
+  ],
   initialQuery: `SELECT account, subsidiary_of
 FROM accounts
 LIMIT 12;`,
