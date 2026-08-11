@@ -50,13 +50,37 @@
       "collectedAt": "2026-08-11",
       "items": [
         {
-          "title": "Claude 将黎曼猜想相关长期下界从 41.6% 提升至 67.2%",
-          "summary": "Anthropic 的未发布研究版 Claude 在尝试黎曼猜想时意外推进了相关问题，并通过约 60 个子 Agent 协作完成验证与 Lean 形式化，显示 AI 正从解题工具走向可审查的科研合作者。",
-          "href": "https://www.anthropic.com/research/riemann-zeta",
+          "title": "中国团队发布 ELBench：教育 AI 不能只看答题分数",
+          "summary": "ELBench 把通用能力、安全可信、基础教育与高阶培养纳入同一套评测。9 款模型结果显示，安全与实用教学能力明显负相关，两款教育专用模型也未领先，提醒学校和产品团队按场景看能力画像。",
+          "href": "https://arxiv.org/abs/2608.09548",
           "date": "2026-08-10",
-          "source": "Anthropic",
-          "tag": "AI 科研",
+          "source": "ELBench",
+          "tag": "AI 教育",
           "featured": true
+        },
+        {
+          "title": "MiniMax 更新开源工具，专门核验第三方模型部署是否可靠",
+          "summary": "MiniMax-Provider-Verifier 在 8 月 10 日新增 M3 复杂参数注入测试并修复流式请求重试，让工具调用格式、语言遵循和系统稳定性等部署质量可以被客观复现，而不只看供应商是否能返回结果。",
+          "href": "https://github.com/MiniMax-AI/MiniMax-Provider-Verifier",
+          "date": "2026-08-10",
+          "source": "MiniMax",
+          "tag": "开源评测"
+        },
+        {
+          "title": "结直肠癌 Agentic AI 在盲评中达到肿瘤医生相当水平",
+          "summary": "佛罗里达大学团队让 GatorOnco 动态检索最新临床指南，并由 5 名肿瘤医生随机盲评；预印本报告其正确性、时效性与安全性和医生相当，但这仍是研究结果，不代表已经可以独立用于临床决策。",
+          "href": "https://arxiv.org/abs/2608.09142",
+          "date": "2026-08-10",
+          "source": "UF Health",
+          "tag": "医疗 AI"
+        },
+        {
+          "title": "研究量化“分词溢价”：弱势语言最高需英语 4.5 倍 Token",
+          "summary": "Tokenization Equity Audit 对 6 种语言的代码辅导内容进行对照：孟加拉语在 GPT-4o 分词器上需英语的 1.56 倍 Token，在 Qwen 与 Mistral 分词器上最高达 4.5 倍，成本、延迟和可用上下文由此出现结构性差异。",
+          "href": "https://arxiv.org/abs/2608.09046",
+          "date": "2026-08-10",
+          "source": "TEA",
+          "tag": "AI 公平"
         },
         {
           "title": "Google Ads 与 Analytics 加入从洞察到行动的营销 Agent",
@@ -65,30 +89,6 @@
           "date": "2026-08-10",
           "source": "Google",
           "tag": "营销 Agent"
-        },
-        {
-          "title": "Anthropic 优化 Fable 5 生物安全护栏，相关误回退减少约 85%",
-          "summary": "新版分类器放行更多日常健康、教育和临床辅助问题，同时继续把病毒学、毒理学和分子设计等双重用途请求转交给生物能力较低的模型，展示安全边界与可用性的精细化权衡。",
-          "href": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards",
-          "date": "2026-08-07",
-          "source": "Anthropic",
-          "tag": "模型安全"
-        },
-        {
-          "title": "Gemini Omni 把视频生成与编辑变成多模态对话",
-          "summary": "开发者可用文本、图片、视频或音频作为参考，通过自然语言切换视角、环境和风格并保持场景连贯；能力已进入 Gemini、Flow、AI Studio、API 与企业平台。",
-          "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/",
-          "date": "2026-08-07",
-          "source": "Google",
-          "tag": "多模态创作"
-        },
-        {
-          "title": "OpenAI 更新 GPT-5.6 Sol，并向免费用户开放更多 GPT-5.6 Luna 能力",
-          "summary": "Sol 在 ChatGPT 中强化事实可靠性与回答聚焦，并新增思考强度滑杆；免费用户将默认使用 Luna、获得不限文字对话和 Think 按钮，模型体验进一步按任务深度分层。",
-          "href": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/",
-          "date": "2026-08-06",
-          "source": "OpenAI",
-          "tag": "产品更新"
         }
       ]
     },
