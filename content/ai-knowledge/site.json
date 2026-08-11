@@ -47,6 +47,52 @@
   },
   "newsEditions": [
     {
+      "collectedAt": "2026-08-11",
+      "items": [
+        {
+          "title": "Claude 将黎曼猜想相关长期下界从 41.6% 提升至 67.2%",
+          "summary": "Anthropic 的未发布研究版 Claude 在尝试黎曼猜想时意外推进了相关问题，并通过约 60 个子 Agent 协作完成验证与 Lean 形式化，显示 AI 正从解题工具走向可审查的科研合作者。",
+          "href": "https://www.anthropic.com/research/riemann-zeta",
+          "date": "2026-08-10",
+          "source": "Anthropic",
+          "tag": "AI 科研",
+          "featured": true
+        },
+        {
+          "title": "Google Ads 与 Analytics 加入从洞察到行动的营销 Agent",
+          "summary": "Google 新增首页 AI 摘要、Ask Advisor 深度分析、自然语言可视化报表和行业基准比较，让营销人员能在同一工作流中发现变化、解释原因并调整策略。",
+          "href": "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/",
+          "date": "2026-08-10",
+          "source": "Google",
+          "tag": "营销 Agent"
+        },
+        {
+          "title": "Anthropic 优化 Fable 5 生物安全护栏，相关误回退减少约 85%",
+          "summary": "新版分类器放行更多日常健康、教育和临床辅助问题，同时继续把病毒学、毒理学和分子设计等双重用途请求转交给生物能力较低的模型，展示安全边界与可用性的精细化权衡。",
+          "href": "https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards",
+          "date": "2026-08-07",
+          "source": "Anthropic",
+          "tag": "模型安全"
+        },
+        {
+          "title": "Gemini Omni 把视频生成与编辑变成多模态对话",
+          "summary": "开发者可用文本、图片、视频或音频作为参考，通过自然语言切换视角、环境和风格并保持场景连贯；能力已进入 Gemini、Flow、AI Studio、API 与企业平台。",
+          "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/",
+          "date": "2026-08-07",
+          "source": "Google",
+          "tag": "多模态创作"
+        },
+        {
+          "title": "OpenAI 更新 GPT-5.6 Sol，并向免费用户开放更多 GPT-5.6 Luna 能力",
+          "summary": "Sol 在 ChatGPT 中强化事实可靠性与回答聚焦，并新增思考强度滑杆；免费用户将默认使用 Luna、获得不限文字对话和 Think 按钮，模型体验进一步按任务深度分层。",
+          "href": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/",
+          "date": "2026-08-06",
+          "source": "OpenAI",
+          "tag": "产品更新"
+        }
+      ]
+    },
+    {
       "collectedAt": "2026-08-03",
       "items": [
         {
