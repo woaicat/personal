@@ -89,11 +89,17 @@ export function getColumnLabel(column: string) {
 }
 
 export function formatCrmValue(column: string, value: SqlCell) {
-  if (value === null) return "—";
-  if (column.toLowerCase() === "year_established") return String(value);
-  if (typeof value === "number") return new Intl.NumberFormat("zh-CN").format(value);
-  if (column.toLowerCase() === "sector") return sectorLabels[value] ?? value;
-  if (column.toLowerCase() === "deal_stage") return stageLabels[value] ?? value;
-  if (column.toLowerCase() === "office_location") return locationLabels[value] ?? value;
-  return value;
+  if (value === null) return "—（NULL）";
+
+  const rawValue = String(value);
+  const normalizedColumn = column.toLowerCase();
+  let displayValue = rawValue;
+
+  if (normalizedColumn === "year_established") return rawValue;
+  if (typeof value === "number") displayValue = new Intl.NumberFormat("zh-CN").format(value);
+  if (normalizedColumn === "sector") displayValue = sectorLabels[rawValue] ?? rawValue;
+  if (normalizedColumn === "deal_stage") displayValue = stageLabels[rawValue] ?? rawValue;
+  if (normalizedColumn === "office_location") displayValue = locationLabels[rawValue] ?? rawValue;
+
+  return displayValue === rawValue ? displayValue : `${displayValue}（${rawValue}）`;
 }

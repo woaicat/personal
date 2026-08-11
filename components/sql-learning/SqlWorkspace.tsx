@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Celebration } from "./Celebration";
 import { BrowserSqlEngine } from "@/lib/sql-learning/sql/BrowserSqlEngine";
 import { formatSqlError } from "@/lib/sql-learning/sql/formatSqlError";
@@ -11,6 +11,7 @@ import type { Lesson, LessonSourceTable, QueryResult } from "@/lib/sql-learning/
 
 type StatusTone = "neutral" | "success" | "error";
 const EMPTY_SOURCE_TABLES: LessonSourceTable[] = [];
+const RESULT_PAGE_SIZE = 50;
 
 interface TablePreviewProps {
   label: string;
@@ -19,11 +20,62 @@ interface TablePreviewProps {
 }
 
 function TablePreview({ label, result, source = false }: TablePreviewProps) {
-  const displayedRows = result.rows.slice(0, source ? 8 : 100);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const normalizedSearchTerm = searchTerm.trim().toLocaleLowerCase();
+  const filteredRows = useMemo(() => {
+    if (source || !normalizedSearchTerm) return result.rows;
+
+    return result.rows.filter((row) => row.some((value, columnIndex) => {
+      const column = result.columns[columnIndex] ?? "";
+      const rawValue = value === null ? "NULL" : String(value);
+      const displayValue = formatCrmValue(column, value);
+      return `${rawValue} ${displayValue}`.toLocaleLowerCase().includes(normalizedSearchTerm);
+    }));
+  }, [normalizedSearchTerm, result, source]);
+  const pageCount = source ? 1 : Math.max(1, Math.ceil(filteredRows.length / RESULT_PAGE_SIZE));
+  const displayedRows = source
+    ? result.rows.slice(0, 8)
+    : filteredRows.slice((currentPage - 1) * RESULT_PAGE_SIZE, currentPage * RESULT_PAGE_SIZE);
+  const firstDisplayedRow = filteredRows.length === 0 ? 0 : (currentPage - 1) * RESULT_PAGE_SIZE + 1;
+  const lastDisplayedRow = source
+    ? displayedRows.length
+    : Math.min(currentPage * RESULT_PAGE_SIZE, filteredRows.length);
+
+  useEffect(() => {
+    setSearchTerm("");
+    setCurrentPage(1);
+  }, [result, source]);
+
+  useEffect(() => {
+    if (currentPage > pageCount) setCurrentPage(pageCount);
+  }, [currentPage, pageCount]);
 
   return (
     <div className={source ? "source-table-card" : "result-table-card"}>
       <div className="table-label">{label}</div>
+      {!source && (
+        <div className="result-toolbar">
+          <label className="result-search-label" htmlFor="sql-result-search">
+            搜索当前结果
+            <input
+              id="sql-result-search"
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+                setCurrentPage(1);
+              }}
+              placeholder="输入字段值或中文/原文…"
+              type="search"
+              value={searchTerm}
+            />
+          </label>
+          <p aria-live="polite" className="result-summary">
+            {normalizedSearchTerm
+              ? `共 ${result.rows.length.toLocaleString()} 行，筛选出 ${filteredRows.length.toLocaleString()} 行。`
+              : `查询返回 ${result.rows.length.toLocaleString()} 行。`}
+          </p>
+        </div>
+      )}
       <div className="table-scroll">
         <table>
           <thead>
@@ -43,8 +95,29 @@ function TablePreview({ label, result, source = false }: TablePreviewProps) {
           </tbody>
         </table>
       </div>
-      {!source && result.rows.length > displayedRows.length && (
-        <p className="result-summary">查询返回 {result.rows.length.toLocaleString()} 行，当前仅显示前 {displayedRows.length} 行。</p>
+      {!source && (
+        <div className="result-pagination">
+          <span className="result-page-range">
+            显示第 {firstDisplayedRow.toLocaleString()}–{lastDisplayedRow.toLocaleString()} 行
+          </span>
+          <div className="result-page-controls">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+              type="button"
+            >
+              上一页
+            </button>
+            <span>第 {currentPage} / {pageCount} 页</span>
+            <button
+              disabled={currentPage === pageCount}
+              onClick={() => setCurrentPage((page) => Math.min(pageCount, page + 1))}
+              type="button"
+            >
+              下一页
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

@@ -211,7 +211,32 @@
 .sql-learning-root .query-area { min-width: 0; padding: 16px; }
 .sql-learning-root .table-label { margin-bottom: 10px; color: #666e78; font-size: 15px; font-weight: 700; }
 .sql-learning-root .table-scroll { max-height: 320px; overflow: auto; background: #fff; }
-.sql-learning-root .result-summary { margin: 8px 0 0; color: #777e86; font-size: 12px; }
+.sql-learning-root .result-toolbar { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.sql-learning-root .result-search-label { display: flex; flex: 1; flex-direction: column; gap: 4px; color: #68717c; font-size: 12px; font-weight: 650; }
+.sql-learning-root .result-search-label input {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid #d6d5ce;
+  border-radius: 3px;
+  color: #242931;
+  background: #fff;
+  font-size: 13px;
+  outline: 0;
+}
+.sql-learning-root .result-search-label input:focus { border-color: #8eb3ed; box-shadow: 0 0 0 2px rgba(36, 111, 224, .12); }
+.sql-learning-root .result-summary { flex: none; margin: 0 0 7px; color: #777e86; font-size: 12px; }
+.sql-learning-root .result-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 9px; color: #777e86; font-size: 12px; }
+.sql-learning-root .result-page-controls { display: flex; align-items: center; gap: 8px; }
+.sql-learning-root .result-page-controls button {
+  padding: 5px 9px;
+  border: 1px solid #d6d5ce;
+  border-radius: 3px;
+  color: #4d5660;
+  background: #fff;
+  font-size: 12px;
+}
+.sql-learning-root .result-page-controls button:hover:not(:disabled) { border-color: #9ebbe9; color: #246fe0; }
+.sql-learning-root .result-page-controls button:disabled { color: #b4b7ba; background: #f3f2ee; }
 .sql-learning-root table { width: 100%; border-collapse: collapse; color: #3e4650; font-size: 13px; }
 .sql-learning-root th {
   position: sticky;
@@ -377,6 +402,10 @@
   .sql-learning-root .lesson-content { padding: 0 18px 24px; }
   .sql-learning-root .syntax-card { margin: 16px 0; }
   .sql-learning-root .course-menu { right: -2px; width: min(620px, calc(100vw - 24px)); overflow-x: auto; }
+  .sql-learning-root .result-toolbar { align-items: stretch; flex-direction: column; }
+  .sql-learning-root .result-summary { margin: 0; }
+  .sql-learning-root .result-pagination { align-items: flex-start; flex-direction: column; }
+  .sql-learning-root .result-page-controls { justify-content: space-between; width: 100%; }
   .sql-learning-root .source-tables { grid-template-columns: 1fr; padding: 12px; }
   .sql-learning-root .workspace { grid-template-columns: 1fr; }
   .sql-learning-root .tasks-panel { border-top: 1px solid #dedbd2; border-left: 0; }
