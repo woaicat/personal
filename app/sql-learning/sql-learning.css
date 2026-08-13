@@ -68,6 +68,7 @@
   text-decoration: none;
 }
 .sql-learning-root .site-header nav button:hover, .sql-learning-root .site-header nav button[aria-expanded="true"], .sql-learning-root .site-header nav a:hover { color: #246fe0; }
+.sql-learning-root .site-header nav a.current { color: #246fe0; }
 
 .sql-learning-root .course-menu {
   position: absolute;
@@ -103,6 +104,88 @@
 .sql-learning-root .course-menu small { margin-left: 8px; color: #969ba2; font-size: 11px; font-weight: 500; }
 
 .sql-learning-root .lesson-content { padding: 0 30px 30px; }
+.sql-learning-root .cheatsheet-content { padding: 0 30px 42px; }
+.sql-learning-root .cheatsheet-heading { max-width: 760px; padding: 8px 0 4px; }
+.sql-learning-root .cheatsheet-eyebrow { margin: 0 0 7px; color: #246fe0; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; }
+.sql-learning-root .cheatsheet-heading h1 { margin: 0 0 12px; color: #2f3844; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.6px; }
+.sql-learning-root .cheatsheet-heading p:last-child { margin: 0; color: #68717c; font-size: 16px; line-height: 1.8; }
+.sql-learning-root .cheatsheet-note {
+  margin: 24px 0 20px;
+  padding: 13px 15px;
+  border-left: 4px solid #79a6e8;
+  color: #4a5664;
+  background: #f2f6fd;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.sql-learning-root .cheatsheet-note code { margin: 0 3px; color: #24518e; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; }
+.sql-learning-root .cheatsheet-toolbar {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 24px 0 8px;
+  padding: 14px;
+  border: 1px solid #e5e2da;
+  background: #fbfaf7;
+}
+.sql-learning-root .cheatsheet-search-label { display: flex; flex: 1 1 220px; flex-direction: column; gap: 5px; color: #68717c; font-size: 12px; font-weight: 700; }
+.sql-learning-root .cheatsheet-search-label input {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #d6d5ce;
+  border-radius: 3px;
+  color: #242931;
+  background: #fff;
+  font-size: 14px;
+  outline: 0;
+}
+.sql-learning-root .cheatsheet-search-label input:focus { border-color: #8eb3ed; box-shadow: 0 0 0 2px rgba(36, 111, 224, .12); }
+.sql-learning-root .cheatsheet-categories { display: flex; flex: 3 1 560px; flex-wrap: wrap; gap: 6px; }
+.sql-learning-root .cheatsheet-categories button {
+  padding: 7px 10px;
+  border: 1px solid #d6d5ce;
+  border-radius: 3px;
+  color: #626b75;
+  background: #fff;
+  font-size: 13px;
+}
+.sql-learning-root .cheatsheet-categories button:hover { border-color: #9ebbe9; color: #246fe0; }
+.sql-learning-root .cheatsheet-categories button.active { border-color: #246fe0; color: #fff; background: #246fe0; }
+.sql-learning-root .cheatsheet-count { margin: 12px 0; color: #777e86; font-size: 13px; }
+.sql-learning-root .cheatsheet-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.sql-learning-root .cheatsheet-card { display: flex; min-width: 0; flex-direction: column; border: 1px solid #e5e2da; background: #fbfaf7; }
+.sql-learning-root .cheatsheet-card-header { padding: 16px 16px 12px; }
+.sql-learning-root .cheatsheet-category { display: inline-block; margin-bottom: 8px; color: #246fe0; font-size: 12px; font-weight: 750; }
+.sql-learning-root .cheatsheet-card h2 { margin: 0 0 7px; color: #3b424b; font-size: 18px; }
+.sql-learning-root .cheatsheet-card-header p { margin: 0; color: #68717c; font-size: 14px; line-height: 1.65; }
+.sql-learning-root .cheatsheet-card pre {
+  min-height: 124px;
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border-top: 1px solid #e6e3dc;
+  border-bottom: 1px solid #e6e3dc;
+  color: #24518e;
+  background: #f2f0e9;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.sql-learning-root .cheatsheet-card-footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 12px 16px 14px; }
+.sql-learning-root .cheatsheet-card-footer p { flex: 1; margin: 0; color: #777e86; font-size: 12px; line-height: 1.6; }
+.sql-learning-root .cheatsheet-card-footer button {
+  flex: none;
+  padding: 6px 10px;
+  border: 1px solid #9ebbe9;
+  border-radius: 3px;
+  color: #246fe0;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.sql-learning-root .cheatsheet-card-footer button:hover { color: #fff; background: #246fe0; }
+.sql-learning-root .cheatsheet-empty { padding: 30px 0; color: #777e86; }
 .sql-learning-root .lesson-article h1 { margin: 6px 0 14px; font-size: clamp(25px, 3vw, 31px); letter-spacing: -.5px; }
 .sql-learning-root .lesson-article p {
   margin: 0 0 13px;
@@ -396,10 +479,17 @@
 
 @media (max-width: 760px) {
   .sql-learning-root .site-shell { width: calc(100% - 20px); margin-top: 10px; }
-  .sql-learning-root .site-header { min-height: auto; padding: 20px; }
+  .sql-learning-root .site-header { align-items: flex-start; flex-direction: column; min-height: auto; padding: 20px; }
+  .sql-learning-root .site-header nav { justify-content: flex-end; width: 100%; }
   .sql-learning-root .brand-name { max-width: 220px; font-size: 19px; line-height: 1.25; }
   .sql-learning-root .brand p { display: none; }
   .sql-learning-root .lesson-content { padding: 0 18px 24px; }
+  .sql-learning-root .cheatsheet-content { padding: 0 18px 30px; }
+  .sql-learning-root .cheatsheet-toolbar { align-items: stretch; flex-direction: column; }
+  .sql-learning-root .cheatsheet-categories { flex-basis: auto; }
+  .sql-learning-root .cheatsheet-grid { grid-template-columns: 1fr; }
+  .sql-learning-root .cheatsheet-card-footer { flex-direction: column; }
+  .sql-learning-root .cheatsheet-card-footer button { align-self: flex-start; }
   .sql-learning-root .syntax-card { margin: 16px 0; }
   .sql-learning-root .course-menu { right: -2px; width: min(620px, calc(100vw - 24px)); overflow-x: auto; }
   .sql-learning-root .result-toolbar { align-items: stretch; flex-direction: column; }

@@ -2,16 +2,15 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { useEffect, useState } from "react";
-import { CourseMenu } from "./CourseMenu";
+import { useEffect } from "react";
 import { LessonArticle } from "./LessonArticle";
 import { SqlWorkspace } from "./SqlWorkspace";
+import { SqlLearningHeader } from "./SqlLearningHeader";
 import { getLessonById, implementedLessons } from "@/content/sql-learning/courseRegistry";
 import type { Lesson } from "@/lib/sql-learning/types";
 
 export function LessonPage({ lessonId }: { lessonId: string }) {
   const lesson = getLessonById(lessonId) ?? implementedLessons[0] as Lesson;
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     document.title = lesson.number
@@ -22,25 +21,7 @@ export function LessonPage({ lessonId }: { lessonId: string }) {
 
   return (
     <main className="site-shell" key={lesson.id}>
-      <header className="site-header">
-        <div className="brand">
-          <span className="brand-mark">S</span>
-          <div>
-            <div className="brand-name">面向产品经理的交互式SQL教学</div>
-            <p>通过真实业务数据，练习产品分析 SQL。</p>
-          </div>
-        </div>
-        <nav>
-          <div
-            className="course-menu-trigger"
-            onMouseEnter={() => setMenuOpen(true)}
-            onMouseLeave={() => setMenuOpen(false)}
-          >
-            <button aria-expanded={menuOpen} onClick={() => setMenuOpen(true)} type="button">▯ 课程目录</button>
-            <CourseMenu currentLessonId={lesson.id} onSelect={() => setMenuOpen(false)} open={menuOpen} />
-          </div>
-        </nav>
-      </header>
+      <SqlLearningHeader activePage="lesson" currentLessonId={lesson.id} />
       <div className="lesson-content">
         <LessonArticle lesson={lesson} />
         {lesson.tasks && lesson.initialQuery && lesson.exerciseLead && <SqlWorkspace key={lesson.id} lesson={lesson} />}
