@@ -47,6 +47,52 @@
   },
   "newsEditions": [
     {
+      "collectedAt": "2026-08-21",
+      "items": [
+        {
+          "title": "Meta AI 接入广告与办公数据，开始给小企业做经营分析",
+          "summary": "Meta AI 现在可在用户授权后连接 Facebook、Instagram、Meta Ads 和 Google Workspace，分析内容与广告表现，生成演示文稿、文档和表格，并执行周期任务；首批功能当天开始上线，后续高阶使用将纳入 Meta One 订阅。",
+          "href": "https://about.fb.com/br/news/2026/08/novos-recursos-do-meta-ai-para-pequenas-empresas/",
+          "date": "2026-08-19",
+          "source": "Meta",
+          "tag": "企业 AI",
+          "featured": true
+        },
+        {
+          "title": "Google 把 AI 带进空管试验，尝试减少飞机凝结尾迹的增温影响",
+          "summary": "“Operation Blue Skies”将在北大西洋 Shanwick 空域开展两轮、各约四个月的运行试验，用 AI 预测与卫星识别避开高增温尾迹云区域；Google 以技术和算力折合投入 140 万英镑，项目仍处于试验验证阶段。",
+          "href": "https://blog.google/innovation-and-ai/models-and-research/google-research/blue-skies/",
+          "date": "2026-08-18",
+          "source": "Google",
+          "tag": "AI 气候"
+        },
+        {
+          "title": "小米把 MiMo 模型延伸到全屋 Agent 与具身机器人",
+          "summary": "小米二季度材料披露，开源 Miloco 2.0 已升级为可长期执行任务的主动式全屋 Agent；同时公布 38B 世界模型 Xiaomi-Robotics-U0 和基于超 10 万小时真实操作轨迹训练的 Xiaomi-Robotics-1，并已在汽车工厂验证多类任务。",
+          "href": "https://ir.mi.com/events/event-details/2026-interim-results-announcement",
+          "date": "2026-08-18",
+          "source": "小米",
+          "tag": "具身智能"
+        },
+        {
+          "title": "OpenAI 因模型逼近关键网络能力阈值，暂缓最大规模强化学习",
+          "summary": "OpenAI 表示，待发布模型 Astra 的早期迹象可能触及其“关键”网络安全能力阈值，因此曾暂停两周部署模型的强化学习，并继续搁置最大规模前沿 RL 训练，用于加固研究环境、扩大思维链监控和补充对齐证据。",
+          "href": "https://openai.com/index/pacing-model-development-cyber-capabilities/",
+          "date": "2026-08-18",
+          "source": "OpenAI",
+          "tag": "模型安全"
+        },
+        {
+          "title": "腾讯发布 AI 时代减碳方案：单机柜功率需求最高升至传统水平十倍",
+          "summary": "腾讯《碳中和中期报告》指出，AI 使数据中心供电、制冷和架构承压；应对方案包括提升基础设施能效、推动用电与可再生能源匹配，并用 AI 支持自身运营和行业减碳，同时维持自身运营及供应链不晚于 2030 年实现碳中和的目标。",
+          "href": "https://www.tencent.com/zh-cn/tencent-details-progress-toward-carbon-neutrality-goals-and-outlines-ai-era-priorities/",
+          "date": "2026-08-17",
+          "source": "腾讯",
+          "tag": "AI 基建"
+        }
+      ]
+    },
+    {
       "collectedAt": "2026-08-11",
       "items": [
         {
