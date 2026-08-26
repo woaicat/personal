@@ -103,3 +103,9 @@ final result: passed
 - P3: Replace the reserved blank illustration spaces with the user-provided illustrations when available.
 
 final result: passed
+
+## Agent course navigation follow-up
+
+- Added a desktop hover bridge and 180 ms close delay so the pointer can travel from a top-level menu to its submenu without collapsing it.
+- The full homepage header is now 63 px including the bottom border; mobile navigation remains content-driven.
+- Rechecked the diagonal mouse path into “其他 → 媒体推荐”; the submenu stayed visible. Rechecked 390 px mobile layout and mobile submenu expansion; both had no horizontal overflow.

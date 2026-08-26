@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { SiteContent } from "@/lib/types";
 
 type PortfolioHeaderProps = {
@@ -12,10 +12,34 @@ type PortfolioHeaderProps = {
 
 export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHeaderProps) {
   const [openDropdown, setOpenDropdown] = useState<"agent" | "other" | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const openMenu = (dropdown: "agent" | "other") => {
+    clearCloseTimer();
+    setOpenDropdown(dropdown);
+  };
+
+  const scheduleClose = () => {
+    clearCloseTimer();
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+      closeTimerRef.current = null;
+    }, 180);
+  };
 
   const toggleDropdown = (dropdown: "agent" | "other") => {
+    clearCloseTimer();
     setOpenDropdown((current) => (current === dropdown ? null : dropdown));
   };
+
+  useEffect(() => () => clearCloseTimer(), []);
 
   return (
     <header className="site-header">
@@ -33,8 +57,8 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
                 <div
                   className="nav-dropdown"
                   key={tab.href}
-                  onMouseEnter={() => setOpenDropdown("agent")}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => openMenu("agent")}
+                  onMouseLeave={scheduleClose}
                 >
                   <button
                     className="top-tab top-tab-disclosure"
@@ -45,7 +69,10 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
                     <span>{tab.label}</span>
                     <ChevronDown aria-hidden="true" size={14} strokeWidth={2.25} />
                   </button>
-                  <div className={`nav-dropdown-menu${openDropdown === "agent" ? " is-open" : ""}`}>
+                  <div
+                    className={`nav-dropdown-menu${openDropdown === "agent" ? " is-open" : ""}`}
+                    onMouseEnter={() => openMenu("agent")}
+                  >
                     <a href={tab.href} target="_blank" rel="noreferrer" onClick={() => setOpenDropdown(null)}>
                       从0到1设计一个Agent
                     </a>
@@ -69,8 +96,8 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
           })}
           <div
             className="nav-dropdown nav-dropdown-other"
-            onMouseEnter={() => setOpenDropdown("other")}
-            onMouseLeave={() => setOpenDropdown(null)}
+            onMouseEnter={() => openMenu("other")}
+            onMouseLeave={scheduleClose}
           >
             <button
               className="top-tab top-tab-disclosure"
@@ -81,7 +108,10 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
               <span>其他</span>
               <ChevronDown aria-hidden="true" size={14} strokeWidth={2.25} />
             </button>
-            <div className={`nav-dropdown-menu${openDropdown === "other" ? " is-open" : ""}`}>
+            <div
+              className={`nav-dropdown-menu${openDropdown === "other" ? " is-open" : ""}`}
+              onMouseEnter={() => openMenu("other")}
+            >
               <a
                 href="#media"
                 onClick={() => {
