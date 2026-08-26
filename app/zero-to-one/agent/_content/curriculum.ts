@@ -26,7 +26,7 @@ export const agentCurriculum: AgentStage[] = [
     lessons: [
       {
         id: "01",
-        title: "认识案例：为什么要做电商客服 Agent",
+        title: "认识智能体",
         summary: "理解 Agent 的定义、边界，以及它与普通工作流的区别。",
         output: "概念判断清单",
         whyItMatters: "不是所有自动化需求都需要 Agent。先建立共同语言，才能避免从技术方案倒推产品需求。",
