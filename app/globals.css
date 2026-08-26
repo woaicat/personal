@@ -96,6 +96,64 @@ button {
   gap: 1.2rem;
 }
 
+.nav-dropdown {
+  position: relative;
+}
+
+.top-tab-disclosure {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  left: 50%;
+  z-index: 40;
+  min-width: 176px;
+  padding: 0.42rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -4px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.68rem 0.78rem;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus-visible {
+  background: #f1f5ff;
+  color: var(--accent);
+  outline: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
 .nav-links a {
   font-size: 0.95rem;
 }
@@ -1205,8 +1263,8 @@ button {
 
   .nav-links {
     width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    row-gap: 0.45rem;
     padding-bottom: 0.2rem;
   }
 
