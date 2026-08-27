@@ -69,8 +69,12 @@
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   border-bottom: 1px solid #e4e8e7;
-  background: #fff;
+  background:
+    radial-gradient(ellipse 520px 300px at 82% 8%, rgba(220, 245, 227, 0.9) 0%, rgba(239, 250, 242, 0.72) 48%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(112deg, #effaf2 0%, #f8fcf8 38%, #fff 78%);
 }
 
 .heroInner {
@@ -183,7 +187,18 @@
 }
 
 .heroVisualSpace {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 280px;
+}
+
+.heroIllustration {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .curriculum {
@@ -388,6 +403,11 @@
 
   .heroVisualSpace {
     min-height: 86px;
+    margin: -4px auto -18px;
+  }
+
+  .heroIllustration {
+    width: min(100%, 360px);
   }
 
   .progressActionRow {

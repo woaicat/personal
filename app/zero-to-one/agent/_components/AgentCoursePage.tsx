@@ -2,8 +2,10 @@
 
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { agentCurriculum, allAgentLessons } from "../_content/curriculum";
+import courseHeroIllustration from "../插图/agent-course-hero.png";
 import {
   AGENT_LAST_LESSON_KEY,
   AGENT_PROGRESS_KEY,
@@ -94,7 +96,15 @@ export default function AgentCoursePage() {
                 </p>
               </div>
             </div>
-            <div className={styles.heroVisualSpace} aria-hidden="true" />
+            <div className={styles.heroVisualSpace}>
+              <Image
+                className={styles.heroIllustration}
+                src={courseHeroIllustration}
+                alt="Agent 课程插图"
+                priority
+                sizes="(max-width: 680px) 100vw, 46vw"
+              />
+            </div>
           </div>
         </section>
 

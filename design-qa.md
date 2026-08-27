@@ -50,6 +50,28 @@ The reference is already a focused crop of the AI intelligence panel, so an addi
 
 final result: passed
 
+# Agent 课程列表页顶部插图与渐变 QA（2026-08-27）
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年8月27日 22_12_00.png`
+- Source asset: 1448 × 1086 Agent illustration supplied by the user.
+
+## Implementation evidence
+
+- Asset copied to `app/zero-to-one/agent/插图/agent-course-hero.png` and loaded through `next/image`.
+- Desktop capture: `/tmp/jiaxuan-agent-qa/agent-course-list-hero-illustration-1280x720.png`.
+- Desktop CSS viewport: 1280 × 720; hero height: 391 px; rendered illustration: 520 × 390 px.
+- Mobile CSS viewport: 390 × 844; rendered illustration: 358 × 269 px.
+
+## Findings
+
+- The course-list hero now has the requested light green gradient background, with the supplied illustration placed in the right visual column.
+- The illustration keeps its aspect ratio and remains inside the viewport at desktop and mobile widths.
+- No actionable P0/P1/P2 findings; browser console errors: none; horizontal overflow: none.
+
+final result: passed
+
 # Agent 课程列表页批注修订 QA
 
 ## Source visual truth
