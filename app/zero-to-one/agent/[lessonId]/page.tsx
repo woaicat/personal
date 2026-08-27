@@ -30,5 +30,5 @@ export default async function AgentLessonRoute({ params }: AgentLessonRouteProps
     notFound();
   }
 
-  return <AgentLessonPage />;
+  return <AgentLessonPage lesson={lesson} />;
 }

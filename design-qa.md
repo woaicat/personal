@@ -109,3 +109,68 @@ final result: passed
 - Added a desktop hover bridge and 180 ms close delay so the pointer can travel from a top-level menu to its submenu without collapsing it.
 - The full homepage header is now 63 px including the bottom border; mobile navigation remains content-driven.
 - Rechecked the diagonal mouse path into “其他 → 媒体推荐”; the submenu stayed visible. Rechecked 390 px mobile layout and mobile submenu expansion; both had no horizontal overflow.
+
+# Agent 第一课详情页视觉 QA（当前迭代）
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年8月27日 21_28_13.png`
+- Source pixels: 1448 × 1086; reference state: 第一课详情页。
+
+## Implementation evidence
+
+- Desktop top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-implementation-top-1448x1086.png`
+- Desktop middle viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-implementation-middle-1448x1086.png`
+- Desktop bottom viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-implementation-bottom-1448x1086.png`
+- Mobile viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-implementation-mobile-390x844.png`
+- Side-by-side comparison input: `/tmp/jiaxuan-agent-qa/agent-lesson-comparison.png`
+- Desktop CSS viewport and implementation capture: 1448 × 1086; device scale factor: 1; page height: 1915 px.
+- Mobile CSS viewport and implementation capture: 390 × 844; device scale factor: 1; body and document scroll width: 390 px.
+
+## State and interactions tested
+
+- First lesson route `/zero-to-one/agent/01`, title “第 1 课 认识智能体”。
+- Right-side outline anchors move to the corresponding section; the next-lesson CTA opens `/zero-to-one/agent/02`.
+- Non-first lesson routes remain intentionally blank until their detail designs are confirmed.
+- Desktop and mobile browser-rendered states were checked; browser console errors: none.
+
+## Full-view comparison evidence
+
+The source screenshot and the implementation top capture were opened together in the side-by-side comparison input. The implementation keeps the reference’s long-form reading structure, left content/right outline split, section order, bottom course-output area, and reserved whitespace. The user-requested changes are intentional: the detail page uses the first lesson title “认识智能体”, the content rhythm is looser to increase page height, and the blue accent is mapped to the course list’s green family.
+
+## Focused region comparison evidence
+
+- Top region: back link, title, metadata, key-point list, and first concept split match the reference hierarchy; the model/harness/Agent nodes use consistent public linear icons.
+- Middle region: the core-capability flow, flexibility spectrum, comparison table, and checklist are separated with larger vertical gaps so text does not crowd adjacent blocks.
+- Bottom region: attention roles, trend cards, course output, next-lesson CTA, and sticky outline preserve the reference’s closing rhythm while using the green token.
+- Mobile region: the two-column content collapses to one column, the outline moves below the content, and the table/spectrum remain contained without page-level horizontal overflow.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+- Fonts and typography: the existing Space Grotesk plus Chinese fallbacks keep the compact editorial feel; headings, metadata, body copy, and outline use distinct weights and line heights.
+- Spacing and layout rhythm: section padding is intentionally more generous than the source to address the user’s concern about cramped blocks; the desktop page is 1915 px tall at the reference width.
+- Colors and visual tokens: blue source accents are replaced with `#318355`, `#256743`, `#edf8f0`, and `#f6fbf7`, matching the green status language already present in the course list.
+- Image quality and asset fidelity: the source contains icons rather than required raster illustrations. The implementation uses the existing `lucide-react` public icon library for standard visual marks and does not add fake CSS or SVG artwork.
+- Copy and content: the first lesson title is corrected to “认识智能体”; the page copy follows the supplied screenshot’s lesson outline.
+- Accessibility and interaction: semantic headings, table headers, anchor navigation, keyboard-focusable links, aria labels, and visible focus states are present; mobile has no page-level horizontal overflow.
+
+## Comparison history
+
+1. Initial detail-page implementation was intentionally blank because the detail design had not yet been confirmed.
+2. After the user supplied the first-lesson screenshot, the blank route was replaced only for lesson 01 with the screenshot-led long-form layout. Other lesson routes remain blank.
+3. The first pass used reserved empty visual slots; after the user clarified that the visual marks are icons, those slots were replaced with consistent Lucide icons. The final desktop and mobile captures show no P0/P1/P2 mismatch requiring another correction loop.
+
+## Implementation checklist
+
+- [x] First lesson detail page at `/zero-to-one/agent/01`
+- [x] Correct title: “认识智能体”
+- [x] Reference-led long-form sections and right-side outline
+- [x] Increased spacing between content blocks
+- [x] Green accent tokens aligned with the course list
+- [x] Public linear icons for model, harness, Agent, flow, and trend cards
+- [x] Outline anchors and next-lesson navigation
+- [x] Desktop and mobile responsive verification
+- [x] Browser console and horizontal-overflow checks
+
+final result: passed
