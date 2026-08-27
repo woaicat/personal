@@ -86,7 +86,7 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
           <header className={styles.lessonHeader}>
             <h1>第 1 课&nbsp;&nbsp;{lesson.title}</h1>
             <p className={styles.lessonSubtitle}>理解 Agent 的基本概念、核心能力、与工作流的区别，以及它为何受到关注。</p>
-            <p className={styles.lessonMeta}>jiaxuan&nbsp;&nbsp;·&nbsp;&nbsp;入门课&nbsp;&nbsp;·&nbsp;&nbsp;预计 15 分钟&nbsp;&nbsp;·&nbsp;&nbsp;系列：从 0 到 1 设计一个 Agent</p>
+            <p className={styles.lessonMeta}>预计 5 分钟&nbsp;&nbsp;·&nbsp;&nbsp;系列：从 0 到 1 设计一个 Agent</p>
           </header>
 
           <section className={styles.lessonKeyPoints} aria-labelledby="lesson-key-points-title">
