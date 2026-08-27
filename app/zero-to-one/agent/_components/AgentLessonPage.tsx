@@ -35,7 +35,7 @@ const outlineItems = [
   { id: "section-5", number: "5", label: "Agent 的发展趋势" }
 ];
 
-const spectrumItems = ["确定性代码", "单次脚本", "含模型节点的工作流", "依赖魔高智能体", "通用智能体", "人类专家"];
+const spectrumItems = ["确定性代码", "单次模型调用", "含模型节点的工作流", "垂直领域智能体", "通用智能体", "人类专家"];
 
 const flowItems: Array<{ icon: LucideIcon; label: string }> = [
   { icon: Crosshair, label: "决策 / 计划" },
@@ -48,7 +48,7 @@ const comparisonRows = [
   ["路径", "预先定义", "动态决定"],
   ["适合任务", "固定流程", "不确定任务"],
   ["是否需要判断", "较少", "较多"],
-  ["典型例子", "表单流转", "客服问题处理"]
+  ["典型例子", "按照规则批量审核材料", "客服问题处理"]
 ];
 
 const checklistItems = [
@@ -60,8 +60,8 @@ const checklistItems = [
 
 const trendItems: Array<{ icon: LucideIcon; title: string; description: string }> = [
   { icon: Wrench, title: "工程化走向成熟", description: "从能跑到可控、可观测与稳定交付。" },
-  { icon: Github, title: "巨头纷纷推出开发 harness", description: "降低使用门槛，推动生态快速迭代。" },
-  { icon: Layers3, title: "各类垂类框架供人选择", description: "从通用能力到专业场景，加速落地。" },
+  { icon: Github, title: "开源harness", description: "降低使用门槛，推动生态快速迭代。" },
+  { icon: Layers3, title: "各类现成的框架供人选择", description: "从通用能力到专业场景，加速落地。" },
   { icon: Star, title: "未来价值不只是在技术上更先进", description: "而是能解决问题、可规模化、可持续。" }
 ];
 
@@ -189,7 +189,7 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
 
           <section className={styles.lessonSection} id="section-4" aria-labelledby="section-4-title">
             <h2 id="section-4-title">4. Agent 为何备受关注?</h2>
-            <p>所有人都可以代替人做工作。Agent 都可以代劳，不管是创建文件、检查资料、在线客服还是编写代码。从会计划到执行，从开发到运营，所有环节都可能帮助分工者完成。</p>
+            <p>所有人类可以在电脑上完成的工作，Agent都可以代劳。不管是创建文件、核对表格、在线答疑还是编写代码。<br />从会计到律师、从开发到客服，所有面对电脑开展日常工作的人，都可以将部分工作委托给智能体。</p>
             <div className={styles.lessonRolePills}>
               {['设计', '培训', '开发', '产品', '运营', '客服'].map((role) => <span key={role}>{role}</span>)}
             </div>

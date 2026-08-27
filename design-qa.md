@@ -213,3 +213,30 @@ The source screenshot and the implementation top capture were opened together in
 - [x] Browser console and horizontal-overflow checks
 
 final result: passed
+
+# Agent 第一课批注修订 QA（2026-08-27）
+
+## Scope
+
+- Route: `/zero-to-one/agent/01`
+- Source of changes: current browser comments on the first-lesson detail page.
+- Only lesson 01 copy was updated; other lesson detail routes remain blank until their designs are confirmed.
+
+## Content verification
+
+- Section 3.1 spectrum: `确定性代码` → `单次模型调用` → `含模型节点的工作流` → `垂直领域智能体` → `通用智能体` → `人类专家`.
+- Section 3.2 Workflow example: `按照规则批量审核材料`.
+- Section 4 copy now uses the user-provided wording about computer-based work, from accounting and legal work to development and customer support.
+- Section 5 trend titles: `开源harness` and `各类现成的框架供人选择`.
+
+## Browser checks
+
+- Browser-rendered DOM confirmed all five requested copy updates on `/zero-to-one/agent/01`.
+- Horizontal overflow: none.
+- Browser console errors: none.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+
+final result: passed
