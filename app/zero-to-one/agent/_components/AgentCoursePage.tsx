@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Info } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { agentCurriculum, allAgentLessons } from "../_content/curriculum";
@@ -16,6 +16,12 @@ import styles from "./agent-course.module.css";
 const firstLessonId = allAgentLessons[0]?.id ?? "01";
 
 export function getNextLessonId(progress: LessonProgressMap, lastLessonId: string | null) {
+  const hasStartedLesson = allAgentLessons.some((lesson) => getLessonStatus(progress, lesson.id) !== "not-started");
+
+  if (!hasStartedLesson) {
+    return firstLessonId;
+  }
+
   if (lastLessonId && getLessonStatus(progress, lastLessonId) !== "completed") {
     return lastLessonId;
   }
@@ -70,7 +76,6 @@ export default function AgentCoursePage() {
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>从 0 到 1 系列</p>
               <h1 id="agent-course-title">从 0 到 1 设计一个 Agent</h1>
-              <p className={styles.heroDescription}>用一个虚拟电商客服案例，完成需求判断、智能体设计、评测与监控。</p>
               <div className={styles.progressActionRow}>
                 <a className={styles.primaryButton} href={`/zero-to-one/agent/${nextLessonId}`}>
                   {completedCount > 0 ? "继续学习" : "开始学习"}
@@ -85,11 +90,7 @@ export default function AgentCoursePage() {
               <div className={styles.heroNotes}>
                 <p>
                   <CheckCircle2 aria-hidden="true" size={16} />
-                  完成后你将得到：一份可评审的电商客服 Agent 设计方案包
-                </p>
-                <p>
-                  <Info aria-hidden="true" size={16} />
-                  课程案例：虚拟电商平台客服 Agent（仅用于教学）
+                  这份教程适合有一定产品设计基础和软件理论知识基础，但是又不具备编写代码能力的人。是更适合产品经理宝宝体质的教程。
                 </p>
               </div>
             </div>
@@ -134,10 +135,6 @@ export default function AgentCoursePage() {
           ))}
         </section>
 
-        <section className={styles.courseDisclaimer}>
-          <Info aria-hidden="true" size={17} />
-          <p>本课程使用虚拟教学案例，不接入真实平台数据、账号或客服系统。</p>
-        </section>
       </main>
     </div>
   );

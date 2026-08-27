@@ -1,7 +1,7 @@
 import type { LessonStatus } from "./curriculum";
 
-export const AGENT_PROGRESS_KEY = "zero-to-one-agent-progress-v1";
-export const AGENT_LAST_LESSON_KEY = "zero-to-one-agent-last-lesson-v1";
+export const AGENT_PROGRESS_KEY = "zero-to-one-agent-progress-v2";
+export const AGENT_LAST_LESSON_KEY = "zero-to-one-agent-last-lesson-v2";
 
 export type LessonProgressMap = Record<string, LessonStatus>;
 

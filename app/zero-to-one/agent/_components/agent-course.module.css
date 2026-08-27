@@ -16,8 +16,7 @@
 
 .courseHeaderInner,
 .heroInner,
-.curriculum,
-.courseDisclaimer {
+.curriculum {
   width: min(1160px, calc(100% - 88px));
   margin: 0 auto;
 }
@@ -103,13 +102,6 @@
   line-height: 1.13;
 }
 
-.heroDescription {
-  margin: 0;
-  color: #4e555f;
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
 .progressActionRow {
   display: flex;
   align-items: center;
@@ -175,8 +167,7 @@
   margin-top: 22px;
 }
 
-.heroNotes p,
-.courseDisclaimer p {
+.heroNotes p {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -189,11 +180,6 @@
 
 .heroNotes p:first-child svg {
   color: #4cbf74;
-}
-
-.heroNotes p:last-child svg,
-.courseDisclaimer svg {
-  color: #2c5fe6;
 }
 
 .heroVisualSpace {
@@ -343,15 +329,6 @@
   color: #318355;
 }
 
-.courseDisclaimer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 16px 0;
-}
-
 .srOnly {
   position: absolute;
   width: 1px;
@@ -366,8 +343,7 @@
 @media (max-width: 960px) {
   .courseHeaderInner,
   .heroInner,
-  .curriculum,
-  .courseDisclaimer {
+  .curriculum {
     width: min(100% - 64px, 760px);
   }
 
@@ -390,8 +366,7 @@
 @media (max-width: 680px) {
   .courseHeaderInner,
   .heroInner,
-  .curriculum,
-  .courseDisclaimer {
+  .curriculum {
     width: min(100% - 32px, 520px);
   }
 
@@ -459,10 +434,6 @@
   .lessonCopy strong,
   .lessonCopy span {
     white-space: normal;
-  }
-
-  .courseDisclaimer {
-    justify-content: flex-start;
   }
 
 }

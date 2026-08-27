@@ -3,7 +3,7 @@ import AgentCoursePage from "./_components/AgentCoursePage";
 
 export const metadata: Metadata = {
   title: "从 0 到 1 设计一个 Agent | JiaXuan GAO",
-  description: "用一个虚拟电商客服案例，完成 Agent 的需求判断、设计、评测与监控。"
+  description: "面向具备一定产品设计与软件理论基础、但不具备编写代码能力的产品经理，系统理解 Agent 的设计方法。"
 };
 
 export default function AgentCourseListPage() {

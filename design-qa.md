@@ -50,6 +50,45 @@ The reference is already a focused crop of the AI intelligence panel, so an addi
 
 final result: passed
 
+# Agent 课程列表页批注修订 QA
+
+## Source visual truth
+
+- Browser comment captures supplied with the current task for the Agent course list hero area.
+- Reference state: first-time visitor with no completed lessons; the first primary action should open lesson 01.
+
+## Implementation evidence
+
+- Browser-rendered capture: `/tmp/jiaxuan-agent-qa/agent-course-list-comment-state-649x714.png`
+- CSS viewport and capture: 649 × 714; device scale factor: 1; page-level horizontal overflow: none.
+
+## Findings and fixes
+
+- [P1] The primary action could inherit an old local test state and appear to continue into a later blank lesson. Progress storage keys were moved from `v1` to `v2`, and `getNextLessonId` now returns lesson 01 whenever there is no started lesson. The fresh state renders “开始学习” and links to `/zero-to-one/agent/01`.
+- [P1] The hero contained an undecided virtual e-commerce case and a planned solution-package promise. Both visible lines were removed.
+- [P1] The hero description was removed as requested.
+- [P1] The replacement audience copy is now: “这份教程适合有一定产品设计基础和软件理论知识基础，但是又不具备编写代码能力的人。是更适合产品经理宝宝体质的教程。”
+- Metadata was updated to use the same audience positioning and no longer mention the undecided case.
+
+## Interaction checks
+
+- Fresh browser state shows `已完成 0 / 14 课` and “开始学习”.
+- The primary action navigates to `/zero-to-one/agent/01`.
+- The removed case, solution-package, and old hero-description copy no longer appear in the rendered page.
+- Browser console errors: none.
+
+## Implementation checklist
+
+- [x] First click opens lesson 01
+- [x] Old progress state no longer affects the fresh course entry
+- [x] Removed undecided case copy
+- [x] Removed solution-package copy
+- [x] Removed old hero description
+- [x] Added the requested audience positioning
+- [x] Preserved responsive layout and no horizontal overflow
+
+final result: passed
+
 ---
 
 # Agent 课程列表页视觉 QA
