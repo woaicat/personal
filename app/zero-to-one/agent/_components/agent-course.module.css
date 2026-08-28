@@ -604,6 +604,18 @@
   border-left: 1px solid var(--lesson-line);
 }
 
+.lessonValueSplit {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.lessonValueSplit .lessonSplitColumn + .lessonSplitColumn {
+  padding-top: 30px;
+  padding-left: 0;
+  border-top: 1px solid var(--lesson-line);
+  border-left: 0;
+}
+
 .lessonSplitColumn h3,
 .lessonSubsection h3 {
   margin: 0 0 10px;

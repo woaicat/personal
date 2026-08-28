@@ -84,8 +84,8 @@ final result: passed
 - Route: `/zero-to-one/agent/02`
 - Reference-width top: `/tmp/jiaxuan-agent-qa/agent-lesson-02-top-1055x1491.png`
 - Reference-width bottom: `/tmp/jiaxuan-agent-qa/agent-lesson-02-bottom-1055x1491.png`
-- CSS viewport: 1055 × 1491; page height: 2113 px; main width 702 px; aside width 250 px.
-- Mobile CSS viewport: 390 × 844; page height: 3384 px.
+- CSS viewport: 1055 × 1491; page height: 2186 px; main width 702 px; aside width 250 px.
+- Mobile CSS viewport: 390 × 844; page height: 3388 px.
 
 ## State and interactions tested
 
@@ -106,6 +106,7 @@ final result: passed
 - The four value dimensions now use the user-provided definitions; the example heading is shortened to `B. 选择题`, with three more clearly differentiated scenarios.
 - Workflow and Agent panels now use typical-example headings; the Workflow explanation uses the complete Coze/Dify copy, and the Agent principle is pulled out into a highlighted callout.
 - The duplicated opening question in section 2.2 was removed.
+- Section 1 now stacks the value framework and the choice question vertically so the four value cards and the question options have enough horizontal space; the Workflow explanation breaks after the first complete sentence.
 
 final result: passed
 

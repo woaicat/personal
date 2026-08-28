@@ -225,7 +225,7 @@ export default function AgentSecondLessonPage() {
           <section className={styles.lessonSection} id="section-1" aria-labelledby="section-two-one-title">
             <h2 id="section-two-one-title">1. 判断问题是否值得解决?</h2>
             <p className={styles.lessonSectionLead}>不是所有问题都值得投入资源。先判断问题本身的价值。</p>
-            <div className={styles.lessonSplit}>
+            <div className={`${styles.lessonSplit} ${styles.lessonValueSplit}`}>
               <div className={styles.lessonSplitColumn}>
                 <h3>A. 价值判断框架</h3>
                 <div className={styles.lessonValueGrid}>
@@ -278,7 +278,7 @@ export default function AgentSecondLessonPage() {
                     <li>按照固定模板生成日报、合同字段或会议纪要</li>
                   </ul>
                   <LessonSystemFlow steps={workflowSteps} />
-                  <p>工作流也可以很复杂，主要复杂在流程编排。如果你使用过coze、dify 这类平台，可能会见过很多人设计的工作流看起来让人眼花缭乱、线条错综复杂。不过不管再复杂也在可控的范围内，只是多了一些分支和条件判断，毕竟每一步都是提前预设好的。</p>
+                  <p>工作流也可以很复杂，主要复杂在流程编排。如果你使用过coze、dify 这类平台，可能会见过很多人设计的工作流看起来让人眼花缭乱、线条错综复杂。<br />不过不管再复杂也在可控的范围内，只是多了一些分支和条件判断，毕竟每一步都是提前预设好的。</p>
                 </article>
                 <article className={styles.lessonSystemPanel}>
                   <h4>适合 Agent 的典型例子</h4>
