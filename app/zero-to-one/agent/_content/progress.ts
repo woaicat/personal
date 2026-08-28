@@ -14,3 +14,23 @@ export function getStatusLabel(status: LessonStatus) {
   if (status === "in-progress") return "学习中";
   return "未开始";
 }
+
+export function markLessonCompleted(lessonId: string) {
+  if (typeof window === "undefined") return;
+
+  try {
+    const savedProgress = window.localStorage.getItem(AGENT_PROGRESS_KEY);
+    const parsedProgress = savedProgress ? JSON.parse(savedProgress) : {};
+    const progress = parsedProgress && typeof parsedProgress === "object" && !Array.isArray(parsedProgress)
+      ? parsedProgress as LessonProgressMap
+      : {};
+
+    window.localStorage.setItem(
+      AGENT_PROGRESS_KEY,
+      JSON.stringify({ ...progress, [lessonId]: "completed" })
+    );
+    window.localStorage.setItem(AGENT_LAST_LESSON_KEY, lessonId);
+  } catch {
+    // Progress is an enhancement; a restricted or unavailable localStorage should not block the lesson.
+  }
+}

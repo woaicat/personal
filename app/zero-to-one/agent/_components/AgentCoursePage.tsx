@@ -36,18 +36,28 @@ export default function AgentCoursePage() {
   const [lastLessonId, setLastLessonId] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      const savedProgress = window.localStorage.getItem(AGENT_PROGRESS_KEY);
-      const savedLastLesson = window.localStorage.getItem(AGENT_LAST_LESSON_KEY);
+    const refreshProgress = () => {
+      try {
+        const savedProgress = window.localStorage.getItem(AGENT_PROGRESS_KEY);
+        const savedLastLesson = window.localStorage.getItem(AGENT_LAST_LESSON_KEY);
 
-      if (savedProgress) {
-        setProgress(JSON.parse(savedProgress) as LessonProgressMap);
+        setProgress(savedProgress ? JSON.parse(savedProgress) as LessonProgressMap : {});
+        setLastLessonId(savedLastLesson);
+      } catch {
+        setProgress({});
+        setLastLessonId(null);
       }
-      setLastLessonId(savedLastLesson);
-    } catch {
-      setProgress({});
-      setLastLessonId(null);
-    }
+
+    };
+
+    refreshProgress();
+    window.addEventListener("focus", refreshProgress);
+    window.addEventListener("pageshow", refreshProgress);
+
+    return () => {
+      window.removeEventListener("focus", refreshProgress);
+      window.removeEventListener("pageshow", refreshProgress);
+    };
   }, []);
 
   const completedCount = useMemo(

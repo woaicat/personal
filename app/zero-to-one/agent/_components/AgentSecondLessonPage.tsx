@@ -223,6 +223,11 @@ export default function AgentSecondLessonPage() {
           </section>
 
           <section className={styles.lessonSection} id="section-1" aria-labelledby="section-two-one-title">
+            <div className={styles.lessonSectionIntro}>
+              <p>你可能会说：我要学到底怎么设计一个 agent，看这些干什么？</p>
+              <p>别着急，毕竟不是所有问题都值得上 agent，甚至不是所有问题都值得解决。</p>
+              <p>在开始动手前，了解我们要解决的问题、判断它的价值和特点，可以帮助我们更好的选择方案。</p>
+            </div>
             <h2 id="section-two-one-title">1. 判断问题是否值得解决?</h2>
             <p className={styles.lessonSectionLead}>不是所有问题都值得投入资源。先判断问题本身的价值。</p>
             <div className={`${styles.lessonSplit} ${styles.lessonValueSplit}`}>

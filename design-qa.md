@@ -50,6 +50,29 @@ The reference is already a focused crop of the AI intelligence panel, so an addi
 
 final result: passed
 
+# Agent 课程进入即完成 QA（2026-08-28）
+
+## Scope
+
+- Course list: `/zero-to-one/agent`
+- Lesson route: `/zero-to-one/agent/[lessonId]`
+- Completion is intentionally lightweight and browser-local; no account, backend, or complex user record is introduced.
+
+## Implementation evidence
+
+- `markLessonCompleted` writes `[lessonId]: "completed"` to `zero-to-one-agent-progress-v2` and writes the latest lesson ID to `zero-to-one-agent-last-lesson-v2`.
+- `AgentLessonCompletionTracker` runs on detail-page mount, so entering a lesson marks it complete regardless of whether the user arrived from the list or another in-app link.
+- The existing list counter and status-chip rendering consume the same progress map.
+
+## Browser and build checks
+
+- Second lesson intro is visible inside section 1 and before the section heading.
+- Course list and second lesson route render at `1055 × 1491`; mobile route was checked at `390 × 844`; no page-level horizontal overflow.
+- In-app browser does not expose `window.localStorage`, so persistence was not directly exercised there; source-level implementation and production build checks passed.
+- Browser console errors: none.
+
+final result: passed
+
 # Agent 课程列表页顶部插图与渐变 QA（2026-08-27）
 
 ## Source visual truth

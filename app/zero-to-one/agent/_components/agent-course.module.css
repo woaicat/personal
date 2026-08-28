@@ -1089,6 +1089,25 @@
   margin-top: -1px !important;
 }
 
+.lessonSectionIntro {
+  margin-bottom: 25px;
+  padding: 15px 18px;
+  border-left: 3px solid var(--lesson-accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--lesson-accent-pale);
+}
+
+.lessonSectionIntro p {
+  margin: 0;
+  color: #536070;
+  font-size: 0.82rem;
+  line-height: 1.72;
+}
+
+.lessonSectionIntro p + p {
+  margin-top: 6px;
+}
+
 .lessonValueGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import AgentLessonCompletionTracker from "../_components/AgentLessonCompletionTracker";
 import AgentLessonPage from "../_components/AgentLessonPage";
 import { allAgentLessons, findAgentLesson } from "../_content/curriculum";
 
@@ -30,5 +31,9 @@ export default async function AgentLessonRoute({ params }: AgentLessonRouteProps
     notFound();
   }
 
-  return <AgentLessonPage lesson={lesson} />;
+  return (
+    <AgentLessonCompletionTracker lessonId={lesson.id}>
+      <AgentLessonPage lesson={lesson} />
+    </AgentLessonCompletionTracker>
+  );
 }
