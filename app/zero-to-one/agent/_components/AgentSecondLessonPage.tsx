@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -11,7 +14,6 @@ import {
   FileText,
   Heart,
   ListChecks,
-  MessageCircle,
   RefreshCw,
   Search,
   Sparkles,
@@ -33,22 +35,29 @@ const outlineItems = [
 ];
 
 const valueCards: Array<{ icon: LucideIcon; title: string; description: string }> = [
-  { icon: BarChart3, title: "业务价值", description: "规模 / 影响 / 增效，可量化收益" },
-  { icon: Users, title: "影响范围", description: "受众多少，多少人会因此受益" },
-  { icon: Heart, title: "被服务程度", description: "现有方案是否成熟，是否仍有明显痛点" },
-  { icon: AlertTriangle, title: "不解决的损失", description: "不做会影响的关键流程，损失有多大" }
+  { icon: BarChart3, title: "业务价值", description: "赚钱、降本、增效，解决这个问题能为个人或组织带来多少可量化的价值" },
+  { icon: Users, title: "影响范围", description: "受众多少，解决这个问题多少人可以因此受益" },
+  { icon: Heart, title: "被服务程度", description: "这个问题当前已有的解决方案质量如何，已有解决方案比较成熟，已有解决方案不能完全解决问题或者有明显的漏洞或痛点。" },
+  { icon: AlertTriangle, title: "不解决的损失", description: "这个问题就算不解决又能怎样？不做不会影响业务流程，不做业务流程无法进行下去" }
 ];
 
 const choiceOptions = [
-  "投研团队每天手工整理基金资料，耗时 2 天，影响 60+ 人",
-  "3 位同事想把会议宣讲材料换得更统一",
-  "合规审核结果需要多人重复核对，出错会影响材料上线"
+  "客服团队每天处理 2,000+ 条产品咨询，人工重复回答占用 30 名客服，响应速度影响续费",
+  "每月为 5 位同事整理一次固定格式的报销单，用 Excel 模板 30 分钟即可完成",
+  "为部门分享会重新挑选封面字体，预计只影响 10 位同事"
 ];
 
-const choiceFeedback: Array<{ icon: LucideIcon; tone: string; label: string; text: string }> = [
-  { icon: CheckCircle2, tone: "lessonFeedbackPositive", label: "A", text: "有价值，能显著提升效率，但优先级次于关键流程问题。" },
-  { icon: X, tone: "lessonFeedbackNegative", label: "B", text: "不值得优先解决，受众少、业务价值低、不解决几乎无损失。" },
-  { icon: Sparkles, tone: "lessonFeedbackBest", label: "C", text: "最值得优先解决，影响核心流程，错误成本高，不解决损失明显。" }
+type AnswerFeedback = {
+  icon?: LucideIcon;
+  tone?: string;
+  label: string;
+  text: string;
+};
+
+const choiceFeedback: AnswerFeedback[] = [
+  { icon: CheckCircle2, tone: "lessonFeedbackPositive", label: "A", text: "最值得优先解决，影响用户和业务结果，且有明确的人力与效率成本。" },
+  { icon: X, tone: "lessonFeedbackNegative", label: "B", text: "已有简单模板可以解决，投入 Agent 的复杂度与收益不匹配。" },
+  { icon: Sparkles, tone: "lessonFeedbackBest", label: "C", text: "影响范围小、业务损失低，不值得优先投入。" }
 ];
 
 const decisionRows = [
@@ -79,7 +88,7 @@ const exercises = [
       "为几位同事提供最开放的职涯建议并持续追问",
       "根据管理提纲将竞品报告不断改写"
     ],
-    answer: "A",
+    correctIndex: 0,
     explanations: [
       "规则明确、流程清晰，适合 Workflow。",
       "需要动态判断，不能仅靠固定流程解决。",
@@ -93,7 +102,7 @@ const exercises = [
       "根据用户生命周期识别客服场景并编写文档，并持续修改",
       "统计一年只发生两次的冷门投诉类型"
     ],
-    answer: "B",
+    correctIndex: 1,
     explanations: [
       "更适合 Workflow。",
       "任务开放、需要追问和动态调整，适合 Agent。",
@@ -101,6 +110,75 @@ const exercises = [
     ]
   }
 ];
+
+function InteractiveOptionQuestion({
+  ariaLabel,
+  options,
+  correctIndex,
+  feedback,
+  compact = false
+}: {
+  ariaLabel: string;
+  options: string[];
+  correctIndex: number;
+  feedback: AnswerFeedback[];
+  compact?: boolean;
+}) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const hasAnswered = selectedIndex !== null;
+
+  return (
+    <div className={compact ? styles.lessonExerciseInteraction : undefined}>
+      <div className={styles.lessonChoiceList} role="group" aria-label={ariaLabel}>
+        {options.map((option, index) => {
+          const isCorrect = index === correctIndex;
+          const isSelected = index === selectedIndex;
+          const stateClass = hasAnswered
+            ? isCorrect
+              ? styles.lessonChoiceCorrect
+              : isSelected
+                ? styles.lessonChoiceIncorrect
+                : styles.lessonChoiceNeutral
+            : "";
+
+          return (
+            <button
+              className={`${styles.lessonChoiceOption} ${stateClass}`}
+              type="button"
+              aria-pressed={isSelected}
+              key={option}
+              onClick={() => setSelectedIndex(index)}
+            >
+              <strong>{String.fromCharCode(65 + index)}.</strong>
+              <span>{option}</span>
+              {hasAnswered && isCorrect ? <CheckCircle2 aria-label="正确选项" size={17} strokeWidth={2} /> : null}
+              {hasAnswered && isSelected && !isCorrect ? <X aria-label="错误选项" size={17} strokeWidth={2} /> : null}
+            </button>
+          );
+        })}
+      </div>
+
+      {hasAnswered ? (
+        <div className={`${styles.lessonChoiceFeedback} ${compact ? styles.lessonExerciseFeedback : ""}`}>
+          <p
+            className={selectedIndex === correctIndex ? styles.lessonChoiceResultCorrect : styles.lessonChoiceResultIncorrect}
+            role="status"
+          >
+            {selectedIndex === correctIndex
+              ? "回答正确"
+              : `回答错误，正确选项是 ${String.fromCharCode(65 + correctIndex)}`}
+          </p>
+          {feedback.map(({ icon: Icon, tone, label, text }) => (
+            <p className={tone ? styles[tone] : undefined} key={label}>
+              {Icon ? <Icon aria-hidden="true" size={16} strokeWidth={1.9} /> : null}
+              <strong>{label}：</strong>{text}
+            </p>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
 
 function LessonSystemFlow({ steps }: { steps: Array<{ icon: LucideIcon; label: string }> }) {
   return (
@@ -138,7 +216,7 @@ export default function AgentSecondLessonPage() {
               本课要点
             </h2>
             <ul>
-              <li>先判断问题都不值得解决：业务价值、影响范围、被服务程度、不解决的损失</li>
+              <li>先判断问题是否值得解决：业务价值、影响范围、被服务程度、不解决的损失</li>
               <li>再判断是否适合用 Agent 做：看流程、规则分支、结果开放度</li>
               <li>能用简单办法解决的，尽量不要增加复杂度</li>
             </ul>
@@ -160,24 +238,14 @@ export default function AgentSecondLessonPage() {
                 </div>
               </div>
               <div className={styles.lessonSplitColumn}>
-                <h3>B. 选择示例（金融公司）</h3>
+                <h3>B. 选择题</h3>
                 <p className={styles.lessonPrompt}>以下哪个问题最值得优先解决?</p>
-                <div className={styles.lessonChoiceList}>
-                  {choiceOptions.map((option, index) => (
-                    <div className={styles.lessonChoiceOption} key={option}>
-                      <strong>{String.fromCharCode(65 + index)}.</strong>
-                      <span>{option}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.lessonChoiceFeedback}>
-                  {choiceFeedback.map(({ icon: Icon, tone, label, text }) => (
-                    <p className={styles[tone]} key={label}>
-                      <Icon aria-hidden="true" size={16} strokeWidth={1.9} />
-                      <strong>{label}：</strong>{text}
-                    </p>
-                  ))}
-                </div>
+                <InteractiveOptionQuestion
+                  ariaLabel="价值判断选择题"
+                  options={choiceOptions}
+                  correctIndex={0}
+                  feedback={choiceFeedback}
+                />
               </div>
             </div>
           </section>
@@ -204,23 +272,23 @@ export default function AgentSecondLessonPage() {
               <h3>2.1&nbsp;&nbsp;Workflow 与 Agent 的区别</h3>
               <div className={styles.lessonSystemCompare}>
                 <article className={styles.lessonSystemPanel}>
-                  <h4>Workflow</h4>
+                  <h4>适合 Workflow 的典型例子</h4>
                   <ul>
-                    <li>按照规则，批量识别并提取信息</li>
-                    <li>按照要求，生成固定格式的报告</li>
+                    <li>按照规则批量审核材料，输出通过 / 不通过结果</li>
+                    <li>按照固定模板生成日报、合同字段或会议纪要</li>
                   </ul>
                   <LessonSystemFlow steps={workflowSteps} />
-                  <p>Workflow 也可以很复杂，每条主路径体现在流程编排，但每一步依照预先定义、可控执行。</p>
+                  <p>工作流也可以很复杂，主要复杂在流程编排。如果你使用过coze、dify 这类平台，可能会见过很多人设计的工作流看起来让人眼花缭乱、线条错综复杂。不过不管再复杂也在可控的范围内，只是多了一些分支和条件判断，毕竟每一步都是提前预设好的。</p>
                 </article>
                 <article className={styles.lessonSystemPanel}>
-                  <h4>Agent</h4>
+                  <h4>适合 Agent 的典型例子</h4>
                   <ul>
                     <li>需要根据文档、多轮询问收集信息，创建文档并动态总结</li>
                     <li>生成调研报告、制定计划，以及根据意见、判断提交修改</li>
                   </ul>
                   <LessonSystemFlow steps={agentSteps} />
                   <div className={styles.lessonSystemLoop}><RefreshCw aria-hidden="true" size={15} />反思 / 调整</div>
-                  <p>灵活性、反思性、能自主决策，是 Agent 核心价值的体现。</p>
+                  <p className={styles.lessonAgentPrinciple}>灵活性、反思性、能自主决策是Agent核心价值的体现。换言之，不需要太灵活，也不需要自主决策的任务，大都没必要用到Agent。</p>
                 </article>
               </div>
             </div>
@@ -228,7 +296,6 @@ export default function AgentSecondLessonPage() {
             <div className={styles.lessonSubsection} id="section-2-2">
               <h3>2.2&nbsp;&nbsp;问答机器人一定要用 Agent 吗?</h3>
               <ul className={styles.lessonQuestionList}>
-                <li><MessageCircle aria-hidden="true" size={18} />做一个问答机器人，一定要用 Agent 才实现吗?</li>
                 <li><CircleHelp aria-hidden="true" size={18} />不一定。场景明确且可以穷尽的简单问答，也可以用 Workflow 实现。</li>
                 <li><FileSpreadsheet aria-hidden="true" size={18} />RAG 本身也是一种 Workflow。</li>
                 <li><Sparkles aria-hidden="true" size={18} />PS: Workflow 中也可以调用工具，所以调用工具并不是 Agent 的独特之处。</li>
@@ -239,16 +306,19 @@ export default function AgentSecondLessonPage() {
           <section className={styles.lessonSection} id="section-3" aria-labelledby="section-two-three-title">
             <h2 id="section-two-three-title">3. 练习题</h2>
             <div className={styles.lessonExerciseGrid}>
-              {exercises.map(({ title, options, answer, explanations }) => (
+              {exercises.map(({ title, options, correctIndex, explanations }) => (
                 <article className={styles.lessonExerciseCard} key={title}>
                   <h3>{title}</h3>
-                  <ol className={styles.lessonExerciseOptions}>
-                    {options.map((option, index) => <li key={option}><strong>{String.fromCharCode(65 + index)}.</strong>{option}</li>)}
-                  </ol>
-                  <div className={styles.lessonAnswer}>
-                    <strong>答案：{answer}</strong>
-                    {explanations.map((explanation, index) => <p key={explanation}><span>{String.fromCharCode(65 + index)}：</span>{explanation}</p>)}
-                  </div>
+                  <InteractiveOptionQuestion
+                    ariaLabel={title}
+                    options={options}
+                    correctIndex={correctIndex}
+                    compact
+                    feedback={explanations.map((text, index) => ({
+                      label: String.fromCharCode(65 + index),
+                      text
+                    }))}
+                  />
                 </article>
               ))}
             </div>

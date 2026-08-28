@@ -1127,15 +1127,34 @@
 
 .lessonChoiceOption {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+  grid-template-columns: 18px minmax(0, 1fr) 18px;
   gap: 6px;
   align-items: start;
+  width: 100%;
   padding: 8px 10px;
   border: 1px solid #dce5df;
   border-radius: 7px;
+  background: #fff;
   color: #485563;
   font-size: 0.7rem;
+  font-family: inherit;
   line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+  appearance: none;
+}
+
+.lessonChoiceOption:hover,
+.lessonChoiceOption:focus-visible {
+  border-color: #8fc49d;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(49, 131, 85, 0.1);
+}
+
+.lessonChoiceOption > svg {
+  grid-column: 3;
+  margin-top: 1px;
 }
 
 .lessonChoiceOption strong {
@@ -1143,10 +1162,70 @@
   font-size: 0.68rem;
 }
 
+.lessonChoiceCorrect {
+  border-color: #64b77c;
+  background: var(--lesson-accent-soft);
+  color: var(--lesson-accent-dark);
+}
+
+.lessonChoiceCorrect strong,
+.lessonChoiceCorrect > svg {
+  color: var(--lesson-accent);
+}
+
+.lessonChoiceIncorrect {
+  border-color: #df7777;
+  background: #fff4f4;
+  color: #b34343;
+}
+
+.lessonChoiceIncorrect strong,
+.lessonChoiceIncorrect > svg {
+  color: #d65252;
+}
+
+.lessonChoiceNeutral {
+  border-color: #e1e7e3;
+  color: #7a858e;
+}
+
 .lessonChoiceFeedback {
   display: grid;
   gap: 6px;
   margin-top: 13px;
+}
+
+.lessonChoiceResultCorrect,
+.lessonChoiceResultIncorrect {
+  display: block !important;
+  margin-bottom: 3px !important;
+  font-weight: 700;
+}
+
+.lessonChoiceResultCorrect {
+  color: var(--lesson-accent) !important;
+}
+
+.lessonChoiceResultIncorrect {
+  color: #d65252 !important;
+}
+
+.lessonExerciseInteraction .lessonChoiceList {
+  gap: 6px;
+  margin-top: 0;
+}
+
+.lessonExerciseInteraction .lessonChoiceOption {
+  padding: 7px 8px;
+  font-size: 0.68rem;
+}
+
+.lessonExerciseInteraction .lessonChoiceFeedback {
+  margin-top: 10px;
+}
+
+.lessonExerciseFeedback p:not([role="status"]) {
+  display: block;
 }
 
 .lessonChoiceFeedback p {
@@ -1316,6 +1395,18 @@
   color: #68747f;
   font-size: 0.68rem;
   line-height: 1.55;
+}
+
+.lessonAgentPrinciple {
+  margin-top: 13px !important;
+  padding: 9px 11px;
+  border: 1px solid #acd5b7;
+  border-radius: 8px;
+  background: var(--lesson-accent-pale);
+  color: var(--lesson-accent-dark) !important;
+  font-size: 0.72rem !important;
+  font-weight: 650;
+  line-height: 1.6 !important;
 }
 
 .lessonSystemLoop {

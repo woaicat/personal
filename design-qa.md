@@ -84,8 +84,8 @@ final result: passed
 - Route: `/zero-to-one/agent/02`
 - Reference-width top: `/tmp/jiaxuan-agent-qa/agent-lesson-02-top-1055x1491.png`
 - Reference-width bottom: `/tmp/jiaxuan-agent-qa/agent-lesson-02-bottom-1055x1491.png`
-- CSS viewport: 1055 × 1491; page height: 1983 px; main width 702 px; aside width 250 px.
-- Mobile CSS viewport: 390 × 844; page height: 3353 px.
+- CSS viewport: 1055 × 1491; page height: 2113 px; main width 702 px; aside width 250 px.
+- Mobile CSS viewport: 390 × 844; page height: 3384 px.
 
 ## State and interactions tested
 
@@ -93,6 +93,9 @@ final result: passed
 - Exactly one right-side continue card; next lesson points to `/zero-to-one/agent/03` (`调研用户、业务和生态`) according to current curriculum order.
 - Footer CTA also points to `/zero-to-one/agent/03`.
 - Other lesson detail routes remain blank.
+- Before answering, the value-dimension explanations and all question explanations are hidden.
+- Selecting the correct option turns it green and shows `回答正确`; selecting a wrong option turns it red, keeps the correct option green, shows the correct answer, and reveals the explanations.
+- Both practice questions reuse the same selected/correct/incorrect interaction.
 - Browser console errors: none; horizontal overflow: none.
 
 ## Findings
@@ -100,6 +103,9 @@ final result: passed
 - No actionable P0/P1/P2 findings remain.
 - The screenshot’s duplicated lower-right next-lesson text card was intentionally omitted; only the single right-side continue card and the separate footer CTA remain.
 - Green token family and existing lesson layout were reused; no unrelated first-lesson structure was changed.
+- The four value dimensions now use the user-provided definitions; the example heading is shortened to `B. 选择题`, with three more clearly differentiated scenarios.
+- Workflow and Agent panels now use typical-example headings; the Workflow explanation uses the complete Coze/Dify copy, and the Agent principle is pulled out into a highlighted callout.
+- The duplicated opening question in section 2.2 was removed.
 
 final result: passed
 
