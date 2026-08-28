@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: AgentLessonRouteProps): Promi
   const lesson = findAgentLesson(lessonId);
 
   return {
-    title: lesson ? `${lesson.title} | 从 0 到 1 设计一个 Agent` : "从 0 到 1 设计一个 Agent"
+    title: lesson ? `${lessonId === "02" ? "价值判断" : lesson.title} | 从 0 到 1 设计一个 Agent` : "从 0 到 1 设计一个 Agent"
   };
 }
 

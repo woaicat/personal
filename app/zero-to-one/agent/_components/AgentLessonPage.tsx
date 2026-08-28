@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import type { AgentLesson } from "../_content/curriculum";
+import AgentSecondLessonPage from "./AgentSecondLessonPage";
 import styles from "./agent-course.module.css";
 
 const toolNames = ["Codex", "Claude Code", "Workbuddy", "豆包工作"];
@@ -70,6 +71,10 @@ interface AgentLessonPageProps {
 }
 
 export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
+  if (lesson.id === "02") {
+    return <AgentSecondLessonPage />;
+  }
+
   if (lesson.id !== "01") {
     return <main className={styles.coursePage} aria-label="课程详情页" />;
   }

@@ -72,6 +72,37 @@ final result: passed
 
 final result: passed
 
+# Agent 第二课详情页视觉 QA（2026-08-28）
+
+## Source visual truth
+
+- `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-9484ab2c-5656-43f7-88e5-8480e38e9225.png`
+- User-selected reference for the second lesson detail page.
+
+## Implementation evidence
+
+- Route: `/zero-to-one/agent/02`
+- Reference-width top: `/tmp/jiaxuan-agent-qa/agent-lesson-02-top-1055x1491.png`
+- Reference-width bottom: `/tmp/jiaxuan-agent-qa/agent-lesson-02-bottom-1055x1491.png`
+- CSS viewport: 1055 × 1491; page height: 1983 px; main width 702 px; aside width 250 px.
+- Mobile CSS viewport: 390 × 844; page height: 3353 px.
+
+## State and interactions tested
+
+- Title: `第 2 课 价值判断`.
+- Exactly one right-side continue card; next lesson points to `/zero-to-one/agent/03` (`调研用户、业务和生态`) according to current curriculum order.
+- Footer CTA also points to `/zero-to-one/agent/03`.
+- Other lesson detail routes remain blank.
+- Browser console errors: none; horizontal overflow: none.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+- The screenshot’s duplicated lower-right next-lesson text card was intentionally omitted; only the single right-side continue card and the separate footer CTA remain.
+- Green token family and existing lesson layout were reused; no unrelated first-lesson structure was changed.
+
+final result: passed
+
 # Agent 课程列表页批注修订 QA
 
 ## Source visual truth
