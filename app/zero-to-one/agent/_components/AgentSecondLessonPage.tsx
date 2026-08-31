@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -20,10 +17,10 @@ import {
   Table2,
   Target,
   Users,
-  X,
   type LucideIcon
 } from "lucide-react";
 import Link from "next/link";
+import LessonChoiceQuestion, { type LessonChoiceFeedback } from "./LessonChoiceQuestion";
 import styles from "./agent-course.module.css";
 
 const outlineItems = [
@@ -47,17 +44,10 @@ const choiceOptions = [
   "为部门分享会重新挑选封面字体，预计只影响 10 位同事"
 ];
 
-type AnswerFeedback = {
-  icon?: LucideIcon;
-  tone?: string;
-  label: string;
-  text: string;
-};
-
-const choiceFeedback: AnswerFeedback[] = [
-  { icon: CheckCircle2, tone: "lessonFeedbackPositive", label: "A", text: "最值得优先解决，影响用户和业务结果，且有明确的人力与效率成本。" },
-  { icon: X, tone: "lessonFeedbackNegative", label: "B", text: "已有简单模板可以解决，投入 Agent 的复杂度与收益不匹配。" },
-  { icon: Sparkles, tone: "lessonFeedbackBest", label: "C", text: "影响范围小、业务损失低，不值得优先投入。" }
+const choiceFeedback: LessonChoiceFeedback[] = [
+  { icon: "check", tone: "lessonFeedbackPositive", label: "A", text: "最值得优先解决，影响用户和业务结果，且有明确的人力与效率成本。" },
+  { icon: "x", tone: "lessonFeedbackNegative", label: "B", text: "已有简单模板可以解决，投入 Agent 的复杂度与收益不匹配。" },
+  { icon: "sparkles", tone: "lessonFeedbackBest", label: "C", text: "影响范围小、业务损失低，不值得优先投入。" }
 ];
 
 const decisionRows = [
@@ -110,75 +100,6 @@ const exercises = [
     ]
   }
 ];
-
-function InteractiveOptionQuestion({
-  ariaLabel,
-  options,
-  correctIndex,
-  feedback,
-  compact = false
-}: {
-  ariaLabel: string;
-  options: string[];
-  correctIndex: number;
-  feedback: AnswerFeedback[];
-  compact?: boolean;
-}) {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const hasAnswered = selectedIndex !== null;
-
-  return (
-    <div className={compact ? styles.lessonExerciseInteraction : undefined}>
-      <div className={styles.lessonChoiceList} role="group" aria-label={ariaLabel}>
-        {options.map((option, index) => {
-          const isCorrect = index === correctIndex;
-          const isSelected = index === selectedIndex;
-          const stateClass = hasAnswered
-            ? isCorrect
-              ? styles.lessonChoiceCorrect
-              : isSelected
-                ? styles.lessonChoiceIncorrect
-                : styles.lessonChoiceNeutral
-            : "";
-
-          return (
-            <button
-              className={`${styles.lessonChoiceOption} ${stateClass}`}
-              type="button"
-              aria-pressed={isSelected}
-              key={option}
-              onClick={() => setSelectedIndex(index)}
-            >
-              <strong>{String.fromCharCode(65 + index)}.</strong>
-              <span>{option}</span>
-              {hasAnswered && isCorrect ? <CheckCircle2 aria-label="正确选项" size={17} strokeWidth={2} /> : null}
-              {hasAnswered && isSelected && !isCorrect ? <X aria-label="错误选项" size={17} strokeWidth={2} /> : null}
-            </button>
-          );
-        })}
-      </div>
-
-      {hasAnswered ? (
-        <div className={`${styles.lessonChoiceFeedback} ${compact ? styles.lessonExerciseFeedback : ""}`}>
-          <p
-            className={selectedIndex === correctIndex ? styles.lessonChoiceResultCorrect : styles.lessonChoiceResultIncorrect}
-            role="status"
-          >
-            {selectedIndex === correctIndex
-              ? "回答正确"
-              : `回答错误，正确选项是 ${String.fromCharCode(65 + correctIndex)}`}
-          </p>
-          {feedback.map(({ icon: Icon, tone, label, text }) => (
-            <p className={tone ? styles[tone] : undefined} key={label}>
-              {Icon ? <Icon aria-hidden="true" size={16} strokeWidth={1.9} /> : null}
-              <strong>{label}：</strong>{text}
-            </p>
-          ))}
-        </div>
-      ) : null}
-    </div>
-  );
-}
 
 function LessonSystemFlow({ steps }: { steps: Array<{ icon: LucideIcon; label: string }> }) {
   return (
@@ -245,7 +166,7 @@ export default function AgentSecondLessonPage() {
               <div className={styles.lessonSplitColumn}>
                 <h3>B. 选择题</h3>
                 <p className={styles.lessonPrompt}>以下哪个问题最值得优先解决?</p>
-                <InteractiveOptionQuestion
+                <LessonChoiceQuestion
                   ariaLabel="价值判断选择题"
                   options={choiceOptions}
                   correctIndex={0}
@@ -314,7 +235,7 @@ export default function AgentSecondLessonPage() {
               {exercises.map(({ title, options, correctIndex, explanations }) => (
                 <article className={styles.lessonExerciseCard} key={title}>
                   <h3>{title}</h3>
-                  <InteractiveOptionQuestion
+                  <LessonChoiceQuestion
                     ariaLabel={title}
                     options={options}
                     correctIndex={correctIndex}

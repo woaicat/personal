@@ -13,6 +13,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 import Link from "next/link";
+import LessonChoiceQuestion, { type LessonChoiceFeedback } from "./LessonChoiceQuestion";
 import styles from "./agent-course.module.css";
 
 const outlineItems = [
@@ -20,7 +21,8 @@ const outlineItems = [
   { id: "section-2", number: "2", label: "什么是 benchmark？" },
   { id: "section-3", number: "3", label: "选择模型的 3 个评估维度" },
   { id: "section-4", number: "4", label: "验证模型在具体任务中的表现" },
-  { id: "section-5", number: "5", label: "综合评分" }
+  { id: "section-5", number: "5", label: "综合评分" },
+  { id: "section-6", number: "6", label: "练习题" }
 ];
 
 const taskCards: Array<{ icon: LucideIcon; title: string; description: string }> = [
@@ -41,6 +43,18 @@ const evaluationRows = [
   ["信息提取 Agent", "从简历中提取结构化信息", "读取 100 份不同模式的简历，提取姓名、年龄、职位、工作年限、学历等字段", "字段提取正确率", "91", "93", "96"],
   ["数据分析 Agent", "分析销售数据并输出关键指标", "读取 50 份销售明细，发现数据趋势并生成图表", "指标识别/准确率", "87", "96", "92"],
   ["编程 Agent", "根据需求生成或修改复用代码", "读取 30 个真实编程组任务，包含算法、调试、流程和单元测试等", "测试通过率", "90", "97", "89"]
+];
+
+const modelSelectionOptions = [
+  "直接看公开基准评分，选择得分最高的模型。",
+  "分析 Agent 需要执行的具体任务，根据任务设计测试用例，评估模型在任务中的表现。",
+  "优先选择参数最多或价格最高的模型，默认它更适合所有任务。"
+];
+
+const modelSelectionFeedback: LessonChoiceFeedback[] = [
+  { icon: "alert", tone: "lessonFeedbackNegative", label: "A", text: "公开基准可以作为参考，但不能代表模型在你的具体任务中的表现。" },
+  { icon: "check", tone: "lessonFeedbackPositive", label: "B", text: "正确。先明确任务，再用贴近真实场景的测试用例比较模型表现、成本和响应速度。" },
+  { icon: "alert", tone: "lessonFeedbackNegative", label: "C", text: "参数量和价格不能直接说明模型是否适合当前 Agent 的任务。" }
 ];
 
 function StepRail() {
@@ -108,7 +122,7 @@ export default function AgentFourthLessonPage() {
             <div className={styles.lessonFourTaskGrid}>
               {taskCards.map(({ icon: Icon, title, description }) => (
                 <article className={styles.lessonFourTaskCard} key={title}>
-                  <Icon aria-hidden="true" size={19} strokeWidth={1.8} />
+                  <Icon aria-hidden="true" size={24} strokeWidth={1.8} />
                   <strong>{title}</strong>
                   <p>{description}</p>
                 </article>
@@ -138,7 +152,7 @@ export default function AgentFourthLessonPage() {
             <div className={styles.lessonFourDimensionGrid}>
               {dimensions.map(({ icon: Icon, title }) => (
                 <article className={styles.lessonFourDimensionCard} key={title}>
-                  <Icon aria-hidden="true" size={28} strokeWidth={1.7} />
+                  <Icon aria-hidden="true" size={24} strokeWidth={1.8} />
                   <strong>{title}</strong>
                 </article>
               ))}
@@ -180,6 +194,17 @@ export default function AgentFourthLessonPage() {
               总分 = 任务表现得分（权重 50%） + token 成本得分（权重 25%） + 响应速度得分（权重 25%）
             </div>
             <p>关于不同维度的评分占比权重不是一成不变的，可以根据产品的侧重、用户的期望、现实条件等因素来进行调整。</p>
+          </section>
+
+          <section className={styles.lessonSection} id="section-6" aria-labelledby="lesson-four-section-six-title">
+            <h2 id="lesson-four-section-six-title">6. 练习题</h2>
+            <p>为自己的 Agent 选择合适的模型时，下面哪种做法更合理？</p>
+            <LessonChoiceQuestion
+              ariaLabel="模型选型选择题"
+              options={modelSelectionOptions}
+              correctIndex={1}
+              feedback={modelSelectionFeedback}
+            />
           </section>
 
           <footer className={styles.lessonFooter}>
