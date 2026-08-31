@@ -193,8 +193,8 @@ export function ProfileSections({
             </div>
 
             <div className="bio-block">
-              <h4>新的合作机会</h4>
-              <p>不管是个人还是企业，只要希望利用 AI 解决问题，都欢迎找我咨询。</p>
+              <h4>正在寻找</h4>
+              <p>新的合作机会（不管是个人还是企业，只要希望利用AI解决问题，都欢迎找我咨询）</p>
             </div>
           </div>
         </div>
