@@ -3,12 +3,12 @@ import {
   ArrowRight,
   BarChart3,
   BookOpen,
-  CheckCircle2,
   Clock3,
   Database,
   FileText,
   MessageCircle,
   ShieldCheck,
+  Sparkles,
   Target,
   type LucideIcon
 } from "lucide-react";
@@ -83,7 +83,7 @@ export default function AgentFourthLessonPage() {
 
           <section className={styles.lessonKeyPoints} aria-labelledby="lesson-four-key-points-title">
             <h2 id="lesson-four-key-points-title">
-              <span className={styles.lessonBadge} aria-hidden="true"><CheckCircle2 size={13} strokeWidth={2.4} /></span>
+              <span className={styles.lessonBadge} aria-hidden="true"><Sparkles size={13} strokeWidth={2.4} /></span>
               本课要点
             </h2>
             <ul>
@@ -97,7 +97,7 @@ export default function AgentFourthLessonPage() {
             <p>这里的模型指通用大语言模型，比如 DeepSeek、GPT、Kimi 等等。如果你还记得第一课提到：模型是智能体的大脑，是驱动智能体行动的引擎。</p>
             <p>选择模型不能只看公开的基准测试和评分，也不能只看大模型公司的宣传，最关键的还是需要在具体任务上进行验证，根据 Agent 将要处理的任务选择合适的模型。</p>
             <p>公开的模型表现评分可以作为参考，但是无法完全代表模型在我们自己的任务中的表现，尤其现实生活中的场景千变万化。</p>
-            <p>没有万能的模型，所以需要为我们的任务设计专属的 <strong>“benchmark”</strong>。</p>
+            <p>没有万能的指标，所以需要为我们的任务设计专属的 <strong>“benchmark”</strong>。</p>
           </div>
 
           <section className={styles.lessonSection} id="section-1" aria-labelledby="lesson-four-section-one-title">
@@ -119,9 +119,9 @@ export default function AgentFourthLessonPage() {
 
           <section className={styles.lessonSection} id="section-2" aria-labelledby="lesson-four-section-two-title">
             <h2 id="lesson-four-section-two-title">2. 什么是 benchmark？</h2>
-            <p>没有万能的模型，所以需要为我们的任务设计专属的“benchmark”。</p>
+            <p>公开基准测试不一定能代表我们具体任务中的考察点。</p>
             <p>benchmark 可以理解为一套专门用来“考试”的题目和评分标准。我们自己定义一组任务，测试不同模型的表现，看看谁更适合。</p>
-            <p>在公开基准中，下面几个比较常见：</p>
+            <p>以下是几个常见的公开基准， 每个新模型发布时都可能从中选几个进行测试，然后宣传自己的得分。（但是现在我们知道了，公开基准测试得分不等于在具体任务中的表现）</p>
             <ul className={styles.lessonFourBenchmarkList}>
               <li><a href="https://github.com/hendrycks/test" target="_blank" rel="noreferrer">MMLU</a>：覆盖人文、社会科学、STEM 等多学科，测试模型的广泛知识理解与多任务推理能力。</li>
               <li><a href="https://github.com/idavidrein/gpqa" target="_blank" rel="noreferrer">GPQA</a>：面向研究生水平的高难度问答，重点观察模型的知识运用与科学推理能力。</li>
