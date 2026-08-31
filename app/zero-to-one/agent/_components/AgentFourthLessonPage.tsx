@@ -7,7 +7,6 @@ import {
   Clock3,
   Database,
   FileText,
-  Info,
   MessageCircle,
   ShieldCheck,
   Target,
@@ -120,14 +119,9 @@ export default function AgentFourthLessonPage() {
           </section>
 
           <section className={styles.lessonSection} id="section-2" aria-labelledby="lesson-four-section-two-title">
-            <div className={styles.lessonFourSectionHeading}>
-              <h2 id="lesson-four-section-two-title">2. 什么是 benchmark？</h2>
-              <details className={styles.lessonFourDefinition} open>
-                <summary aria-label="查看 benchmark 解释"><Info size={16} strokeWidth={1.9} /></summary>
-                <div>benchmark 可以理解为一套专门用来“考试”的题目和评分标准。我们自己定义一组任务，测试不同模型的表现，看看谁更适合。</div>
-              </details>
-            </div>
+            <h2 id="lesson-four-section-two-title">2. 什么是 benchmark？</h2>
             <p>没有万能的模型，所以需要为我们的任务设计专属的“benchmark”。</p>
+            <p>benchmark 可以理解为一套专门用来“考试”的题目和评分标准。我们自己定义一组任务，测试不同模型的表现，看看谁更适合。</p>
           </section>
 
           <section className={styles.lessonSection} id="section-3" aria-labelledby="lesson-four-section-three-title">
