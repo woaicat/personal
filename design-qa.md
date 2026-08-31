@@ -69,6 +69,7 @@ final result: passed
 - Comment-update comparison inputs: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comment-update-top-comparison.png` and `/tmp/jiaxuan-agent-qa/agent-lesson-04-comment-update-benchmark-comparison.png`
 - Latest comment iteration top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comments-top-740.png`
 - Latest comment iteration section 4 viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comments-section4-740.png`
+- Latest benchmark links viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-benchmark-links-740.png`
 - CSS viewport: 1015 × 720; browser screenshot pixels: 1000 × 709; device scale factor: 1. The implementation captures were normalized to 1015 × 720 by restoring the 15 px scrollbar strip before comparison.
 - Latest focused CSS viewport: 740 × 644; the three step labels share the same top row and the second-step explanation sits below it. Mobile CSS viewport: 390 × 844; browser content width: 375; page-level width: 375; table wrapper keeps a 740 px local scroll area.
 
@@ -77,6 +78,7 @@ final result: passed
 - The title is `第 4 课 选择合适的模型`, followed by the lesson summary `比较不同模型能力、成本与延迟，明确选型思路。`; the metadata now uses `预计 5 分钟 · 系列：从 0 到 1 设计一个 Agent` to match lessons 1 and 2.
 - The page renders the five screenshot-aligned sections: task, benchmark, evaluation dimensions, task validation table, and weighted scoring.
 - The benchmark explanation is rendered directly as body copy below the section heading, with no tooltip interaction.
+- Section 2 now lists four linked public benchmarks—MMLU, GPQA, HumanEval, and SWE-bench—with a short description of the capability each one evaluates, plus the highlighted Gaokao/job-performance analogy requested in the annotation.
 - The five right-side outline links navigate to the corresponding section anchors.
 - The footer CTA and the right-side continue card both point to `/zero-to-one/agent/05`; the displayed next lesson is the real curriculum lesson `编写系统提示词`, replacing the screenshot placeholder `为任务设计测试准则`.
 - Fresh desktop and mobile browser pages had no console errors. Mobile has no page-level horizontal overflow; the wide scoring table is intentionally scrollable within its own wrapper.
@@ -87,7 +89,7 @@ The source and normalized implementation top were opened together in `agent-less
 
 ## Focused region comparison evidence
 
-The benchmark and table regions were opened in the combined comparison inputs `agent-lesson-04-comment-update-benchmark-comparison.png` and `design-qa-lesson-04-table-comparison.png`. The latest section 4 viewport `agent-lesson-04-comments-section4-740.png` confirms that all three step labels share one horizontal row and the explanatory sentence sits below step 2. The three model score columns fit in the desktop content area, and the table remains locally scrollable on mobile. The table note now identifies the scores as fictional, and the weighting copy uses `产品的侧重`.
+The benchmark and table regions were opened in the combined comparison inputs `agent-lesson-04-comment-update-benchmark-comparison.png` and `design-qa-lesson-04-table-comparison.png`. The latest benchmark viewport `agent-lesson-04-benchmark-links-740.png` confirms the four linked benchmark entries and highlighted explanation card. The latest section 4 viewport `agent-lesson-04-comments-section4-740.png` confirms that all three step labels share one horizontal row and the explanatory sentence sits below step 2. The three model score columns fit in the desktop content area, and the table remains locally scrollable on mobile. The table note now identifies the scores as fictional, and the weighting copy uses `产品的侧重`.
 
 ## Findings
 
@@ -96,7 +98,7 @@ The benchmark and table regions were opened in the combined comparison inputs `a
 - Spacing and layout rhythm: header, key points, task cards, dimensions, score table, formula, and footer were tightened against the reference-width comparison; the desktop layout has no page-level overflow.
 - Colors and visual tokens: the existing lesson green accent, pale green callouts, white cards, and hairline borders are reused rather than introducing a second visual system.
 - Image quality and asset fidelity: the reference contains no raster illustrations. All visible icons use the existing `lucide-react` icon library; no placeholder or CSS-drawn asset was introduced.
-- Copy and content: the next-lesson title and summary are sourced from the current `curriculum.ts` data, while the scoring values are labeled as enterprise examples rather than real model test results.
+- Copy and content: the next-lesson title and summary are sourced from the current `curriculum.ts` data, the benchmark descriptions link to their public source pages, and the scoring values are labeled as fictional rather than real model test results.
 - Preview recovery: the first development preview was affected by a stale `.next` vendor chunk after the production build. The preview was stopped, the generated cache was moved to `/tmp/jiaxuan-next-backup/.next-corrupt-20260831` for recovery, and a new browser page then rendered `/04` successfully with zero errors.
 
 ## Comparison history
@@ -104,12 +106,15 @@ The benchmark and table regions were opened in the combined comparison inputs `a
 1. Initial pass used a two-column task-card arrangement and a 740 px minimum desktop table width. The cards were changed to the reference's four compact horizontal rows, and the desktop minimum table width was removed so all three score columns fit.
 2. The header and intro rhythm were tightened, the dimension cards were reduced to the screenshot's title-only treatment, and the benchmark explanation was moved from a tooltip into normal body copy. The model-introduction paragraph is explicitly 13px. The final top and table comparisons show no actionable P0/P1/P2 differences.
 3. The lesson header now matches the existing lesson pattern, the step rail keeps all three labels on one row with the explanation beneath step 2, and the note/weighting copy follows the latest annotations.
+4. Section 2 now includes four public benchmark links and a highlighted explanation distinguishing general benchmark capability from task-specific Agent evaluation.
 
 ## Implementation checklist
 
 - [x] 第 4 课详情页接入现有课程路由
 - [x] 五个正文模块与右侧课程大纲
 - [x] benchmark 解释作为第 2 节正文展示
+- [x] 公开 benchmark 示例、能力说明与外链
+- [x] benchmark 与定制化绩效考核的突出说明
 - [x] 下一课替换为真实的第 5 课内容
 - [x] 桌面端三列模型评分完整显示
 - [x] 三步验证标签水平对齐，说明文案置于下一行

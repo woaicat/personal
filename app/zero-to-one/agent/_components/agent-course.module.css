@@ -1142,6 +1142,48 @@
   margin-top: 13px !important;
 }
 
+.lessonFourBenchmarkList {
+  display: grid;
+  gap: 7px;
+  margin: 11px 0 14px;
+  padding-left: 21px;
+}
+
+.lessonFourBenchmarkList li {
+  padding-left: 2px;
+  color: #4d5b67;
+  font-size: 0.73rem;
+  line-height: 1.6;
+}
+
+.lessonFourBenchmarkList a {
+  color: var(--lesson-accent-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #9bceb0;
+  text-underline-offset: 3px;
+}
+
+.lessonFourBenchmarkList a:hover,
+.lessonFourBenchmarkList a:focus-visible {
+  color: var(--lesson-accent);
+}
+
+.lessonFourBenchmarkNote {
+  margin-top: 14px;
+  padding: 11px 13px;
+  border: 1px solid #a9d8b8;
+  border-radius: 7px;
+  background: var(--lesson-accent-pale);
+  color: var(--lesson-accent-dark);
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.lessonFourBenchmarkNote strong {
+  font-weight: 750;
+}
+
 .lessonFourDimensionGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
