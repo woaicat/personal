@@ -1078,6 +1078,379 @@
   margin-top: 1px;
 }
 
+.fourthLessonPage {
+  --lesson-accent: #2f8b5b;
+  --lesson-accent-dark: #216e45;
+  --lesson-accent-soft: #edf8f0;
+  --lesson-accent-pale: #f7fcf8;
+}
+
+.lessonFourIntro {
+  padding: 16px 0 2px;
+}
+
+.lessonFourIntro p {
+  margin: 0 0 10px;
+  color: #3e4b58;
+  font-size: 0.79rem;
+  line-height: 1.6;
+}
+
+.lessonFourIntro strong {
+  color: var(--lesson-accent-dark);
+  font-weight: 700;
+}
+
+.lessonFourTaskGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  margin-top: 13px;
+}
+
+.lessonFourTaskCard {
+  display: grid;
+  grid-template-columns: 22px auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 9px;
+  min-height: 31px;
+  padding: 4px 12px;
+  border: 1px solid #dce8df;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.lessonFourTaskCard > svg {
+  margin-top: 1px;
+  color: var(--lesson-accent);
+}
+
+.lessonFourTaskCard strong {
+  color: #334252;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.lessonFourTaskCard p {
+  margin: 0;
+  color: #6a7783;
+  font-size: 0.69rem;
+  line-height: 1.52;
+}
+
+.lessonFourClosing {
+  margin-top: 13px !important;
+}
+
+.lessonFourSectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lessonFourSectionHeading h2 {
+  margin-bottom: 0;
+}
+
+.lessonFourDefinition {
+  position: relative;
+  display: inline-flex;
+  color: var(--lesson-accent);
+}
+
+.lessonFourDefinition summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lessonFourDefinition summary::-webkit-details-marker {
+  display: none;
+}
+
+.lessonFourDefinition summary:focus-visible {
+  outline: 3px solid rgba(47, 139, 91, 0.18);
+  outline-offset: 2px;
+}
+
+.lessonFourDefinition[open] summary {
+  background: var(--lesson-accent-soft);
+}
+
+.lessonFourDefinition > div {
+  position: absolute;
+  top: 29px;
+  left: -8px;
+  z-index: 2;
+  width: 250px;
+  padding: 11px 12px;
+  border: 1px solid #dfe7e1;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 9px 22px rgba(25, 48, 35, 0.12);
+  color: #55636e;
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.lessonFourDimensionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.lessonFourDimensionCard {
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 9px;
+  min-height: 47px;
+  padding: 8px 12px;
+  border: 1px solid #dfe8e2;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lessonFourDimensionCard > svg {
+  color: var(--lesson-accent);
+}
+
+.lessonFourDimensionCard strong {
+  color: #334252;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.lessonFourDimensionCard p {
+  margin: 4px 0 0;
+  color: #72808a;
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+
+.fourthLessonPage .lessonLayout {
+  padding-top: 30px;
+}
+
+.fourthLessonPage .lessonHeader {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.fourthLessonPage .lessonKeyPoints {
+  padding-top: 11px;
+  padding-bottom: 15px;
+}
+
+.fourthLessonPage .lessonSection {
+  padding-top: 24px;
+  padding-bottom: 25px;
+}
+
+.fourthLessonPage #section-2 {
+  padding-top: 14px;
+  padding-bottom: 15px;
+}
+
+.fourthLessonPage #section-3 {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.fourthLessonPage #section-4,
+.fourthLessonPage #section-5 {
+  padding-top: 22px;
+  padding-bottom: 24px;
+}
+
+@media (min-width: 861px) and (max-width: 1100px) {
+  .fourthLessonPage .lessonLayout {
+    gap: 48px;
+  }
+}
+
+.lessonFourStepRail {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 16px 0 12px;
+  color: var(--lesson-accent);
+}
+
+.lessonFourStepRail > svg {
+  flex: 0 0 auto;
+}
+
+.lessonFourStep {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 8px;
+  min-width: 0;
+}
+
+.lessonFourStep > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #87c59b;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+
+.lessonFourStep strong {
+  color: #344354;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.lessonFourStep small {
+  grid-column: 2;
+  margin-top: 3px;
+  color: #89949c;
+  font-size: 0.59rem;
+  line-height: 1.35;
+}
+
+.lessonFourTableWrap {
+  overflow-x: auto;
+  border: 1px solid #dfe7e1;
+}
+
+.lessonFourTable {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  color: #4d5b67;
+  font-size: 0.59rem;
+  table-layout: fixed;
+}
+
+.lessonFourTable th,
+.lessonFourTable td {
+  padding: 5px 6px;
+  border-right: 1px solid #dfe7e1;
+  border-bottom: 1px solid #dfe7e1;
+  line-height: 1.35;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.lessonFourTable th:last-child,
+.lessonFourTable td:last-child {
+  border-right: 0;
+}
+
+.lessonFourTable tbody tr:last-child th,
+.lessonFourTable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.lessonFourTable thead th {
+  color: #344354;
+  font-size: 0.62rem;
+  text-align: center;
+}
+
+.lessonFourTable thead th:nth-child(1) { width: 12%; }
+.lessonFourTable thead th:nth-child(2) { width: 16%; }
+.lessonFourTable thead th:nth-child(3) { width: 25%; }
+.lessonFourTable thead th:nth-child(4) { width: 13%; }
+.lessonFourTable thead th:nth-child(n + 5) { width: 11.33%; }
+
+.lessonFourTable tbody th {
+  color: #3c4b59;
+  font-weight: 650;
+}
+
+.lessonFourTable tbody td:nth-child(n + 5) {
+  color: var(--lesson-accent-dark);
+  font-weight: 650;
+  text-align: center;
+}
+
+.lessonFourTableNote {
+  margin: 9px 0 0 !important;
+  color: #87929a !important;
+  font-size: 0.64rem !important;
+}
+
+.lessonFourFormula {
+  margin: 14px 0 11px;
+  padding: 9px 15px;
+  border: 1px solid #a9d8b8;
+  border-radius: 7px;
+  background: var(--lesson-accent-pale);
+  color: var(--lesson-accent-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .lessonFourDimensionGrid {
+    gap: 10px;
+  }
+
+  .lessonFourStepRail {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .lessonFourTaskGrid,
+  .lessonFourDimensionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lessonFourTaskCard {
+    grid-template-columns: 22px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .lessonFourTaskCard p {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+  }
+
+  .lessonFourStepRail {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lessonFourStepRail > svg {
+    display: none;
+  }
+
+  .lessonFourStep {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .lessonFourDefinition > div {
+    left: auto;
+    right: -8px;
+  }
+
+  .lessonFourFormula {
+    text-align: left;
+  }
+
+  .lessonFourTable {
+    min-width: 740px;
+  }
+}
+
 .lessonContinue a span {
   grid-column: 1 / -1;
   color: #68747f;

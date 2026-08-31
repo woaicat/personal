@@ -50,6 +50,67 @@ The reference is already a focused crop of the AI intelligence panel, so an addi
 
 final result: passed
 
+# Agent 第 4 课详情页视觉 QA（2026-08-31）
+
+## Source visual truth
+
+- `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-221145a4-83db-4bc2-9f40-c2aae7367dfa.png`
+- Source pixels: 1015 × 1549; reference state: 第 4 课详情页，benchmark 解释气泡展开，右侧下一课为截图中的占位内容。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/04`
+- Normalized top comparison: `/tmp/jiaxuan-agent-qa/agent-lesson-04-top-comparison.png`
+- Implementation top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-implementation-top.png`
+- Focused table comparison: `/tmp/jiaxuan-agent-qa/agent-lesson-04-table-comparison.png`
+- Focused table viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-implementation-table.png`
+- CSS viewport: 1015 × 720; browser screenshot pixels: 1000 × 709; device scale factor: 1. The implementation captures were normalized to 1015 × 720 by restoring the 15 px scrollbar strip before comparison.
+- Mobile CSS viewport: 390 × 844; browser content width: 375; page-level width: 375; table wrapper keeps a 740 px local scroll area.
+
+## State and interactions tested
+
+- The title is `第 4 课 选择合适的模型` and the page renders the five screenshot-aligned sections: task, benchmark, evaluation dimensions, task validation table, and weighted scoring.
+- The benchmark explanation is open by default to match the reference and can be toggled closed with the native details control.
+- The five right-side outline links navigate to the corresponding section anchors.
+- The footer CTA and the right-side continue card both point to `/zero-to-one/agent/05`; the displayed next lesson is the real curriculum lesson `编写系统提示词`, replacing the screenshot placeholder `为任务设计测试准则`.
+- Fresh desktop and mobile browser pages had no console errors. Mobile has no page-level horizontal overflow; the wide scoring table is intentionally scrollable within its own wrapper.
+
+## Full-view comparison evidence
+
+The source and normalized implementation top were opened together in `design-qa-lesson-04-top-comparison.png`. The implementation keeps the source's warm white canvas, green accent, two-column reading layout, compact outline rail, typography hierarchy, five-point key-point list, and four horizontal task cards. The only deliberate content difference in the right rail is the corrected real next lesson from the current curriculum.
+
+## Focused region comparison evidence
+
+The table comparison was opened together in `design-qa-lesson-04-table-comparison.png`. The three model score columns now fit in the desktop content area like the reference; the table remains locally scrollable on mobile. The formula callout, table disclaimer, footer output block, and next-lesson CTA preserve the same visual grouping and green token family.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+- Fonts and typography: existing portfolio font tokens and Chinese system fallbacks are reused; title, metadata, body, table, and aside text retain the reference hierarchy.
+- Spacing and layout rhythm: header, key points, task cards, dimensions, score table, formula, and footer were tightened against the reference-width comparison; the desktop layout has no page-level overflow.
+- Colors and visual tokens: the existing lesson green accent, pale green callouts, white cards, and hairline borders are reused rather than introducing a second visual system.
+- Image quality and asset fidelity: the reference contains no raster illustrations. All visible icons use the existing `lucide-react` icon library; no placeholder or CSS-drawn asset was introduced.
+- Copy and content: the next-lesson title and summary are sourced from the current `curriculum.ts` data, while the scoring values are labeled as enterprise examples rather than real model test results.
+- Preview recovery: the first development preview was affected by a stale `.next` vendor chunk after the production build. The preview was stopped, the generated cache was moved to `/tmp/jiaxuan-next-backup/.next-corrupt-20260831` for recovery, and a new browser page then rendered `/04` successfully with zero errors.
+
+## Comparison history
+
+1. Initial pass used a two-column task-card arrangement and a 740 px minimum desktop table width. The cards were changed to the reference's four compact horizontal rows, and the desktop minimum table width was removed so all three score columns fit.
+2. The header and intro rhythm were tightened, the dimension cards were reduced to the screenshot's title-only treatment, and the benchmark explanation was set to open by default. The final top and table comparisons show no actionable P0/P1/P2 differences.
+
+## Implementation checklist
+
+- [x] 第 4 课详情页接入现有课程路由
+- [x] 五个正文模块与右侧课程大纲
+- [x] benchmark 默认展开且可收起
+- [x] 下一课替换为真实的第 5 课内容
+- [x] 桌面端三列模型评分完整显示
+- [x] 移动端无整页横向溢出
+- [x] 桌面端、移动端、锚点和下一课导航验证
+- [x] lint、typecheck、production build 通过
+
+final result: passed
+
 # Agent 课程进入即完成 QA（2026-08-28）
 
 ## Scope
