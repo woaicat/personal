@@ -67,12 +67,15 @@ final result: passed
 - Comment-update top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comment-update-top.png`
 - Comment-update benchmark viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comment-update-benchmark.png`
 - Comment-update comparison inputs: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comment-update-top-comparison.png` and `/tmp/jiaxuan-agent-qa/agent-lesson-04-comment-update-benchmark-comparison.png`
+- Latest comment iteration top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comments-top-740.png`
+- Latest comment iteration section 4 viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-04-comments-section4-740.png`
 - CSS viewport: 1015 × 720; browser screenshot pixels: 1000 × 709; device scale factor: 1. The implementation captures were normalized to 1015 × 720 by restoring the 15 px scrollbar strip before comparison.
-- Mobile CSS viewport: 390 × 844; browser content width: 375; page-level width: 375; table wrapper keeps a 740 px local scroll area.
+- Latest focused CSS viewport: 740 × 644; the three step labels share the same top row and the second-step explanation sits below it. Mobile CSS viewport: 390 × 844; browser content width: 375; page-level width: 375; table wrapper keeps a 740 px local scroll area.
 
 ## State and interactions tested
 
-- The title is `第 4 课 选择合适的模型` and the page renders the five screenshot-aligned sections: task, benchmark, evaluation dimensions, task validation table, and weighted scoring.
+- The title is `第 4 课 选择合适的模型`, followed by the lesson summary `比较不同模型能力、成本与延迟，明确选型思路。`; the metadata now uses `预计 5 分钟 · 系列：从 0 到 1 设计一个 Agent` to match lessons 1 and 2.
+- The page renders the five screenshot-aligned sections: task, benchmark, evaluation dimensions, task validation table, and weighted scoring.
 - The benchmark explanation is rendered directly as body copy below the section heading, with no tooltip interaction.
 - The five right-side outline links navigate to the corresponding section anchors.
 - The footer CTA and the right-side continue card both point to `/zero-to-one/agent/05`; the displayed next lesson is the real curriculum lesson `编写系统提示词`, replacing the screenshot placeholder `为任务设计测试准则`.
@@ -80,11 +83,11 @@ final result: passed
 
 ## Full-view comparison evidence
 
-The source and normalized implementation top were opened together in `agent-lesson-04-comment-update-top-comparison.png`. The implementation keeps the source's warm white canvas, green accent, two-column reading layout, compact outline rail, typography hierarchy, five-point key-point list, and four horizontal task cards. The model-introduction copy is 13px. The only deliberate content difference in the right rail is the corrected real next lesson from the current curriculum.
+The source and normalized implementation top were opened together in `agent-lesson-04-comment-update-top-comparison.png`, then the latest 740 px top viewport was inspected in `agent-lesson-04-comments-top-740.png`. The implementation keeps the source's warm white canvas, green accent, two-column reading layout, compact outline rail, typography hierarchy, five-point key-point list, and four horizontal task cards. The header now includes the lesson summary and series metadata, while the model-introduction copy remains 13px. The only deliberate content difference in the right rail is the corrected real next lesson from the current curriculum.
 
 ## Focused region comparison evidence
 
-The benchmark and table regions were opened in the combined comparison inputs `agent-lesson-04-comment-update-benchmark-comparison.png` and `design-qa-lesson-04-table-comparison.png`. The benchmark explanation now reads as normal content below section 2, the three model score columns fit in the desktop content area, and the table remains locally scrollable on mobile. The formula callout, table disclaimer, footer output block, and next-lesson CTA preserve the same visual grouping and green token family.
+The benchmark and table regions were opened in the combined comparison inputs `agent-lesson-04-comment-update-benchmark-comparison.png` and `design-qa-lesson-04-table-comparison.png`. The latest section 4 viewport `agent-lesson-04-comments-section4-740.png` confirms that all three step labels share one horizontal row and the explanatory sentence sits below step 2. The three model score columns fit in the desktop content area, and the table remains locally scrollable on mobile. The table note now identifies the scores as fictional, and the weighting copy uses `产品的侧重`.
 
 ## Findings
 
@@ -100,6 +103,7 @@ The benchmark and table regions were opened in the combined comparison inputs `a
 
 1. Initial pass used a two-column task-card arrangement and a 740 px minimum desktop table width. The cards were changed to the reference's four compact horizontal rows, and the desktop minimum table width was removed so all three score columns fit.
 2. The header and intro rhythm were tightened, the dimension cards were reduced to the screenshot's title-only treatment, and the benchmark explanation was moved from a tooltip into normal body copy. The model-introduction paragraph is explicitly 13px. The final top and table comparisons show no actionable P0/P1/P2 differences.
+3. The lesson header now matches the existing lesson pattern, the step rail keeps all three labels on one row with the explanation beneath step 2, and the note/weighting copy follows the latest annotations.
 
 ## Implementation checklist
 
@@ -108,6 +112,7 @@ The benchmark and table regions were opened in the combined comparison inputs `a
 - [x] benchmark 解释作为第 2 节正文展示
 - [x] 下一课替换为真实的第 5 课内容
 - [x] 桌面端三列模型评分完整显示
+- [x] 三步验证标签水平对齐，说明文案置于下一行
 - [x] 移动端无整页横向溢出
 - [x] 桌面端、移动端、锚点和下一课导航验证
 - [x] lint、typecheck、production build 通过

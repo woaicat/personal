@@ -50,13 +50,13 @@ function StepRail() {
         <span>1</span>
         <strong>整理测试用例</strong>
       </div>
-      <ArrowRight aria-hidden="true" size={20} strokeWidth={1.7} />
+      <ArrowRight className={styles.lessonFourStepArrow} aria-hidden="true" size={20} strokeWidth={1.7} />
       <div className={styles.lessonFourStep}>
         <span>2</span>
         <strong>设计评估指标</strong>
         <small>基于评估指标的设计会在评估维度部分介绍</small>
       </div>
-      <ArrowRight aria-hidden="true" size={20} strokeWidth={1.7} />
+      <ArrowRight className={styles.lessonFourStepArrow} aria-hidden="true" size={20} strokeWidth={1.7} />
       <div className={styles.lessonFourStep}>
         <span>3</span>
         <strong>测试并打分</strong>
@@ -77,7 +77,8 @@ export default function AgentFourthLessonPage() {
 
           <header className={styles.lessonHeader}>
             <h1>第 4 课&nbsp;&nbsp;选择合适的模型</h1>
-            <p className={styles.lessonMeta}>预计 15 分钟&nbsp;&nbsp;·&nbsp;&nbsp;影片&nbsp;&nbsp;·&nbsp;&nbsp;从 0 到 1 设计一个 Agent</p>
+            <p className={styles.lessonSubtitle}>比较不同模型能力、成本与延迟，明确选型思路。</p>
+            <p className={styles.lessonMeta}>预计 5 分钟&nbsp;&nbsp;·&nbsp;&nbsp;系列：从 0 到 1 设计一个 Agent</p>
           </header>
 
           <section className={styles.lessonKeyPoints} aria-labelledby="lesson-four-key-points-title">
@@ -161,7 +162,7 @@ export default function AgentFourthLessonPage() {
                 </tbody>
               </table>
             </div>
-            <p className={styles.lessonFourTableNote}>表格中的模型评分为企业示例，并非真实模型测试结果，请按自身场景设计测试。</p>
+            <p className={styles.lessonFourTableNote}>表格中的模型评分为虚构，请按自身场景设计测试。</p>
           </section>
 
           <section className={styles.lessonSection} id="section-5" aria-labelledby="lesson-four-section-five-title">
@@ -170,7 +171,7 @@ export default function AgentFourthLessonPage() {
             <div className={styles.lessonFourFormula}>
               总分 = 任务表现得分（权重 50%） + token 成本得分（权重 25%） + 响应速度得分（权重 25%）
             </div>
-            <p>关于不同维度的评分占比权重不是一成不变的，可以根据拆解组织的侧重、用户的期望、现实条件等因素来进行调整。</p>
+            <p>关于不同维度的评分占比权重不是一成不变的，可以根据产品的侧重、用户的期望、现实条件等因素来进行调整。</p>
           </section>
 
           <footer className={styles.lessonFooter}>
