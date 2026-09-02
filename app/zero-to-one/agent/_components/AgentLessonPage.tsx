@@ -17,6 +17,7 @@ import {
 import type { AgentLesson } from "../_content/curriculum";
 import { agentLessonPageDetails } from "../_content/lesson-page-details";
 import AgentSecondLessonPage from "./AgentSecondLessonPage";
+import AgentThirdLessonPage from "./AgentThirdLessonPage";
 import AgentFourthLessonPage from "./AgentFourthLessonPage";
 import AgentLessonShell from "./AgentLessonShell";
 import styles from "./agent-course.module.css";
@@ -66,6 +67,10 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
 
   if (lesson.id === "02") {
     return <AgentSecondLessonPage detail={detail} />;
+  }
+
+  if (lesson.id === "03") {
+    return <AgentThirdLessonPage detail={detail} />;
   }
 
   if (lesson.id === "04") {

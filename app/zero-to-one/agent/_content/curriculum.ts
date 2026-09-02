@@ -42,11 +42,11 @@ export const agentCurriculum: AgentStage[] = [
       },
       {
         id: "03",
-        title: "调研用户、业务和生态",
-        summary: "从用户目标、业务流程与上下游生态出发，完成需求梳理。",
-        output: "需求调研框架",
-        whyItMatters: "Agent 的行为会被角色、系统和平台规则共同影响，单看聊天窗口很容易漏掉关键约束。",
-        caseApplication: "画出消费者、客服、客服主管和商家运营之间的协作关系，以及订单和平台规则的依赖。"
+        title: "调研用户、业务和数据",
+        summary: "把问题描述清楚，问题就解决了一半。",
+        output: "完成这些调研以后，我们才真正拥有设计 Agent 所需要的业务基础。",
+        whyItMatters: "为了设计这个 Agent，我们需要把业务调研清楚到什么程度？",
+        caseApplication: "假设一家saas企业提出：希望做一个 B 端销售助手 Agent，提升销售业务效率。"
       }
     ]
   },

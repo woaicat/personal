@@ -57,7 +57,30 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-3", number: "3", label: "练习题" }
     ],
     output: "你将学会在开始设计前，先判断问题是否值得解决，以及是否真的适合用 Agent 来做。",
-    nextLesson: { id: "03", title: "调研用户、业务和生态", description: "继续学习如何从用户目标、业务流程与上下游生态出发，完成需求梳理。" }
+    nextLesson: { id: "03", title: "调研用户、业务和数据", description: "把问题描述清楚，问题就解决了一半。" }
+  },
+  "03": {
+    id: "03",
+    title: "调研用户、业务和数据",
+    subtitle: "把问题描述清楚，问题就解决了一半。",
+    duration: "20 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "先了解为什么要做这件事、当前是怎么解决的，以及最终希望达到什么结果",
+      "列举所有潜在用户，分析不同用户的痛点，并进行用户优先级排序",
+      "理解用户所处的完整业务流程，并拆解核心用户具体需要完成的任务",
+      "调研完成任务所需的数据、信息和工具"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "原因、目标和现状" },
+      { id: "section-2", number: "2", label: "用户、痛点" },
+      { id: "section-3", number: "3", label: "业务流程" },
+      { id: "section-4", number: "4", label: "用户任务" },
+      { id: "section-5", number: "5", label: "数据" },
+      { id: "section-6", number: "6", label: "信息和工具" }
+    ],
+    output: "完成这些调研以后，我们才真正拥有设计 Agent 所需要的业务基础。",
+    nextLesson: { id: "04", title: "选择合适的模型", description: "继续学习如何根据具体任务选择合适的模型。" }
   },
   "04": {
     id: "04",

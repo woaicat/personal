@@ -403,3 +403,76 @@ final result: passed
 - No actionable P0/P1/P2 findings remain.
 
 final result: passed
+
+# Agent 第 3 课批注修订 QA（2026-09-02）
+
+## Scope
+
+- Route: `/zero-to-one/agent/03`
+- Applied browser comments: 时长改为 20 分钟；六个调研步骤增加可视化图示；“常见的原因包括”和“目标最好不要”按批注换行；用户案例表移除 SDR 和售前。
+- The existing unified lesson shell, document copy, section order, routes, and unrelated lessons were preserved.
+
+## Visual evidence
+
+- Desktop top capture: `/tmp/jiaxuan-agent-qa/agent-lesson-03-comments-desktop-top.png`
+- Desktop full-page capture: `/tmp/jiaxuan-agent-qa/agent-lesson-03-comments-desktop-full.png`
+- Mobile top capture: `/tmp/jiaxuan-agent-qa/agent-lesson-03-comments-mobile-top.png`
+- Focused captures: `/tmp/jiaxuan-agent-qa/agent-lesson-03-comments-section-1.png` and `/tmp/jiaxuan-agent-qa/agent-lesson-03-comments-section-2.png`
+- Desktop verification viewport: 1015 × 720 CSS px; document width: 1000 px; full page height: 6439 px.
+- Mobile verification viewport: 390 × 844 CSS px; document width: 375 px; full page height: 9337 px.
+
+## Content and interaction checks
+
+- Header metadata renders `预计 20 分钟 · 系列：从 0 到 1 设计一个 Agent`.
+- The six-step visual map renders six numbered items in the requested order: 原因、目标和现状；用户与痛点；业务流程；用户任务；数据；信息和工具。
+- Section 1 has one explicit line break after “为什么现在想解决。” and one after “上线以后产生什么变化。”; the original wording is retained.
+- The section 2 B 端销售助手 table contains only `一线销售`、`销售主管`、`销售运营`; SDR and 售前 are not table rows.
+- All six section IDs remain present and the `6 信息和工具` outline link navigates to `#section-6`.
+- Mobile body width equals document width, with no horizontal overflow.
+- A fresh browser tab reported no error-level console entries; only expected React DevTools and Vercel Analytics development logs were present.
+
+## Validation
+
+- `npm run lint`: passed
+- `npm run typecheck`: passed
+- `npm run build`: passed; 55 static pages generated.
+- The temporary preview error caused by running the production build while the dev server was active was resolved by restarting the local preview; the final route returned HTTP 200.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+- The source sentence listing the six steps remains as document copy, with the numbered visual map added below it rather than replacing it.
+- The removal of SDR and 售前 is limited to the requested user-pain table; surrounding source copy remains unchanged.
+
+final result: passed
+
+# Agent 第 3 课嵌套框层级 QA（2026-09-02）
+
+## 本轮调整
+
+- 六步总览继续移除最外层大框，只保留六个步骤卡片。
+- 第 3 课所有 5 个“案例分析”外层统一使用浅绿色底（`#f2faf4`）。
+- 案例内的表格、任务块和普通流程框统一使用白底；案例底部流程框单独使用更明显的浅绿色底（`#e6f4ea`），形成清晰的内外层级。
+
+## Visual evidence
+
+- 最终顶部截图：`/tmp/jiaxuan-agent-qa/agent-lesson-03-nested-frame-top-final.jpg`
+- 最终全页截图：`/tmp/jiaxuan-agent-qa/agent-lesson-03-nested-frame-full-final.jpg`
+- 最后一个案例内外框截图：`/tmp/jiaxuan-agent-qa/agent-lesson-03-nested-frame-last-case-final.jpg`
+
+## 浏览器验证
+
+- 路由 `/zero-to-one/agent/03` 正常返回并完成渲染。
+- 页面包含 6 个正文板块、5 个案例分析框；六步总览包含 6 个步骤。
+- 六步总览计算样式为透明背景、无边框、无内边距。
+- 5 个案例外层背景均为 `rgb(242, 250, 244)`；表格、任务块和普通流程框为白底；第 6 节案例底部流程框为 `rgb(230, 244, 234)`。
+- 页面正文宽度与文档宽度均为 1000 px，无横向溢出；最终页面高度为 6417 px。
+- 新建干净浏览器页检查无 error-level console 日志，仅有开发环境预期日志。
+
+## Validation
+
+- `npm run lint`: passed
+- `npm run typecheck`: passed
+- `npm run build`: passed; 55 static pages generated.
+
+final result: passed
