@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -100,10 +100,8 @@ export default function AgentCoursePage() {
               </div>
               <div className={styles.progressPercent}>{progressPercent}%</div>
               <div className={styles.heroNotes}>
-                <p>
-                  <CheckCircle2 aria-hidden="true" size={16} />
-                  这份教程适合有一定产品设计基础和软件理论知识基础，但是又不具备编写代码能力的人。是更适合产品经理宝宝体质的教程。
-                </p>
+                <p>看过很多agent教程，要么过于技术化，太过硬核不适合没有开发技术的人，要么又过于简化，只能作为概念的科普，于是我做了这个系列。</p>
+                <p>这份教程适合有一定产品设计基础和软件理论知识基础，但是又不具备编写代码能力的人。是更适合产品经理宝宝体质的教程。</p>
               </div>
             </div>
             <div className={styles.heroVisualSpace}>

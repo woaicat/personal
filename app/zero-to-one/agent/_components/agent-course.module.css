@@ -172,18 +172,11 @@
 }
 
 .heroNotes p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   margin: 0;
   color: #555d68;
   font-family: var(--font-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-size: 0.86rem;
   line-height: 1.5;
-}
-
-.heroNotes p:first-child svg {
-  color: #4cbf74;
 }
 
 .heroVisualSpace {
