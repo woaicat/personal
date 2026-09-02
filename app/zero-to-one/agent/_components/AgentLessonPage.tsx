@@ -1,41 +1,27 @@
 import {
-  ArrowLeft,
   ArrowRight,
-  BookOpen,
   Bot,
   Brain,
   CheckCircle2,
   Code2,
   Crosshair,
   Eye,
-  FileText,
   Github,
   Layers3,
   Play,
   RefreshCw,
-  Sparkles,
   Star,
   Wrench,
   type LucideIcon
 } from "lucide-react";
-import Link from "next/link";
 import type { AgentLesson } from "../_content/curriculum";
+import { agentLessonPageDetails } from "../_content/lesson-page-details";
 import AgentSecondLessonPage from "./AgentSecondLessonPage";
 import AgentFourthLessonPage from "./AgentFourthLessonPage";
+import AgentLessonShell from "./AgentLessonShell";
 import styles from "./agent-course.module.css";
 
 const toolNames = ["Codex", "Claude Code", "Workbuddy", "豆包工作"];
-
-const outlineItems = [
-  { id: "section-1", number: "1", label: "什么是 Agent" },
-  { id: "section-2", number: "2", label: "Agent 的核心能力" },
-  { id: "section-3", number: "3", label: "Agent 和其他系统的区别" },
-  { id: "section-3-1", number: "3.1", label: "灵活性光谱", nested: true },
-  { id: "section-3-2", number: "3.2", label: "Agent 和 Workflow 的区别", nested: true },
-  { id: "section-3-3", number: "3.3", label: "什么时候需要 Agent", nested: true },
-  { id: "section-4", number: "4", label: "Agent 为何备受关注" },
-  { id: "section-5", number: "5", label: "Agent 的发展趋势" }
-];
 
 const spectrumItems = ["确定性代码", "单次模型调用", "含模型节点的工作流", "垂直领域智能体", "通用智能体", "人类专家"];
 
@@ -72,12 +58,18 @@ interface AgentLessonPageProps {
 }
 
 export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
+  const detail = agentLessonPageDetails[lesson.id];
+
+  if (!detail) {
+    return <main className={styles.coursePage} aria-label="课程详情页" />;
+  }
+
   if (lesson.id === "02") {
-    return <AgentSecondLessonPage />;
+    return <AgentSecondLessonPage detail={detail} />;
   }
 
   if (lesson.id === "04") {
-    return <AgentFourthLessonPage />;
+    return <AgentFourthLessonPage detail={detail} />;
   }
 
   if (lesson.id !== "01") {
@@ -85,32 +77,7 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
   }
 
   return (
-    <div className={`${styles.coursePage} ${styles.lessonPage}`}>
-      <div className={styles.lessonLayout}>
-        <main className={styles.lessonMain}>
-          <Link className={styles.lessonBackLink} href="/zero-to-one/agent">
-            <ArrowLeft aria-hidden="true" size={19} strokeWidth={1.8} />
-            返回课程目录
-          </Link>
-
-          <header className={styles.lessonHeader}>
-            <h1>第 1 课&nbsp;&nbsp;{lesson.title}</h1>
-            <p className={styles.lessonSubtitle}>理解 Agent 的基本概念、核心能力、与工作流的区别，以及它为何受到关注。</p>
-            <p className={styles.lessonMeta}>预计 5 分钟&nbsp;&nbsp;·&nbsp;&nbsp;系列：从 0 到 1 设计一个 Agent</p>
-          </header>
-
-          <section className={styles.lessonKeyPoints} aria-labelledby="lesson-key-points-title">
-            <h2 id="lesson-key-points-title">
-              <span className={styles.lessonBadge} aria-hidden="true"><Sparkles size={13} strokeWidth={2.4} /></span>
-              本课要点
-            </h2>
-            <ul>
-              <li>模型不等于 Agent，Agent = 模型 + harness</li>
-              <li>Agent 能决策、行动、观察并反馈</li>
-              <li>Agent 适合更灵活、更不确定的任务，但不是所有任务都适用 Agent</li>
-            </ul>
-          </section>
-
+    <AgentLessonShell detail={detail}>
           <section className={styles.lessonSection} id="section-1" aria-labelledby="section-1-title">
             <h2 id="section-1-title">1. 什么是 Agent?</h2>
             <div className={styles.lessonSplit}>
@@ -217,39 +184,6 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
             </div>
           </section>
 
-          <footer className={styles.lessonFooter}>
-            <div className={styles.lessonOutputSummary}>
-              <FileText aria-hidden="true" size={28} strokeWidth={1.6} />
-              <div><h2>本课产出</h2><p>你将建立了 Agent 的基础认知框架，并能初步区分模型、Workflow 与 Agent。</p></div>
-            </div>
-            <Link className={styles.lessonNextButton} href="/zero-to-one/agent/02">
-              进入下一课 <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-          </footer>
-        </main>
-
-        <aside className={styles.lessonAside} aria-label="本课大纲">
-          <div className={styles.lessonOutline}>
-            <h2>本课大纲</h2>
-            <nav>
-              {outlineItems.map((item) => (
-                <a className={item.nested ? styles.lessonOutlineNested : undefined} href={`#${item.id}`} key={item.id}>
-                  {item.nested ? <span>{item.number}</span> : <strong>{item.number}</strong>}
-                  <span>{item.label}</span>
-                </a>
-              ))}
-            </nav>
-          </div>
-          <div className={styles.lessonContinue}>
-            <h2><BookOpen aria-hidden="true" size={22} strokeWidth={1.8} />继续学习</h2>
-            <Link href="/zero-to-one/agent/02">
-              <strong>下一课：判断价值与问题</strong>
-              <ArrowRight aria-hidden="true" size={19} />
-              <span>继续学习如何判断一个场景是否值得做成 Agent。</span>
-            </Link>
-          </div>
-        </aside>
-      </div>
-    </div>
+    </AgentLessonShell>
   );
 }

@@ -1,29 +1,18 @@
 import {
-  ArrowLeft,
   ArrowRight,
   BarChart3,
-  BookOpen,
   Clock3,
   Database,
   FileText,
   MessageCircle,
   ShieldCheck,
-  Sparkles,
   Target,
   type LucideIcon
 } from "lucide-react";
-import Link from "next/link";
+import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
+import AgentLessonShell from "./AgentLessonShell";
 import LessonChoiceQuestion, { type LessonChoiceFeedback } from "./LessonChoiceQuestion";
 import styles from "./agent-course.module.css";
-
-const outlineItems = [
-  { id: "section-1", number: "1", label: "什么是任务（task）" },
-  { id: "section-2", number: "2", label: "什么是 benchmark？" },
-  { id: "section-3", number: "3", label: "选择模型的 3 个评估维度" },
-  { id: "section-4", number: "4", label: "验证模型在具体任务中的表现" },
-  { id: "section-5", number: "5", label: "综合评分" },
-  { id: "section-6", number: "6", label: "练习题" }
-];
 
 const taskCards: Array<{ icon: LucideIcon; title: string; description: string }> = [
   { icon: MessageCircle, title: "问答任务", description: "根据用户的问题，判断用户意图，并给出正确的解决方案。" },
@@ -79,34 +68,9 @@ function StepRail() {
   );
 }
 
-export default function AgentFourthLessonPage() {
+export default function AgentFourthLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return (
-    <div className={`${styles.coursePage} ${styles.lessonPage} ${styles.fourthLessonPage}`}>
-      <div className={styles.lessonLayout}>
-        <main className={styles.lessonMain}>
-          <Link className={styles.lessonBackLink} href="/zero-to-one/agent">
-            <ArrowLeft aria-hidden="true" size={19} strokeWidth={1.8} />
-            返回课程目录
-          </Link>
-
-          <header className={styles.lessonHeader}>
-            <h1>第 4 课&nbsp;&nbsp;选择合适的模型</h1>
-            <p className={styles.lessonSubtitle}>比较不同模型能力、成本与延迟，明确选型思路。</p>
-            <p className={styles.lessonMeta}>预计 5 分钟&nbsp;&nbsp;·&nbsp;&nbsp;系列：从 0 到 1 设计一个 Agent</p>
-          </header>
-
-          <section className={styles.lessonKeyPoints} aria-labelledby="lesson-four-key-points-title">
-            <h2 id="lesson-four-key-points-title">
-              <span className={styles.lessonBadge} aria-hidden="true"><Sparkles size={13} strokeWidth={2.4} /></span>
-              本课要点
-            </h2>
-            <ul>
-              <li>选择模型不只看公开评分，要结合具体任务验证</li>
-              <li>评估模型至少看 3 个维度：任务表现、token 成本、响应速度</li>
-              <li>通过测试用例、评估指标、测试打分来验证模型</li>
-            </ul>
-          </section>
-
+    <AgentLessonShell detail={detail}>
           <div className={styles.lessonFourIntro}>
             <p>这里的模型指通用大语言模型，比如 DeepSeek、GPT、Kimi 等等。如果你还记得第一课提到：模型是智能体的大脑，是驱动智能体行动的引擎。</p>
             <p>选择模型不能只看公开的基准测试和评分，也不能只看大模型公司的宣传，最关键的还是需要在具体任务上进行验证，根据 Agent 将要处理的任务选择合适的模型。</p>
@@ -207,39 +171,6 @@ export default function AgentFourthLessonPage() {
             />
           </section>
 
-          <footer className={styles.lessonFooter}>
-            <div className={styles.lessonOutputSummary}>
-              <FileText aria-hidden="true" size={28} strokeWidth={1.6} />
-              <div><h2>本课产出</h2><p>你将学会根据具体任务，从任务表现、成本和延迟等维度选择合适的模型。</p></div>
-            </div>
-            <Link className={styles.lessonNextButton} href="/zero-to-one/agent/05">
-              进入下一课 <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-          </footer>
-        </main>
-
-        <aside className={styles.lessonAside} aria-label="本课大纲">
-          <div className={styles.lessonOutline}>
-            <h2>本课大纲</h2>
-            <nav>
-              {outlineItems.map((item) => (
-                <a href={`#${item.id}`} key={item.id}>
-                  <strong>{item.number}</strong>
-                  <span>{item.label}</span>
-                </a>
-              ))}
-            </nav>
-          </div>
-          <div className={styles.lessonContinue}>
-            <h2><BookOpen aria-hidden="true" size={22} strokeWidth={1.8} /><span>继续学习</span></h2>
-            <Link href="/zero-to-one/agent/05">
-              <strong>下一课：编写系统提示词</strong>
-              <ArrowRight aria-hidden="true" size={19} />
-              <span>学习如何为 Agent 设计清晰、可执行的系统提示词，并明确行为边界。</span>
-            </Link>
-          </div>
-        </aside>
-      </div>
-    </div>
+    </AgentLessonShell>
   );
 }

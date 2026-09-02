@@ -1,9 +1,7 @@
 import {
   AlertTriangle,
-  ArrowLeft,
   ArrowRight,
   BarChart3,
-  BookOpen,
   CheckCircle2,
   CircleHelp,
   ClipboardList,
@@ -19,17 +17,10 @@ import {
   Users,
   type LucideIcon
 } from "lucide-react";
-import Link from "next/link";
+import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
+import AgentLessonShell from "./AgentLessonShell";
 import LessonChoiceQuestion, { type LessonChoiceFeedback } from "./LessonChoiceQuestion";
 import styles from "./agent-course.module.css";
-
-const outlineItems = [
-  { id: "section-1", number: "1", label: "判断问题是否值得解决" },
-  { id: "section-2", number: "2", label: "判断是否适合用 Agent 做" },
-  { id: "section-2-1", number: "2.1", label: "Workflow 与 Agent 的区别", nested: true },
-  { id: "section-2-2", number: "2.2", label: "问答机器人一定要用 Agent 吗?", nested: true },
-  { id: "section-3", number: "3", label: "练习题" }
-];
 
 const valueCards: Array<{ icon: LucideIcon; title: string; description: string }> = [
   { icon: BarChart3, title: "业务价值", description: "赚钱、降本、增效，解决这个问题能为个人或组织带来多少可量化的价值" },
@@ -115,34 +106,9 @@ function LessonSystemFlow({ steps }: { steps: Array<{ icon: LucideIcon; label: s
   );
 }
 
-export default function AgentSecondLessonPage() {
+export default function AgentSecondLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return (
-    <div className={`${styles.coursePage} ${styles.lessonPage} ${styles.secondLessonPage}`}>
-      <div className={styles.lessonLayout}>
-        <main className={styles.lessonMain}>
-          <Link className={styles.lessonBackLink} href="/zero-to-one/agent">
-            <ArrowLeft aria-hidden="true" size={19} strokeWidth={1.8} />
-            返回课程目录
-          </Link>
-
-          <header className={styles.lessonHeader}>
-            <h1>第 2 课&nbsp;&nbsp;价值判断</h1>
-            <p className={styles.lessonSubtitle}>在动手设计 Agent 前，先判断问题是否值得解决，以及是否真的适合用 Agent。</p>
-            <p className={styles.lessonMeta}>预计 6 分钟&nbsp;&nbsp;·&nbsp;&nbsp;系列：从 0 到 1 设计一个 Agent</p>
-          </header>
-
-          <section className={styles.lessonKeyPoints} aria-labelledby="lesson-two-key-points-title">
-            <h2 id="lesson-two-key-points-title">
-              <span className={styles.lessonBadge} aria-hidden="true"><Sparkles size={13} strokeWidth={2.4} /></span>
-              本课要点
-            </h2>
-            <ul>
-              <li>先判断问题是否值得解决：业务价值、影响范围、被服务程度、不解决的损失</li>
-              <li>再判断是否适合用 Agent 做：看流程、规则分支、结果开放度</li>
-              <li>能用简单办法解决的，尽量不要增加复杂度</li>
-            </ul>
-          </section>
-
+    <AgentLessonShell detail={detail}>
           <section className={styles.lessonSection} id="section-1" aria-labelledby="section-two-one-title">
             <div className={styles.lessonSectionIntro}>
               <p>你可能会说：我要学到底怎么设计一个 agent，看这些干什么？</p>
@@ -250,39 +216,6 @@ export default function AgentSecondLessonPage() {
             </div>
           </section>
 
-          <footer className={styles.lessonFooter}>
-            <div className={styles.lessonOutputSummary}>
-              <FileText aria-hidden="true" size={28} strokeWidth={1.6} />
-              <div><h2>本课产出</h2><p>你将学会在开始设计前，先判断问题是否值得解决，以及是否真的适合用 Agent 来做。</p></div>
-            </div>
-            <Link className={styles.lessonNextButton} href="/zero-to-one/agent/03">
-              进入下一课 <ArrowRight aria-hidden="true" size={17} />
-            </Link>
-          </footer>
-        </main>
-
-        <aside className={styles.lessonAside} aria-label="本课大纲">
-          <div className={styles.lessonOutline}>
-            <h2>本课大纲</h2>
-            <nav>
-              {outlineItems.map((item) => (
-                <a className={item.nested ? styles.lessonOutlineNested : undefined} href={`#${item.id}`} key={item.id}>
-                  {item.nested ? <span>{item.number}</span> : <strong>{item.number}</strong>}
-                  <span>{item.label}</span>
-                </a>
-              ))}
-            </nav>
-          </div>
-          <div className={styles.lessonContinue}>
-            <h2><BookOpen aria-hidden="true" size={22} strokeWidth={1.8} /><span>继续学习</span></h2>
-            <Link href="/zero-to-one/agent/03">
-              <strong>下一课：调研用户、业务和生态</strong>
-              <ArrowRight aria-hidden="true" size={19} />
-              <span>继续学习如何从用户目标、业务流程与上下游生态出发，完成需求梳理。</span>
-            </Link>
-          </div>
-        </aside>
-      </div>
-    </div>
+    </AgentLessonShell>
   );
 }

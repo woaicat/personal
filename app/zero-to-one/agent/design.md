@@ -123,6 +123,20 @@
 
 ## 7. 当前实现对应位置
 
+- 固定页面框架：`_components/AgentLessonShell.tsx`。
+- 固定课程数据：`_content/lesson-page-details.ts`。
+- 课程正文：`_components/AgentLessonPage.tsx`、`AgentSecondLessonPage.tsx`、`AgentFourthLessonPage.tsx`；正文保持课次专属实现。
 - 通用详情页基线：`_components/agent-course.module.css` 的 `.lessonPage` 至 `.lessonSection`。
-- 第 4 课需移除的压缩覆盖：`_components/agent-course.module.css` 的 `.fourthLessonPage .lessonLayout` 至 `#section-5`。
-- 第 4 课内容组件：`_components/AgentFourthLessonPage.tsx` 与以 `lessonFour*` 命名的样式。
+
+## 8. 固定框架与自由正文的边界
+
+所有课程详情页都由 `AgentLessonShell` 渲染以下固定组件：页面框架、标题区、本课要点、页脚和右侧目录；课程章节继续使用统一的 `.lessonSection` 容器。
+
+每课只需在 `lesson-page-details.ts` 填写以下固定数据：
+
+- 课次、标题、副标题、时长与系列
+- 本课要点与本课大纲
+- 课后产出
+- 下一课 / 继续学习
+
+正文不使用内容块协议。每课可保留或新建自己的正文组件，自由使用图表、流程图、选择题、卡片、公式、表格和专属交互；只需把正文作为 `AgentLessonShell` 的子内容，并沿用 `.lessonSection` 与本规范的视觉基线。只有固定框架发生变化时，才修改 `AgentLessonShell`。
