@@ -130,7 +130,7 @@ export default function AgentFifthLessonPage({ detail }: { detail: AgentLessonPa
       </section>
 
       <section className={styles.lessonSection} id="section-4" aria-labelledby="lesson-five-section-four-title">
-        <h2 id="lesson-five-section-four-title">4. 什么时候知道不该继续优化提示词了</h2>
+        <h2 id="lesson-five-section-four-title">4. 什么时候不该继续优化提示词</h2>
         <div className={styles.lessonFiveBoundaryList}>
           {boundaryItems.map(({ title, description }) => (
             <article className={styles.lessonFiveBoundaryCard} key={title}>
@@ -147,8 +147,7 @@ export default function AgentFifthLessonPage({ detail }: { detail: AgentLessonPa
       <section className={styles.lessonSection} id="section-5" aria-labelledby="lesson-five-section-five-title">
         <h2 id="lesson-five-section-five-title">5. 练习题</h2>
         <div className={styles.lessonFiveExercise}>
-          <strong>为一个你熟悉的任务写一版系统提示词</strong>
-          <p>至少包含角色、背景、任务、约束、示例和格式，并根据一次调试反馈逐字逐句地修改。</p>
+          <strong>尝试为 B 端销售助手 Agent 编写系统提示词</strong>
         </div>
       </section>
     </AgentLessonShell>

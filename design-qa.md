@@ -11,10 +11,13 @@
 - Latest top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-title-update-top.png`
 - Latest tutorial-links viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-title-update-links.png`
 - Latest full implementation: `/tmp/jiaxuan-agent-qa/agent-lesson-05-title-update-full.png`
+- Latest annotation top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-annotation-top.png`
+- Latest annotation section 4 viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-annotation-section4.png`
+- Latest annotation section 5 viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-annotation-section5.png`
 - Focused principles viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-principles.png`
 - Focused boundaries viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-boundaries.png`
 - Source/implementation top comparison: `/tmp/jiaxuan-agent-qa/agent-lesson-05-top-comparison.jpg`
-- The in-app preview viewport is 728 × 714 CSS px and the latest full capture is 728 × 2655 px at device scale factor 1. The source is a 930 × 1692 px desktop reference; the narrower implementation capture intentionally exercises the responsive layout, where the aside moves below the main content.
+- The in-app preview viewport is 728 × 714 CSS px and the latest annotation captures are 728 × 714 px at device scale factor 1. The source is a 930 × 1692 px desktop reference; the narrower implementation capture intentionally exercises the responsive layout, where the aside moves below the main content.
 
 ## State and interactions tested
 
@@ -30,7 +33,7 @@ The supplied reference and the latest implementation top were opened together in
 
 ## Focused region comparison evidence
 
-The latest tutorial-links viewport confirms the six corrected article titles remain readable inside the bordered list and the longer titles wrap without clipping. The principles and boundaries captures confirm the icon rail, card borders, formula strip, warning hierarchy, and footer transition remain intact after the title correction.
+The latest tutorial-links viewport confirms the six corrected article titles remain readable inside the bordered list and the longer titles wrap without clipping. The annotation section 4/5 captures confirm the shortened boundary heading, focused exercise copy, icon rail, card borders, warning hierarchy, and footer transition remain intact.
 
 ## Findings
 
@@ -46,6 +49,7 @@ The latest tutorial-links viewport confirms the six corrected article titles rem
 
 1. Initial implementation comparison: the layout and visual hierarchy had no actionable P0/P1/P2 mismatch. The source's desktop aside and the narrower responsive implementation state were explicitly classified as a viewport difference.
 2. Content correction pass: each of the six article URLs was opened and its actual page title replaced the screenshot-inspired placeholder title. The latest top and tutorial-link captures show no clipping, overflow, or hierarchy regression.
+3. Annotation pass: the section 4 heading is shortened to `什么时候不该继续优化提示词`, and the practice prompt is focused on writing a system prompt for a B 端销售助手 Agent. The updated section 4/5 captures confirm the card structure remains intact.
 
 ## Implementation checklist
 
@@ -56,6 +60,7 @@ The latest tutorial-links viewport confirms the six corrected article titles rem
 - [x] 右侧课程大纲、页脚产出和下一课导航
 - [x] 当前预览宽度无整页横向溢出
 - [x] 标题修订后重新截图并复核长标题换行
+- [x] 批注中的第 4 节标题和练习题文案已更新并复核
 
 final result: passed
 

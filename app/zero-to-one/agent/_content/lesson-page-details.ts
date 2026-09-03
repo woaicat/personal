@@ -115,7 +115,7 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-1", number: "1", label: "提示词教程" },
       { id: "section-2", number: "2", label: "核心原则" },
       { id: "section-3", number: "3", label: "万能公式" },
-      { id: "section-4", number: "4", label: "什么时候知道不该继续优化提示词了" },
+      { id: "section-4", number: "4", label: "什么时候不该继续优化提示词" },
       { id: "section-5", number: "5", label: "练习题" }
     ],
     output: "掌握编写系统提示词的核心原则、万能公式，以及判断优化边界的方法。",
