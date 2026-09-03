@@ -98,6 +98,27 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-6", number: "6", label: "练习题" }
     ],
     output: "你将学会根据具体任务，从任务表现、成本和延迟等维度选择合适的模型。",
-    nextLesson: { id: "05", title: "编写系统提示词", description: "学习如何为 Agent 设计清晰、可执行的系统提示词，并明确行为边界。" }
+    nextLesson: { id: "05", title: "系统提示词", description: "学习如何为 Agent 设计清晰、可执行的系统提示词，并明确行为边界。" }
+  },
+  "05": {
+    id: "05",
+    title: "系统提示词",
+    subtitle: "掌握核心原则，比学技巧更重要。",
+    duration: "5 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "提示词承担了非常多的作用，是智能体的灵魂所在",
+      "掌握 4 大核心原则，少走弯路，高效写出高质量提示词",
+      "牢记万能公式，并知道何时不该继续优化提示词"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "提示词教程" },
+      { id: "section-2", number: "2", label: "核心原则" },
+      { id: "section-3", number: "3", label: "万能公式" },
+      { id: "section-4", number: "4", label: "什么时候知道不该继续优化提示词了" },
+      { id: "section-5", number: "5", label: "练习题" }
+    ],
+    output: "掌握编写系统提示词的核心原则、万能公式，以及判断优化边界的方法。",
+    nextLesson: { id: "06", title: "设计 Agent Loop", description: "继续学习如何把提示词接入 Agent 的循环执行过程。" }
   }
 };

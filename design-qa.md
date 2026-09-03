@@ -1,3 +1,64 @@
+# Agent 第 5 课详情页视觉 QA（2026-09-03）
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年9月3日 14_05_04.png`
+- Source pixels: 930 × 1692; reference state: 第 5 课详情页桌面端，浅绿色导语、教程外链列表、原则卡片、万能公式和边界判断卡片。
+
+## Implementation evidence
+
+- Route: `http://127.0.0.1:3000/zero-to-one/agent/05`
+- Latest top viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-title-update-top.png`
+- Latest tutorial-links viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-title-update-links.png`
+- Latest full implementation: `/tmp/jiaxuan-agent-qa/agent-lesson-05-title-update-full.png`
+- Focused principles viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-principles.png`
+- Focused boundaries viewport: `/tmp/jiaxuan-agent-qa/agent-lesson-05-boundaries.png`
+- Source/implementation top comparison: `/tmp/jiaxuan-agent-qa/agent-lesson-05-top-comparison.jpg`
+- The in-app preview viewport is 728 × 714 CSS px and the latest full capture is 728 × 2655 px at device scale factor 1. The source is a 930 × 1692 px desktop reference; the narrower implementation capture intentionally exercises the responsive layout, where the aside moves below the main content.
+
+## State and interactions tested
+
+- The page renders `第 5 课 系统提示词`, the supplied subtitle, five outline anchors, the tutorial links, four principle cards, the formula strip, three boundary cards, the exercise section, footer output, and next-lesson navigation.
+- All six tutorial links use the supplied URLs and display real page titles read from their linked article pages. Each link keeps the document icon, bright green treatment, and external-link arrow.
+- The right-side outline anchors resolve to `#section-1` through `#section-5`; the footer and continue card point to `/zero-to-one/agent/06`.
+- The in-app preview has no page-level horizontal overflow at 728 px; `document.documentElement.scrollWidth` equals the viewport width.
+- Browser console errors and warnings: none.
+
+## Full-view comparison evidence
+
+The supplied reference and the latest implementation top were opened together in `/tmp/jiaxuan-agent-qa/agent-lesson-05-top-comparison.jpg`. The implementation preserves the shared lesson shell, white canvas, dark navy typography, green accent, compact right outline at desktop, pale green opening panel, and the same information order. The comparison uses different widths because the source is a desktop reference while the in-app browser capture is at its current 728 px responsive width; the aside relocation is expected at this breakpoint rather than a layout defect.
+
+## Focused region comparison evidence
+
+The latest tutorial-links viewport confirms the six corrected article titles remain readable inside the bordered list and the longer titles wrap without clipping. The principles and boundaries captures confirm the icon rail, card borders, formula strip, warning hierarchy, and footer transition remain intact after the title correction.
+
+## Findings
+
+- No actionable P0/P1/P2 findings remain.
+- Fonts and typography: the existing course font stack, heading hierarchy, body size, and line-height tokens are reused. Long linked titles wrap naturally at the responsive width without reducing the body text below the shared lesson baseline.
+- Spacing and layout rhythm: the new intro, article list, principle cards, formula strip, boundary cards, exercise, and footer use the shared lesson section rhythm and maintain clean gaps at the responsive breakpoint.
+- Colors and visual tokens: the shared `--lesson-accent`, pale green surfaces, hairline borders, and brighter external-link green are reused; no separate page-level color system was introduced.
+- Image quality and asset fidelity: the source has no raster content that needs recreation. All visible interface symbols use the existing `lucide-react` icon library; no CSS-drawn or text-glyph icon substitutes were introduced.
+- Copy and content: the six tutorial titles now match the actual linked page titles: `2025年的AI prompt工程：什么仍然有效 & 什么没那么有效`, `用XML和json撰写生产级提示词`, `提示词工程基础：概念、流程、框架和技巧（一）`, `结构化设计：用Markdown、XML和JSON设计生产级提示词（二）`, `自动化势在必行：利用AI设计更优的提示词（三）`, and `如何进行提示词评测调优和版本管理（四）`.
+- Accessibility: semantic headings, lists, links, landmark regions, visible focus states, and decorative-icon `aria-hidden` attributes are present.
+
+## Comparison history
+
+1. Initial implementation comparison: the layout and visual hierarchy had no actionable P0/P1/P2 mismatch. The source's desktop aside and the narrower responsive implementation state were explicitly classified as a viewport difference.
+2. Content correction pass: each of the six article URLs was opened and its actual page title replaced the screenshot-inspired placeholder title. The latest top and tutorial-link captures show no clipping, overflow, or hierarchy regression.
+
+## Implementation checklist
+
+- [x] 第 5 课接入现有课程详情路由和通用外壳
+- [x] 浅绿色导语、教程外链列表、原则卡片、万能公式和边界判断卡片
+- [x] 六个教程外链使用实际页面标题和可访问链接
+- [x] 外链使用真实图标表示文档和站外跳转
+- [x] 右侧课程大纲、页脚产出和下一课导航
+- [x] 当前预览宽度无整页横向溢出
+- [x] 标题修订后重新截图并复核长标题换行
+
+final result: passed
+
 # AI 情报日期切换视觉 QA（历史记录）
 
 - Source visual truth: `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-aeadafcf-294f-4e17-b5a1-97e17e3e2791.png`

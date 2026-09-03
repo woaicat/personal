@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   Clock3,
   Database,
@@ -101,10 +102,10 @@ export default function AgentFourthLessonPage({ detail }: { detail: AgentLessonP
             <p>benchmark 可以理解为一套专门用来“考试”的题目和评分标准。我们自己定义一组任务，测试不同模型的表现，看看谁更适合。</p>
             <p>以下是几个常见的公开基准， 每个新模型发布时都可能从中选几个进行测试，然后宣传自己的得分。（但是现在我们知道了，公开基准测试得分不等于在具体任务中的表现）</p>
             <ul className={styles.lessonFourBenchmarkList}>
-              <li><a href="https://github.com/hendrycks/test" target="_blank" rel="noreferrer">MMLU</a>：覆盖人文、社会科学、STEM 等多学科，测试模型的广泛知识理解与多任务推理能力。</li>
-              <li><a href="https://github.com/idavidrein/gpqa" target="_blank" rel="noreferrer">GPQA</a>：面向研究生水平的高难度问答，重点观察模型的知识运用与科学推理能力。</li>
-              <li><a href="https://github.com/openai/human-eval" target="_blank" rel="noreferrer">HumanEval</a>：根据自然语言描述生成代码，主要测试代码生成和函数功能正确性。</li>
-              <li><a href="https://www.swebench.com/" target="_blank" rel="noreferrer">SWE-bench</a>：基于真实 GitHub issue，测试模型理解代码库、定位问题并完成软件修复的能力。</li>
+              <li><a href="https://github.com/hendrycks/test" target="_blank" rel="noreferrer"><span>MMLU</span><ArrowUpRight aria-hidden="true" size={14} strokeWidth={2} /></a>：覆盖人文、社会科学、STEM 等多学科，测试模型的广泛知识理解与多任务推理能力。</li>
+              <li><a href="https://github.com/idavidrein/gpqa" target="_blank" rel="noreferrer"><span>GPQA</span><ArrowUpRight aria-hidden="true" size={14} strokeWidth={2} /></a>：面向研究生水平的高难度问答，重点观察模型的知识运用与科学推理能力。</li>
+              <li><a href="https://github.com/openai/human-eval" target="_blank" rel="noreferrer"><span>HumanEval</span><ArrowUpRight aria-hidden="true" size={14} strokeWidth={2} /></a>：根据自然语言描述生成代码，主要测试代码生成和函数功能正确性。</li>
+              <li><a href="https://www.swebench.com/" target="_blank" rel="noreferrer"><span>SWE-bench</span><ArrowUpRight aria-hidden="true" size={14} strokeWidth={2} /></a>：基于真实 GitHub issue，测试模型理解代码库、定位问题并完成软件修复的能力。</li>
             </ul>
             <div className={styles.lessonFourBenchmarkNote}>
               <strong>说明：</strong>公开基准就好像高考，考语数英等通用学科，测试模型的底层基础能力。为 Agent 设计定制化的测试基准，就相当于进入具体的工作岗位后，定制化的绩效考核标准。

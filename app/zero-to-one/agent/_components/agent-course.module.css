@@ -1150,6 +1150,9 @@
 }
 
 .lessonFourBenchmarkList a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28em;
   color: var(--lesson-accent-link);
   font-weight: 700;
   text-decoration: underline;
@@ -1157,27 +1160,14 @@
   text-underline-offset: 3px;
 }
 
+.lessonFourBenchmarkList a svg {
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
 .lessonFourBenchmarkList a:hover,
 .lessonFourBenchmarkList a:focus-visible {
   color: #0f6f4e;
-}
-
-.lessonPage a[target="_blank"]::after {
-  content: "↗";
-  display: inline-block;
-  margin-left: 0.28em;
-  color: currentColor;
-  font-size: 0.84em;
-  font-weight: 800;
-  line-height: 1;
-  text-decoration: none;
-  transform: translateY(-0.05em);
-  transition: transform 160ms ease;
-}
-
-.lessonPage a[target="_blank"]:hover::after,
-.lessonPage a[target="_blank"]:focus-visible::after {
-  transform: translate(2px, -2px);
 }
 
 .lessonFourBenchmarkNote {
@@ -2710,7 +2700,240 @@
     gap: 5px;
   }
 
-  .lessonThirdConclusion li strong {
+.lessonThirdConclusion li strong {
     white-space: normal;
+  }
+}
+
+.lessonFiveIntro {
+  margin-top: 31px;
+  padding: 15px 18px 16px;
+  border-left: 3px solid var(--lesson-accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--lesson-accent-pale);
+}
+
+.lessonFiveIntro p,
+.lessonFiveIntro li {
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.lessonFiveIntro p {
+  margin: 0 0 9px;
+}
+
+.lessonFiveIntro p:last-child {
+  margin-bottom: 0;
+}
+
+.lessonFiveIntro ul {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 9px;
+  padding-left: 20px;
+}
+
+.lessonFiveArticleList {
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+}
+
+.lessonFiveArticleLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 49px;
+  padding: 0 17px;
+  border-bottom: 1px solid #dfe7e1;
+  color: var(--lesson-accent-link);
+  font-size: 0.79rem;
+  font-weight: 700;
+  line-height: 1.45;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.lessonFiveArticleLink:last-child {
+  border-bottom: 0;
+}
+
+.lessonFiveArticleLink:hover,
+.lessonFiveArticleLink:focus-visible {
+  background: var(--lesson-accent-pale);
+  color: #0f6f4e;
+  outline: none;
+}
+
+.lessonFiveArticleLink span {
+  min-width: 0;
+}
+
+.lessonFiveArticleLink svg {
+  flex: 0 0 auto;
+}
+
+.lessonFiveArticleIcon {
+  color: var(--lesson-accent);
+}
+
+.lessonFiveArticleLink svg:last-child {
+  margin-left: 2px;
+}
+
+.lessonFiveAfterLinks {
+  margin-top: 12px !important;
+}
+
+.lessonFivePrincipleList,
+.lessonFiveBoundaryList {
+  display: grid;
+  gap: 10px;
+  margin-top: 17px;
+}
+
+.lessonFivePrincipleCard {
+  display: grid;
+  grid-template-columns: 59px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lessonFivePrincipleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lesson-accent);
+  background: var(--lesson-accent-pale);
+  border-right: 1px solid #e1ebe4;
+}
+
+.lessonFivePrincipleCopy {
+  min-width: 0;
+  padding: 12px 15px 13px;
+}
+
+.lessonFivePrincipleCopy h3,
+.lessonFiveBoundaryCard h3 {
+  margin: 0;
+  color: #303a49;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.lessonFivePrincipleCopy p,
+.lessonFiveBoundaryCard p {
+  margin: 5px 0 0;
+  color: #68747f;
+  font-size: 0.73rem;
+  line-height: 1.62;
+}
+
+.lessonFiveFormula {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  margin-top: 17px;
+  padding: 13px 17px;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+  background: var(--lesson-accent-pale);
+}
+
+.lessonFiveFormulaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--lesson-accent);
+}
+
+.lessonFiveFormulaItem strong {
+  color: #344354;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.lessonFiveFormulaSymbol {
+  margin-left: 9px;
+  color: #718079;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.lessonFiveBoundaryCard {
+  display: grid;
+  grid-template-columns: 29px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding: 13px 15px 14px;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lessonFiveBoundaryCard > svg {
+  margin-top: 1px;
+  color: var(--lesson-accent);
+}
+
+.lessonFiveExercise {
+  margin-top: 17px;
+  padding: 14px 16px;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+  background: var(--lesson-accent-pale);
+}
+
+.lessonFiveExercise strong {
+  color: #303a49;
+  font-size: 0.79rem;
+  line-height: 1.45;
+}
+
+.lessonFiveExercise p {
+  margin: 5px 0 0;
+  color: #68747f;
+  font-size: 0.73rem;
+  line-height: 1.62;
+}
+
+@media (max-width: 600px) {
+  .lessonFiveIntro {
+    margin-top: 27px;
+  }
+
+  .lessonFiveArticleLink {
+    min-height: 53px;
+    padding: 8px 12px;
+  }
+
+  .lessonFiveFormula {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 13px;
+  }
+
+  .lessonFiveFormulaItem {
+    flex: 0 0 auto;
+  }
+
+  .lessonFiveFormulaSymbol {
+    margin-left: 6px;
+  }
+
+  .lessonFivePrincipleCard {
+    grid-template-columns: 49px minmax(0, 1fr);
+  }
+
+  .lessonFivePrincipleCopy {
+    padding-right: 12px;
+    padding-left: 12px;
   }
 }

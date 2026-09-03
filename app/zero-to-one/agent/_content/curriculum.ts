@@ -66,8 +66,8 @@ export const agentCurriculum: AgentStage[] = [
       },
       {
         id: "05",
-        title: "编写系统提示词",
-        summary: "设计稳定、清晰、可执行的系统提示词骨架。",
+        title: "系统提示词",
+        summary: "掌握核心原则，比学技巧更重要。",
         output: "系统提示词初稿",
         whyItMatters: "提示词要把角色、目标、规则、工具和异常处理讲清楚，不能只写一句人格设定。",
         caseApplication: "为电商客服 Agent 写出服务对象、回答风格、信息引用和禁止承诺的行为边界。"
