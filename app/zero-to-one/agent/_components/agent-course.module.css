@@ -454,6 +454,7 @@
 .lessonPage {
   --lesson-accent: #318355;
   --lesson-accent-dark: #256743;
+  --lesson-accent-link: #16805a;
   --lesson-accent-soft: #edf8f0;
   --lesson-accent-pale: #f6fbf7;
   --lesson-line: #e3e9e5;
@@ -1149,7 +1150,7 @@
 }
 
 .lessonFourBenchmarkList a {
-  color: var(--lesson-accent-dark);
+  color: var(--lesson-accent-link);
   font-weight: 700;
   text-decoration: underline;
   text-decoration-color: #9bceb0;
@@ -1158,7 +1159,25 @@
 
 .lessonFourBenchmarkList a:hover,
 .lessonFourBenchmarkList a:focus-visible {
-  color: var(--lesson-accent);
+  color: #0f6f4e;
+}
+
+.lessonPage a[target="_blank"]::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.28em;
+  color: currentColor;
+  font-size: 0.84em;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transform: translateY(-0.05em);
+  transition: transform 160ms ease;
+}
+
+.lessonPage a[target="_blank"]:hover::after,
+.lessonPage a[target="_blank"]:focus-visible::after {
+  transform: translate(2px, -2px);
 }
 
 .lessonFourBenchmarkNote {
