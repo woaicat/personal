@@ -6,7 +6,7 @@ function buildSite(): SiteContent {
     pageTitle: "个人作品集",
     profile: {
       name: "JiaXuan GAO",
-      title: "AI产品经理\n专注企业内部的AI落地、AI对知识工作者的影响",
+      title: "AI产品经理\n专注企业内部的AI落地",
       description: "持续记录我的个人介绍、文章创作、项目经历、知识库和行动计划，展示从思考到落地的完整过程。",
       ctaText: "联系我",
       ctaUrl: "#subscribe-anchor",
