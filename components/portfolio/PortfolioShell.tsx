@@ -50,7 +50,6 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
             const sectionId = tab.href.startsWith("#") ? tab.href.slice(1) : "";
             const isActive = sectionId !== "" && sectionId === activeTab;
             const shouldOpenInNewTab = tab.href === "/sql-learning" || tab.href === "/ai-knowledge";
-            const isAiKnowledgeTab = tab.href === "/ai-knowledge";
 
             if (tab.label === "从0-1") {
               return (
@@ -61,7 +60,7 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
                   onMouseLeave={scheduleClose}
                 >
                   <button
-                    className="top-tab top-tab-disclosure"
+                    className="top-tab top-tab-disclosure top-tab-featured"
                     type="button"
                     aria-expanded={openDropdown === "agent"}
                     onClick={() => toggleDropdown("agent")}
@@ -84,7 +83,7 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
             return (
               <a
                 key={tab.href}
-                className={`top-tab${isActive ? " active" : ""}${isAiKnowledgeTab ? " top-tab-featured" : ""}`}
+                className={`top-tab${isActive ? " active" : ""}`}
                 href={tab.href}
                 onClick={() => onTopTabClick(tab.href)}
                 target={shouldOpenInNewTab ? "_blank" : undefined}

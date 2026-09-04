@@ -45,8 +45,8 @@ function buildSite(): SiteContent {
     },
     topTabs: [
       { label: "个人介绍", href: "#profile-intro" },
-      { label: "AI知识库", href: "/ai-knowledge" },
       { label: "从0-1", href: "/zero-to-one/agent" },
+      { label: "AI知识库", href: "/ai-knowledge" },
       { label: "SQL学习", href: "/sql-learning" },
       { label: "文章创作", href: "#articles" },
       { label: "项目经历", href: "#projects" },
