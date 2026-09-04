@@ -47,6 +47,52 @@
   },
   "newsEditions": [
     {
+      "collectedAt": "2026-09-04",
+      "items": [
+        {
+          "title": "OpenAI 发布 GPT-6 Astra，推进计算机使用与专业工作自动化",
+          "summary": "OpenAI 称 GPT-6 Astra 在计算机使用、浏览、软件工程、网络安全、科学和专业工作上达到新前沿，并重点提升任务判断、速度与对齐能力；模型从 9 月 3 日起分阶段向组织、ChatGPT 用户和 API 开放。",
+          "href": "https://openai.com/index/gpt-6-astra/",
+          "date": "2026-09-03",
+          "source": "OpenAI",
+          "tag": "模型发布",
+          "featured": true
+        },
+        {
+          "title": "Google 推出 Fairwind，向政府与企业开放主动式 AI 网络防御",
+          "summary": "Google 启动 Fairwind Program，向受信任的政府、云客户和网络安全伙伴提供 Gemini 3.8 Flash Cyber 与 CodeMender，用于在安全云环境中自主发现、验证和修复漏洞；首批覆盖公共部门、关键基础设施与核心技术平台。",
+          "href": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
+          "date": "2026-09-02",
+          "source": "Google",
+          "tag": "网络安全"
+        },
+        {
+          "title": "Anthropic 发布 Claude Fable 5.1 与 Mythos 5.1，按风险分层开放",
+          "summary": "Fable 5.1 与 Mythos 5.1 是同一模型、不同安全防护级别：Fable 面向一般可用，Mythos 仅通过受信任访问计划提供，重点提升编码、知识工作与科学研究能力，并同步推进企业级前沿防护机制。",
+          "href": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "date": "2026-09-01",
+          "source": "Anthropic",
+          "tag": "模型安全"
+        },
+        {
+          "title": "ChatGPT for Healthcare 接入 Epic 电子病历与官方医疗数据",
+          "summary": "OpenAI 为 ChatGPT for Healthcare 增加 Epic EHR 集成和 Healthcare Public Data 插件，让医疗团队在授权范围内查看患者上下文，并连接 PubMed、DailyMed、CMS Coverage 等九个官方数据源开展可追溯工作。",
+          "href": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources/",
+          "date": "2026-09-01",
+          "source": "OpenAI",
+          "tag": "行业落地"
+        },
+        {
+          "title": "Anthropic 预览 Model Hardware Standard，让 Agent 操作实验室设备",
+          "summary": "Anthropic 与 HHMI Janelia Research Campus 开放 Model Hardware Standard 研究预览，用统一驱动和标准协议连接显微镜、液体处理器、机械臂等设备，支持 Agent 并行编排实验与制造流程，并计划进一步开源。",
+          "href": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+          "date": "2026-08-27",
+          "source": "Anthropic",
+          "tag": "具身智能"
+        }
+      ]
+    },
+    {
       "collectedAt": "2026-08-21",
       "items": [
         {

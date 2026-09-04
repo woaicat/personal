@@ -9,7 +9,5 @@ readCount: "0"
 image: "/images/article-city.png"
 featured: false
 status: "published"
-hotRank: 1
-hotSummary: "从模型分层到程序化工具调用，了解 GPT-5.6 如何提升复杂任务的质量与效率。"
 externalUrl: "https://openai.com/index/gpt-5-6/"
 ---
