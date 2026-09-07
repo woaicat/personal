@@ -140,3 +140,11 @@
 - 下一课 / 继续学习
 
 正文不使用内容块协议。每课可保留或新建自己的正文组件，自由使用图表、流程图、选择题、卡片、公式、表格和专属交互；只需把正文作为 `AgentLessonShell` 的子内容，并沿用 `.lessonSection` 与本规范的视觉基线。只有固定框架发生变化时，才修改 `AgentLessonShell`。
+
+## 9. 第六课正文可视化
+
+- 实现：`components/agent-course/lessons/AgentSixthLessonPage.tsx`；专属正文样式：`components/agent-course/styles/agent-loop.module.css`。
+- 复用 `AgentLessonShell`、`AgentLessonSection` 和 `LessonChoiceQuestion`，不修改固定框架及页面级令牌。
+- 基础循环使用分支与回流提示；可乐例子使用条件分支与顺序步骤；生产控制采用问题对照表、双层控制卡、四状态卡及四个检查点。
+- 移动端将多列正文转为单列；四列表格保留可读字号并支持键盘聚焦与局部横向滚动。
+- 大纲锚点对应三节正文、三个生产子节及练习题；外链保留来源并在新标签页打开。

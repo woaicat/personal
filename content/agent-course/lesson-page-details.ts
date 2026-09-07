@@ -79,6 +79,25 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
     output: "你将学会根据具体任务，从任务表现、成本和延迟等维度选择合适的模型。",
     nextLesson: { id: "05", title: "系统提示词", description: "学习如何为 Agent 设计清晰、可执行的系统提示词，并明确行为边界。" }
   },
+  "06": {
+    id: "06",
+    title: "Agent loop",
+    subtitle: "理解循环如何驱动智能体，以及如何让它持续推进、适时停止。",
+    duration: "10 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: ["行动结果进入下一轮决策，形成 Agent loop", "避免无效重复，区分完成、等待、无法继续与被终止", "在决策前、执行前、返回后和结束时按业务需要加工循环"],
+    outline: [
+      { id: "section-1", number: "1", label: "什么是 Agent loop" },
+      { id: "section-2", number: "2", label: "为什么需要循环" },
+      { id: "section-3", number: "3", label: "生产环境中的循环" },
+      { id: "section-3-1", number: "3.1", label: "防止陷入死循环", nested: true },
+      { id: "section-3-2", number: "3.2", label: "什么时候停下来", nested: true },
+      { id: "section-3-3", number: "3.3", label: "根据需要调整循环", nested: true },
+      { id: "section-4", number: "4", label: "练习题" }
+    ],
+    output: "画出任务的决策、行动与反馈循环，并明确停止条件和关键检查点。",
+    nextLesson: { id: "07", title: "工具和 MCP", description: "继续学习智能体如何通过工具与 MCP 连接真实世界。" }
+  },
   "05": {
     id: "05",
     title: "系统提示词",

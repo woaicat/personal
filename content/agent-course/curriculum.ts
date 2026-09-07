@@ -65,8 +65,8 @@ export const agentCurriculum: AgentStage[] = [
       },
       {
         id: "07",
-        title: "设计工具、MCP 与 Skill",
-        summary: "梳理工具接入方式，以及 MCP 与 Skill 的组织方法。",
+        title: "工具和 MCP",
+        summary: "理解工具与 MCP 的关系，设计能力接入方式与执行边界。",
         output: "工具能力清单",
         whyItMatters: "工具是 Agent 连接真实世界的边界，必须让每项能力都有明确的输入、输出和调用条件。",
         caseApplication: "为知识检索、订单状态查询、平台规则查询和转人工分别定义能力边界。"

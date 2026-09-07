@@ -20,6 +20,7 @@ import AgentSecondLessonPage from "@/components/agent-course/lessons/AgentSecond
 import AgentThirdLessonPage from "@/components/agent-course/lessons/AgentThirdLessonPage";
 import AgentFourthLessonPage from "@/components/agent-course/lessons/AgentFourthLessonPage";
 import AgentFifthLessonPage from "@/components/agent-course/lessons/AgentFifthLessonPage";
+import AgentSixthLessonPage from "@/components/agent-course/lessons/AgentSixthLessonPage";
 import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
 import styles from "@/components/agent-course/styles/agent-course.module.css";
 
@@ -80,6 +81,10 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
 
   if (lesson.id === "05") {
     return <AgentFifthLessonPage detail={detail} />;
+  }
+
+  if (lesson.id === "06") {
+    return <AgentSixthLessonPage detail={detail} />;
   }
 
   if (lesson.id !== "01") {
