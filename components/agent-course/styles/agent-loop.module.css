@@ -9,7 +9,7 @@
 .branches p, .return { margin: 12px 0 0; font-size: .78rem; text-align: center; line-height: 1.6; }
 .return { display: flex; align-items: center; justify-content: center; gap: 9px; padding: 10px; border: 1px dashed var(--lesson-accent); border-radius: 8px; color: var(--lesson-accent-dark); }
 .loop figcaption, .cola figcaption { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--lesson-line); text-align: center; font-size: .83rem; font-weight: 600; color: var(--lesson-accent-dark); line-height: 1.72; }
-.callout { margin: 18px 0; padding: 14px 16px; border-left: 3px solid var(--lesson-accent); border-radius: 8px; background: var(--lesson-accent-pale); color: #536070; font-size: .83rem; line-height: 1.72; }
+.callout { margin: 18px 0; padding: 14px 16px; border: 0; border-radius: 8px; background: var(--lesson-accent-pale); color: #536070; font-size: .83rem; line-height: 1.72; }
 .steps { margin: 0; padding: 0 0 0 26px; color: #536070; font-size: .83rem; line-height: 1.72; }
 .steps li { padding: 6px 9px; border-bottom: 1px solid var(--lesson-line); }
 .three { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 18px 0; }
@@ -44,3 +44,21 @@
 .exercise h3 { margin-top: 0; }
 .tableScroll:focus-visible, .reference:focus-visible { outline: 2px solid var(--lesson-accent); outline-offset: 3px; }
 @media(max-width: 600px) { .branches, .layers, .states, .three { grid-template-columns: 1fr; } .loop, .cola { padding: 14px; } .branches { gap: 16px; } .three div { display: flex; gap: 12px; align-items: center; } .three span { margin-bottom: 0; } }
+
+.flowGrid { display: grid; grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr); gap: 10px 0; margin-top: 18px; align-items: center; }
+.directLabel, .toolLabel { text-align: center; font-size: .78rem; color: #536070; line-height: 1.6; }
+.directLabel { grid-area: 1 / 1; }
+.toolLabel { grid-area: 1 / 3; }
+.directAnswer { grid-area: 2 / 1; }
+.toolNode { grid-area: 2 / 3; }
+.toolArrow { grid-area: 3 / 3; }
+.observeNode { grid-area: 4 / 3; }
+.observeArrow { grid-area: 5 / 3; }
+.toolArrow, .observeArrow { justify-self: center; color: var(--lesson-accent); }
+.resultAnswer { grid-area: 6 / 1; }
+.yesPath { grid-area: 6 / 2; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--lesson-accent-dark); font-size: .78rem; }
+.resultDecision { grid-area: 6 / 3; padding: 16px 8px; text-align: center; border: 1px solid var(--lesson-accent); border-radius: 8px; background: var(--lesson-accent-soft); color: var(--lesson-accent-dark); font-size: .83rem; line-height: 1.6; }
+.noPath { grid-area: 7 / 3; display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--lesson-accent-dark); font-size: .78rem; }
+.continueNode { grid-area: 8 / 3; }
+.continueNode span { display: block; margin-top: 6px; color: #536070; font-size: .73rem; line-height: 1.6; }
+@media(max-width:600px) { .flowGrid { grid-template-columns: minmax(0,1fr) 42px minmax(0,1fr); } .flowGrid .node { flex-direction: column; gap: 8px; padding: 10px 7px; text-align: center; } }

@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Brain, CheckCircle2, Eye, PauseCircle, RefreshCw, ShieldCheck, Square, Wrench } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, Brain, CheckCircle2, Eye, PauseCircle, RefreshCw, ShieldCheck, Square, Wrench } from "lucide-react";
 import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 import AgentLessonShell, { AgentLessonSection } from "@/components/agent-course/AgentLessonShell";
 import LessonChoiceQuestion from "@/components/agent-course/LessonChoiceQuestion";
@@ -32,9 +32,18 @@ export default function AgentSixthLessonPage({ detail }: { detail: AgentLessonPa
       <figure className={s.loop} aria-label="智能体循环：决策后直接回答，或调用工具、观察结果；满足要求则回答，不满足则返回决策">
         <div className={s.request}>用户请求</div><ArrowDown className={s.arrow} aria-hidden="true" size={20} />
         <div className={s.decision}><Brain size={25} strokeWidth={1.8} aria-hidden="true" /><strong>决策</strong><span>下一步做什么？</span></div>
-        <div className={s.branches}>
-          <div><span className={s.branchLabel}>可以直接回答</span><div className={s.node}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户</strong></div></div>
-          <div><span className={s.branchLabel}>需要行动或更多信息</span><div className={s.node}><Wrench size={24} aria-hidden="true" /><strong>调用工具</strong></div><ArrowDown className={s.arrow} size={20} aria-hidden="true" /><div className={s.node}><Eye size={24} aria-hidden="true" /><strong>观察结果</strong></div><p>满足要求 → 回答用户</p><div className={s.return}><RefreshCw size={19} aria-hidden="true" />不满足 → 携带结果，回到决策</div></div>
+        <div className={s.flowGrid}>
+          <span className={s.directLabel}>可以直接回答</span><span className={s.toolLabel}>需要行动或更多信息</span>
+          <div className={`${s.node} ${s.directAnswer}`}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户</strong></div>
+          <div className={`${s.node} ${s.toolNode}`}><Wrench size={24} aria-hidden="true" /><strong>调用工具</strong></div>
+          <ArrowDown className={s.toolArrow} size={20} aria-hidden="true" />
+          <div className={`${s.node} ${s.observeNode}`}><Eye size={24} aria-hidden="true" /><strong>观察结果</strong></div>
+          <ArrowDown className={s.observeArrow} size={20} aria-hidden="true" />
+          <div className={`${s.node} ${s.resultAnswer}`}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户问题</strong></div>
+          <div className={s.yesPath}><span>满足</span><ArrowLeft aria-hidden="true" size={26} /></div>
+          <div className={s.resultDecision}><strong>是否满足<br />用户要求？</strong></div>
+          <div className={s.noPath}><span>不满足</span><ArrowDown aria-hidden="true" size={22} /></div>
+          <div className={`${s.node} ${s.continueNode}`}><RefreshCw size={24} aria-hidden="true" /><div><strong>继续调用工具</strong><span>携带结果，进入下一轮决策与行动</span></div></div>
         </div>
         <figcaption>决策 → 行动 → 观察 → 再决策</figcaption>
       </figure>
