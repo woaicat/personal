@@ -1,21 +1,4 @@
-export type LessonStatus = "not-started" | "in-progress" | "completed";
-
-export interface AgentLesson {
-  id: string;
-  title: string;
-  summary: string;
-  output: string;
-  whyItMatters: string;
-  caseApplication: string;
-}
-
-export interface AgentStage {
-  id: string;
-  label: string;
-  title: string;
-  description: string;
-  lessons: AgentLesson[];
-}
+import type { AgentStage } from "@/lib/agent-course/types";
 
 export const agentCurriculum: AgentStage[] = [
   {
@@ -165,7 +148,3 @@ export const agentCurriculum: AgentStage[] = [
 ];
 
 export const allAgentLessons = agentCurriculum.flatMap((stage) => stage.lessons);
-
-export function findAgentLesson(lessonId: string) {
-  return allAgentLessons.find((lesson) => lesson.id === lessonId);
-}

@@ -7,9 +7,9 @@ import {
   Wrench,
   type LucideIcon
 } from "lucide-react";
-import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
-import AgentLessonShell from "./AgentLessonShell";
-import styles from "./agent-course.module.css";
+import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
+import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 const processSteps = [
   "获得销售线索",

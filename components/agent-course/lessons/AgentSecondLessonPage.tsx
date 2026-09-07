@@ -17,10 +17,10 @@ import {
   Users,
   type LucideIcon
 } from "lucide-react";
-import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
-import AgentLessonShell from "./AgentLessonShell";
-import LessonChoiceQuestion, { type LessonChoiceFeedback } from "./LessonChoiceQuestion";
-import styles from "./agent-course.module.css";
+import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
+import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
+import LessonChoiceQuestion, { type LessonChoiceFeedback } from "@/components/agent-course/LessonChoiceQuestion";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 const valueCards: Array<{ icon: LucideIcon; title: string; description: string }> = [
   { icon: BarChart3, title: "业务价值", description: "赚钱、降本、增效，解决这个问题能为个人或组织带来多少可量化的价值" },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AgentCoursePage from "./_components/AgentCoursePage";
+import AgentCoursePage from "@/components/agent-course/AgentCoursePage";
 
 export const metadata: Metadata = {
   title: "从 0 到 1 设计一个 Agent | JiaXuan GAO",

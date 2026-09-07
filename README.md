@@ -17,6 +17,27 @@
 - `articles_data.csv` / `projects_data.csv` / `knowledge_data.csv` / `media_data.csv`：你可填写的数据模板
 - `scripts/sync-articles-from-csv.mjs`：将 `articles_data.csv` 同步回 `lib/content.ts` 的脚本
 
+### 模块目录约定
+
+先按职责分层，再按业务模块分组。当前模块包括 `portfolio`、`ai-knowledge`、`sql-learning` 和 `agent-course`；路由名称可以与内部模块名称不同。
+
+| 目录 | 职责 |
+| --- | --- |
+| `app/` | 路由、布局、元数据、参数处理及接口入口 |
+| `components/<模块>/` | 页面组件、交互组件及配套 CSS Module；章节专属组件可放在 `lessons/` |
+| `lib/<模块>/` | 内容查询、业务逻辑、类型和存储操作；浏览器存储放在 `storage/` |
+| `content/<模块>/` | 课程目录、正文配置、Markdown 和静态业务数据 |
+| `public/<模块>/` | 页面使用的图片及静态资源 |
+| `docs/<模块>/` | 需求文档、设计说明与模块维护记录 |
+
+- 跨职责目录引用使用 `@/` 别名；同目录文件可以使用相对路径。
+- 组件默认归属业务模块；多个模块确实复用后，再提取到 `components/shared/`。
+- 路由文件组合页面组件，不承载长篇正文或存储逻辑；纯内容文件不操作浏览器存储。
+- 课程专属 JSX 保留在组件中，不为数据化而拆分复杂布局。
+- 首页现有 `lib/content.ts`、`lib/types.ts` 和根目录 CSV 保留原维护入口；后续调整应单独验证，不与其他模块迁移混做。
+
+Agent 课程入口为 `app/zero-to-one/agent/`，对应 `components/agent-course/`、`lib/agent-course/`、`content/agent-course/` 和 `public/agent-course/`。需求与设计文档见 [docs/agent-course/需求文档.md](docs/agent-course/需求文档.md) 和 [docs/agent-course/design.md](docs/agent-course/design.md)。
+
 ## 本地运行
 
 ```bash

@@ -4,16 +4,16 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { agentCurriculum, allAgentLessons } from "../_content/curriculum";
-import courseHeroIllustration from "../插图/agent-course-hero.png";
+import { agentCurriculum, allAgentLessons } from "@/content/agent-course/curriculum";
+import courseHeroIllustration from "@/public/agent-course/images/agent-course-hero.png";
 import {
   AGENT_LAST_LESSON_KEY,
   AGENT_PROGRESS_KEY,
   getLessonStatus,
   getStatusLabel,
   type LessonProgressMap
-} from "../_content/progress";
-import styles from "./agent-course.module.css";
+} from "@/lib/agent-course/storage/lessonProgress";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 const firstLessonId = allAgentLessons[0]?.id ?? "01";
 

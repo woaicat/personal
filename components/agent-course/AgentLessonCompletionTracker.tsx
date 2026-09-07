@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useEffect } from "react";
-import { markLessonCompleted } from "../_content/progress";
+import { markLessonCompleted } from "@/lib/agent-course/storage/lessonProgress";
 
 interface AgentLessonCompletionTrackerProps {
   lessonId: string;

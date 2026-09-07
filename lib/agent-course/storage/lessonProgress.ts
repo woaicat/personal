@@ -1,4 +1,4 @@
-import type { LessonStatus } from "./curriculum";
+import type { LessonStatus } from "@/lib/agent-course/types";
 
 export const AGENT_PROGRESS_KEY = "zero-to-one-agent-progress-v2";
 export const AGENT_LAST_LESSON_KEY = "zero-to-one-agent-last-lesson-v2";

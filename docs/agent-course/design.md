@@ -91,7 +91,7 @@
 - 紧凑数据卡允许更低高度，但仍使用 `8px` 圆角、同色描边、相同标题字号和强调色。
 - 提示框使用极浅强调底色与左侧强调线，圆角统一为 `8px`；仅在内容确实需要提示、结论或边界时使用。
 - 公式、说明、练习反馈与普通卡片共享边框、圆角和字号阶梯，不自成另一套微缩组件。
-- 选择题复用 `_components/LessonChoiceQuestion.tsx`，保证选项、选中状态、正确/错误反馈和无障碍状态在所有课程中一致。
+- 选择题复用 `components/agent-course/LessonChoiceQuestion.tsx`，保证选项、选中状态、正确/错误反馈和无障碍状态在所有课程中一致。
 
 ### 4.3 表格
 
@@ -123,10 +123,10 @@
 
 ## 7. 当前实现对应位置
 
-- 固定页面框架：`_components/AgentLessonShell.tsx`。
-- 固定课程数据：`_content/lesson-page-details.ts`。
-- 课程正文：`_components/AgentLessonPage.tsx`、`AgentSecondLessonPage.tsx`、`AgentFourthLessonPage.tsx`；正文保持课次专属实现。
-- 通用详情页基线：`_components/agent-course.module.css` 的 `.lessonPage` 至 `.lessonSection`。
+- 固定页面框架：`components/agent-course/AgentLessonShell.tsx`。
+- 固定课程数据：`content/agent-course/lesson-page-details.ts`。
+- 课程正文：`components/agent-course/AgentLessonPage.tsx`、`components/agent-course/lessons/AgentSecondLessonPage.tsx`、`components/agent-course/lessons/AgentFourthLessonPage.tsx`；正文保持课次专属实现。
+- 通用详情页基线：`components/agent-course/styles/agent-course.module.css` 的 `.lessonPage` 至 `.lessonSection`。
 
 ## 8. 固定框架与自由正文的边界
 

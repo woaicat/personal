@@ -1,25 +1,4 @@
-export type LessonOutlineItem = {
-  id: string;
-  number: string;
-  label: string;
-  nested?: boolean;
-};
-
-export type AgentLessonPageDetail = {
-  id: string;
-  title: string;
-  subtitle: string;
-  duration: string;
-  series: string;
-  keyPoints: string[];
-  outline: LessonOutlineItem[];
-  output: string;
-  nextLesson: {
-    id: string;
-    title: string;
-    description: string;
-  };
-};
+import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 
 export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
   "01": {

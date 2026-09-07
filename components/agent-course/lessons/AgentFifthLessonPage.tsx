@@ -12,9 +12,9 @@ import {
   UserRound,
   type LucideIcon
 } from "lucide-react";
-import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
-import AgentLessonShell from "./AgentLessonShell";
-import styles from "./agent-course.module.css";
+import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
+import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 const articleLinks = [
   { title: "2025年的AI prompt工程：什么仍然有效 & 什么没那么有效", href: "https://www.woshipm.com/ai/6232635.html" },

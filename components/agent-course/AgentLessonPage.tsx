@@ -14,14 +14,14 @@ import {
   Wrench,
   type LucideIcon
 } from "lucide-react";
-import type { AgentLesson } from "../_content/curriculum";
-import { agentLessonPageDetails } from "../_content/lesson-page-details";
-import AgentSecondLessonPage from "./AgentSecondLessonPage";
-import AgentThirdLessonPage from "./AgentThirdLessonPage";
-import AgentFourthLessonPage from "./AgentFourthLessonPage";
-import AgentFifthLessonPage from "./AgentFifthLessonPage";
-import AgentLessonShell from "./AgentLessonShell";
-import styles from "./agent-course.module.css";
+import type { AgentLesson } from "@/lib/agent-course/types";
+import { agentLessonPageDetails } from "@/content/agent-course/lesson-page-details";
+import AgentSecondLessonPage from "@/components/agent-course/lessons/AgentSecondLessonPage";
+import AgentThirdLessonPage from "@/components/agent-course/lessons/AgentThirdLessonPage";
+import AgentFourthLessonPage from "@/components/agent-course/lessons/AgentFourthLessonPage";
+import AgentFifthLessonPage from "@/components/agent-course/lessons/AgentFifthLessonPage";
+import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 const toolNames = ["Codex", "Claude Code", "Workbuddy", "豆包工作"];
 

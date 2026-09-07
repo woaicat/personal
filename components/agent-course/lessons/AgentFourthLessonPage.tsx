@@ -10,10 +10,10 @@ import {
   Target,
   type LucideIcon
 } from "lucide-react";
-import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
-import AgentLessonShell from "./AgentLessonShell";
-import LessonChoiceQuestion, { type LessonChoiceFeedback } from "./LessonChoiceQuestion";
-import styles from "./agent-course.module.css";
+import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
+import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
+import LessonChoiceQuestion, { type LessonChoiceFeedback } from "@/components/agent-course/LessonChoiceQuestion";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 const taskCards: Array<{ icon: LucideIcon; title: string; description: string }> = [
   { icon: MessageCircle, title: "问答任务", description: "根据用户的问题，判断用户意图，并给出正确的解决方案。" },

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AlertTriangle, CheckCircle2, Sparkles, X, type LucideIcon } from "lucide-react";
-import styles from "./agent-course.module.css";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 export type LessonChoiceFeedback = {
   icon?: "alert" | "check" | "sparkles" | "x";

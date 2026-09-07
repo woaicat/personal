@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import AgentLessonCompletionTracker from "../_components/AgentLessonCompletionTracker";
-import AgentLessonPage from "../_components/AgentLessonPage";
-import { allAgentLessons, findAgentLesson } from "../_content/curriculum";
+import AgentLessonCompletionTracker from "@/components/agent-course/AgentLessonCompletionTracker";
+import AgentLessonPage from "@/components/agent-course/AgentLessonPage";
+import { allAgentLessons } from "@/content/agent-course/curriculum";
+import { findAgentLesson } from "@/lib/agent-course/content";
 
 type AgentLessonRouteProps = {
   params: Promise<{ lessonId: string }>;

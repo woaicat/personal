@@ -1,8 +1,8 @@
 import { ArrowLeft, ArrowRight, BookOpen, FileText, Sparkles } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { AgentLessonPageDetail } from "../_content/lesson-page-details";
-import styles from "./agent-course.module.css";
+import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
+import styles from "@/components/agent-course/styles/agent-course.module.css";
 
 export function AgentLessonSection({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return <section className={styles.lessonSection} id={id} aria-labelledby={`${id}-title`}><h2 id={`${id}-title`}>{title}</h2>{children}</section>;
