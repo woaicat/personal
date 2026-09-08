@@ -1,5 +1,4 @@
 import {
-  ArrowDown,
   ArrowRight,
   Bot,
   CheckCircle2,
@@ -105,7 +104,6 @@ function BulletList({ items }: { items: string[] }) {
 export default function AgentSeventhLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return <AgentLessonShell detail={detail}>
     <AgentLessonSection id="section-1" title="1. 什么是工具？">
-      <p>上一课，我们讲了 Agent 如何通过“决策 → 行动 → 观察 → 再决策”的循环完成任务。这一课进一步讨论：Agent 决定行动之后，到底通过什么来行动？</p>
       <div className={s.sodaPrompt}><Bot aria-hidden="true" size={23} strokeWidth={1.8} /><p>“帮我买一瓶无糖可乐，送到家里，总价不超过 10 元。”</p></div>
       <p>理解这句话，只是第一步。要完成任务，Agent 还需要查询商品信息、比较价格、创建订单，并确认购买结果。这些能力，就需要通过工具获得。</p>
       <p>工具是 Agent 可以调用的一项外部能力。工具之于智能体，就好像手机、字典、剪刀之于人类：它们弥补自身能力的不足，提供独特的价值。</p>
@@ -132,11 +130,17 @@ export default function AgentSeventhLessonPage({ detail }: { detail: AgentLesson
         <p><strong>模型负责提出调用请求，真正的操作由运行环境执行。</strong>模型输出“已经下单”，不代表订单真的创建了；只有下单工具实际执行并返回结果，才有完成动作的依据。</p>
         <Reference href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">工具调用机制</Reference>
         <div className={s.dialogue} aria-label="从工具调用到下一轮决策的对话过程">
-          <article className={s.dialogueModel}><span>模型 · 调用请求</span><p>查询商品：商店 A，关键词“无糖可乐”，数量 1。</p></article>
-          <ArrowDown className={s.dialogueArrow} aria-hidden="true" size={20} />
-          <article className={s.dialogueRuntime}><span>运行环境 · 执行结果</span><p>找到商品：无糖可乐，500 毫升，库存 8 瓶，单价 4 元。</p></article>
-          <ArrowDown className={s.dialogueArrow} aria-hidden="true" size={20} />
-          <article className={s.dialogueAgent}><span>Agent · 下一轮决策</span><p>商品符合要求，但还不知道配送费，需要继续查询。</p></article>
+          <div className={`${s.dialogueRow} ${s.dialogueRowLeft}`}>
+            <article className={s.dialogueModel}><span>模型 · 调用请求</span><p>查询商品：商店 A，关键词“无糖可乐”，数量 1。</p></article>
+          </div>
+          <div className={s.dialogueConnector}><span>调用请求</span><ArrowRight aria-hidden="true" size={20} /></div>
+          <div className={`${s.dialogueRow} ${s.dialogueRowRight}`}>
+            <article className={s.dialogueRuntime}><span>运行环境 · 执行结果</span><p>找到商品：无糖可乐，500 毫升，库存 8 瓶，单价 4 元。</p></article>
+          </div>
+          <div className={`${s.dialogueConnector} ${s.dialogueConnectorReturn}`}><ArrowRight aria-hidden="true" size={20} /><span>返回结果</span></div>
+          <div className={`${s.dialogueRow} ${s.dialogueRowLeft}`}>
+            <article className={s.dialogueAgent}><span>Agent · 下一轮决策</span><p>商品符合要求，但还不知道配送费，需要继续查询。</p></article>
+          </div>
         </div>
       </section>
 
