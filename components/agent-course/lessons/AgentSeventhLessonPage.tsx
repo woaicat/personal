@@ -106,7 +106,7 @@ export default function AgentSeventhLessonPage({ detail }: { detail: AgentLesson
     <AgentLessonSection id="section-1" title="1. 什么是工具？">
       <div className={s.sodaPrompt}><Bot aria-hidden="true" size={23} strokeWidth={1.8} /><p>“帮我买一瓶无糖可乐，送到家里，总价不超过 10 元。”</p></div>
       <p>理解这句话，只是第一步。要完成任务，Agent 还需要查询商品信息、比较价格、创建订单，并确认购买结果。这些能力，就需要通过工具获得。</p>
-      <p>工具是 Agent 可以调用的一项外部能力。工具之于智能体，就好像手机、字典、剪刀之于人类：它们弥补自身能力的不足，提供独特的价值。</p>
+      <p>工具是 Agent 可以调用的一项外部能力。工具之于智能体，就好像手机、字典、剪刀之于人类：它们可以弥补智能体或人类自身能力的不足，提供独特的价值。</p>
       <div className={s.toolTypeGrid} aria-label="三类工具能力">
         {toolTypes.map(({ icon: Icon, title, purpose, sodaExample, workExample }) => <article key={title} className={s.toolTypeCard}>
           <Icon aria-hidden="true" size={25} strokeWidth={1.8} />
