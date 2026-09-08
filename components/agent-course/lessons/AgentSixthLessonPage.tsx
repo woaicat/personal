@@ -30,22 +30,24 @@ export default function AgentSixthLessonPage({ detail }: { detail: AgentLessonPa
       <p>在本文中 loop 和循环同义。</p>
       <p>智能体的运行靠一个循环来驱动：用户的每一次请求，智能体都有两个选择——要么直接回答用户问题，要么调用工具获得结果，然后判断结果是否足以满足用户要求。如果可以满足，则回答用户。如果不能满足，则继续调用工具。</p>
       <figure className={s.loop} aria-label="智能体循环：决策后直接回答，或调用工具、观察结果；满足要求则回答，不满足则返回决策">
-        <div className={s.request}>用户请求</div><ArrowDown className={s.arrow} aria-hidden="true" size={20} />
-        <div className={s.decision}><Brain size={25} strokeWidth={1.8} aria-hidden="true" /><strong>决策</strong><span>下一步做什么？</span></div>
-        <div className={s.flowGrid}>
-          <span className={s.directLabel}>可以直接回答</span><span className={s.toolLabel}>需要行动或更多信息</span>
-          <div className={`${s.node} ${s.directAnswer}`}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户</strong></div>
-          <div className={`${s.node} ${s.toolNode}`}><Wrench size={24} aria-hidden="true" /><strong>调用工具</strong></div>
-          <ArrowDown className={s.toolArrow} size={20} aria-hidden="true" />
-          <div className={`${s.node} ${s.observeNode}`}><Eye size={24} aria-hidden="true" /><strong>观察结果</strong></div>
-          <ArrowDown className={s.observeArrow} size={20} aria-hidden="true" />
-          <div className={`${s.node} ${s.resultAnswer}`}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户问题</strong></div>
-          <div className={s.yesPath}><span>满足</span><ArrowLeft aria-hidden="true" size={26} /></div>
-          <div className={s.resultDecision}><strong>是否满足<br />用户要求？</strong></div>
-          <div className={s.noPath}><span>不满足</span><ArrowDown aria-hidden="true" size={22} /></div>
-          <div className={`${s.node} ${s.continueNode}`}><RefreshCw size={24} aria-hidden="true" /><div><strong>继续调用工具</strong><span>携带结果，进入下一轮决策与行动</span></div></div>
+        <div className={s.loopCanvas}>
+          <div className={s.request}>用户请求</div><ArrowDown className={s.arrow} aria-hidden="true" size={20} />
+          <div className={s.decision}><Brain size={25} strokeWidth={1.8} aria-hidden="true" /><strong>决策</strong><span>下一步做什么？</span></div>
+          <div className={s.flowGrid}>
+            <span className={s.directLabel}>可以直接回答</span><span className={s.toolLabel}>需要行动或更多信息</span>
+            <div className={`${s.node} ${s.directAnswer}`}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户</strong></div>
+            <div className={`${s.node} ${s.toolNode}`}><Wrench size={24} aria-hidden="true" /><strong>调用工具</strong></div>
+            <ArrowDown className={s.toolArrow} size={20} aria-hidden="true" />
+            <div className={`${s.node} ${s.observeNode}`}><Eye size={24} aria-hidden="true" /><strong>观察结果</strong></div>
+            <ArrowDown className={s.observeArrow} size={20} aria-hidden="true" />
+            <div className={`${s.node} ${s.resultAnswer}`}><CheckCircle2 size={24} aria-hidden="true" /><strong>回答用户问题</strong></div>
+            <div className={s.yesPath}><span>满足</span><ArrowLeft aria-hidden="true" size={26} /></div>
+            <div className={s.resultDecision}><strong>是否满足<br />用户要求？</strong></div>
+            <div className={s.noPath}><span>不满足</span><ArrowDown aria-hidden="true" size={22} /></div>
+            <div className={`${s.node} ${s.continueNode}`}><RefreshCw size={24} aria-hidden="true" /><div><strong>继续调用工具</strong><span>携带结果，进入下一轮决策与行动</span></div></div>
+          </div>
+          <figcaption>决策 → 行动 → 观察 → 再决策</figcaption>
         </div>
-        <figcaption>决策 → 行动 → 观察 → 再决策</figcaption>
       </figure>
     </AgentLessonSection>
     <AgentLessonSection id="section-2" title="2. 为什么 Agent 需要循环">
