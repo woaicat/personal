@@ -84,13 +84,13 @@ const failureRows = [
   ]
 ];
 
-const testCases = [
-  ["有符合要求的商品", "是否选对工具，并填写正确参数"],
-  ["商品便宜，但配送费导致超预算", "是否按总价判断"],
-  ["没有无糖版本", "是否说明缺货，而不是擅自替换"],
-  ["用户没有提供地址", "是否补充必要信息"],
-  ["下单后返回超时", "是否先确认订单状态，避免重复下单"],
-  ["工具返回过期报价", "是否重新确认价格"]
+const evaluationCriteria = [
+  ["任务效果", "工具是否帮助 Agent 完成目标任务，并减少不必要的人工介入和步骤。"],
+  ["工具选择", "面对不同任务或相近能力时，Agent 是否能选到职责正确的工具。"],
+  ["参数与调用", "Agent 是否能理解调用条件，提供完整、合法且符合业务含义的参数。"],
+  ["结果质量", "返回结果是否准确、完整、及时，并且足以支持 Agent 的下一步决策。"],
+  ["稳定与安全", "异常、权限不足或结果不明时，系统是否能安全处理，避免错误或重复执行。"],
+  ["效率与成本", "在满足任务要求的前提下，调用次数、耗时和资源成本是否处于可接受范围。"]
 ];
 
 function Reference({ href, children }: { href: string; children: ReactNode }) {
@@ -259,13 +259,13 @@ export default function AgentSeventhLessonPage({ detail }: { detail: AgentLesson
       <Reference href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP 工具错误处理</Reference>
     </AgentLessonSection>
 
-    <AgentLessonSection id="section-6" title="6. 怎么判断工具设计得好不好？">
-      <p>把工具放回完整任务中测试，根据反馈判断设计是否需要优化。</p>
-      <div className={s.testGrid}>{testCases.map(([scenario, focus], index) => <article key={scenario}><span>{String(index + 1).padStart(2, "0")}</span><h3>{scenario}</h3><p>{focus}</p></article>)}</div>
-      <p>评估时可以关注：<strong>任务成功率、工具选择是否正确、参数是否准确、无效调用次数，以及耗时和成本。</strong></p>
+    <AgentLessonSection id="section-6" title="6. 如何评估工具设计？">
+      <p>评估的对象不只是“某次调用有没有成功”，而是工具能否稳定、可控地帮助 Agent 完成一类任务。可以从以下六个标准判断：</p>
+      <div className={s.testGrid} aria-label="工具设计评估标准">{evaluationCriteria.map(([criterion, description], index) => <article key={criterion}><span>{String(index + 1).padStart(2, "0")}</span><h3>{criterion}</h3><p>{description}</p></article>)}</div>
+      <p>再用真实任务中的<strong>典型情况、边界情况和异常情况</strong>覆盖这些标准，并记录任务完成、错误调用、异常恢复、耗时和成本等结果。不要只凭一次调用成功，就判断工具设计已经足够好。</p>
     </AgentLessonSection>
 
-    <AgentLessonSection id="section-exercise" title="本课练习">
+    <AgentLessonSection id="section-exercise" title="7. 练习题">
       <div className={s.exercise}><CheckCircle2 aria-hidden="true" size={25} strokeWidth={1.8} /><div><h3>设计一份工具与接入方案表</h3><p>为“帮我买一瓶无糖可乐，总价不超过 10 元”的购物助手，设计一份工具清单。</p><ol><li>它完成什么任务。</li><li>需要哪些输入。</li><li>返回什么结果。</li><li>是否会改变外部状态，是否需要授权。</li><li>失败时如何处理。</li><li>选择直接接入还是 MCP 接入，以及理由。</li></ol><p>先把能力、输入输出和执行边界设计清楚，再选择合适的连接方式。</p></div></div>
     </AgentLessonSection>
   </AgentLessonShell>;

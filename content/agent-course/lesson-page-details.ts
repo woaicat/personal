@@ -120,12 +120,12 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-3-1", number: "3.1", label: "如何选择", nested: true },
       { id: "section-4", number: "4", label: "工具如何设计" },
       { id: "section-4-1", number: "4.1", label: "工具在精，不在多", nested: true },
-      { id: "section-4-2", number: "4.2", label: "说清调用方式", nested: true },
+      { id: "section-4-2", number: "4.2", label: "把容易误解的信息说清楚", nested: true },
       { id: "section-4-3", number: "4.3", label: "权限落实到程序", nested: true },
       { id: "section-4-4", number: "4.4", label: "信任和安全边界", nested: true },
-      { id: "section-5", number: "5", label: "处理调用失败" },
-      { id: "section-6", number: "6", label: "评估工具设计" },
-      { id: "section-exercise", number: "练习", label: "工具与接入方案表" }
+      { id: "section-5", number: "5", label: "如何处理工具调用失败？" },
+      { id: "section-6", number: "6", label: "如何评估工具设计？" },
+      { id: "section-exercise", number: "7", label: "练习题" }
     ],
     output: "一份工具与接入方案表：明确能力、输入输出、授权、失败处理与直接接入或 MCP 接入的选择理由。",
     nextLesson: { id: "08", title: "上下文工程：管理上下文窗口", description: "继续学习如何控制 Agent 看到的信息范围、顺序与压缩方式。" }
