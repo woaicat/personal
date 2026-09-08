@@ -1,0 +1,673 @@
+.sodaPrompt,
+.note,
+.failureExample,
+.exercise {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin-top: 1.2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: var(--lesson-accent-pale);
+}
+
+.sodaPrompt {
+  align-items: center;
+}
+
+.sodaPrompt svg,
+.note svg,
+.failureExample svg,
+.exercise > svg {
+  flex: 0 0 auto;
+  color: var(--lesson-accent);
+}
+
+.sodaPrompt p,
+.note p,
+.failureExample p,
+.exercise p {
+  margin: 0;
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.toolTypeGrid,
+.roleGrid,
+.choiceGrid,
+.testGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.toolTypeCard,
+.roleGrid article,
+.choiceGrid article,
+.testGrid article,
+.definitionCard,
+.failurePrinciples article {
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.toolTypeCard {
+  padding: 0.85rem;
+}
+
+.toolTypeCard svg,
+.roleGrid article > span,
+.choiceGrid article > span,
+.testGrid article > span,
+.definitionHeader svg,
+.mcpAnalogy svg,
+.connectionCards svg,
+.authorizationFlow svg,
+.failurePrinciples svg,
+.catalogComparison svg {
+  color: var(--lesson-accent);
+}
+
+.toolTypeCard h3,
+.definitionCard h4,
+.roleGrid h4,
+.choiceGrid h4,
+.testGrid h3,
+.failurePrinciples h3,
+.exercise h3 {
+  margin: 0.55rem 0 0.35rem;
+  color: #171e2c;
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.toolTypeCard > p,
+.roleGrid p,
+.choiceGrid p,
+.testGrid p,
+.failurePrinciples p,
+.catalogComparison p,
+.granularity p,
+.definitionDetails p,
+.trustGrid p,
+.injectionWarning p,
+.authorizationFlow span,
+.mcpAnalogy span,
+.connectionCards span,
+.mcpFlow p {
+  margin: 0;
+  color: #536070;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.toolTypeCard dl {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--lesson-line);
+}
+
+.toolTypeCard dl div {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.toolTypeCard dt,
+.definitionCard dt {
+  color: var(--lesson-accent-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.toolTypeCard dd,
+.definitionCard dd {
+  margin: 0;
+  color: #536070;
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.subsection {
+  margin-top: 1.75rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.subsection h3 {
+  margin: 0 0 0.65rem;
+  color: #303a49;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.subsection > p,
+.subsection > p + p {
+  margin: 0 0 0.7rem;
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.definitionCard {
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.definitionHeader {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  padding: 0.8rem 0.9rem;
+  background: var(--lesson-accent-pale);
+}
+
+.definitionHeader span {
+  display: block;
+  color: var(--lesson-accent-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.definitionHeader h4 {
+  margin: 0.1rem 0 0;
+}
+
+.definitionCard dl {
+  display: grid;
+  margin: 0;
+}
+
+.definitionCard dl div {
+  display: grid;
+  grid-template-columns: 6.2rem minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 0.58rem 0.9rem;
+  border-top: 1px solid var(--lesson-line);
+}
+
+.dialogue {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.dialogue article {
+  width: min(100%, 34rem);
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+}
+
+.dialogue article span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--lesson-accent-dark);
+  font-size: 0.71rem;
+  font-weight: 700;
+}
+
+.dialogue article p {
+  margin: 0;
+  color: #303a49;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.dialogueModel {
+  background: #fff;
+}
+
+.dialogueRuntime {
+  background: var(--lesson-accent-pale);
+}
+
+.dialogueAgent {
+  border-color: #bcdac5 !important;
+  background: var(--lesson-accent-soft);
+}
+
+.dialogueArrow {
+  color: var(--lesson-accent);
+}
+
+.catalogComparison,
+.mcpAnalogy,
+.connectionCards,
+.authorizationFlow,
+.granularity {
+  display: flex;
+  gap: 0.7rem;
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.catalogComparison > article,
+.mcpAnalogy article,
+.connectionCards article,
+.authorizationFlow article,
+.granularity article {
+  flex: 1 1 0;
+  padding: 0.85rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.catalogComparison > svg,
+.mcpAnalogy > svg,
+.authorizationFlow > svg,
+.granularity > svg {
+  flex: 0 0 auto;
+  align-self: center;
+  color: var(--lesson-accent);
+}
+
+.catalogComparison h4,
+.mcpAnalogy strong,
+.connectionCards strong,
+.authorizationFlow strong,
+.granularity strong,
+.injectionWarning strong {
+  display: block;
+  margin: 0.45rem 0 0.25rem;
+  color: #171e2c;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.note {
+  margin-bottom: 0;
+}
+
+.note strong {
+  display: block;
+  margin: 0 0 0.25rem;
+  color: #171e2c;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.reference {
+  display: inline-block;
+  margin-top: 0.65rem;
+  color: var(--lesson-accent-dark);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.reference:focus-visible,
+.tableScroll:focus-visible {
+  outline: 2px solid var(--lesson-accent);
+  outline-offset: 0.18rem;
+}
+
+.mcpCenter {
+  border-color: #bcdac5 !important;
+  background: var(--lesson-accent-pale) !important;
+}
+
+.mcpAnalogy article,
+.connectionCards article,
+.authorizationFlow article {
+  display: grid;
+  align-content: start;
+}
+
+.mcpAnalogy span,
+.connectionCards span,
+.authorizationFlow span {
+  display: block;
+}
+
+.roleGrid article {
+  padding: 0.85rem;
+}
+
+.roleGrid article > span,
+.choiceGrid article > span,
+.testGrid article > span {
+  display: inline-block;
+  color: var(--lesson-accent-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.roleGrid small {
+  display: block;
+  margin-top: 0.8rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--lesson-line);
+  color: var(--lesson-accent-dark);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.mcpFlow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.25rem;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: var(--lesson-accent-pale);
+}
+
+.mcpFlow > div {
+  position: relative;
+  min-width: 0;
+  padding: 0.45rem;
+  text-align: center;
+}
+
+.mcpFlow span {
+  color: var(--lesson-accent-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.mcpFlow svg {
+  position: absolute;
+  top: 50%;
+  right: -0.5rem;
+  z-index: 1;
+  color: var(--lesson-accent);
+  transform: translateY(-50%);
+}
+
+.connectionCards article {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  column-gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.connectionCards svg {
+  grid-row: span 2;
+}
+
+.connectionCards strong,
+.connectionCards span {
+  margin: 0;
+}
+
+.connectionCards span {
+  grid-column: 2;
+}
+
+.tableScroll {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+}
+
+.tableScroll table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tableScroll th,
+.tableScroll td {
+  padding: 0.5rem 0.63rem;
+  border-bottom: 1px solid var(--lesson-line);
+  color: #536070;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+.tableScroll thead th {
+  background: var(--lesson-accent-soft);
+  color: #171e2c;
+  font-size: 0.78rem;
+}
+
+.tableScroll tbody th {
+  min-width: 6.5rem;
+  color: #171e2c;
+}
+
+.tableScroll tr:last-child > * {
+  border-bottom: 0;
+}
+
+.choiceGrid article,
+.testGrid article {
+  padding: 0.85rem;
+}
+
+.choiceGrid article > span,
+.testGrid article > span {
+  display: block;
+}
+
+.granularity article > span {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--lesson-accent-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.granularity article > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.granularity em {
+  padding: 0.3rem 0.45rem;
+  border: 1px solid #dce7df;
+  border-radius: 6px;
+  color: #536070;
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.granularityResult {
+  border-color: #bcdac5 !important;
+  background: var(--lesson-accent-pale) !important;
+}
+
+.granularityResult strong {
+  margin: 0;
+  color: var(--lesson-accent-dark);
+}
+
+.definitionDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.definitionDetails article {
+  padding: 0.8rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.definitionDetails h4 {
+  margin: 0 0 0.35rem;
+  color: var(--lesson-accent-dark);
+  font-size: 0.78rem;
+}
+
+.authorizationCheck {
+  border-color: #bcdac5 !important;
+  background: var(--lesson-accent-pale) !important;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 0.75rem;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+
+.trustGrid > div,
+.injectionWarning {
+  padding: 0.85rem;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+}
+
+.bulletList {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bulletList li {
+  position: relative;
+  padding-left: 0.8rem;
+  color: #536070;
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.bulletList li::before {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--lesson-accent);
+  content: "";
+}
+
+.injectionWarning {
+  background: #fffaf4;
+}
+
+.injectionWarning svg {
+  color: #b7731a;
+}
+
+.failurePrinciples {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.failurePrinciples article {
+  padding: 0.85rem;
+}
+
+.failurePrinciples h3 {
+  margin-top: 0.45rem;
+}
+
+.failureTable {
+  min-width: 58rem !important;
+}
+
+.failureTable .bulletList {
+  margin-top: 0;
+}
+
+.failureExample {
+  margin-bottom: 1rem;
+}
+
+.testGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.exercise {
+  margin-top: 0;
+}
+
+.exercise h3 {
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+.exercise ol {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.85rem 0;
+  padding-left: 1.4rem;
+  color: #536070;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .mcpFlow {
+    grid-template-columns: repeat(5, minmax(8rem, 1fr));
+    overflow-x: auto;
+  }
+
+  .mcpFlow > div {
+    min-width: 8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .toolTypeGrid,
+  .roleGrid,
+  .choiceGrid,
+  .testGrid,
+  .definitionDetails,
+  .failurePrinciples,
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalogComparison,
+  .mcpAnalogy,
+  .authorizationFlow,
+  .granularity {
+    flex-direction: column;
+  }
+
+  .catalogComparison > svg,
+  .mcpAnalogy > svg,
+  .authorizationFlow > svg,
+  .granularity > svg {
+    align-self: center;
+    transform: rotate(90deg);
+  }
+
+  .connectionCards {
+    flex-direction: column;
+  }
+
+  .definitionCard dl div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .dialogue,
+  .sodaPrompt,
+  .note,
+  .failureExample,
+  .exercise {
+    padding: 0.8rem;
+  }
+}

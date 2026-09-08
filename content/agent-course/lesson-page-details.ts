@@ -98,6 +98,38 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
     output: "画出任务的决策、行动与反馈循环，并明确停止条件和关键检查点。",
     nextLesson: { id: "07", title: "工具和 MCP", description: "继续学习智能体如何通过工具与 MCP 连接真实世界。" }
   },
+  "07": {
+    id: "07",
+    title: "工具和 MCP",
+    subtitle: "理解 Agent 如何通过工具获得外部能力，并选择合适的接入方式与执行边界。",
+    duration: "15 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "工具让 Agent 获取信息、完成计算并执行外部动作；模型提出请求，运行环境负责执行与返回结果",
+      "MCP 标准化 AI 应用与外部能力之间的连接方式；它不替代 Agent 的决策和业务规则",
+      "工具需要清晰的职责、说明、权限与失败处理；直接接入和 MCP 接入要按复用与约束选择"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "什么是工具" },
+      { id: "section-1-1", number: "1.1", label: "定义工具", nested: true },
+      { id: "section-1-2", number: "1.2", label: "调用工具", nested: true },
+      { id: "section-1-3", number: "1.3", label: "管理工具", nested: true },
+      { id: "section-2", number: "2", label: "什么是 MCP" },
+      { id: "section-2-1", number: "2.1", label: "MCP 如何工作", nested: true },
+      { id: "section-3", number: "3", label: "工具和 MCP 的区别" },
+      { id: "section-3-1", number: "3.1", label: "如何选择", nested: true },
+      { id: "section-4", number: "4", label: "工具如何设计" },
+      { id: "section-4-1", number: "4.1", label: "工具在精，不在多", nested: true },
+      { id: "section-4-2", number: "4.2", label: "说清调用方式", nested: true },
+      { id: "section-4-3", number: "4.3", label: "权限落实到程序", nested: true },
+      { id: "section-4-4", number: "4.4", label: "信任和安全边界", nested: true },
+      { id: "section-5", number: "5", label: "处理调用失败" },
+      { id: "section-6", number: "6", label: "评估工具设计" },
+      { id: "section-exercise", number: "练习", label: "工具与接入方案表" }
+    ],
+    output: "一份工具与接入方案表：明确能力、输入输出、授权、失败处理与直接接入或 MCP 接入的选择理由。",
+    nextLesson: { id: "08", title: "上下文工程：管理上下文窗口", description: "继续学习如何控制 Agent 看到的信息范围、顺序与压缩方式。" }
+  },
   "05": {
     id: "05",
     title: "系统提示词",
