@@ -130,55 +130,64 @@ export default function AgentSeventhLessonPage({ detail }: { detail: AgentLesson
         <p><strong>模型负责提出调用请求，真正的操作由运行环境执行。</strong>模型输出“已经下单”，不代表订单真的创建了；只有下单工具实际执行并返回结果，才有完成动作的依据。</p>
         <Reference href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">工具调用机制</Reference>
         <div className={s.toolExchange} aria-label="模型、工具执行环境之间的双向信息交换过程">
-          <article className={`${s.toolExchangePanel} ${s.toolExchangeModel}`}>
-            <div className={s.toolExchangeHeader}>
-              <span>模型（Agent）</span>
-              <p>理解需求，决定是否调用工具。</p>
+          <article className={`${s.toolExchangeActor} ${s.toolExchangeModel}`}>
+            <div className={s.toolExchangeActorHeader}>
+              <h4>模型（Agent）</h4>
+              <p>负责理解需求、决定是否调用工具，并生成调用请求。</p>
             </div>
-            <div className={s.toolExchangeDecision}>
-              <strong>01 判断需求</strong>
+            <div className={s.toolExchangeSpeech}>
+              <span className={s.toolExchangeStep}>1</span>
               <p>我需要查询商品信息。</p>
             </div>
+            <div className={s.toolExchangeSpeech}>
+              <span className={s.toolExchangeStep}>4</span>
+              <p>收到结果，商品符合要求，但还不知道配送费，需要继续查询。</p>
+            </div>
+            <p className={s.toolExchangeEllipsis}>···</p>
           </article>
 
           <section className={s.toolExchangeMessages} aria-label="信息交换过程">
             <h4>信息交换过程</h4>
             <article className={`${s.toolExchangeMessage} ${s.toolExchangeRequest}`}>
-              <div className={s.toolExchangeMessageTitle}>
-                <strong>02 调用请求</strong>
-                <span>由模型生成</span>
+              <div className={s.toolExchangeMessageHeader}>
+                <span className={s.toolExchangeStep}>2</span>
+                <strong>调用请求</strong>
+                <span>（由模型生成）</span>
                 <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
               </div>
               <pre>{JSON.stringify({ tool: "查询商品", store: "商店 A", keyword: "无糖可乐", quantity: 1 }, null, 2)}</pre>
             </article>
             <article className={`${s.toolExchangeMessage} ${s.toolExchangeResponse}`}>
-              <div className={s.toolExchangeMessageTitle}>
+              <div className={s.toolExchangeMessageHeader}>
                 <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
-                <strong>03 执行结果</strong>
-                <span>由工具返回</span>
+                <span className={s.toolExchangeStep}>3</span>
+                <strong>执行结果</strong>
+                <span>（由运行环境返回）</span>
               </div>
               <pre>{JSON.stringify({ product: "无糖可乐", size: "500 毫升", stock: 8, price: 4 }, null, 2)}</pre>
             </article>
           </section>
 
-          <article className={`${s.toolExchangePanel} ${s.toolExchangeRuntime}`}>
-            <div className={s.toolExchangeHeader}>
-              <span>运行环境</span>
+          <article className={`${s.toolExchangeActor} ${s.toolExchangeRuntime}`}>
+            <div className={s.toolExchangeActorHeader}>
+              <h4>运行环境（工具执行）</h4>
               <p>调用真实工具，执行操作并返回结果。</p>
             </div>
             <div className={s.toolExchangeRuntimeSteps}>
               <span>接收调用请求</span>
+              <ArrowRight aria-hidden="true" size={16} strokeWidth={1.8} />
               <div>
-                <strong>调用工具：查询商品</strong>
-                <p>商店 A · 无糖可乐 · 数量 1</p>
+                <strong>调用工具</strong>
+                <p>查询商品（商店 A，关键词“无糖可乐”，数量 1）</p>
               </div>
+              <ArrowRight aria-hidden="true" size={16} strokeWidth={1.8} />
               <span>返回执行结果</span>
             </div>
           </article>
 
           <div className={s.toolExchangeLoop}>
-            <strong>04 Agent · 下一轮决策</strong>
-            <p>收到结果，商品符合要求；但还不知道配送费，需要继续查询。</p>
+            <strong>Agent · 下一轮决策</strong>
+            <p>运行环境返回的结果会再次进入 Agent Loop，成为模型下一次决策的依据。</p>
           </div>
         </div>
       </section>

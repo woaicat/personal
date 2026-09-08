@@ -580,3 +580,27 @@ final result: passed
 - `npm run build`: passed; 55 static pages generated.
 
 final result: passed
+
+# Agent 第 7 课工具调用图示紧凑还原 QA（2026-09-08）
+
+## Comparison target
+
+- Source visual truth: `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-f7d202c9-6caa-431d-bf79-9ead01fa5848.png` (1280 × 524 px).
+- Implementation evidence: Codex In-app Browser tab `3`, route `/zero-to-one/agent/07`, focused capture `tab.screenshot({ clip: { x: 0, y: 1050, width: 756, height: 610 } })`.
+- State: section 1.2 in the course's current desktop reading layout.
+
+## Comparison evidence and findings
+
+- The recreated structure now follows the source directly: a two-bubble model card, central request/result blocks with opposite arrows, a short vertical execution chain, and a full-width return band.
+- The robot avatar and settings/gear icon are intentionally omitted per the request; no replacement illustration was added.
+- No actionable P0, P1, or P2 findings remain. The focused browser capture shows the diagram's content is compact, the two flows are directionally distinct, and the information is not propped up by unused vertical space.
+- Typography, borders, pale green request surfaces, pale blue result surfaces, and the green return band stay legible within the shared course visual system. JSON blocks use local horizontal overflow at narrow widths rather than clipping.
+- Responsive behavior: the three-column arrangement becomes one column below 600 px, while the source fidelity target is the wider desktop arrangement.
+
+## Validation
+
+- `npm run lint`: passed.
+- `git diff --check`: passed.
+- Browser-rendered focused capture: passed.
+
+final result: passed

@@ -192,113 +192,162 @@
 
 .toolExchange {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(11.5rem, 0.98fr) minmax(0, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1.06fr) minmax(11.5rem, 0.88fr) minmax(0, 1.06fr);
+  column-gap: clamp(0.7rem, 1.8vw, 1.25rem);
+  row-gap: 0.85rem;
   align-items: stretch;
   margin: 1rem 0 0;
 }
 
-.toolExchangePanel,
-.toolExchangeMessage,
+.toolExchangeActor,
 .toolExchangeLoop {
   border: 1px solid #dce7df;
   border-radius: 8px;
 }
 
-.toolExchangePanel {
-  display: grid;
-  align-content: start;
-  gap: 0.85rem;
-  padding: 0.9rem;
+.toolExchangeActor {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 17.4rem;
+  padding: 0.95rem 1rem 0.8rem;
   background: #fff;
 }
 
-.toolExchangeHeader span,
-.toolExchangeMessageTitle strong,
-.toolExchangeDecision strong,
-.toolExchangeLoop strong {
-  color: var(--lesson-accent-dark);
-  font-size: 0.72rem;
-  font-weight: 700;
+.toolExchangeActorHeader h4,
+.toolExchangeMessages > h4 {
+  margin: 0;
+  color: #303a49;
+  font-size: 0.83rem;
+  line-height: 1.4;
 }
 
-.toolExchangeHeader p,
-.toolExchangeDecision p,
+.toolExchangeActorHeader p,
 .toolExchangeRuntimeSteps p,
 .toolExchangeLoop p {
-  margin: 0.28rem 0 0;
+  margin: 0.3rem 0 0;
   color: #536070;
   font-size: 0.76rem;
-  line-height: 1.58;
+  line-height: 1.5;
 }
 
-.toolExchangeDecision {
-  padding: 0.72rem;
-  border-left: 3px solid var(--lesson-accent);
+.toolExchangeSpeech {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: start;
+  margin-top: 0.85rem;
+}
+
+.toolExchangeStep {
+  display: inline-grid;
+  width: 1.42rem;
+  height: 1.42rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lesson-accent);
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.toolExchangeSpeech p {
+  min-height: 2.7rem;
+  margin: 0;
+  padding: 0.65rem 0.7rem;
   background: var(--lesson-accent-pale);
+  color: #303a49;
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.toolExchangeEllipsis {
+  margin: auto 0 0;
+  color: var(--lesson-accent-dark);
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-align: center;
 }
 
 .toolExchangeMessages {
   display: grid;
   align-content: start;
-  gap: 0.6rem;
+  gap: 0.5rem;
   min-width: 0;
 }
 
 .toolExchangeMessages h4 {
-  margin: 0.15rem 0 0.1rem;
-  color: #303a49;
-  font-size: 0.78rem;
-  line-height: 1.4;
+  margin: 0 0 0.12rem;
   text-align: center;
 }
 
 .toolExchangeMessage {
-  overflow: hidden;
-  background: #fff;
+  min-width: 0;
 }
 
-.toolExchangeMessageTitle {
+.toolExchangeMessageHeader {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.55rem 0.65rem;
-  background: var(--lesson-accent-pale);
+  gap: 0.28rem;
+  min-width: 0;
+  color: var(--lesson-accent-dark);
 }
 
-.toolExchangeMessageTitle span {
-  min-width: 0;
-  color: #536070;
-  font-size: 0.66rem;
+.toolExchangeMessageHeader strong {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
   line-height: 1.4;
 }
 
-.toolExchangeMessageTitle svg {
+.toolExchangeMessageHeader > span:not(.toolExchangeStep) {
+  min-width: 0;
+  color: #536070;
+  font-size: 0.6rem;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.toolExchangeMessageHeader svg {
   flex: 0 0 auto;
   margin-left: auto;
   color: var(--lesson-accent);
 }
 
-.toolExchangeResponse .toolExchangeMessageTitle {
-  background: #edf6f0;
+.toolExchangeRequest .toolExchangeMessageHeader svg {
+  transform: translateX(1.05rem);
 }
 
-.toolExchangeResponse .toolExchangeMessageTitle svg {
-  order: -1;
-  margin-right: 0.1rem;
+.toolExchangeResponse .toolExchangeMessageHeader {
+  color: #2878c8;
+}
+
+.toolExchangeResponse .toolExchangeMessageHeader .toolExchangeStep {
+  background: #438fe0;
+}
+
+.toolExchangeResponse .toolExchangeMessageHeader svg {
+  margin-right: 0.12rem;
   margin-left: 0;
-  transform: rotate(180deg);
+  color: #438fe0;
+  transform: translateX(-1.05rem) rotate(180deg);
 }
 
 .toolExchangeMessage pre {
   margin: 0;
-  padding: 0.65rem;
+  padding: 0.55rem 0.7rem;
   overflow-x: auto;
   color: #455366;
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.64rem;
-  line-height: 1.55;
+  font-size: 0.62rem;
+  line-height: 1.48;
   white-space: pre;
+  background: #eff8f1;
+}
+
+.toolExchangeResponse pre {
+  background: #edf5ff;
 }
 
 .toolExchangeRuntime {
@@ -307,37 +356,50 @@
 
 .toolExchangeRuntimeSteps {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.35rem;
+  margin-top: 0.78rem;
 }
 
 .toolExchangeRuntimeSteps > span {
   display: block;
-  padding: 0.45rem 0.55rem;
+  padding: 0.5rem 0.55rem;
   background: var(--lesson-accent-pale);
   color: var(--lesson-accent-dark);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 1.4;
   text-align: center;
 }
 
+.toolExchangeRuntimeSteps > svg {
+  justify-self: center;
+  color: #536070;
+  transform: rotate(90deg);
+}
+
 .toolExchangeRuntimeSteps > div {
-  padding: 0.65rem;
+  padding: 0.62rem 0.7rem;
   border: 1px solid #dce7df;
   background: #fff;
+  text-align: center;
 }
 
 .toolExchangeRuntimeSteps strong {
   display: block;
   color: #303a49;
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   line-height: 1.45;
 }
 
 .toolExchangeLoop {
   grid-column: 1 / -1;
-  padding: 0.75rem 0.9rem;
+  padding: 0.8rem 1rem;
   background: var(--lesson-accent-soft);
+}
+
+.toolExchangeLoop strong {
+  color: var(--lesson-accent-dark);
+  font-size: 0.78rem;
 }
 
 .catalogComparison,
@@ -899,12 +961,16 @@
     gap: 0.25rem;
   }
 
-  .toolExchangePanel,
+  .toolExchangeActor,
   .toolExchangeLoop,
   .sodaPrompt,
   .note,
   .failureExample,
   .exercise {
     padding: 0.8rem;
+  }
+
+  .toolExchangeActor {
+    min-height: 0;
   }
 }
