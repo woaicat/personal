@@ -175,10 +175,21 @@ export default function AgentSeventhLessonPage({ detail }: { detail: AgentLesson
         <div className={s.roleGrid}>
           {mcpRoles.map(([english, chinese, description, example]) => <article key={english}><span>{english}</span><h4>{chinese}</h4><p>{description}</p><small>买可乐：{example}</small></article>)}
         </div>
-        <p>这里的 Server 指的是服务程序，不一定是一台远程服务器；它既可以运行在本机，也可以运行在远端。</p>
         <Reference href="https://modelcontextprotocol.io/docs/learn/architecture">MCP 架构</Reference>
         <div className={s.mcpFlow} aria-label="MCP 一次工具查询的流程">
-          {["购物助手获取工具清单", "模型选择“查询商品”", "应用通过 MCP 发出请求", "服务端查询商店系统", "返回结果，模型继续判断"].map((step, index) => <div key={step}><span>{String(index + 1).padStart(2, "0")}</span><p>{step}</p>{index < 4 ? <ArrowRight aria-hidden="true" size={18} /> : null}</div>)}
+          <div className={s.mcpParticipant}><span>Host</span><strong>购物助手</strong></div>
+          <div className={s.mcpParticipant}><span>Client</span><strong>MCP Client</strong></div>
+          <div className={s.mcpParticipant}><span>Server</span><strong>MCP Server</strong></div>
+          <div className={s.mcpLifelines} aria-hidden="true"><i /><i /><i /></div>
+
+          <div className={`${s.mcpMessage} ${s.mcpClientToServer} ${s.mcpDiscoveryRequest} ${s.mcpForward}`}><span>01 获取工具清单</span><ArrowRight aria-hidden="true" size={18} /></div>
+          <div className={`${s.mcpMessage} ${s.mcpServerToClient} ${s.mcpDiscoveryResponse} ${s.mcpReturn}`}><ArrowRight aria-hidden="true" size={18} /><span>返回工具定义</span></div>
+          <div className={s.mcpDecision}><span>02</span><strong>模型选择“查询商品”</strong></div>
+          <div className={`${s.mcpMessage} ${s.mcpHostToClient} ${s.mcpForward}`}><span>03 发起“查询商品”调用</span><ArrowRight aria-hidden="true" size={18} /></div>
+          <div className={`${s.mcpMessage} ${s.mcpClientToServer} ${s.mcpToolRequest} ${s.mcpForward}`}><span>通过 MCP 发送请求</span><ArrowRight aria-hidden="true" size={18} /></div>
+          <div className={s.mcpServerAction}><span>04</span><strong>查询商店系统</strong></div>
+          <div className={`${s.mcpMessage} ${s.mcpServerToClient} ${s.mcpToolResponse} ${s.mcpReturn}`}><ArrowRight aria-hidden="true" size={18} /><span>返回商品结果</span></div>
+          <div className={`${s.mcpMessage} ${s.mcpClientToHost} ${s.mcpReturn}`}><ArrowRight aria-hidden="true" size={18} /><span>05 结果交给模型，继续判断</span></div>
         </div>
         <p>MCP 负责其中的能力发现和通信。具体买哪瓶、是否继续比价，仍然由 Agent 的决策与业务规则决定。</p>
       </section>
