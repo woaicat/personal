@@ -64,6 +64,44 @@ The latest tutorial-links viewport confirms the six corrected article titles rem
 
 final result: passed
 
+# Agent 第 7 课工具调用图示 QA（2026-09-08）
+
+## Comparison target
+
+- Source visual truth: `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-5bfe35d4-c1bc-492c-a206-1694db3dab47.png` (1280 × 524 px).
+- Implementation screenshot: Codex In-app Browser tab `3`, route `/zero-to-one/agent/07`, captured with `tab.screenshot({ clip: { x: 0, y: 1080, width: 756, height: 620 } })`. The browser returned temporary image bytes rather than an exported filesystem path.
+- State: section 1.2 at the current desktop viewport. The source is wider than the course reading column, so the comparison checks structure and visual hierarchy rather than pixel-for-pixel scale.
+
+## Full-view and focused comparison evidence
+
+- The implementation shows the source's model / information exchange / execution composition and a full-width return-to-decision band below it.
+- The two source icons are intentionally absent: the user explicitly requested no robot avatar and no runtime icon. No replacement illustration or CSS-drawn icon was introduced.
+- The focused browser capture shows a rightward call request, a leftward execution result, two readable JSON payloads, the execution steps, and the next Agent decision without clipping.
+
+## Findings
+
+- No actionable P0, P1, or P2 findings remain.
+- Fonts and typography: lesson typography and mono JSON styling establish a clear role → step → payload hierarchy.
+- Spacing and layout rhythm: three compact columns and the bottom return band preserve the source's information flow within the existing reading width.
+- Colors and visual tokens: existing green accents, pale status panels, white surfaces, and lesson borders are reused.
+- Image quality and asset fidelity: no raster or custom illustration asset is used; the requested icon omissions are intentional.
+- Copy and content: the request, tool parameters, result, and next decision consistently use the same shopping scenario.
+- Accessibility and responsiveness: sections have accessible labels; below 600 px the diagram becomes one column and code payloads scroll locally rather than clip.
+- [P3] At unusually narrow desktop widths, the JSON blocks are denser than the wide reference. This is acceptable for the current content; shorten field labels or use key-value rows if additional fields are added.
+
+## Comparison history
+
+1. The previous alternating dialogue bubbles did not make the source's request/result exchange explicit.
+2. Replaced them with the three-column exchange layout and captured the revised browser rendering. The two opposite directions and icon-free panels are visible in the post-fix capture.
+
+## Validation
+
+- `npm run lint`: passed.
+- `git diff --check`: passed.
+- Browser-rendered focused capture: passed.
+
+final result: passed
+
 # AI 情报日期切换视觉 QA（历史记录）
 
 - Source visual truth: `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-aeadafcf-294f-4e17-b5a1-97e17e3e2791.png`

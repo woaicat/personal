@@ -190,80 +190,154 @@
   border-top: 1px solid var(--lesson-line);
 }
 
-.dialogue {
+.toolExchange {
   display: grid;
-  gap: 0.55rem;
+  grid-template-columns: minmax(0, 1fr) minmax(11.5rem, 0.98fr) minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: stretch;
   margin: 1rem 0 0;
-  padding: 1rem;
+}
+
+.toolExchangePanel,
+.toolExchangeMessage,
+.toolExchangeLoop {
   border: 1px solid #dce7df;
   border-radius: 8px;
+}
+
+.toolExchangePanel {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  padding: 0.9rem;
   background: #fff;
 }
 
-.dialogueRow {
-  display: flex;
-  width: 100%;
-}
-
-.dialogueRowLeft {
-  justify-content: flex-start;
-}
-
-.dialogueRowRight {
-  justify-content: flex-end;
-}
-
-.dialogue article {
-  width: min(78%, 34rem);
-  padding: 0.8rem 0.9rem;
-  border: 1px solid #dce7df;
-  border-radius: 8px;
-}
-
-.dialogue article span {
-  display: block;
-  margin-bottom: 0.35rem;
+.toolExchangeHeader span,
+.toolExchangeMessageTitle strong,
+.toolExchangeDecision strong,
+.toolExchangeLoop strong {
   color: var(--lesson-accent-dark);
-  font-size: 0.71rem;
-  font-weight: 700;
-}
-
-.dialogue article p {
-  margin: 0;
-  color: #303a49;
-  font-size: 0.8rem;
-  line-height: 1.6;
-}
-
-.dialogueModel {
-  background: #fff;
-}
-
-.dialogueRuntime {
-  background: var(--lesson-accent-pale);
-}
-
-.dialogueAgent {
-  border-color: #bcdac5 !important;
-  background: var(--lesson-accent-soft);
-}
-
-.dialogueConnector {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.42rem;
-  color: var(--lesson-accent);
   font-size: 0.72rem;
   font-weight: 700;
 }
 
-.dialogueConnectorReturn {
-  flex-direction: row-reverse;
+.toolExchangeHeader p,
+.toolExchangeDecision p,
+.toolExchangeRuntimeSteps p,
+.toolExchangeLoop p {
+  margin: 0.28rem 0 0;
+  color: #536070;
+  font-size: 0.76rem;
+  line-height: 1.58;
 }
 
-.dialogueConnectorReturn svg {
+.toolExchangeDecision {
+  padding: 0.72rem;
+  border-left: 3px solid var(--lesson-accent);
+  background: var(--lesson-accent-pale);
+}
+
+.toolExchangeMessages {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.toolExchangeMessages h4 {
+  margin: 0.15rem 0 0.1rem;
+  color: #303a49;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.toolExchangeMessage {
+  overflow: hidden;
+  background: #fff;
+}
+
+.toolExchangeMessageTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  background: var(--lesson-accent-pale);
+}
+
+.toolExchangeMessageTitle span {
+  min-width: 0;
+  color: #536070;
+  font-size: 0.66rem;
+  line-height: 1.4;
+}
+
+.toolExchangeMessageTitle svg {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--lesson-accent);
+}
+
+.toolExchangeResponse .toolExchangeMessageTitle {
+  background: #edf6f0;
+}
+
+.toolExchangeResponse .toolExchangeMessageTitle svg {
+  order: -1;
+  margin-right: 0.1rem;
+  margin-left: 0;
   transform: rotate(180deg);
+}
+
+.toolExchangeMessage pre {
+  margin: 0;
+  padding: 0.65rem;
+  overflow-x: auto;
+  color: #455366;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.64rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.toolExchangeRuntime {
+  background: #fbfdfb;
+}
+
+.toolExchangeRuntimeSteps {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.toolExchangeRuntimeSteps > span {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  background: var(--lesson-accent-pale);
+  color: var(--lesson-accent-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.toolExchangeRuntimeSteps > div {
+  padding: 0.65rem;
+  border: 1px solid #dce7df;
+  background: #fff;
+}
+
+.toolExchangeRuntimeSteps strong {
+  display: block;
+  color: #303a49;
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.toolExchangeLoop {
+  grid-column: 1 / -1;
+  padding: 0.75rem 0.9rem;
+  background: var(--lesson-accent-soft);
 }
 
 .catalogComparison,
@@ -793,6 +867,14 @@
     grid-template-columns: 1fr;
   }
 
+  .toolExchange {
+    grid-template-columns: 1fr;
+  }
+
+  .toolExchangeLoop {
+    grid-column: auto;
+  }
+
   .catalogComparison,
   .mcpAnalogy,
   .authorizationFlow,
@@ -817,7 +899,8 @@
     gap: 0.25rem;
   }
 
-  .dialogue,
+  .toolExchangePanel,
+  .toolExchangeLoop,
   .sodaPrompt,
   .note,
   .failureExample,

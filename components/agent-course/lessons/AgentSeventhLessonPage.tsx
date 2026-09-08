@@ -129,17 +129,56 @@ export default function AgentSeventhLessonPage({ detail }: { detail: AgentLesson
         <h3 id="section-1-2-title">1.2 调用工具</h3>
         <p><strong>模型负责提出调用请求，真正的操作由运行环境执行。</strong>模型输出“已经下单”，不代表订单真的创建了；只有下单工具实际执行并返回结果，才有完成动作的依据。</p>
         <Reference href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">工具调用机制</Reference>
-        <div className={s.dialogue} aria-label="从工具调用到下一轮决策的对话过程">
-          <div className={`${s.dialogueRow} ${s.dialogueRowLeft}`}>
-            <article className={s.dialogueModel}><span>模型 · 调用请求</span><p>查询商品：商店 A，关键词“无糖可乐”，数量 1。</p></article>
-          </div>
-          <div className={s.dialogueConnector}><span>调用请求</span><ArrowRight aria-hidden="true" size={20} /></div>
-          <div className={`${s.dialogueRow} ${s.dialogueRowRight}`}>
-            <article className={s.dialogueRuntime}><span>运行环境 · 执行结果</span><p>找到商品：无糖可乐，500 毫升，库存 8 瓶，单价 4 元。</p></article>
-          </div>
-          <div className={`${s.dialogueConnector} ${s.dialogueConnectorReturn}`}><ArrowRight aria-hidden="true" size={20} /><span>返回结果</span></div>
-          <div className={`${s.dialogueRow} ${s.dialogueRowLeft}`}>
-            <article className={s.dialogueAgent}><span>Agent · 下一轮决策</span><p>商品符合要求，但还不知道配送费，需要继续查询。</p></article>
+        <div className={s.toolExchange} aria-label="模型、工具执行环境之间的双向信息交换过程">
+          <article className={`${s.toolExchangePanel} ${s.toolExchangeModel}`}>
+            <div className={s.toolExchangeHeader}>
+              <span>模型（Agent）</span>
+              <p>理解需求，决定是否调用工具。</p>
+            </div>
+            <div className={s.toolExchangeDecision}>
+              <strong>01 判断需求</strong>
+              <p>我需要查询商品信息。</p>
+            </div>
+          </article>
+
+          <section className={s.toolExchangeMessages} aria-label="信息交换过程">
+            <h4>信息交换过程</h4>
+            <article className={`${s.toolExchangeMessage} ${s.toolExchangeRequest}`}>
+              <div className={s.toolExchangeMessageTitle}>
+                <strong>02 调用请求</strong>
+                <span>由模型生成</span>
+                <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
+              </div>
+              <pre>{JSON.stringify({ tool: "查询商品", store: "商店 A", keyword: "无糖可乐", quantity: 1 }, null, 2)}</pre>
+            </article>
+            <article className={`${s.toolExchangeMessage} ${s.toolExchangeResponse}`}>
+              <div className={s.toolExchangeMessageTitle}>
+                <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
+                <strong>03 执行结果</strong>
+                <span>由工具返回</span>
+              </div>
+              <pre>{JSON.stringify({ product: "无糖可乐", size: "500 毫升", stock: 8, price: 4 }, null, 2)}</pre>
+            </article>
+          </section>
+
+          <article className={`${s.toolExchangePanel} ${s.toolExchangeRuntime}`}>
+            <div className={s.toolExchangeHeader}>
+              <span>运行环境</span>
+              <p>调用真实工具，执行操作并返回结果。</p>
+            </div>
+            <div className={s.toolExchangeRuntimeSteps}>
+              <span>接收调用请求</span>
+              <div>
+                <strong>调用工具：查询商品</strong>
+                <p>商店 A · 无糖可乐 · 数量 1</p>
+              </div>
+              <span>返回执行结果</span>
+            </div>
+          </article>
+
+          <div className={s.toolExchangeLoop}>
+            <strong>04 Agent · 下一轮决策</strong>
+            <p>收到结果，商品符合要求；但还不知道配送费，需要继续查询。</p>
           </div>
         </div>
       </section>
