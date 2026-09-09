@@ -130,6 +130,29 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
     output: "一份工具与接入方案表：明确能力、输入输出、授权、失败处理与直接接入或 MCP 接入的选择理由。",
     nextLesson: { id: "08", title: "上下文工程：管理上下文窗口", description: "继续学习如何控制 Agent 看到的信息范围、顺序与压缩方式。" }
   },
+  "08": {
+    id: "08",
+    title: "上下文工程：管理上下文窗口",
+    subtitle: "管理上下文窗口，就是管理注意力。",
+    duration: "18 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "理解模型上下文窗口与 Agent 自己上下文预算的区别",
+      "看懂上下文如何组装，以及固定前缀、截断、压缩与检索的作用",
+      "决定这一轮到底应该让模型看到什么，并识别哪些信息不能忘"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "上下文窗口大小" },
+      { id: "section-2", number: "2", label: "上下文由什么组成" },
+      { id: "section-3", number: "3", label: "智能体如何在有限窗口中处理无限上下文" },
+      { id: "section-3-1", number: "3.1", label: "硬截断", nested: true },
+      { id: "section-3-2", number: "3.2", label: "压缩", nested: true },
+      { id: "section-3-3", number: "3.3", label: "历史信息检索", nested: true },
+      { id: "section-4", number: "4", label: "不同产品是怎么做的" }
+    ],
+    output: "明确上下文组成、预算与控制策略。",
+    nextLesson: { id: "09", title: "上下文工程：管理记忆", description: "继续学习短期、长期与可检索记忆的设计思路。" }
+  },
   "05": {
     id: "05",
     title: "系统提示词",
