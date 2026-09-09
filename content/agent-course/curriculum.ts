@@ -74,7 +74,7 @@ export const agentCurriculum: AgentStage[] = [
       {
         id: "08",
         title: "上下文工程：管理上下文窗口",
-        summary: "控制输入内容的范围、顺序与压缩方式。",
+        summary: "管理上下文窗口就是管理注意力。",
         output: "上下文策略图",
         whyItMatters: "上下文不是越多越好，相关信息的选择、排序和压缩会直接影响回答质量与成本。",
         caseApplication: "为当前对话、用户信息、订单信息和平台规则安排优先级，并设计超长对话的处理方式。"

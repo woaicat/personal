@@ -324,7 +324,7 @@ export default function AgentEighthLessonPage({ detail }: { detail: AgentLessonP
         <p>现实中的 Agent 产品，通常会组合使用上面几种方法，具体实现也会不断变化。</p>
         <div className={s.productTableWrap}><table className={s.productTable}><thead><tr><th>产品</th><th>上下文处理</th><th>阅读提示</th></tr></thead><tbody><tr><th>Codex</th><td>自动压缩后继续执行</td><td>窗口与阈值依模型、配置而定</td></tr><tr><th>Claude Code</th><td>压缩历史，保留重要状态</td><td>200K / 1M 等，依模型与配置而定</td></tr></tbody></table></div>
         <div className={s.references}><a href="https://openai.com/index/unrolling-the-codex-agent-loop/" target="_blank" rel="noreferrer">参考：OpenAI Agent Loop ↗</a><a href="https://code.claude.com/docs/en/how-claude-code-works" target="_blank" rel="noreferrer">Claude Code 官方文档 ↗</a><small>产品机制以当前官方说明为准。</small></div>
-        <div className={s.finalAttention}><strong>管理上下文窗口，就是管理注意力。</strong><p>Agent 每一步能看到什么、忘掉什么、压缩什么、什么时候重新找回来，都会直接影响它接下来的判断。</p></div>
+        <div className={s.finalAttention}><strong>管理上下文窗口就是管理注意力。</strong><p>Agent 每一步能看到什么、忘掉什么、压缩什么、什么时候重新找回来，都会直接影响它接下来的判断。</p></div>
       </AgentLessonSection>
     </AgentLessonShell>
   );

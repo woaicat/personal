@@ -133,7 +133,7 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
   "08": {
     id: "08",
     title: "上下文工程：管理上下文窗口",
-    subtitle: "管理上下文窗口，就是管理注意力。",
+    subtitle: "管理上下文窗口就是管理注意力。",
     duration: "18 分钟",
     series: "从 0 到 1 设计一个 Agent",
     keyPoints: [
