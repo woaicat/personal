@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { PortfolioData } from "@/lib/types";
 import { PROFILE_VALUES } from "./constants";
 
@@ -101,6 +102,15 @@ export function ProfileSections({
             <h2>在这里可以找到我</h2>
             <p>欢迎通过以下平台和账号与我交流。</p>
           </div>
+          <figure className="press-illustration">
+            <Image
+              src="/jiaxuan-cat-illustration.png"
+              alt="JiaXuan 和小猫的插画"
+              width={1230}
+              height={1278}
+              sizes="(max-width: 960px) 260px, 25vw"
+            />
+          </figure>
           <div className="logos">
             {data.contacts.map((contact) => (
               <div className="platform-item" key={`${contact.platform}-${contact.account}`}>

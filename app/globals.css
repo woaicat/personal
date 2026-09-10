@@ -543,9 +543,24 @@ button {
 
 .press-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr;
   gap: 2rem;
   align-items: center;
+}
+
+.press-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+
+.press-illustration img {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
 }
 
 .logos {
@@ -1337,5 +1352,9 @@ button {
 
   .logos {
     grid-template-columns: 1fr;
+  }
+
+  .press-illustration img {
+    width: min(100%, 16rem);
   }
 }
