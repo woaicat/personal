@@ -772,10 +772,11 @@ export default function AgentNinthLessonPage({ detail }: { detail: AgentLessonPa
     </AgentLessonSection>
 
     <AgentLessonSection id="section-6" title="6. 结论与下一步">
-      <p>并非每个任务在第一天就需要长期记忆。最好的记忆系统是“精准”的：针对具体任务，明确能记什么、不能记什么。</p>
+      <p>记忆能解锁强大的个性化能力，但高度依赖用例。并非每个智能体在第一天就需要长期记忆。最好的记忆系统是"精准"的：针对特定工作流或用例，为不同类型的信息选择恰当的表示方式（结构化字段 vs 笔记），并明确智能体"能记住什么、不能记住什么"。</p>
       <ConclusionDecisionDiagram />
       <IterationLoopDiagram />
-      <p className={s.memoryConclusionQuote}>“从简单开始，严格评估，审慎演化。”</p>
+      <p>随着系统成熟，微调可以进一步提升记忆质量：更准确地判断什么才算"持久性"信息、更可靠地整合（避免幻觉与越界）、以及在冲突记忆存在时更聪明地判断何时该提出澄清问题。</p>
+      <p className={s.memoryConclusionQuote}>总结：记忆系统通过可量化地迭代变好，而非通过前置的复杂性。从简单开始，严格评估，审慎演化。</p>
     </AgentLessonSection>
 
     <AgentLessonSection id="section-7" title="7. 案例演示：差旅助手智能体">
