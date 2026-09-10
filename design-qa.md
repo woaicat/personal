@@ -64,6 +64,29 @@ The latest tutorial-links viewport confirms the six corrected article titles rem
 
 final result: passed
 
+# 第九课 7.1 批注布局复核（2026-09-10）
+
+## Findings
+
+- 浏览器批注中的四项布局问题均已修复，未改动流程图任何既有文案。
+- 第 3 阶段的“这次靠窗”“短途优先高铁”在当前预览宽度完整处于内部图示中，底部“保存记忆工具 → 会话暂存区”独立位于卡片底注区域，没有重叠或溢出。
+- 第 2 阶段的文档图标与“档案 + 精选全局记忆 → 本轮上下文”同一行垂直居中；第 1、6 阶段的图标与标题同一行，两个要点改为该行下方的居中列表。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-7-1`
+- Codex In-app Browser 当前预览截图：两行三列流程图完整可见，7.2 标题紧随图示之后；截图由浏览器临时字节返回，未生成持久化路径。
+- 批注复核覆盖 1、2、3、6 四张阶段卡；未发现 P0/P1/P2 级问题。
+
+## Checklist
+
+- [x] 第 3 卡候选标签与底部文案分离，100% 缩放下不重叠
+- [x] 第 2 卡图标与文案同一行
+- [x] 第 1、6 卡状态要点向左并以居中组对齐
+- [x] 原有可见文案与标点未改动
+
+final result: passed
+
 # 第九课 7.1 六阶段流程图重构视觉验收（2026-09-10）
 
 ## Findings

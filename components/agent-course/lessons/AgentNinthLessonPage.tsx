@@ -560,9 +560,9 @@ function TravelServiceLifecycleDiagram() {
         number="1"
         title="会话开始前"
         description="读取已有的状态对象，了解用户的默认偏好。"
-        icon={FolderOpen}
         className={s.travelStageOne}
-        content={<div><strong>状态对象</strong><ul><li>profile：素食</li><li>全局：通常靠过道</li></ul></div>}
+        contentClassName={s.travelStateContent}
+        content={<div><div className={s.travelStateHeader}><FolderOpen aria-hidden="true" size={32} strokeWidth={1.8} /><strong>状态对象</strong></div><ul className={s.travelStateList}><li>profile：素食</li><li>全局：通常靠过道</li></ul></div>}
       />
       <ArrowRight className={`${s.travelStageArrow} ${s.travelArrowOne}`} aria-hidden="true" size={22} strokeWidth={1.7} />
       <TravelStageCard
@@ -608,9 +608,9 @@ function TravelServiceLifecycleDiagram() {
         number="6"
         title="下一次运行"
         description="使用更新后的状态对象，提供更贴合的服务。"
-        icon={FolderOpen}
         className={s.travelStageSix}
-        content={<div><strong>状态对象（已更新）</strong><ul><li>通常靠过道</li><li>短途优先高铁</li></ul></div>}
+        contentClassName={s.travelStateContent}
+        content={<div><div className={s.travelStateHeader}><FolderOpen aria-hidden="true" size={32} strokeWidth={1.8} /><strong>状态对象（已更新）</strong></div><ul className={s.travelStateList}><li>通常靠过道</li><li>短途优先高铁</li></ul></div>}
         footer="继续使用更新后的状态"
       />
       <ArrowUp className={`${s.travelStageArrow} ${s.travelArrowSix}`} aria-hidden="true" size={22} strokeWidth={1.7} />

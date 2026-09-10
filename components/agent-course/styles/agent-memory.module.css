@@ -3082,7 +3082,7 @@
 .travelStageGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr) 24px minmax(0, 1fr);
-  grid-template-rows: minmax(264px, auto) 38px minmax(264px, auto);
+  grid-template-rows: minmax(284px, auto) 38px minmax(284px, auto);
   gap: 10px 6px;
   align-items: stretch;
 }
@@ -3090,7 +3090,7 @@
 .travelStageCard {
   display: flex;
   min-width: 0;
-  min-height: 264px;
+  min-height: 284px;
   padding: 14px;
   flex-direction: column;
   border: 1px solid #cfe8d8;
@@ -3235,6 +3235,41 @@
   display: flex;
   height: 100%;
   flex-direction: column;
+}
+
+.travelStageTwo .travelStageContent > div {
+  justify-content: center;
+}
+
+.travelStateContent {
+  display: block;
+}
+
+.travelStateContent > div {
+  height: 100%;
+}
+
+.travelStateHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #167e50;
+}
+
+.travelStateHeader svg {
+  flex: 0 0 auto;
+}
+
+.travelStateList {
+  display: grid;
+  width: max-content;
+  gap: 5px;
+  margin: 12px auto 0;
+  padding-left: 17px;
+  color: #53697b;
+  font-size: 0.65rem;
+  line-height: 1.35;
+  text-align: left;
 }
 
 .travelStageThree .travelStageContent {
