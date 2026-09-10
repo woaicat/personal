@@ -540,13 +540,15 @@ type TravelStage = {
   content: ReactNode;
   className: string;
   contentClassName?: string;
+  footer?: ReactNode;
 };
 
-function TravelStageCard({ number, title, description, icon: Icon, content, className, contentClassName }: TravelStage) {
+function TravelStageCard({ number, title, description, icon: Icon, content, className, contentClassName, footer }: TravelStage) {
   return <article className={`${s.travelStageCard} ${className}`}>
     <div className={s.travelStageHeading}><span>{number}</span><h4>{title}</h4></div>
     <p>{description}</p>
     <div className={`${s.travelStageContent} ${contentClassName ?? ""}`}>{Icon ? <Icon aria-hidden="true" size={24} strokeWidth={1.8} /> : null}{content}</div>
+    {footer ? <p className={s.travelStageFooter}>{footer}</p> : null}
   </article>;
 }
 
@@ -569,7 +571,8 @@ function TravelServiceLifecycleDiagram() {
         description="档案与精选的全局记忆被注入，构成本轮上下文。"
         icon={FileStack}
         className={s.travelStageTwo}
-        content={<div><strong>档案 + 精选全局记忆<br />→ 本轮上下文</strong><small>YAML + Markdown</small></div>}
+        content={<div><strong>档案 + 精选全局记忆<br />→ 本轮上下文</strong></div>}
+        footer="YAML + Markdown"
       />
       <ArrowRight className={`${s.travelStageArrow} ${s.travelArrowTwo}`} aria-hidden="true" size={22} strokeWidth={1.7} />
       <TravelStageCard
@@ -578,7 +581,8 @@ function TravelServiceLifecycleDiagram() {
         description="从用户表达中提取记忆候选，并暂存到会话区。"
         className={s.travelStageThree}
         contentClassName={s.travelStageThreeContent}
-        content={<div><div className={s.travelConversationBubble}><UserRound aria-hidden="true" size={16} strokeWidth={1.8} /><p className={s.travelMiniQuote}>帮我安排下周出差。<br />这次想靠窗休息；<br />以后短途优先高铁。</p></div><div className={s.travelMiniSignals}><span>这次靠窗</span><span>短途优先高铁</span></div><small>保存记忆工具 → 会话暂存区</small></div>}
+        content={<div><div className={s.travelConversationBubble}><UserRound aria-hidden="true" size={16} strokeWidth={1.8} /><p className={s.travelMiniQuote}>帮我安排下周出差。<br />这次想靠窗休息；<br />以后短途优先高铁。</p></div><div className={s.travelMiniSignals}><span>这次靠窗</span><span>短途优先高铁</span></div></div>}
+        footer="保存记忆工具 → 会话暂存区"
       />
       <ArrowDown className={`${s.travelStageArrow} ${s.travelArrowThree}`} aria-hidden="true" size={22} strokeWidth={1.7} />
       <TravelStageCard
@@ -586,7 +590,8 @@ function TravelServiceLifecycleDiagram() {
         title="上下文被修剪"
         description="当对话变长时，修剪旧消息，并重新注入必要的会话记忆。"
         className={s.travelStageFour}
-        content={<div className={s.travelTrimPreview}><div className={s.travelTrimGhost}>······</div><strong><MessageCircle aria-hidden="true" size={13} strokeWidth={1.8} />本次：靠窗</strong><div className={s.travelTrimGhost}>······</div><small>修剪后重新注入必要会话记忆</small></div>}
+        content={<div className={s.travelTrimPreview}><div className={s.travelTrimGhost}>······</div><strong><MessageCircle aria-hidden="true" size={13} strokeWidth={1.8} />本次：靠窗</strong><div className={s.travelTrimGhost}>······</div></div>}
+        footer="修剪后重新注入必要会话记忆"
       />
       <ArrowLeft className={`${s.travelStageArrow} ${s.travelArrowFour}`} aria-hidden="true" size={22} strokeWidth={1.7} />
       <TravelStageCard
@@ -595,7 +600,8 @@ function TravelServiceLifecycleDiagram() {
         description="对暂存的记忆进行筛选、整合，决定哪些写入长期记忆。"
         className={s.travelStageFive}
         contentClassName={s.travelStageFiveContent}
-        content={<div className={s.travelSessionResults}><h5><Filter aria-hidden="true" size={24} strokeWidth={1.8} />异步整合</h5><strong><CheckCircle2 aria-hidden="true" size={14} strokeWidth={1.8} /><span>短途优先高铁<small>整合为长期记忆</small></span></strong><strong><CircleMinus aria-hidden="true" size={14} strokeWidth={1.8} /><span>本次靠窗：不晋升<small>仅本次会话</small></span></strong><small>去重 · 冲突处理 · 无虚构</small></div>}
+        content={<div className={s.travelSessionResults}><h5><Filter aria-hidden="true" size={24} strokeWidth={1.8} />异步整合</h5><strong><CheckCircle2 aria-hidden="true" size={14} strokeWidth={1.8} /><span>短途优先高铁<small>整合为长期记忆</small></span></strong><strong><CircleMinus aria-hidden="true" size={14} strokeWidth={1.8} /><span>本次靠窗：不晋升<small>仅本次会话</small></span></strong></div>}
+        footer="去重 · 冲突处理 · 无虚构"
       />
       <ArrowLeft className={`${s.travelStageArrow} ${s.travelArrowFive}`} aria-hidden="true" size={22} strokeWidth={1.7} />
       <TravelStageCard
@@ -604,7 +610,8 @@ function TravelServiceLifecycleDiagram() {
         description="使用更新后的状态对象，提供更贴合的服务。"
         icon={FolderOpen}
         className={s.travelStageSix}
-        content={<div><strong>状态对象（已更新）</strong><ul><li>通常靠过道</li><li>短途优先高铁</li></ul><small>继续使用更新后的状态</small></div>}
+        content={<div><strong>状态对象（已更新）</strong><ul><li>通常靠过道</li><li>短途优先高铁</li></ul></div>}
+        footer="继续使用更新后的状态"
       />
       <ArrowUp className={`${s.travelStageArrow} ${s.travelArrowSix}`} aria-hidden="true" size={22} strokeWidth={1.7} />
     </div>

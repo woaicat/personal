@@ -923,3 +923,51 @@ final result: passed
 - [x] lint、TypeScript、内容校验、浏览器错误检查
 
 final result: passed
+
+# 第九课 7.1 卡片四层结构视觉验收（2026-09-10）
+
+## Findings
+
+- 初始状态存在 P1 级结构问题：第 2、3、6 卡将底注文案写进内部图示，第 4、5 卡虽有外部底注但字号过小且超出卡片；第 3 卡的两个记忆标签未占满一行。
+- 修复后未发现 P0/P1/P2 级问题。第 2–6 卡均使用统一的“序号标题 → 阶段说明 → 内部图示 → 卡片底注”结构；第 3 卡的两枚标签等宽填满同一行。
+
+## Source visual truth
+
+- `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-86e0765a-a8b3-4b8b-b356-dd6be73931ae.png`
+- Source pixels: 1100 × 1068；重点对照第 2–6 阶段中内部图示与卡片底注的层级关系。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-7-1`
+- Codex In-app Browser tab 1；viewport 1421 × 892 CSS px，流程图区域 987 × 695 CSS px；截图通过浏览器临时字节捕捉，无持久化文件路径。
+- DOM 检查确认 5 个独立卡片底注；document scroll width 1402 px，无横向溢出；error-level browser logs 为空。
+
+## Full-view and focused comparison evidence
+
+- Full-view：第 2、3、4、5、6 卡的底注均位于浅色内部图示之后、卡片底部之前；第 1 卡无截图中的独立底注，保留其状态对象模块。
+- Focused 3：黄色“这次靠窗”和绿色“短途优先高铁”以等宽双列填满标签行；“保存记忆工具 → 会话暂存区”独立作为卡片底注。
+- Focused 4 / 5：分别以“修剪后重新注入必要会话记忆”与“去重 · 冲突处理 · 无虚构”收束卡片，字级与其他底注一致，且不越出边框。
+
+## Required fidelity surfaces
+
+- Fonts and typography：底注统一使用独立且可读的 0.68rem 字级；不再复用内部图示的辅助小字。
+- Spacing and layout rhythm：图示与底注之间保留固定间距，所有阶段卡片遵循同一四层垂直节奏。
+- Colors and visual tokens：底注使用低强调灰蓝色，保持其说明性层级，不与绿色和黄色状态块竞争。
+- Image quality and asset fidelity：参考图无须新增图像资产；沿用项目现有图标库。
+- Copy and content：底注文本均按参考截图原文保留。
+
+## Comparison history
+
+1. 用户复核指出底注与内部图示混排、溢出及标签宽度问题。
+2. 为阶段卡片加入独立 footer 区域，将第 2–6 卡底注移出内部图示，并把第 3 卡标签改为等宽双列。
+3. 最终浏览器截图确认五个独立底注全部可见、卡片内无溢出、标签整行填满。
+
+## Implementation checklist
+
+- [x] 阶段卡片统一四层结构
+- [x] 第 2、3、4、5、6 卡独立底注
+- [x] 第 3 卡等宽双标签行
+- [x] 7.1 原文不改写
+- [x] 浏览器截图、控制台检查、lint、TypeScript、内容校验和生产构建
+
+final result: passed
