@@ -64,6 +64,109 @@ The latest tutorial-links viewport confirms the six corrected article titles rem
 
 final result: passed
 
+# 第九课 7.1 六阶段流程图重构视觉验收（2026-09-10）
+
+## Findings
+
+- 初始实现存在 P1 级视觉偏差：六阶段卡片和内部信息被过度压缩，顶部回环与阶段连接弱，无法呈现参考图的完整闭环流程画布。
+- 修复后未发现 P0/P1/P2 级阻塞问题。六张阶段卡片恢复两行三列的闭环结构，顶部回环明确表现第 3 阶段回到第 1 阶段，阶段 3、4、5 的消息候选、修剪层叠和异步整合均保持在卡片边界内。
+- 参考图中的“异步整合”已补回；其余 7.1 标题、说明、阶段标题、状态对象、标签、脚注均按截图原文保留，未自行改写。
+
+## Source visual truth
+
+- `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-86e0765a-a8b3-4b8b-b356-dd6be73931ae.png`
+- Source pixels: 1100 × 1068；内容状态：仅第 7.1 标题、导语及六阶段闭环流程图。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-7-1`
+- Codex In-app Browser tab 1；viewport 770 × 892 CSS px，device scale factor 1；流程图可见区域为 703 × 692 CSS px，浏览器截图以临时字节捕捉，未提供可持久化路径。
+- 页面没有横向溢出（document scroll width 751 px）；error-level browser logs 为空。
+- `npm run check`、`npm run build` 与 `git diff --check` 均通过。
+
+## Full-view and focused comparison evidence
+
+- Full-view：实现与参考均采用 1→2→3 的上排、3→4 的右侧下行、4→5→6 的下排、6→1 的左侧上行；顶部“跨会话积累，临时覆盖不扩散”成为从第 3 阶段回到第 1 阶段的单向回环。
+- Focused 3：绿色用户头像、对话气泡、“这次靠窗”和“短途优先高铁”标签，以及“保存记忆工具 → 会话暂存区”均保留且不溢出。
+- Focused 4 / 5：修剪前后的灰色对话层叠、绿色当前会话条、漏斗图标、“异步整合”、长期记忆与仅本次会话两条结果都位于阶段卡内。
+
+## Required fidelity surfaces
+
+- Fonts and typography：放大阶段编号、标题、说明和内部信息字号；不再以小于 0.5rem 的文字压缩流程内容。标题、说明和结果标签仍沿用课程页的中文字体和层级。
+- Spacing and layout rhythm：扩大卡片最小高度、内部信息模块、上下行间距和连接箭头，使六阶段不再像缩略卡；两行三列的节奏与参考一致。
+- Colors and visual tokens：保持课程现有绿色、浅绿色、浅黄色和灰蓝语义色；加强白卡、浅绿内部模块和绿色流程线的层次。
+- Image quality and asset fidelity：参考图不含需要复用的照片、插画或品牌图；流程内继续使用项目已有 `lucide-react` 图标，不使用截图栅格化替代可读内容。
+- Copy and content：7.1 的可见文字已逐项按参考截图核对；新增的“异步整合”为原先遗漏的参考原文。
+
+## Comparison history
+
+1. 初始捕捉发现画布高度、卡片比例、顶部回环、箭头权重和第 3–5 阶段信息层级与参考存在显著偏差，判定为 P1。
+2. 重构流程画布、放大卡片与内部模块、将第 3 和第 5 阶段改为专用内容布局，并补回“异步整合”。
+3. 第二轮截图发现第 5 阶段的底部脚注超出卡片，继续压缩其内部行距与内边距。
+4. 最终截图确认六张卡片、所有连接箭头和脚注均处于流程图边界内；浏览器错误为空。
+
+## Implementation checklist
+
+- [x] 顶部单向跨会话回环与 1→6 流程连接
+- [x] 两行三列卡片比例、间距与可读字号
+- [x] 第 3 阶段的用户对话、候选标签与会话暂存区
+- [x] 第 4 阶段的修剪层叠和重新注入提示
+- [x] 第 5 阶段的异步整合、两种记忆处理结果与脚注
+- [x] 参考截图文案逐项核对
+- [x] 浏览器预览、控制台、lint、TypeScript、内容校验和生产构建
+
+final result: passed
+
+# 第九课第 3 节视觉验收（2026-09-10）
+
+## Findings
+
+- 未发现 P0/P1/P2 级阻塞问题。
+- 正文二级标题继续沿用详情页现有 `h3` 层级，没有照搬参考图中的连线和特殊编号；右侧目录使用详情页标准圆形一级项与缩进二级项。
+- 视觉检查期间曾因生产构建与 dev server 并行写入 `.next` 触发开发态模块缓存冲突；重启 dev server 后同一路由恢复，服务端未再出现运行时错误，属于本地运行环境问题而非页面代码问题。
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年9月10日 10_56_53.png`
+- Source pixels: 971 × 1632；内容状态：第 3 节 3.1–3.8 八个记忆系统设计步骤及其可视化参考。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-3`
+- Codex In-app Browser tab 7；浏览器返回临时截图字节，未提供可持久化文件路径。
+- 窄屏预览可渲染第 3 节首段与 3.1 图示；生产构建同时通过，证明完整路由和静态页面可生成。
+
+## Full-view and focused comparison evidence
+
+- 第 3 节新增总览流水线，以及 3.1 状态对象、3.2 实时记忆蒸馏、3.3 修剪会话、3.4 记忆注入与优先级规则、3.5 渲染状态、3.6 Hooks 自动化、3.7 组装智能体、3.8 会话后整合八组图示。
+- 图示沿用参考图的绿色、浅蓝、浅黄色信息分层和箭头关系；正文与右侧目录保留当前详情页布局，不使用参考图的纵向编号轨道。
+- 右侧目录已同步 3、3.1–3.8，并分别指向对应正文锚点；未提前展示尚未实现的第 4–7 节。
+
+## Required fidelity surfaces
+
+- Fonts and typography：正文一级标题、二级标题、正文分别沿用详情页既有字号与行高；图示内部文字使用独立的小字号层级，不影响正文排版。
+- Spacing and layout rhythm：第 3 节和 3.1–3.8 使用与第 2 节一致的 section 间距；桌面端图示按横向流程组织，窄屏按可读性折叠为纵向流程。
+- Colors and visual tokens：使用详情页现有绿色强调色、浅绿色状态、浅蓝信息、浅黄色候选记忆及警示色，无新增页面级主题。
+- Image quality and asset fidelity：参考图不含需复用的照片或插画；图标使用项目现有 `lucide-react`，未使用占位图或文字图标。
+- Copy and content：3.1–3.8 标题、说明文案、节点关系和目录标签均已与本次参考图及正文实现同步。
+
+## Comparison history
+
+1. 初始检查确认第 3 节尚未实现，右侧目录也未包含第 3 节。
+2. 按参考图补齐八个正文子节和对应可视化，同时保留详情页标准二级标题与目录 UI。
+3. 刷新本地预览后确认第 3 节首屏可渲染，AX 页面树包含 3.1–3.8 全部正文和目录锚点；重启 dev server 后错误消失，`npm run check` 与 `npm run build` 均通过。
+
+## Implementation checklist
+
+- [x] 第 3 节总览流水线
+- [x] 3.1–3.8 八个正文子节与可视化图示
+- [x] 正文二级标题沿用详情页规范，无截图连线与特殊编号
+- [x] 右侧目录同步 3.1–3.8 并保持详情页标准样式
+- [x] 响应式布局与窄屏预览
+- [x] lint、TypeScript、内容校验、生产构建
+
+final result: passed
+
 # Agent 第 7 课工具调用图示 QA（2026-09-08）
 
 ## Comparison target
@@ -602,5 +705,221 @@ final result: passed
 - `npm run lint`: passed.
 - `git diff --check`: passed.
 - Browser-rendered focused capture: passed.
+
+final result: passed
+
+# 第九课详情页视觉验收（2026-09-10）
+
+## 验收范围
+
+- 页面：/zero-to-one/agent/09
+- 范围：第 1 节、第 2 节（含 2.1、2.2）
+- 参考视觉：/Users/gaojiaxuan/Desktop/我的想法/个人作品集/output/agent-course/lesson-09-visual/01-记忆价值与架构.png
+- 实现预览：http://localhost:3000/zero-to-one/agent/09
+- 实现视口：1200 × 900 CSS px；参考图为 852 × 1846 px，按页面结构与视觉层级进行对照，不以像素尺寸直接比较
+
+## 对照结论
+
+### 全局视图
+
+- 顶部返回入口、课程标题、课程元信息、本课要点与右侧大纲沿用详情页现有规范。
+- 右侧目录根据当前已实现正文整理为 1、2，以及 2.1、2.2 二级标题；未实现的 3–7 节不提前展示。
+- 页面主体宽度、右侧分栏、分隔线、绿色强调色与标题层级保持与已有课程一致。
+
+### 重点区域
+
+- 第 1 节：完成“无记忆 / 有记忆”的跨会话对照图、保存更新使用流程、用户视角与企业视角说明。
+- 第 2.1 节：完成检索式记忆与状态式记忆双卡片、状态覆盖提示、三行比较表及案例说明。
+- 第 2.2 节：完成结构化 / 非结构化记忆卡片、任务相关信息括号关系、内部状态到模型上下文与工具参数的路由图。
+- 使用项目现有 Lucide 图标和详情页颜色变量，未引入需要生成或下载的图片素材。
+
+## 运行验证
+
+- npm run check：通过（lint、TypeScript、内容校验）。
+- git diff --check：通过。
+- 本地浏览器预览：通过；首屏、第 2.1 节和第 2.2 节均可渲染。
+- 浏览器运行时错误：无。
+
+## 最终结论
+
+第九课第 1、2 节视觉实现通过当前范围验收，无 P0/P1/P2 级阻塞问题。第 3–7 节待后续继续开发。
+
+# 第九课 2.3、2.4 视觉验收（2026-09-10）
+
+## Findings
+
+- [P2] 初始目录未同步新增正文：实现开始时右侧目录只显示到 2.2，已补充 2.3、2.4 两个二级目录项，并将锚点分别接到对应正文。
+- 修复后未发现新的 P0/P1/P2 级视觉问题。
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年9月10日 10_34_31.png`
+- Source pixels: 971 × 1619；内容状态：第 2.3、2.4 节及右侧详情页目录示例。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-2-3`
+- Desktop capture: Codex In-app Browser tab 6，1200 × 900 CSS px，device scale factor 1；浏览器返回临时截图字节，未提供可持久化文件路径。
+- Responsive capture: 同一路由 768 × 900 CSS px，页面 document/body 宽度 753 px，无横向溢出。
+
+## Full-view and focused comparison evidence
+
+- 参考图与实现均覆盖 2.3 的用户级 / 会话级记忆分层、持久性判断、有效偏好示例，以及 2.4 的稳定性、漂移、上下文变异和整合工作台。
+- 桌面端实现保留详情页既有右侧目录规范，不照搬参考图的高亮状态；目录现在显示 1、2、2.1、2.2、2.3、2.4，2.3 与 2.4 使用二级缩进。
+- 重点检查了作用域决策流、生命周期上下两行流程、三行整合表和警示条，均未发现裁切或信息遮挡。
+
+## Required fidelity surfaces
+
+- Fonts and typography：沿用现有课程页字体、标题层级、字号和行高；2.3、2.4 的说明文字和小型图示文字在桌面端可读，窄屏未通过缩小正文来避免溢出。
+- Spacing and layout rhythm：新增章节与 2.1、2.2 保持相同的段落间距、卡片内边距、圆角和分隔节奏；生命周期工作台按实时会话 / 会话结束后异步分区排列。
+- Colors and visual tokens：继续使用课程页绿色强调、浅绿色全局记忆、浅黄色会话记忆、浅蓝默认状态与警示色，没有引入新的页面级主题。
+- Image quality and asset fidelity：参考图没有需要复用的照片或插画；节点图标使用项目现有 lucide-react 图标，未用占位图片或文字图标替代。
+- Copy and content：2.3、2.4 标题、作用域说明、生命周期说明、三行整合案例和警示文案均已写入正文；右侧目录文案与当前正文标题一致。
+
+## Comparison history
+
+1. 初始实现：完成 2.3、2.4 正文和可视化，但右侧目录仍停留在 2.2。
+2. 目录同步修复：在 `lesson-page-details.ts` 增加 2.3、2.4 二级目录项，刷新 tab 6 后确认 6 项目录及对应 href 均存在，浏览器错误为空。
+3. 修复后复核：桌面端与 768 px 窄屏分别检查，桌面端流程布局稳定，窄屏 document/body 无横向溢出。
+
+## Implementation checklist
+
+- [x] 2.3 记忆作用域正文、全局 / 会话级记忆卡片与持久性判断
+- [x] 2.3 有效偏好覆盖示例
+- [x] 2.4 稳定性、漂移、上下文变异卡片
+- [x] 2.4 实时会话、异步整合流程与整合工作台
+- [x] 右侧目录同步 2.3、2.4 二级标题与锚点
+- [x] 桌面端、窄屏预览与浏览器错误检查
+
+final result: passed
+
+# 第九课正文层级字号复核（2026-09-10）
+
+## Findings
+
+- [P2] 2.1 说明段落最初未命中详情页正文选择器，字号回退为浏览器默认值，视觉上比其他正文偏大。
+- 修复：为 `.ninthSubsection > p` 补回详情页正文字号 `0.83rem` 和行高 `1.72`；2.3、2.4 的同类段落同步统一，图示内部文字不受影响。
+- 修复后未发现新的 P0/P1/P2 级问题。
+
+## Browser evidence
+
+- Desktop route：`http://localhost:3000/zero-to-one/agent/09#section-2-3`
+- Computed styles：一级标题 `17.6px`，二级标题 `14.4px / 20.88px`，正文 `13.28px / 22.84px`。
+- 图示内部文字仍使用各自组件字号；右侧目录与页面布局没有改变。
+- Browser error-level logs：none。
+
+## Comparison history
+
+1. 初始字号检查发现 2.1 说明段落使用默认字号，记录为 P2。
+2. 补充 `.ninthSubsection > p` 后重新打开相同桌面视口，正文与其他课程页正文尺寸统一。
+
+final result: passed
+
+# 第九课第 4–6 节视觉验收（2026-09-10）
+
+## Findings
+
+- 未发现 P0/P1/P2 级阻塞问题。
+- 新增标题不带截图中的英文 parenthetical；正文二级标题和右侧目录继续使用详情页现有规范。
+- 视觉检查期间无浏览器 error-level logs。
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年9月10日 13_05_38.png`
+- Source pixels: 971 × 1632；内容状态：第 4、5、6 节及截图式参考目录。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-4`
+- Codex In-app Browser tab 9，explicit desktop viewport 1200 × 900 CSS px，device scale factor 1；browser screenshot bytes were returned inline, no persistent file path。
+- Focused captures verified `#section-5` and `#section-6` via standard outline links; screenshots showed correct layouts and outline。
+- `lesson9Tab.dev.logs({levels:['error']})`: empty。
+
+## Full-view and focused comparison evidence
+
+- Full-view：sections 4–6 preserve current lesson shell: top header, standard aside, green accent, separators。
+- Focused 4：timeline across 3 conversations, evaluation dimensions, test strategies, metrics bar。
+- Focused 5：layered guardrail pipeline, system-rule/reference-memory boundary, 5.1–5.3 body。
+- Focused 6：litmus decision, iteration loop, conclusion callout and generic lesson footer。
+- Screenshot source uses connected/highlighted sidebar and English headings; implementation intentionally uses existing shell and Chinese-only headings per user request。
+
+## Required fidelity surfaces
+
+- Fonts and typography：existing lesson shell font/heading/body hierarchy; diagram labels use smaller local styles。
+- Spacing and layout rhythm：section spacing consistent with sections 1–3; desktop horizontal diagrams, mobile stacked fallback。
+- Colors and visual tokens：existing green accent, pale green/blue/amber semantic colors; no new page theme。
+- Image quality and asset fidelity：source has no photo/illustration assets needing reuse; icons use existing `lucide-react`。
+- Copy and content：section titles are Chinese-only, body/diagram labels match screenshot structure, outline synced to 4/5/5.1–5.3/6。
+
+## Comparison history
+
+1. Initial implementation of 4–6 with standard shell and diagrams。
+2. Desktop preview via tab 9 showed 4, 5, 6; outline and browser logs verified。
+3. No P0/P1/P2 findings remained after focused checks; final error logs empty。
+
+## Implementation checklist
+
+- [x] 4 evaluation timeline, dimensions, test strategies, metrics
+- [x] 5 guardrail pipeline, boundary, 5.1–5.3
+- [x] 6 conclusion decision, iteration loop, quote
+- [x] Chinese-only new titles
+- [x] standard right outline and anchors
+- [x] desktop and responsive CSS
+- [x] lint, TypeScript, content check, browser error check
+
+final result: passed
+
+# 第九课第 7 节视觉验收（2026-09-10）
+
+## Findings
+
+- 未发现 P0/P1/P2 级阻塞问题。
+- 第 7 节按截图补齐案例总览、六阶段差旅服务流程、记忆寿命对照和设计步骤映射；正文二级标题与右侧目录继续使用现有详情页规范。
+- 视觉检查期间无浏览器 error-level logs。
+
+## Source visual truth
+
+- `/Users/gaojiaxuan/Downloads/ChatGPT Image 2026年9月10日 13_42_02.png`
+- Source pixels: 971 × 1632；内容状态：第 7 节案例演示、7.1–7.3 及截图式参考目录。
+
+## Implementation evidence
+
+- Route: `http://localhost:3000/zero-to-one/agent/09#section-7`
+- Codex In-app Browser tab 10；desktop viewport 1200 × 900 CSS px，device scale factor 1；browser screenshot bytes were returned inline, no persistent file path。
+- Focused captures verified `#section-7`、`#section-7-2` and the standard outline links; screenshots showed the case overview, lifecycle diagram, tables and synced outline。
+- Responsive capture: 768 × 900 CSS px，页面 document/body 宽度均为 753 px，无横向溢出。
+- `lesson9Tab.dev.logs({levels:['error']})`: empty。
+
+## Full-view and focused comparison evidence
+
+- Full-view：第 7 节保留当前课程详情页的标题、正文、分隔线、右侧大纲和课程产出区域。
+- Focused 7：用户请求与两种记忆寿命标签使用浅绿色、浅黄色语义卡片表达。
+- Focused 7.1：六阶段按 1→2→3→4→5→6 的折返流程排列，阶段卡片保留截图中的说明、状态对象、临时覆盖和整合结果信息。
+- Focused 7.2 / 7.3：表格保留截图中的三列寿命对照和两列设计步骤映射，底部保留课程结论提示条。
+- Screenshot source uses highlighted/connected sidebar; implementation intentionally uses the existing standard outline without screenshot-specific highlight or rail styling。
+
+## Required fidelity surfaces
+
+- Fonts and typography：沿用现有课程页字体、一级标题、二级标题和正文字号层级；图示内部文字使用更小的局部字号以匹配信息密度。
+- Spacing and layout rhythm：案例总览、六阶段流程、两个表格和结论提示条按前面章节的卡片间距与圆角排列；桌面端横向流程，窄屏纵向收叠。
+- Colors and visual tokens：继续使用课程页绿色强调、浅绿色长期记忆、浅黄色会话覆盖、浅蓝表头，没有引入新的页面级主题。
+- Image quality and asset fidelity：参考图没有需要复用的照片或插画；图标使用项目已有 `lucide-react`，未用占位图片或文字图标替代。
+- Copy and content：第 7 节及 7.1–7.3 标题、案例请求、六阶段节点、记忆寿命表、设计步骤表和结论文案均已写入正文；右侧目录与标题锚点同步。
+
+## Comparison history
+
+1. Initial implementation of section 7 with standard shell, case overview, lifecycle flow and tables。
+2. Desktop focused preview via tab 10 verified section 7 and the standard 7.1–7.3 outline links。
+3. Responsive preview at 768 px showed document/body width 753 px and no horizontal overflow; final browser error logs empty。
+
+## Implementation checklist
+
+- [x] 案例总览与两种记忆寿命信号
+- [x] 7.1 六阶段差旅服务可视化流程
+- [x] 7.2 记忆寿命对照表
+- [x] 7.3 设计步骤映射表与结论提示
+- [x] 标准右侧目录与 7.1–7.3 锚点
+- [x] 桌面端、窄屏预览与横向溢出检查
+- [x] lint、TypeScript、内容校验、浏览器错误检查
 
 final result: passed

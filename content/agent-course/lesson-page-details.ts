@@ -153,6 +153,47 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
     output: "明确上下文组成、预算与控制策略。",
     nextLesson: { id: "09", title: "上下文工程：管理记忆", description: "继续学习短期、长期与可检索记忆的设计思路。" }
   },
+  "09": {
+    id: "09",
+    title: "上下文工程：管理记忆",
+    subtitle: "管理模型在任意时刻知道什么。",
+    duration: "24 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "决定什么值得记住，什么只属于当前会话",
+      "设计蒸馏、整合与注入的记忆循环",
+      "用评估与护栏，让记忆可靠地服务当前任务"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "为什么记忆很重要" },
+      { id: "section-2", number: "2", label: "Agent 记忆的架构决策" },
+      { id: "section-2-1", number: "2.1", label: "检索式记忆 vs 状态式记忆", nested: true },
+      { id: "section-2-2", number: "2.2", label: "记忆的形态", nested: true },
+      { id: "section-2-3", number: "2.3", label: "记忆作用域", nested: true },
+      { id: "section-2-4", number: "2.4", label: "记忆生命周期", nested: true },
+      { id: "section-3", number: "3", label: "构建一个记忆系统：八个设计步骤" },
+      { id: "section-3-1", number: "3.1", label: "定义状态对象", nested: true },
+      { id: "section-3-2", number: "3.2", label: "实时记忆蒸馏", nested: true },
+      { id: "section-3-3", number: "3.3", label: "修剪会话", nested: true },
+      { id: "section-3-4", number: "3.4", label: "记忆注入与优先级规则", nested: true },
+      { id: "section-3-5", number: "3.5", label: "渲染状态", nested: true },
+      { id: "section-3-6", number: "3.6", label: "用 Hooks 编排自动化", nested: true },
+      { id: "section-3-7", number: "3.7", label: "组装智能体", nested: true },
+      { id: "section-3-8", number: "3.8", label: "会话后记忆整合", nested: true },
+      { id: "section-4", number: "4", label: "记忆评估" },
+      { id: "section-5", number: "5", label: "记忆护栏" },
+      { id: "section-5-1", number: "5.1", label: "蒸馏检查", nested: true },
+      { id: "section-5-2", number: "5.2", label: "整合检查", nested: true },
+      { id: "section-5-3", number: "5.3", label: "注入检查", nested: true },
+      { id: "section-6", number: "6", label: "结论与下一步" },
+      { id: "section-7", number: "7", label: "案例演示：差旅助手智能体" },
+      { id: "section-7-1", number: "7.1", label: "完整差旅服务的六个阶段", nested: true },
+      { id: "section-7-2", number: "7.2", label: "同一句话，分成两种不同寿命的记忆", nested: true },
+      { id: "section-7-3", number: "7.3", label: "把案例映射回设计步骤", nested: true }
+    ],
+    output: "一份包含记忆形态、作用域、生命周期、评估与护栏的设计方案。",
+    nextLesson: { id: "10", title: "多智能体", description: "学习多个 Agent 如何分工协作。" }
+  },
   "05": {
     id: "05",
     title: "系统提示词",
