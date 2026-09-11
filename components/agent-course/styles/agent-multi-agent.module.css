@@ -1,0 +1,961 @@
+.lessonSubsection {
+  margin-top: 26px;
+  scroll-margin-top: 24px;
+}
+
+.lessonSubsection > h3 {
+  margin: 0 0 10px;
+  color: #303a49;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.lessonSubsection > p {
+  margin: 0 0 7px;
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.lessonSubsection > p strong {
+  color: #303a49;
+  font-weight: 700;
+}
+
+.multiAgentQuote {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 15px;
+  padding: 13px 18px;
+  border-radius: 8px;
+  background: #f1faf3;
+  color: #27774e;
+}
+
+.multiAgentQuote > span {
+  color: #a9ddbd;
+  font-family: Georgia, serif;
+  font-size: 2.45rem;
+  font-weight: 700;
+  line-height: 0.72;
+}
+
+.multiAgentQuote p {
+  margin: 0;
+  color: #27774e;
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.singleMultiComparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  margin-top: 15px;
+}
+
+.comparisonTableWrap {
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #dce7df;
+  border-radius: 7px;
+}
+
+.comparisonTable {
+  width: 100%;
+  min-width: 545px;
+  border-collapse: collapse;
+  color: #536070;
+  font-size: 0.71rem;
+  line-height: 1.45;
+}
+
+.comparisonTable th,
+.comparisonTable td {
+  padding: 7px 8px;
+  border-right: 1px solid #dce7df;
+  border-bottom: 1px solid #dce7df;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.comparisonTable tr > *:last-child {
+  border-right: 0;
+}
+
+.comparisonTable tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.comparisonTable thead th {
+  background: #edf8f0;
+  color: #304d3d;
+  font-weight: 700;
+}
+
+.comparisonTable tbody th {
+  width: 20%;
+  color: #354a40;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.singleMultiDiagram {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 14px 13px 12px;
+  border-radius: 7px;
+  background: #f5f9ff;
+}
+
+.diagramCaption {
+  color: #27456c;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.singleMultiPanels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  gap: 10px;
+  min-height: 192px;
+  margin-top: 11px;
+}
+
+.singleMultiPanel {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-width: 0;
+}
+
+.singleMultiPanel > strong {
+  color: #2e527d;
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.singleMultiPanel > p {
+  margin: 9px 0 0;
+  color: #4f6075;
+  font-size: 0.68rem;
+  line-height: 1.48;
+  text-align: center;
+}
+
+.singleMultiDivider {
+  width: 1px;
+  margin: 5px 0;
+  background: #cad9e6;
+}
+
+.singleDiagramVisual {
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+  margin-top: 18px;
+  color: #438e68;
+}
+
+.singleDiagramVisual > svg:first-child {
+  align-self: start;
+}
+
+.singleDiagramVisual > svg:last-child {
+  align-self: end;
+}
+
+.singleDiagramVisual .agentNode {
+  width: 66px;
+  min-height: 54px;
+  margin: 0 auto;
+}
+
+.multiDiagramVisual {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 55px);
+  grid-template-rows: repeat(2, 55px);
+  gap: 22px 26px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 132px;
+  margin-top: 17px;
+}
+
+.multiDiagramVisual .agentNode {
+  position: relative;
+  z-index: 1;
+  width: 55px;
+  min-width: 55px;
+  min-height: 52px;
+}
+
+.multiDiagramConnections {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.multiDiagramArrow {
+  position: absolute;
+  z-index: 0;
+  color: #5ab07a;
+}
+
+.multiDiagramArrowTop {
+  top: 19px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.multiDiagramArrowRight {
+  top: 57px;
+  left: calc(50% + 41px);
+}
+
+.multiDiagramArrowBottom {
+  bottom: 19px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.multiDiagramArrowLeft {
+  top: 57px;
+  left: calc(50% - 40px);
+}
+
+.agentNode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 73px;
+  min-height: 42px;
+  padding: 5px 7px;
+  border: 1px solid #c5dfcc;
+  border-radius: 7px;
+  background: #eff9f1;
+  color: #2d7650;
+  text-align: center;
+}
+
+.agentNode svg {
+  color: #318355;
+}
+
+.agentNode span {
+  font-size: 0.68rem;
+  font-weight: 650;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.agentNode small {
+  color: #4f7960;
+  font-size: 0.59rem;
+  line-height: 1.2;
+}
+
+.agentNodeMain {
+  border-color: #a5d5b4;
+  background: #dff3e4;
+}
+
+.agentNodeManager {
+  border-color: #9fceb0;
+  background: #dff2e4;
+}
+
+.agentNodeWorker {
+  background: #f1faf3;
+}
+
+.agentNodeNeutral {
+  background: #f5faf6;
+}
+
+.conditionGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.conditionCard {
+  scroll-margin-top: 24px;
+  min-width: 0;
+  min-height: 140px;
+  padding: 12px 11px 11px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.conditionCard > svg {
+  color: #318355;
+}
+
+.conditionCard h3 {
+  margin: 8px 0 6px;
+  color: #34483e;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.conditionCard p {
+  margin: 0;
+  color: #66737a;
+  font-size: 0.66rem;
+  line-height: 1.52;
+}
+
+.modeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.modeCard {
+  scroll-margin-top: 24px;
+  min-width: 0;
+  padding: 13px 12px 12px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.modeCard > h3 {
+  margin: 0;
+  color: #2e3f39;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.modeEnglishTitle {
+  display: block;
+  margin-top: 2px;
+  color: #5d6a68;
+  font-size: 0.67rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.modeDiagram {
+  display: grid;
+  justify-items: center;
+  min-height: 136px;
+  margin-top: 12px;
+}
+
+.modeCenterArrow {
+  margin: 3px 0;
+  color: #318355;
+}
+
+.modeWorkerRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+}
+
+.modeWorkerRow .agentNode {
+  min-width: 0;
+  padding: 5px 2px;
+}
+
+.modeWorkerRow .agentNode span {
+  font-size: 0.6rem;
+}
+
+.modeWorkerRow .agentNode small {
+  font-size: 0.55rem;
+}
+
+.swarmDiagram {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 67px);
+  grid-template-rows: repeat(2, 50px);
+  justify-content: center;
+  align-items: center;
+  gap: 11px 28px;
+  min-height: 136px;
+  margin-top: 12px;
+}
+
+.swarmDiagram .agentNode {
+  position: relative;
+  z-index: 1;
+  min-width: 67px;
+  min-height: 44px;
+}
+
+.swarmNetwork {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #54a876;
+  transform: translate(-50%, -50%);
+}
+
+.swarmArrowTop,
+.swarmArrowBottom {
+  position: absolute;
+  left: 50%;
+  color: #5aaa79;
+  transform: translateX(-50%);
+}
+
+.swarmArrowTop {
+  top: 29px;
+}
+
+.swarmArrowBottom {
+  bottom: 25px;
+}
+
+.modeCard > ul {
+  display: grid;
+  gap: 4px;
+  margin: 9px 0 0;
+  padding-left: 16px;
+  color: #536070;
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+
+.modeCard > ul li::marker {
+  color: #318355;
+}
+
+.modeComparisonNote {
+  margin-top: 22px;
+  scroll-margin-top: 24px;
+}
+
+.modeComparisonNote h3 {
+  margin: 0 0 10px;
+  color: #303a49;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.modeComparisonItems {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.modeComparisonItems span {
+  padding: 9px 10px;
+  border: 1px solid #dce7df;
+  border-radius: 7px;
+  background: #f7fcf8;
+  color: #536070;
+  font-size: 0.7rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.modeComparisonItems strong {
+  color: #2e7650;
+  font-weight: 700;
+}
+
+.communicationSubsection {
+  margin-top: 26px;
+  scroll-margin-top: 24px;
+}
+
+.communicationSubsection > h3 {
+  margin: 0 0 8px;
+  color: #303a49;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.communicationSubsection > p {
+  margin: 0;
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.communicationSplit,
+.communicationMethodLayout,
+.a2aLayout {
+  display: grid;
+  gap: 18px;
+  margin-top: 15px;
+  align-items: stretch;
+}
+
+.communicationSplit {
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+}
+
+.communicationMethodLayout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.a2aLayout {
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+}
+
+.communicationTableWrap,
+.a2aConceptTable {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #dce7df;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.communicationTable {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: #536070;
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.communicationMethodTable {
+  min-width: 0;
+}
+
+.communicationTable th,
+.communicationTable td {
+  padding: 8px 9px;
+  border-right: 1px solid #dce7df;
+  border-bottom: 1px solid #dce7df;
+  text-align: left;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.communicationTable tr > *:last-child {
+  border-right: 0;
+}
+
+.communicationTable tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.communicationTable thead th {
+  background: #edf8f0;
+  color: #304d3d;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.communicationTable tbody th {
+  width: 19%;
+  color: #354a40;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.communicationSplit .communicationTable th:nth-child(1) {
+  width: 22%;
+}
+
+.communicationSplit .communicationTable th:nth-child(2) {
+  width: 23%;
+}
+
+.communicationSplit .communicationTable th:nth-child(3) {
+  width: 55%;
+}
+
+.communicationMethodTable th:nth-child(1) {
+  width: 17%;
+}
+
+.communicationMethodTable th:nth-child(2) {
+  width: 20%;
+}
+
+.communicationMethodTable th:nth-child(3) {
+  width: 37%;
+}
+
+.communicationMethodTable th:nth-child(4) {
+  width: 26%;
+}
+
+.communicationRowLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.communicationRowLabel svg {
+  flex: 0 0 auto;
+  color: #318355;
+}
+
+.communicationTable code {
+  display: inline-block;
+  padding: 2px 5px;
+  border: 1px solid #dce7ed;
+  border-radius: 4px;
+  background: #f7fbff;
+  color: #536981;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.63rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.communicationVisual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 74px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) 74px minmax(0, 1fr);
+  min-height: 268px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: #f5fbff;
+}
+
+.communicationAgent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: min(100%, 132px);
+  min-width: 0;
+  padding: 7px 6px;
+  border: 1px solid #b9dfca;
+  border-radius: 8px;
+  background: #f2faf4;
+  color: #2d7650;
+  text-align: center;
+}
+
+.communicationAgent svg {
+  color: #318355;
+}
+
+.communicationAgent strong {
+  margin-top: 3px;
+  font-size: 0.69rem;
+  line-height: 1.25;
+}
+
+.communicationAgent small {
+  margin-top: 4px;
+  color: #557061;
+  font-size: 0.59rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.communicationAgentResearch { grid-area: 1 / 1; }
+.communicationAgentAnalysis { grid-area: 1 / 3; }
+.communicationAgentReview { grid-area: 3 / 1; }
+.communicationAgentWriting { grid-area: 3 / 3; }
+
+.communicationCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: 108px;
+  min-height: 64px;
+  padding: 8px;
+  border: 1px solid #9fd2b3;
+  border-radius: 8px;
+  background: #dff3e6;
+  color: #24734c;
+  text-align: center;
+  grid-area: 2 / 2;
+}
+
+.communicationCenter strong,
+.communicationCenter span {
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.communicationArrow {
+  align-self: center;
+  justify-self: center;
+  color: #55aa78;
+}
+
+.communicationArrowTop { grid-area: 1 / 2; align-self: end; margin-bottom: 4px; }
+.communicationArrowLeft { grid-area: 2 / 1; justify-self: end; margin-right: 6px; }
+.communicationArrowRight { grid-area: 2 / 3; justify-self: start; margin-left: 6px; }
+.communicationArrowBottom { grid-area: 3 / 2; align-self: start; margin-top: 4px; }
+
+.communicationExperience {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 18px 16px;
+  border-radius: 8px;
+  background: #f1faf3;
+  color: #536070;
+}
+
+.communicationExperience > svg {
+  flex: 0 0 auto;
+  color: #318355;
+}
+
+.communicationExperience strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #27774e;
+  font-size: 0.86rem;
+}
+
+.communicationExperience p {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.68;
+}
+
+.a2aLayout h4 {
+  margin: 0 0 9px;
+  color: #27774e;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.a2aConceptTable .communicationTable {
+  min-width: 0;
+}
+
+.a2aConceptTable .communicationTable tbody th {
+  width: 25%;
+  color: #303a49;
+}
+
+.a2aPrinciples {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.a2aPrinciples li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  color: #536070;
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.a2aPrinciples li > strong {
+  display: inline-grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: #27825a;
+  color: #fff;
+  font-size: 0.65rem;
+}
+
+.a2aPrinciples li b {
+  display: block;
+  color: #303a49;
+  font-weight: 700;
+}
+
+.a2aVisual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 30px minmax(90px, 1fr) 30px minmax(0, 1fr);
+  gap: 5px;
+  align-items: center;
+  min-height: 110px;
+  margin-top: 13px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  background: #f5fbff;
+}
+
+.a2aCompany,
+.a2aProtocol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  color: #2d7650;
+  text-align: center;
+}
+
+.a2aCompany strong,
+.a2aProtocol strong {
+  margin-top: 3px;
+  font-size: 0.68rem;
+  line-height: 1.3;
+}
+
+.a2aCompany span,
+.a2aProtocol span {
+  color: #536070;
+  font-size: 0.61rem;
+  line-height: 1.3;
+}
+
+.a2aArrow {
+  color: #55aa78;
+}
+
+.buildNoteGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.buildNoteCard {
+  min-width: 0;
+  min-height: 146px;
+  padding: 12px 11px 11px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+
+.buildNoteCard > svg {
+  color: #318355;
+}
+
+.buildNoteCard h3 {
+  margin: 8px 0 6px;
+  color: #34483e;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.buildNoteCard p {
+  margin: 0;
+  color: #66737a;
+  font-size: 0.64rem;
+  line-height: 1.52;
+}
+
+.exerciseGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.exerciseCard {
+  min-width: 0;
+  padding: 14px 16px 15px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.exerciseCard h3 {
+  margin: 0;
+  color: #27774e;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.exercisePrompt {
+  margin: 5px 0 10px;
+  color: #536070;
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.exerciseHint {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin: 13px 0 0;
+  color: #536070;
+  font-size: 0.69rem;
+  line-height: 1.5;
+}
+
+.exerciseHint svg {
+  flex: 0 0 auto;
+  color: #318355;
+}
+
+@media (max-width: 1100px) {
+  .conditionGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .buildNoteGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .communicationSplit,
+  .communicationMethodLayout,
+  .a2aLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .conditionCard:last-child {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 860px) {
+  .singleMultiComparison {
+    grid-template-columns: 1fr;
+  }
+
+  .conditionGrid,
+  .modeGrid,
+  .modeComparisonItems {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .conditionCard:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .conditionGrid,
+  .modeGrid,
+  .modeComparisonItems,
+  .buildNoteGrid,
+  .exerciseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .conditionCard {
+    min-height: auto;
+  }
+}

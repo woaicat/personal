@@ -1601,22 +1601,41 @@
 }
 
 .lessonExerciseFeedback p:not([role="status"]) {
-  display: block;
+  display: grid;
 }
 
 .lessonChoiceFeedback p {
   display: grid;
-  grid-template-columns: 16px auto minmax(0, 1fr);
+  grid-template-columns: 18px 22px minmax(0, 1fr);
   align-items: start;
-  gap: 4px;
+  column-gap: 4px;
   margin: 0;
   color: #5d6874;
   font-size: 0.67rem;
   line-height: 1.45;
 }
 
-.lessonChoiceFeedback p svg {
+.lessonChoiceFeedbackIcon {
+  display: inline-flex;
+  grid-column: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 1.45em;
+}
+
+.lessonChoiceFeedbackIcon svg {
   margin-top: 1px;
+}
+
+.lessonChoiceFeedback p strong {
+  display: block;
+  grid-column: 2;
+}
+
+.lessonChoiceFeedback p > span:last-child {
+  display: block;
+  grid-column: 3;
+  min-width: 0;
 }
 
 .lessonFeedbackPositive,

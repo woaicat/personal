@@ -82,8 +82,10 @@ export default function LessonChoiceQuestion({
 
             return (
               <p className={tone ? styles[tone] : undefined} key={label}>
-              {Icon ? <Icon aria-hidden="true" size={16} strokeWidth={1.9} /> : null}
-              <strong>{label}：</strong>{text}
+              <span className={styles.lessonChoiceFeedbackIcon} aria-hidden="true">
+                {Icon ? <Icon size={16} strokeWidth={1.9} /> : null}
+              </span>
+              <strong>{label}：</strong><span>{text}</span>
               </p>
             );
           })}
