@@ -6,19 +6,19 @@ import { useEffect, useState } from "react";
 
 const frames = [
   {
-    src: "/personal-space/scene-01.png",
+    src: "/personal-space/night-room-frame-01.png",
     alt: "夜晚卧室场景，女孩和猫在床上休息"
   },
   {
-    src: "/personal-space/scene-02.png",
+    src: "/personal-space/night-room-frame-02.png",
     alt: "夜晚卧室场景，窗外星光变得更明亮"
   },
   {
-    src: "/personal-space/scene-03.png",
+    src: "/personal-space/night-room-frame-03.png",
     alt: "夜晚卧室场景，墙上的藤蔓和星光出现轻微变化"
   },
   {
-    src: "/personal-space/scene-04.png",
+    src: "/personal-space/night-room-frame-04.png",
     alt: "夜晚卧室场景，藤蔓回到循环中的下一帧"
   }
 ] as const;
