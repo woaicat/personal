@@ -42,9 +42,28 @@ const catPlayFrames = [
   }
 ] as const;
 
+const workFrames = [
+  {
+    src: "/personal-space/work-scene-frame-01.png",
+    alt: "女孩坐在书桌前用笔记本电脑工作，橘猫在脚边休息"
+  },
+  {
+    src: "/personal-space/work-scene-frame-02.png",
+    alt: "女孩继续在书桌前工作，橘猫在地毯上轻轻摆动尾巴"
+  },
+  {
+    src: "/personal-space/work-scene-frame-03.png",
+    alt: "女孩双手放在笔记本电脑上工作，房间里阳光明亮"
+  },
+  {
+    src: "/personal-space/work-scene-frame-04.png",
+    alt: "女孩在电脑前专注工作，橘猫安静地陪在身边"
+  }
+] as const;
+
 const scenes = [
   { id: "night", name: "夜深了", frames: nightFrames },
-  { id: "work", name: "一起工作吧", frames: nightFrames },
+  { id: "work", name: "一起工作吧", frames: workFrames },
   { id: "cat", name: "和小猫玩耍", frames: catPlayFrames }
 ] as const;
 
