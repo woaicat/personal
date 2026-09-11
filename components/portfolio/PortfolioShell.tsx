@@ -123,6 +123,9 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
               <a href="/act.html" target="_blank" rel="noreferrer" onClick={() => setOpenDropdown(null)}>
                 ACT
               </a>
+              <a href="/personal-space" target="_blank" rel="noreferrer" onClick={() => setOpenDropdown(null)}>
+                个人空间
+              </a>
             </div>
           </div>
           <a className="btn btn-primary" href="#subscribe-anchor">
