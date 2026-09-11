@@ -196,7 +196,7 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
   },
   "10": {
     id: "10",
-    title: "多智能体（Multi-Agent）",
+    title: "多智能体",
     subtitle: "众人拾柴火焰高，还是三个和尚没水喝？",
     duration: "14 分钟",
     series: "从 0 到 1 设计一个 Agent",
