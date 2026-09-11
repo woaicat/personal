@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const frames = [
+const nightFrames = [
   {
     src: "/personal-space/night-room-frame-01.png",
     alt: "夜晚卧室场景，女孩和猫在床上休息"
@@ -23,10 +23,29 @@ const frames = [
   }
 ] as const;
 
+const catPlayFrames = [
+  {
+    src: "/personal-space/cat-play-frame-01.png",
+    alt: "女孩坐在房间里，用逗猫棒陪橘猫玩耍"
+  },
+  {
+    src: "/personal-space/cat-play-frame-02.png",
+    alt: "橘猫跳起来追逐女孩手中的逗猫棒"
+  },
+  {
+    src: "/personal-space/cat-play-frame-03.png",
+    alt: "女孩放低逗猫棒，橘猫伸爪玩耍"
+  },
+  {
+    src: "/personal-space/cat-play-frame-04.png",
+    alt: "女孩举起逗猫棒，橘猫开心地跳起来"
+  }
+] as const;
+
 const scenes = [
-  { id: "night", name: "夜深了", frames },
-  { id: "work", name: "一起工作吧", frames },
-  { id: "cat", name: "和小猫玩耍", frames }
+  { id: "night", name: "夜深了", frames: nightFrames },
+  { id: "work", name: "一起工作吧", frames: nightFrames },
+  { id: "cat", name: "和小猫玩耍", frames: catPlayFrames }
 ] as const;
 
 const FAST_FRAME_DURATION = 560;
@@ -42,7 +61,7 @@ export default function PersonalSpace() {
     }, FAST_FRAME_DURATION);
 
     return () => window.clearInterval(timerId);
-  }, [activeScene.frames.length]);
+  }, [activeSceneId, activeScene.frames.length]);
 
   const handleSceneChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setActiveSceneId(event.target.value as (typeof scenes)[number]["id"]);
