@@ -52,14 +52,29 @@
 }
 
 .personal-space-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--space-ink);
   font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
 
+.personal-space-back-arrow {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 160ms ease;
+}
+
 .personal-space-brand:hover {
   color: #a65d62;
+}
+
+.personal-space-brand:hover .personal-space-back-arrow {
+  transform: translateX(-0.14rem);
 }
 
 .personal-space-scene-switcher {

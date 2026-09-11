@@ -95,7 +95,10 @@ export default function PersonalSpace() {
       <div className="personal-space-shell">
         <header className="personal-space-header">
           <Link className="personal-space-brand" href="/" aria-label="返回 JiaXuan GAO 个人作品集首页">
-            个人空间
+            <span className="personal-space-back-arrow" aria-hidden="true">
+              ←
+            </span>
+            <span>个人空间</span>
           </Link>
 
           <div className="personal-space-scene-switcher">
