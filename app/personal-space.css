@@ -52,97 +52,56 @@
 }
 
 .personal-space-brand {
-  font-size: 0.92rem;
+  color: var(--space-ink);
+  font-size: 0.98rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .personal-space-brand:hover {
   color: #a65d62;
 }
 
-.personal-space-header-note,
-.personal-space-eyebrow,
-.personal-space-frame-count,
-.personal-space-footer {
-  font-family: var(--font-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+.personal-space-scene-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.72rem;
+  color: var(--space-muted);
+}
+
+.personal-space-scene-label {
+  font-size: 0.7rem;
   letter-spacing: 0.12em;
 }
 
-.personal-space-header-note {
-  color: var(--space-muted);
-  font-size: 0.67rem;
-}
-
-.personal-space-hero {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.72fr) minmax(420px, 1.28fr);
-  align-items: center;
-  gap: clamp(2.4rem, 7vw, 8rem);
-  flex: 1;
-  padding: clamp(2.7rem, 7vw, 6.2rem) 0 clamp(2.6rem, 6vw, 5.6rem);
-}
-
-.personal-space-intro {
-  max-width: 420px;
-}
-
-.personal-space-eyebrow {
-  margin: 0 0 1.35rem;
-  color: #a65d62;
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.personal-space-intro h1 {
-  max-width: 8em;
-  margin: 0 0 1.45rem;
+.personal-space-scene-select {
+  min-width: 6.1rem;
+  padding: 0.42rem 1.65rem 0.42rem 0.1rem;
+  border: 0;
+  border-bottom: 1px solid rgba(99, 70, 79, 0.32);
+  border-radius: 0;
   color: var(--space-ink);
-  font-family: var(--font-serif), "Noto Serif SC", Georgia, serif;
-  font-size: clamp(2.6rem, 5vw, 5.35rem);
-  font-weight: 500;
-  letter-spacing: -0.075em;
-  line-height: 1.08;
+  background: transparent;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
-.personal-space-description {
-  max-width: 25rem;
-  margin: 0;
-  color: var(--space-muted);
-  font-size: 1.02rem;
-  line-height: 1.9;
+.personal-space-scene-select:focus-visible {
+  outline: 2px solid rgba(166, 93, 98, 0.5);
+  outline-offset: 4px;
 }
 
-.personal-space-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.52rem;
-  margin-top: 2rem;
-  color: #92737a;
-  font-size: 0.79rem;
-}
-
-.personal-space-status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #bdb0b3;
-}
-
-.personal-space-status-dot.is-playing {
-  background: #bd725d;
-  box-shadow: 0 0 0 5px rgba(189, 114, 93, 0.12);
-  animation: personal-space-pulse 1.8s ease-in-out infinite;
-}
-
-.personal-space-stage-wrap {
-  width: min(100%, 630px);
-  justify-self: end;
+.personal-space-stage-area {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 3.5rem) 0 clamp(2rem, 5vw, 4.5rem);
 }
 
 .personal-space-stage {
   position: relative;
+  width: min(76svh, 72vw, 720px);
   aspect-ratio: 1;
   overflow: hidden;
   border: 10px solid rgba(255, 251, 247, 0.74);
@@ -153,129 +112,7 @@
 
 .personal-space-frame {
   object-fit: cover;
-  transition: opacity 180ms ease;
-}
-
-.personal-space-frame-count {
-  position: absolute;
-  right: 18px;
-  bottom: 17px;
-  padding: 0.52rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.88);
-  background: rgba(39, 27, 31, 0.3);
-  font-size: 0.62rem;
-  font-weight: 700;
-  backdrop-filter: blur(8px);
-}
-
-.personal-space-controls {
-  display: flex;
-  align-items: center;
-  gap: 1.05rem;
-  padding: 1rem 0.25rem 0;
-}
-
-.personal-space-play,
-.personal-space-speed button,
-.personal-space-dots button {
-  border: 0;
-  cursor: pointer;
-}
-
-.personal-space-play {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.48rem;
-  padding: 0.58rem 0.84rem;
-  border-radius: 999px;
-  color: #fffaf7;
-  background: #a65d62;
-  font-size: 0.78rem;
-  font-weight: 700;
-  transition: background 180ms ease, transform 180ms ease;
-}
-
-.personal-space-play:hover {
-  background: #8f4e55;
-  transform: translateY(-1px);
-}
-
-.personal-space-play span {
-  min-width: 0.8rem;
-  font-size: 0.75rem;
-  text-align: center;
-}
-
-.personal-space-speed {
-  display: inline-flex;
-  gap: 0.18rem;
-  padding: 0.18rem;
-  border: 1px solid var(--space-line);
-  border-radius: 999px;
-}
-
-.personal-space-speed button {
-  padding: 0.34rem 0.58rem;
-  border-radius: 999px;
-  color: #927f83;
-  background: transparent;
-  font-size: 0.7rem;
-}
-
-.personal-space-speed button.is-active,
-.personal-space-speed button:hover {
-  color: #654249;
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.personal-space-dots {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.42rem;
-  margin-left: auto;
-}
-
-.personal-space-dots button {
-  width: 7px;
-  height: 7px;
-  padding: 0;
-  border-radius: 50%;
-  background: #c9b8b7;
-  transition: transform 180ms ease, background 180ms ease;
-}
-
-.personal-space-dots button:hover,
-.personal-space-dots button.is-active {
-  background: #a65d62;
-  transform: scale(1.45);
-}
-
-.personal-space-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 0 1.25rem;
-  border-top: 1px solid var(--space-line);
-  color: #9c8d91;
-  font-size: 0.61rem;
-}
-
-.personal-space-footer span:last-child {
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-}
-
-@keyframes personal-space-pulse {
-  0%,
-  100% {
-    opacity: 0.52;
-  }
-
-  50% {
-    opacity: 1;
-  }
+  transition: opacity 90ms linear;
 }
 
 @media (max-width: 820px) {
@@ -283,23 +120,8 @@
     width: min(100% - 32px, 620px);
   }
 
-  .personal-space-hero {
-    grid-template-columns: 1fr;
-    gap: 2.4rem;
-    padding-top: 3.5rem;
-  }
-
-  .personal-space-intro {
-    max-width: 36rem;
-  }
-
-  .personal-space-intro h1 {
-    max-width: 10em;
-    font-size: clamp(2.7rem, 12vw, 4.6rem);
-  }
-
-  .personal-space-stage-wrap {
-    justify-self: stretch;
+  .personal-space-stage {
+    width: min(88vw, 70svh, 620px);
   }
 }
 
@@ -308,38 +130,27 @@
     min-height: 64px;
   }
 
-  .personal-space-header-note {
-    font-size: 0.58rem;
+  .personal-space-scene-switcher {
+    gap: 0.38rem;
+  }
+
+  .personal-space-scene-label {
+    display: none;
+  }
+
+  .personal-space-scene-select {
+    min-width: 5.9rem;
+    font-size: 0.82rem;
   }
 
   .personal-space-stage {
     border-width: 6px;
     border-radius: 22px;
   }
-
-  .personal-space-controls {
-    flex-wrap: wrap;
-  }
-
-  .personal-space-dots {
-    margin-left: 0;
-  }
-
-  .personal-space-footer {
-    flex-direction: column;
-    gap: 0.45rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .personal-space-status-dot.is-playing {
-    animation: none;
-  }
-
-  .personal-space-frame,
-  .personal-space-play,
-  .personal-space-speed button,
-  .personal-space-dots button {
+  .personal-space-frame {
     transition: none;
   }
 }
