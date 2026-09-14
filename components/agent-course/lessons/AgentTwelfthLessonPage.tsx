@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import { ArrowDown, ArrowRight, Bot, Database, FileText, Globe, KeyRound, Layers3, ShieldCheck, Terminal, Unplug } from "lucide-react";
+import { ArrowDown, ArrowRight, Bot, Database, FileText, Globe, KeyRound, Layers3, ShieldCheck, Terminal, Unplug, AlertTriangle, Brain, Quote, LockKeyhole, Activity, PackageCheck, type LucideIcon } from "lucide-react";
 import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 import { lessonTwelveIntro, lessonTwelveSections } from "@/content/agent-course/lesson-12";
 import AgentLessonShell, { AgentLessonSection } from "@/components/agent-course/AgentLessonShell";
@@ -10,6 +10,63 @@ import LessonChoiceQuestion from "@/components/agent-course/LessonChoiceQuestion
 
 function Copy({ children }: { children: string }) {
   return <div className={s.copy}><ReactMarkdown components={{ a: ({ children: label, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer">{label}</a> }}>{children}</ReactMarkdown></div>;
+}
+
+type ReadingBlock = { count: number; tone?: "case" | "highlight" | "warning"; icon?: LucideIcon };
+
+// 按原文段落分组，保留文字、顺序和 Markdown 内容；未分组的段落原样展示。
+const readingPlans: Record<string, ReadingBlock[]> = {
+  intro: [{ count: 1 }, { count: 1, tone: "highlight", icon: ShieldCheck }],
+  "section-1": [{ count: 1, tone: "highlight", icon: Layers3 }, { count: 1 }, { count: 2, tone: "case", icon: Bot }, { count: 1 }, { count: 2 }, { count: 1, tone: "warning", icon: AlertTriangle }],
+  "section-2-1": [{ count: 1 }, { count: 3, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight", icon: ShieldCheck }],
+  "section-2-2": [{ count: 1 }, { count: 2, tone: "case", icon: Quote }, { count: 1 }, { count: 1, tone: "highlight", icon: Terminal }],
+  "section-2-3": [{ count: 1 }, { count: 1, tone: "case", icon: Database }, { count: 1 }, { count: 1, tone: "highlight", icon: KeyRound }],
+  "section-2-4": [{ count: 1 }, { count: 2, tone: "case", icon: Unplug }, { count: 1, tone: "warning", icon: AlertTriangle }],
+  "section-2-5": [{ count: 1 }, { count: 2, tone: "case", icon: Brain }, { count: 1, tone: "highlight", icon: ShieldCheck }],
+  "section-2-6": [{ count: 1 }, { count: 2, tone: "case", icon: PackageCheck }, { count: 1, tone: "highlight", icon: ShieldCheck }],
+  "section-5": [{ count: 1, tone: "highlight", icon: ShieldCheck }, { count: 3 }, { count: 1, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight", icon: Activity }]
+};
+
+function ReadingPanel({ text, tone, icon: Icon }: { text: string; tone?: ReadingBlock["tone"]; icon?: LucideIcon }) {
+  if (!tone) return <Copy>{text}</Copy>;
+  return <div className={`${s.readingPanel} ${s[`reading-${tone}`]}`}>
+    {Icon ? <Icon size={24} strokeWidth={1.7} aria-hidden="true" /> : null}
+    <Copy>{text}</Copy>
+  </div>;
+}
+
+function ReadableCopy({ children, sectionId }: { children: string; sectionId: string }) {
+  const paragraphs = children.split("\n\n");
+  if (sectionId === "section-3" || sectionId === "section-4") {
+    const isDefense = sectionId === "section-4";
+    const headingPattern = isDefense ? /^\*\*\d\. / : /^\*\*(Input 输入|Retrieval 检索|Model \/ Context 模型与上下文|Tools 工具与执行环境|Output 输出|Supply Chain 供应链)\*\*/;
+    const icons = isDefense ? [Globe, KeyRound, ShieldCheck, LockKeyhole, Brain, Activity] : [FileText, Globe, Bot, Terminal, Unplug, PackageCheck];
+    const groups: string[][] = [[]];
+    // 结尾总结保持在独立高亮区，其他段落跟随所属主题。
+    const summary = paragraphs[paragraphs.length - 1];
+    for (const paragraph of paragraphs.slice(0, -1)) {
+      if (headingPattern.test(paragraph)) groups.push([]);
+      groups[groups.length - 1].push(paragraph);
+    }
+    return <div className={s.readingFlow}>
+      <Copy>{groups[0].join("\n\n")}</Copy>
+      <div className={s.topicStack}>{groups.slice(1).map((group, index) => {
+        const Icon = icons[index] ?? ShieldCheck;
+        return <div className={s.topicCard} key={group[0]}><span className={s.topicIcon}><Icon size={24} strokeWidth={1.7} aria-hidden="true" /></span><Copy>{group.join("\n\n")}</Copy></div>;
+      })}</div>
+      <ReadingPanel text={summary} tone="highlight" icon={ShieldCheck} />
+    </div>;
+  }
+  const plan = readingPlans[sectionId];
+  if (!plan) return <Copy>{children}</Copy>;
+  let cursor = 0;
+  const blocks = plan.map(({ count, ...props }) => {
+    const text = paragraphs.slice(cursor, cursor + count).join("\n\n");
+    cursor += count;
+    return { text, ...props };
+  });
+  if (cursor < paragraphs.length) blocks.push({ text: paragraphs.slice(cursor).join("\n\n") });
+  return <div className={s.readingFlow}>{blocks.map(({ text, ...props }, index) => text ? <ReadingPanel key={index} text={text} {...props} /> : null)}</div>;
 }
 
 function ContextDiagram() {
@@ -52,13 +109,13 @@ function RedTeamLoop() {
 
 export default function AgentTwelfthLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return <AgentLessonShell detail={detail}>
-    <div className={s.opening}><Copy>{lessonTwelveIntro}</Copy><div className={s.threeQuestions}>{[{ icon: Database, text: "它能看到什么？" }, { icon: KeyRound, text: "它能做什么？" }, { icon: ShieldCheck, text: "什么需要确认？" }].map(({ icon: Icon, text }) => <div key={text}><Icon size={24} aria-hidden="true" /><strong>{text}</strong></div>)}</div></div>
+    <div className={s.opening}><ReadableCopy sectionId="intro">{lessonTwelveIntro}</ReadableCopy><div className={s.threeQuestions}>{[{ icon: Database, text: "它能看到什么？" }, { icon: KeyRound, text: "它能做什么？" }, { icon: ShieldCheck, text: "什么需要确认？" }].map(({ icon: Icon, text }) => <div key={text}><Icon size={24} aria-hidden="true" /><strong>{text}</strong></div>)}</div></div>
     {lessonTwelveSections.map((section) => <AgentLessonSection key={section.id} id={section.id} title={section.title}>
       {section.id === "section-1" ? <ContextDiagram /> : null}
       {section.id === "section-3" ? <AttackSurfaceMap /> : null}
-      <Copy>{section.body}</Copy>
+      <ReadableCopy sectionId={section.id}>{section.body}</ReadableCopy>
       {section.subsections.map((sub) => <div className={s.subsection} id={sub.id} key={sub.id}>
-        <h3>{sub.title}</h3><Copy>{sub.body}</Copy>
+        <h3 className={s.riskHeading}><span aria-hidden="true">{sub.id === "section-2-1" ? <Globe /> : sub.id === "section-2-2" ? <Terminal /> : sub.id === "section-2-3" ? <KeyRound /> : sub.id === "section-2-4" ? <Database /> : sub.id === "section-2-5" ? <Brain /> : <PackageCheck />}</span>{sub.title}</h3><ReadableCopy sectionId={sub.id}>{sub.body}</ReadableCopy>
         {sub.id === "section-2-4" ? <RiskCombination /> : null}
       </div>)}
       {section.id === "section-4" ? <DefenseWalkthrough /> : null}
