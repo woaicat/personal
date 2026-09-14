@@ -59,24 +59,32 @@
 
 .hookTriggerVisual {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: center;
-  gap: 10px;
+  grid-template-columns: minmax(150px, 0.62fr) auto minmax(210px, 1fr);
+  align-items: center;
+  gap: 22px;
   margin-top: 12px;
 }
 
 .triggerSteps {
   display: grid;
-  grid-template-columns: repeat(7, minmax(84px, 1fr));
-  width: 100%;
-  overflow-x: auto;
-  padding-bottom: 4px;
+  justify-items: center;
+  gap: 3px;
+  width: min(100%, 145px);
+  margin: 0 auto;
 }
 
-.triggerSteps span {
-  position: relative;
-  padding: 7px 8px;
+.triggerStep {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  color: #79a58a;
+}
+
+.triggerStep > span {
+  width: 100%;
+  padding: 6px 8px;
   border: 1px solid #d8e8dc;
+  border-radius: 5px;
   background: #f4fbf6;
   color: #476755;
   font-size: 0.66rem;
@@ -84,43 +92,58 @@
   text-align: center;
 }
 
-.triggerSteps span + span::before {
-  position: absolute;
-  top: 50%;
-  left: -5px;
-  width: 9px;
-  border-top: 1px solid #8cb79a;
-  content: "";
-}
+.triggerStep > svg { margin: 1px 0; }
+.triggerToDecision { color: #6d7a84; }
 
-.hookDecision {
+.hookDecisionFlow {
   display: grid;
   justify-items: center;
-  gap: 7px;
-  width: min(100%, 340px);
-  padding: 12px;
+  gap: 4px;
+  min-width: 0;
+  padding: 11px 14px;
   border: 1px solid #c6dfcc;
   border-radius: 8px;
   background: #fbfefb;
 }
 
-.hookDecision > span,
-.hookDecision > strong {
+.hookDecisionFlow > span {
   color: #3f5360;
-  font-size: 0.72rem;
-  line-height: 1.4;
+  font-size: 0.71rem;
+  line-height: 1.35;
 }
 
-.hookDecision > strong { color: var(--lesson-accent-dark); }
+.hookDecisionFlow > svg { color: #6b8f78; }
 
-.hookDecision > div {
+.hookDiamond {
+  display: grid;
+  width: 66px;
+  height: 66px;
+  margin: 4px 0 5px;
+  border: 1px solid #a9d6b6;
+  border-radius: 7px;
+  place-items: center;
+  background: #eff9f1;
+  color: var(--lesson-accent-dark);
+  transform: rotate(45deg);
+}
+
+.hookDiamond span {
+  display: block;
+  width: 84px;
+  font-size: 0.67rem;
+  line-height: 1.35;
+  text-align: center;
+  transform: rotate(-45deg);
+}
+
+.hookDecisionFlow > div {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   width: 100%;
 }
 
-.hookDecision > div span,
+.hookDecisionFlow > div span,
 .hookRuleFlow b {
   display: inline-flex;
   align-items: center;
@@ -137,7 +160,7 @@
   text-align: center;
 }
 
-.hookDecision > div span:last-child,
+.hookDecisionFlow > div span:last-child,
 .hookRuleFlow b:last-child {
   border-color: #f0caca;
   background: #fff3f3;
@@ -254,11 +277,15 @@
   .sandboxSafe, .sandboxDanger { width: 36%; }
   .sandboxBox { width: 20%; padding: 10px 5px; }
   .sandboxBox span { font-size: 0.58rem; }
+  .hookTriggerVisual { grid-template-columns: minmax(130px, 0.6fr) auto minmax(180px, 1fr); gap: 12px; }
 }
 
 @media (max-width: 600px) {
   .hookPanel, .hookContrast article, .twoNotes article, .sandboxSection, .sandboxAdvice article, .differenceGrid article { padding: 12px; }
-  .hookDecision > div { grid-template-columns: minmax(0, 1fr); }
+  .hookTriggerVisual { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .triggerToDecision { transform: rotate(90deg); }
+  .hookDecisionFlow { width: min(100%, 270px); justify-self: center; }
+  .hookDecisionFlow > div { grid-template-columns: minmax(0, 1fr); }
   .hookRuleFlow, .riskContrast { align-items: stretch; flex-direction: column; }
   .hookRuleFlow .flowArrow, .riskContrast .flowArrow { align-self: center; transform: rotate(90deg); }
   .momentGrid { grid-template-columns: minmax(0, 1fr); }

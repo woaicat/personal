@@ -34,6 +34,20 @@ type IconDetail = {
 
 const hookStages = ["用户发起任务", "Agent 开始工作", "准备调用工具", "执行工具", "获得工具结果", "继续思考", "准备结束任务"];
 
+const hookLifecycleNodes = [
+  { label: "任务开始" },
+  { label: "Hook", hook: true },
+  { label: "Agent 思考" },
+  { label: "准备调用工具" },
+  { label: "Hook", hook: true },
+  { label: "工具执行" },
+  { label: "Hook", hook: true },
+  { label: "继续思考" },
+  { label: "准备结束" },
+  { label: "Hook", hook: true },
+  { label: "任务完成" }
+];
+
 const hookExamples: IconDetail[] = [
   { icon: Bot, title: "客服 Agent", description: "遇款前检查金额是否超限" },
   { icon: Database, title: "数据分析 Agent", description: "执行 SQL 前禁止 DELETE / DROP" },
@@ -66,10 +80,10 @@ function HookExample({ icon: Icon, title, description }: IconDetail) {
 
 function HookLifecycle() {
   return <div className={s.hookLifecycle} role="img" aria-label="Hook 在任务开始、工具调用和任务结束的关键节点运行">
-    {hookStages.map((stage, index) => (
-      <div className={s.hookLifecycleItem} key={stage}>
-        <span className={index === 1 || index === 2 || index === 4 || index === 6 ? s.hookTag : s.lifecycleNode}>{index === 1 || index === 2 || index === 4 || index === 6 ? "Hook" : stage}</span>
-        {index < hookStages.length - 1 ? <FlowArrow /> : null}
+    {hookLifecycleNodes.map(({ label, hook }, index) => (
+      <div className={s.hookLifecycleItem} key={`${label}-${index}`}>
+        <span className={hook ? s.hookTag : s.lifecycleNode}>{label}</span>
+        {index < hookLifecycleNodes.length - 1 ? <FlowArrow /> : null}
       </div>
     ))}
   </div>;
@@ -101,9 +115,9 @@ export default function AgentEleventhLessonPage({ detail }: { detail: AgentLesso
             <article className={s.hookPanel}>
               <h4>A. 事件触发机制</h4>
               <div className={s.hookTriggerVisual} aria-label="Agent 准备调用工具时，Hook 检查工具和参数并决定允许或阻止">
-                <div className={s.triggerSteps}>{["用户发起任务", "Agent 开始工作", "准备调用工具", "执行工具", "获得工具结果", "继续思考", "准备结束任务"].map((item) => <span key={item}>{item}</span>)}</div>
-                <ArrowDown aria-hidden="true" size={18} />
-                <div className={s.hookDecision}><span>准备调用工具</span><span>Hook：检查工具和参数</span><strong>允许执行？</strong><div><span><Check aria-hidden="true" size={15} />执行工具</span><span><CircleX aria-hidden="true" size={15} />阻止执行</span></div></div>
+                <div className={s.triggerSteps}>{hookStages.map((item, index) => <div className={s.triggerStep} key={item}><span>{item}</span>{index < hookStages.length - 1 ? <ArrowDown aria-hidden="true" size={15} /> : null}</div>)}</div>
+                <ArrowRight className={s.triggerToDecision} aria-hidden="true" size={20} />
+                <div className={s.hookDecisionFlow}><span>准备调用工具</span><ArrowDown aria-hidden="true" size={16} /><span>Hook：检查工具和参数</span><ArrowDown aria-hidden="true" size={16} /><strong className={s.hookDiamond}><span>允许执行？</span></strong><div><span><Check aria-hidden="true" size={15} />执行工具</span><span><CircleX aria-hidden="true" size={15} />阻止执行</span></div></div>
               </div>
             </article>
             <article className={s.hookPanel}>
