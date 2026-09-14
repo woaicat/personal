@@ -263,8 +263,89 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-exercise", number: "4", label: "练习题" }
     ],
     output: "理解 Hook 与 Sandbox 的基本作用，能按关键节点和执行边界设计 Agent 的风险控制。",
-    nextLesson: { id: "12", title: "设计前端 UI 与人机协作", description: "继续学习如何设计 Agent 的交互反馈与人工接管。" }
+    nextLesson: { id: "12", title: "安全控制", description: "继续学习如何识别 Agent 的安全风险，并设计纵深防御。" }
   },
+  "12": {
+    "id": "12",
+    "title": "安全控制",
+    "subtitle": "让 Agent 能做事，也让风险有边界。",
+    "duration": "15 分钟",
+    "series": "从 0 到 1 设计一个 Agent",
+    "keyPoints": [
+        "指令与外部数据进入同一上下文，提示注入可能从回答错误升级为真实操作风险",
+        "沿输入、检索、上下文、工具与输出识别攻击面，同时检查供应链",
+        "通过最小权限、明确审批、沙箱、数据治理和监控构建纵深防御，并持续进行红队测试"
+    ],
+    "outline": [
+        {
+            "id": "section-1",
+            "number": "1",
+            "label": "Agent 安全问题的根源"
+        },
+        {
+            "id": "section-2",
+            "number": "2",
+            "label": "Agent 有哪些安全风险？"
+        },
+        {
+            "id": "section-2-1",
+            "number": "2.1",
+            "label": "提示注入",
+            "nested": true
+        },
+        {
+            "id": "section-2-2",
+            "number": "2.2",
+            "label": "工具误用和危险操作",
+            "nested": true
+        },
+        {
+            "id": "section-2-3",
+            "number": "2.3",
+            "label": "权限过大",
+            "nested": true
+        },
+        {
+            "id": "section-2-4",
+            "number": "2.4",
+            "label": "敏感数据泄露",
+            "nested": true
+        },
+        {
+            "id": "section-2-5",
+            "number": "2.5",
+            "label": "记忆污染",
+            "nested": true
+        },
+        {
+            "id": "section-2-6",
+            "number": "2.6",
+            "label": "危险代码和外部组件",
+            "nested": true
+        },
+        {
+            "id": "section-3",
+            "number": "3",
+            "label": "Agent 有哪些攻击面?"
+        },
+        {
+            "id": "section-4",
+            "number": "4",
+            "label": "如何设计安全的 Agent 系统：纵深防御"
+        },
+        {
+            "id": "section-5",
+            "number": "5",
+            "label": "红队测试"
+        }
+    ],
+    "output": "一份安全控制方案：标出攻击入口、数据与工具权限、用户确认节点、防御措施和需要回归的红队场景。",
+    "nextLesson": {
+        "id": "13",
+        "title": "成本优化",
+        "description": "继续学习如何管理模型、Token 与工具调用成本，在效果和预算之间找到平衡。"
+    }
+},
   "05": {
     id: "05",
     title: "系统提示词",

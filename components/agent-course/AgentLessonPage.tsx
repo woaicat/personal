@@ -29,6 +29,8 @@ import AgentEleventhLessonPage from "@/components/agent-course/lessons/AgentElev
 import AgentLessonShell from "@/components/agent-course/AgentLessonShell";
 import styles from "@/components/agent-course/styles/agent-course.module.css";
 
+import AgentTwelfthLessonPage from "@/components/agent-course/lessons/AgentTwelfthLessonPage";
+
 const toolNames = ["Codex", "Claude Code", "Workbuddy", "豆包工作"];
 
 const spectrumItems = ["确定性代码", "单次模型调用", "含模型节点的工作流", "垂直领域智能体", "通用智能体", "人类专家"];
@@ -110,6 +112,10 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
 
   if (lesson.id === "11") {
     return <AgentEleventhLessonPage detail={detail} />;
+  }
+
+  if (lesson.id === "12") {
+    return <AgentTwelfthLessonPage detail={detail} />;
   }
 
   if (lesson.id !== "01") {
