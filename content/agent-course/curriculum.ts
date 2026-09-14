@@ -105,7 +105,23 @@ export const agentCurriculum: AgentStage[] = [
       },
       {
         id: "12",
-        title: "设计前端 UI 与人机协作",
+        title: "安全控制",
+        summary: "建立权限、审批与执行边界，避免 Agent 越权或造成不可逆风险。",
+        output: "安全控制方案",
+        whyItMatters: "Agent 能调用的工具越多，越需要明确谁能做什么、何时需要审批，以及异常时如何安全地停止。",
+        caseApplication: "为退款、改订单、访问用户信息等高风险操作设计权限分级、审批与人工接管规则。"
+      },
+      {
+        id: "13",
+        title: "成本优化",
+        summary: "管理模型、Token 与工具调用成本，在效果和预算之间找到平衡。",
+        output: "成本优化清单",
+        whyItMatters: "多步推理、长上下文和工具调用都会累积成本，必须在设计阶段设置预算、降级和监控策略。",
+        caseApplication: "为客服 Agent 设计模型分层、上下文压缩、调用预算和异常成本告警。"
+      },
+      {
+        id: "14",
+        title: "前端 UI 和人机协作",
         summary: "设计用户界面、交互反馈与人工介入机制。",
         output: "交互原型要点",
         whyItMatters: "好的 Agent 体验不仅是输出答案，还要让人知道它正在做什么、为什么停下以及如何接管。",
@@ -114,34 +130,34 @@ export const agentCurriculum: AgentStage[] = [
     ]
   },
   {
-    id: "evaluation",
+    id: "observability",
     label: "第三阶段",
+    title: "监控智能体",
+    description: "上线后持续观察运行状态、异常与优化方向。",
+    lessons: [
+      {
+        id: "15",
+        title: "建立可观测性",
+        summary: "关注调用链、成本、错误、成功率与关键行为指标。",
+        output: "可观测性画板要点",
+        whyItMatters: "只有能看到 Agent 的运行过程，团队才能发现异常、解释结果并持续优化。",
+        caseApplication: "为虚拟电商客服 Agent 设计 Trace、日志、指标和告警，并汇总为可评审的方案包。"
+      }
+    ]
+  },
+  {
+    id: "evaluation",
+    label: "第四阶段",
     title: "评测智能体",
     description: "通过评测机制倒推 Agent 是否真正有效。",
     lessons: [
       {
-        id: "13",
+        id: "16",
         title: "搭建评测飞轮",
         summary: "建立样本、指标、评测流程与迭代机制。",
         output: "评测飞轮图",
         whyItMatters: "没有基线和回归集，就无法判断一次提示词或模型调整到底带来了改善还是退化。",
         caseApplication: "为商品咨询、物流解释、退换货判断和转人工建立样本集、指标与问题归因流程。"
-      }
-    ]
-  },
-  {
-    id: "observability",
-    label: "第四阶段",
-    title: "监控智能体",
-    description: "上线后持续观察运行状态、异常与优化方向。",
-    lessons: [
-      {
-        id: "14",
-        title: "建立可观测性并完成方案",
-        summary: "关注调用链、成本、错误、成功率与关键行为指标。",
-        output: "可观测性画板要点",
-        whyItMatters: "只有能看到 Agent 的运行过程，团队才能发现异常、解释结果并持续优化。",
-        caseApplication: "为虚拟电商客服 Agent 设计 Trace、日志、指标和告警，并汇总为可评审的方案包。"
       }
     ]
   }
