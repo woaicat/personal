@@ -49,9 +49,9 @@ const hookLifecycleNodes = [
 ];
 
 const hookExamples: IconDetail[] = [
-  { icon: Bot, title: "客服 Agent", description: "遇款前检查金额是否超限" },
-  { icon: Database, title: "数据分析 Agent", description: "执行 SQL 前禁止 DELETE / DROP" },
-  { icon: FileText, title: "内容发布 Agent", description: "正式发布前做敏感词与格式检查" }
+  { icon: Bot, title: "客服 Agent", description: "调用退款接口前触发 Hook，检查退款金额是否超过 Agent 的自动处理额度。" },
+  { icon: Database, title: "数据分析 Agent", description: "执行 SQL 前触发 Hook，禁止 DELETE、DROP 等可能修改生产数据的语句。" },
+  { icon: FileText, title: "内容发布 Agent", description: "正式发布文章前触发 Hook，自动执行敏感词和格式检查。" }
 ];
 
 const hookMoments: IconDetail[] = [
@@ -107,6 +107,15 @@ export default function AgentEleventhLessonPage({ detail }: { detail: AgentLesso
   return (
     <AgentLessonShell detail={detail}>
       <AgentLessonSection id="section-1" title="1. Hook">
+        <div className={s.sectionOpening}>
+          <p>前面我们一直在讲怎么让 Agent 在现实世界行动：给它工具、记忆、上下文，让它可以自己规划任务、调用工具、执行操作。</p>
+          <p>但 Agent 能做的事情越多，另一个问题就越重要：<strong>怎么避免它不要乱行动？</strong></p>
+          <p>比如一个代码 Agent 为了完成任务，可能会：</p>
+          <ul><li>读取文件</li><li>修改代码</li><li>执行 Shell 命令</li><li>访问互联网</li><li>调用企业内部系统</li><li>删除或覆盖数据</li></ul>
+          <p>这些动作很多都是真实发生在环境里的。因此在 Agent 行动时，我们还需要增加一些约束机制，防止它造成一些不可逆的危害。</p>
+          <p>这一课介绍两个很重要的组件：<strong>Hook 和 Sandbox。</strong></p>
+          <p>你可以先这样理解：<strong>Hook</strong> 负责在关键时刻强制触发系统的某些行为活动；<strong>Sandbox</strong> 负责限制 Agent 能在哪里活动，能接触到什么资源。</p>
+        </div>
         <p>Hook 可以理解成一种事件触发机制：当程序运行到某个特定节点时，自动执行提前写好的逻辑。</p>
 
         <div className={s.subsection} id="section-1-1">
@@ -130,6 +139,13 @@ export default function AgentEleventhLessonPage({ detail }: { detail: AgentLesso
 
         <div className={s.subsection} id="section-1-2">
           <h3>1.2 为什么 Agent 需要 Hook？</h3>
+          <div className={s.explainerCopy}>
+            <p>因为很多事情不能只写在 Prompt 里。比如你在系统提示词里告诉 Agent：</p>
+            <blockquote>删除文件之前，请先检查这个文件是不是重要文件。</blockquote>
+            <p>Agent 有时候可能会遵守，但在长时间、多步骤执行任务时，会出现理解偏差，也可能受到上下文、工具返回内容的影响，不能保证这个动作总是稳定执行。</p>
+            <p>而有些重要规则我们希望做到：<strong>每次都执行。</strong></p>
+            <p>这时候，就可以把它从 Prompt 里拿出来，变成 Hook，从靠 Agent 自觉执行，到靠规则强制执行。</p>
+          </div>
           <div className={s.hookContrast}>
             <article><h4>Prompt：告诉 Agent 应该怎么做</h4><p>“请只删除临时文件，不要删除重要数据。”</p><span>容易被忽略或绕过。</span></article>
             <article><h4>Hook：在关键节点强制执行规则</h4><div className={s.hookRuleFlow}><span>Agent：我要删除 data.csv</span><FlowArrow /><span>PreToolUse Hook</span><FlowArrow /><ul><li>文件是否允许删除</li><li>当前用户有无权限</li><li>是否属于保护目录</li></ul><FlowArrow /><div><b><Check size={14} />通过 → 执行</b><b><CircleX size={14} />不通过 → 拒绝</b></div></div></article>
@@ -153,7 +169,7 @@ export default function AgentEleventhLessonPage({ detail }: { detail: AgentLesso
         <p>Sandbox 是给 Agent 提供一个受限制的执行环境，用来限制它能在哪里活动、能接触到什么资源。</p>
         <div className={s.sandboxStack}>
           <div className={s.subsection} id="section-2-1"><h3>2.1 什么是 Sandbox？</h3><SandboxBoundary /></div>
-          <div className={s.subsection} id="section-2-2"><h3>2.2 为什么 Agent 需要 Sandbox？</h3><div className={s.riskFlow}>{["读取代码", "修改文件", "执行终端", "安装依赖", "运行命令", "访问网络"].map((item) => <span key={item}>{item}</span>)}</div><div className={s.riskContrast}><span><AlertTriangle size={16} />用户：把测试数据清理一下</span><FlowArrow /><span><AlertTriangle size={16} />Agent 错误执行：rm -rf data/</span></div><p className={s.insight}><ShieldCheck aria-hidden="true" size={16} />即使 Agent 做出了错误决定，影响范围依然被限制在安全区域内。</p></div>
+          <div className={s.subsection} id="section-2-2"><h3>2.2 为什么 Agent 需要 Sandbox？</h3><div className={s.sandboxExplainer}><p>Sandbox，中文通常叫<strong>沙箱</strong>。它本质上是：</p><blockquote>给系统提供一个受限制的执行环境。</blockquote><p>Agent 可以在里面运行命令、修改文件、执行代码，但它能访问什么、修改什么，都受到限制。你可以把它想象成给 Agent 准备了一间实验室。</p><div className={s.labAccess}><article><h4>Agent 可以在实验室里折腾</h4><pre>{"创建文件 ✓\n运行代码 ✓\n安装部分依赖 ✓\n修改项目代码 ✓"}</pre></article><article><h4>实验室之外还有很多东西</h4><pre>{"系统文件 ×\n用户私人文件 ×\n公司数据库 ×\n任意互联网地址 ×\n其他项目 ×"}</pre></article></div><p>Agent 想走出去，就需要额外授权。OpenAI 在 Codex 中采用了类似设计：沙箱会限制 Agent 可以写入哪些目录、能否访问网络，以及哪些路径受到保护；跨越这些边界时，再结合审批机制决定是否允许执行。</p></div></div>
           <div className={s.subsection} id="section-2-3"><h3>2.3 Sandbox 是怎么工作的？</h3><div className={s.sandboxSectionStack}>{sandboxSections.map((item) => <SandboxSection {...item} key={item.title} />)}</div></div>
           <div className={s.subsection} id="section-2-4"><h3>2.4 使用 Sandbox 需要注意什么？</h3><div className={s.sandboxAdvice}><article><LockKeyhole aria-hidden="true" size={25} /><h4>默认给最小权限</h4><p>先给完成任务所需的最小权限，再根据需要逐步扩大。</p></article><article><KeyRound aria-hidden="true" size={25} /><h4>Sandbox 和审批配合使用</h4><p>沙箱内的低风险操作可自动执行，越过边界或涉及敏感信息时交给人工审批。</p></article><article><HardDrive aria-hidden="true" size={25} /><h4>注意凭证和敏感数据</h4><ul>{sandboxChecks.map((item) => <li key={item}>{item}</li>)}</ul></article></div></div>
         </div>
@@ -161,7 +177,7 @@ export default function AgentEleventhLessonPage({ detail }: { detail: AgentLesso
 
       <AgentLessonSection id="section-3" title="3. Hook 和 Sandbox 有什么区别？">
         <div className={s.differenceGrid}><article><h3>Hook</h3><div><Bot aria-hidden="true" size={21} /><FlowArrow /><span>Hook</span><FlowArrow /><ClipboardCheck aria-hidden="true" size={21} /></div><p><strong>控制的是：</strong>这个动作要不要执行<br /><strong>发生在：</strong>关键节点时检查</p></article><article><h3>Sandbox</h3><div><Bot aria-hidden="true" size={21} /><FlowArrow /><span>Sandbox</span><FlowArrow /><FileLock2 aria-hidden="true" size={21} /></div><p><strong>控制的是：</strong>这个动作最多能影响多大范围<br /><strong>发生在：</strong>执行环境中始终生效</p></article></div>
-        <p className={s.differenceSummary}>Hook 在关键节点前检查，拦截或记录 Agent 的活动；Sandbox 则划定 Agent 真正可以活动的边界。两者配合，才能在增强自主能力的同时把风险控制在相对可控的范围内。</p>
+        <p className={s.differenceSummary}>Hook 在关键节点自动执行特定的行为，也可以自动检查、拦截、记录 Agent 的活动。Sandbox 则划定 Agent 真正可以活动的边界。两者配合起来，Agent 才能在拥有更多自主能力的同时把风险控制在一个相对可控的范围内。</p>
       </AgentLessonSection>
     </AgentLessonShell>
   );

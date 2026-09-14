@@ -10,6 +10,91 @@
   line-height: 1.45;
 }
 
+.sectionOpening,
+.explainerCopy,
+.sandboxExplainer {
+  margin: 0 0 19px;
+}
+
+.sectionOpening p,
+.explainerCopy p,
+.sandboxExplainer > p {
+  margin: 0 0 9px;
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.sectionOpening strong,
+.explainerCopy strong,
+.sandboxExplainer strong {
+  color: #303a49;
+  font-weight: 700;
+}
+
+.sectionOpening ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px 16px;
+  margin: 3px 0 11px;
+  padding-left: 19px;
+  color: #536070;
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.explainerCopy blockquote,
+.sandboxExplainer blockquote {
+  margin: 10px 0;
+  padding: 10px 13px;
+  border-left: 3px solid var(--lesson-accent);
+  border-radius: 0 7px 7px 0;
+  background: var(--lesson-accent-pale);
+  color: var(--lesson-accent-dark);
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.labAccess {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 13px 0;
+}
+
+.labAccess article {
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid #c9e2d0;
+  border-radius: 8px;
+  background: #f4fbf6;
+}
+
+.labAccess article:last-child {
+  border-color: #f0d0d0;
+  background: #fff6f6;
+}
+
+.labAccess h4 {
+  margin: 0 0 8px;
+  color: var(--lesson-accent-dark);
+  font-size: 0.76rem;
+}
+
+.labAccess article:last-child h4 { color: #b94a4a; }
+
+.labAccess pre {
+  margin: 0;
+  color: #4f6f5b;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.71rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.labAccess article:last-child pre { color: #a74b4b; }
+
 .hookIntroStack,
 .sandboxStack,
 .sandboxSectionStack,
@@ -278,10 +363,12 @@
   .sandboxBox { width: 20%; padding: 10px 5px; }
   .sandboxBox span { font-size: 0.58rem; }
   .hookTriggerVisual { grid-template-columns: minmax(130px, 0.6fr) auto minmax(180px, 1fr); gap: 12px; }
+  .sectionOpening ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 600px) {
   .hookPanel, .hookContrast article, .twoNotes article, .sandboxSection, .sandboxAdvice article, .differenceGrid article { padding: 12px; }
+  .sectionOpening ul, .labAccess { grid-template-columns: minmax(0, 1fr); }
   .hookTriggerVisual { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .triggerToDecision { transform: rotate(90deg); }
   .hookDecisionFlow { width: min(100%, 270px); justify-self: center; }
