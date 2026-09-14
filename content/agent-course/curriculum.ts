@@ -97,8 +97,8 @@ export const agentCurriculum: AgentStage[] = [
       },
       {
         id: "11",
-        title: "安全、成本、Hook 与沙箱护栏",
-        summary: "平衡安全、成本与可控性，为执行过程设置护栏。",
+        title: "Hook 与 Sandbox",
+        summary: "理解 Agent 如何通过 Hook 和 Sandbox 增加约束、控制风险。",
         output: "风险控制清单",
         whyItMatters: "Agent 需要在能做事和不能越界之间保持平衡，风险控制必须进入流程而不是只写在文档里。",
         caseApplication: "限制退款、改订单和权益承诺等高风险操作，并设置预算、审批和人工接管节点。"
