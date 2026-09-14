@@ -97,3 +97,7 @@
   .testLoop li { display: flex; align-items: center; gap: 12px; padding: 10px 0 10px 13px; border-top: 0; border-left: 2px solid #bbd6c4; }
   .testLoop span { margin: 0; }
 }
+
+.exerciseCard { margin-top: 19px; padding: 17px; border: 1px solid #dce7df; border-radius: 8px; }
+.exerciseCard h3 { margin: 0 0 10px; color: #171e2c; font-size: .92rem; line-height: 1.5; }
+.exerciseCard > p { margin: 0 0 15px; color: #536070; font-size: .83rem; line-height: 1.72; }

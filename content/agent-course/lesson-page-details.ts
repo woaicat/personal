@@ -337,6 +337,11 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
             "id": "section-5",
             "number": "5",
             "label": "红队测试"
+        },
+        {
+            "id": "section-exercise",
+            "number": "6",
+            "label": "练习题"
         }
     ],
     "output": "一份安全控制方案：标出攻击入口、数据与工具权限、用户确认节点、防御措施和需要回归的红队场景。",
