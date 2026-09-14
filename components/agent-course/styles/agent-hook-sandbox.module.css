@@ -16,6 +16,12 @@
   margin: 0 0 19px;
 }
 
+.sectionOpening {
+  margin: 0;
+  padding: 31px 0 25px;
+  border-bottom: 1px solid var(--lesson-line);
+}
+
 .sectionOpening p,
 .explainerCopy p,
 .sandboxExplainer > p {

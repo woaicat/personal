@@ -106,16 +106,16 @@ function SandboxSection({ icon: Icon, title, description }: IconDetail) {
 export default function AgentEleventhLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return (
     <AgentLessonShell detail={detail}>
+      <div className={s.sectionOpening}>
+        <p>前面我们一直在讲怎么让 Agent 在现实世界行动：给它工具、记忆、上下文，让它可以自己规划任务、调用工具、执行操作。</p>
+        <p>但 Agent 能做的事情越多，另一个问题就越重要：<strong>怎么避免它不要乱行动？</strong></p>
+        <p>比如一个代码 Agent 为了完成任务，可能会：</p>
+        <ul><li>读取文件</li><li>修改代码</li><li>执行 Shell 命令</li><li>访问互联网</li><li>调用企业内部系统</li><li>删除或覆盖数据</li></ul>
+        <p>这些动作很多都是真实发生在环境里的。因此在 Agent 行动时，我们还需要增加一些约束机制，防止它造成一些不可逆的危害。</p>
+        <p>这一课介绍两个很重要的组件：<strong>Hook 和 Sandbox。</strong></p>
+        <p>你可以先这样理解：<strong>Hook</strong> 负责在关键时刻强制触发系统的某些行为活动；<strong>Sandbox</strong> 负责限制 Agent 能在哪里活动，能接触到什么资源。</p>
+      </div>
       <AgentLessonSection id="section-1" title="1. Hook">
-        <div className={s.sectionOpening}>
-          <p>前面我们一直在讲怎么让 Agent 在现实世界行动：给它工具、记忆、上下文，让它可以自己规划任务、调用工具、执行操作。</p>
-          <p>但 Agent 能做的事情越多，另一个问题就越重要：<strong>怎么避免它不要乱行动？</strong></p>
-          <p>比如一个代码 Agent 为了完成任务，可能会：</p>
-          <ul><li>读取文件</li><li>修改代码</li><li>执行 Shell 命令</li><li>访问互联网</li><li>调用企业内部系统</li><li>删除或覆盖数据</li></ul>
-          <p>这些动作很多都是真实发生在环境里的。因此在 Agent 行动时，我们还需要增加一些约束机制，防止它造成一些不可逆的危害。</p>
-          <p>这一课介绍两个很重要的组件：<strong>Hook 和 Sandbox。</strong></p>
-          <p>你可以先这样理解：<strong>Hook</strong> 负责在关键时刻强制触发系统的某些行为活动；<strong>Sandbox</strong> 负责限制 Agent 能在哪里活动，能接触到什么资源。</p>
-        </div>
         <p>Hook 可以理解成一种事件触发机制：当程序运行到某个特定节点时，自动执行提前写好的逻辑。</p>
 
         <div className={s.subsection} id="section-1-1">
