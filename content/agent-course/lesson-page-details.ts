@@ -237,6 +237,33 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
     output: "一份多智能体协作的核心概念、通信方式、A2A 协议和构建注意事项，并能在实际场景中判断是否需要多智能体。",
     nextLesson: { id: "11", title: "安全、成本、Hook 与沙箱护栏", description: "继续学习如何为 Agent 的执行过程设置护栏。" }
   },
+  "11": {
+    id: "11",
+    title: "Hook 与 Sandbox",
+    subtitle: "理解 Agent 在关键节点如何通过 Hook 和 Sandbox 增加约束、控制风险。",
+    duration: "8 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "Hook 是关键节点自动触发的规则机制",
+      "Sandbox 是受限的执行环境，用来限制 Agent 可访问的资源和权限",
+      "Hook 决定这个动作要不要执行；Sandbox 限制这个动作最多能影响多大范围"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "Hook" },
+      { id: "section-1-1", number: "1.1", label: "什么是 Hook", nested: true },
+      { id: "section-1-2", number: "1.2", label: "为什么 Agent 需要 Hook", nested: true },
+      { id: "section-1-3", number: "1.3", label: "Hook 是怎么工作的", nested: true },
+      { id: "section-1-4", number: "1.4", label: "使用 Hook 需要注意什么", nested: true },
+      { id: "section-2", number: "2", label: "Sandbox" },
+      { id: "section-2-1", number: "2.1", label: "什么是 Sandbox", nested: true },
+      { id: "section-2-2", number: "2.2", label: "为什么 Agent 需要 Sandbox", nested: true },
+      { id: "section-2-3", number: "2.3", label: "Sandbox 是怎么工作的", nested: true },
+      { id: "section-2-4", number: "2.4", label: "使用 Sandbox 需要注意什么", nested: true },
+      { id: "section-3", number: "3", label: "Hook 和 Sandbox 有什么区别" }
+    ],
+    output: "理解 Hook 与 Sandbox 的基本作用，能按关键节点和执行边界设计 Agent 的风险控制。",
+    nextLesson: { id: "12", title: "设计前端 UI 与人机协作", description: "继续学习如何设计 Agent 的交互反馈与人工接管。" }
+  },
   "05": {
     id: "05",
     title: "系统提示词",
