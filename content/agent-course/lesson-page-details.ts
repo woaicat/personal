@@ -259,7 +259,8 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-2-2", number: "2.2", label: "为什么 Agent 需要 Sandbox", nested: true },
       { id: "section-2-3", number: "2.3", label: "Sandbox 是怎么工作的", nested: true },
       { id: "section-2-4", number: "2.4", label: "使用 Sandbox 需要注意什么", nested: true },
-      { id: "section-3", number: "3", label: "Hook 和 Sandbox 有什么区别" }
+      { id: "section-3", number: "3", label: "Hook 和 Sandbox 有什么区别" },
+      { id: "section-exercise", number: "4", label: "练习题" }
     ],
     output: "理解 Hook 与 Sandbox 的基本作用，能按关键节点和执行边界设计 Agent 的风险控制。",
     nextLesson: { id: "12", title: "设计前端 UI 与人机协作", description: "继续学习如何设计 Agent 的交互反馈与人工接管。" }

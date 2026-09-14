@@ -360,6 +360,52 @@
 .differenceGrid strong { color: #374550; }
 .differenceSummary { margin: 13px 0 0; color: #536070; font-size: 0.77rem; line-height: 1.68; }
 
+.exerciseGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 15px;
+}
+
+.exerciseCard {
+  min-width: 0;
+  padding: 14px 16px 15px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.exerciseCard h3 {
+  margin: 0;
+  color: var(--lesson-accent-dark);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.exercisePrompt {
+  margin: 6px 0 11px;
+  color: #536070;
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+.exerciseHint {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  margin: 13px 0 0;
+  color: #536070;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.exerciseHint svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--lesson-accent);
+}
+
 @media (max-width: 860px) {
   .hookContrast, .twoNotes, .sandboxAdvice, .differenceGrid { grid-template-columns: minmax(0, 1fr); }
   .momentGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }

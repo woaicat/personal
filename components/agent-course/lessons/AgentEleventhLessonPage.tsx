@@ -24,6 +24,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 import AgentLessonShell, { AgentLessonSection } from "@/components/agent-course/AgentLessonShell";
+import LessonChoiceQuestion, { type LessonChoiceFeedback } from "@/components/agent-course/LessonChoiceQuestion";
 import s from "@/components/agent-course/styles/agent-hook-sandbox.module.css";
 
 type IconDetail = {
@@ -69,6 +70,47 @@ const sandboxSections: IconDetail[] = [
 ];
 
 const sandboxChecks = ["默认最小权限", "按任务逐步放开", "隔离不同用户", "敏感信息不进上下文", "记录凭证和调用数据"];
+
+type ExerciseItem = {
+  title: string;
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+  feedback: LessonChoiceFeedback[];
+};
+
+const exerciseItems: ExerciseItem[] = [
+  {
+    title: "练习 1：什么时候需要 Hook？",
+    prompt: "内容发布 Agent 将要正式发布文章。以下哪种设计最合适？",
+    options: [
+      "在 Prompt 中提醒它发布前检查敏感词和格式",
+      "在“正式发布”这一关键节点配置 Hook，自动执行敏感词和格式检查",
+      "把它放进 Sandbox，只允许访问项目目录"
+    ],
+    correctIndex: 1,
+    feedback: [
+      { icon: "x", tone: "lessonFeedbackNegative", label: "A", text: "Prompt 可以提供指导，但无法保证每次发布前都稳定执行检查。" },
+      { icon: "check", tone: "lessonFeedbackPositive", label: "B", text: "Hook 适合在关键动作发生时自动执行固定规则，例如检查、拦截或记录。" },
+      { icon: "alert", tone: "lessonFeedbackBest", label: "C", text: "Sandbox 管的是可访问的资源边界，不能替代发布前的规则检查。" }
+    ]
+  },
+  {
+    title: "练习 2：什么时候需要 Sandbox？",
+    prompt: "数据分析 Agent 需要运行代码、读写项目目录，但不能访问用户私人文件、系统目录或任意网络地址。应该优先使用什么？",
+    options: [
+      "用 Hook 在每一次操作前判断是否允许",
+      "使用 Sandbox 限制可访问目录、可运行命令和网络边界",
+      "只在 Prompt 中写上“不准访问无关资源”"
+    ],
+    correctIndex: 1,
+    feedback: [
+      { icon: "alert", tone: "lessonFeedbackBest", label: "A", text: "Hook 可以补充关键节点的判断，但无法持续划定整个执行环境的资源范围。" },
+      { icon: "check", tone: "lessonFeedbackPositive", label: "B", text: "Sandbox 专门限制 Agent 能读写哪些路径、能运行什么命令以及是否能联网。" },
+      { icon: "x", tone: "lessonFeedbackNegative", label: "C", text: "Prompt 不能替代执行环境的技术边界，仍可能因理解偏差或上下文影响而失效。" }
+    ]
+  }
+];
 
 function FlowArrow() {
   return <ArrowRight className={s.flowArrow} aria-hidden="true" size={17} strokeWidth={1.7} />;
@@ -178,6 +220,20 @@ export default function AgentEleventhLessonPage({ detail }: { detail: AgentLesso
       <AgentLessonSection id="section-3" title="3. Hook 和 Sandbox 有什么区别？">
         <div className={s.differenceGrid}><article><h3>Hook</h3><div><Bot aria-hidden="true" size={21} /><FlowArrow /><span>Hook</span><FlowArrow /><ClipboardCheck aria-hidden="true" size={21} /></div><p><strong>控制的是：</strong>这个动作要不要执行<br /><strong>发生在：</strong>关键节点时检查</p></article><article><h3>Sandbox</h3><div><Bot aria-hidden="true" size={21} /><FlowArrow /><span>Sandbox</span><FlowArrow /><FileLock2 aria-hidden="true" size={21} /></div><p><strong>控制的是：</strong>这个动作最多能影响多大范围<br /><strong>发生在：</strong>执行环境中始终生效</p></article></div>
         <p className={s.differenceSummary}>Hook 在关键节点自动执行特定的行为，也可以自动检查、拦截、记录 Agent 的活动。Sandbox 则划定 Agent 真正可以活动的边界。两者配合起来，Agent 才能在拥有更多自主能力的同时把风险控制在一个相对可控的范围内。</p>
+      </AgentLessonSection>
+
+      <AgentLessonSection id="section-exercise" title="4. 练习题">
+        <p>选择最合适的方案，完成后查看解析。</p>
+        <div className={s.exerciseGrid}>
+          {exerciseItems.map(({ title, prompt, options, correctIndex, feedback }) => (
+            <article className={s.exerciseCard} key={title}>
+              <h3>{title}</h3>
+              <p className={s.exercisePrompt}>{prompt}</p>
+              <LessonChoiceQuestion ariaLabel={`${title}：${prompt}`} options={options} correctIndex={correctIndex} compact feedback={feedback} />
+            </article>
+          ))}
+        </div>
+        <p className={s.exerciseHint}><ShieldCheck aria-hidden="true" size={17} />判断关键动作前要不要强制执行规则，用 Hook；判断 Agent 能在哪些资源边界内活动，用 Sandbox。</p>
       </AgentLessonSection>
     </AgentLessonShell>
   );
