@@ -18,13 +18,13 @@ type ReadingBlock = { count: number; tone?: "case" | "highlight" | "warning"; ic
 const readingPlans: Record<string, ReadingBlock[]> = {
   intro: [{ count: 1 }, { count: 1, tone: "highlight", compact: true }],
   "section-1": [{ count: 1, tone: "highlight", compact: true }, { count: 1 }, { count: 2, tone: "case", icon: Bot }, { count: 1 }, { count: 2 }, { count: 1, tone: "warning", icon: AlertTriangle }],
-  "section-2-1": [{ count: 1 }, { count: 3, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight", icon: ShieldCheck }],
-  "section-2-2": [{ count: 1 }, { count: 2, tone: "case", icon: Quote }, { count: 1 }, { count: 1, tone: "highlight", icon: Terminal }],
-  "section-2-3": [{ count: 1 }, { count: 1, tone: "case", icon: Database }, { count: 1 }, { count: 1, tone: "highlight", icon: KeyRound }],
+  "section-2-1": [{ count: 1 }, { count: 3, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight" }],
+  "section-2-2": [{ count: 1 }, { count: 2, tone: "case", icon: Quote }, { count: 1 }, { count: 1, tone: "highlight" }],
+  "section-2-3": [{ count: 1 }, { count: 1, tone: "case", icon: Database }, { count: 1 }, { count: 1, tone: "highlight" }],
   "section-2-4": [{ count: 1 }, { count: 2, tone: "case", icon: Unplug }, { count: 1, tone: "warning", icon: AlertTriangle }],
-  "section-2-5": [{ count: 1 }, { count: 2, tone: "case", icon: Brain }, { count: 1, tone: "highlight", icon: ShieldCheck }],
-  "section-2-6": [{ count: 1 }, { count: 2, tone: "case", icon: PackageCheck }, { count: 1, tone: "highlight", icon: ShieldCheck }],
-  "section-5": [{ count: 1, tone: "highlight", icon: ShieldCheck }, { count: 3 }, { count: 1, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight", icon: Activity }]
+  "section-2-5": [{ count: 1 }, { count: 2, tone: "case", icon: Brain }, { count: 1, tone: "highlight" }],
+  "section-2-6": [{ count: 1 }, { count: 2, tone: "case", icon: PackageCheck }, { count: 1 }],
+  "section-5": [{ count: 1, tone: "highlight" }, { count: 3 }, { count: 1, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight" }]
 };
 
 function ReadingPanel({ text, tone, icon: Icon, compact }: { text: string; tone?: ReadingBlock["tone"]; icon?: LucideIcon; compact?: boolean }) {
@@ -54,7 +54,7 @@ function ReadableCopy({ children, sectionId }: { children: string; sectionId: st
         const Icon = icons[index] ?? ShieldCheck;
         return <div className={s.topicCard} key={group[0]}><span className={s.topicIcon}><Icon size={24} strokeWidth={1.7} aria-hidden="true" /></span><Copy>{group.join("\n\n")}</Copy></div>;
       })}</div>
-      <ReadingPanel text={summary} tone="highlight" icon={ShieldCheck} />
+      {isDefense ? <Copy>{summary}</Copy> : <ReadingPanel text={summary} tone="highlight" />}
     </div>;
   }
   const plan = readingPlans[sectionId];
