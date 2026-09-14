@@ -12,12 +12,12 @@ function Copy({ children }: { children: string }) {
   return <div className={s.copy}><ReactMarkdown components={{ a: ({ children: label, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer">{label}</a> }}>{children}</ReactMarkdown></div>;
 }
 
-type ReadingBlock = { count: number; tone?: "case" | "highlight" | "warning"; icon?: LucideIcon };
+type ReadingBlock = { count: number; tone?: "case" | "highlight" | "warning"; icon?: LucideIcon; compact?: boolean };
 
 // 按原文段落分组，保留文字、顺序和 Markdown 内容；未分组的段落原样展示。
 const readingPlans: Record<string, ReadingBlock[]> = {
-  intro: [{ count: 1 }, { count: 1, tone: "highlight", icon: ShieldCheck }],
-  "section-1": [{ count: 1, tone: "highlight", icon: Layers3 }, { count: 1 }, { count: 2, tone: "case", icon: Bot }, { count: 1 }, { count: 2 }, { count: 1, tone: "warning", icon: AlertTriangle }],
+  intro: [{ count: 1 }, { count: 1, tone: "highlight", compact: true }],
+  "section-1": [{ count: 1, tone: "highlight", compact: true }, { count: 1 }, { count: 2, tone: "case", icon: Bot }, { count: 1 }, { count: 2 }, { count: 1, tone: "warning", icon: AlertTriangle }],
   "section-2-1": [{ count: 1 }, { count: 3, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight", icon: ShieldCheck }],
   "section-2-2": [{ count: 1 }, { count: 2, tone: "case", icon: Quote }, { count: 1 }, { count: 1, tone: "highlight", icon: Terminal }],
   "section-2-3": [{ count: 1 }, { count: 1, tone: "case", icon: Database }, { count: 1 }, { count: 1, tone: "highlight", icon: KeyRound }],
@@ -27,9 +27,9 @@ const readingPlans: Record<string, ReadingBlock[]> = {
   "section-5": [{ count: 1, tone: "highlight", icon: ShieldCheck }, { count: 3 }, { count: 1, tone: "case", icon: Globe }, { count: 1 }, { count: 1, tone: "highlight", icon: Activity }]
 };
 
-function ReadingPanel({ text, tone, icon: Icon }: { text: string; tone?: ReadingBlock["tone"]; icon?: LucideIcon }) {
+function ReadingPanel({ text, tone, icon: Icon, compact }: { text: string; tone?: ReadingBlock["tone"]; icon?: LucideIcon; compact?: boolean }) {
   if (!tone) return <Copy>{text}</Copy>;
-  return <div className={`${s.readingPanel} ${s[`reading-${tone}`]}`}>
+  return <div className={`${s.readingPanel} ${s[`reading-${tone}`]} ${compact ? s.readingCompact : ""}`}>
     {Icon ? <Icon size={24} strokeWidth={1.7} aria-hidden="true" /> : null}
     <Copy>{text}</Copy>
   </div>;
@@ -115,7 +115,7 @@ export default function AgentTwelfthLessonPage({ detail }: { detail: AgentLesson
       {section.id === "section-3" ? <AttackSurfaceMap /> : null}
       <ReadableCopy sectionId={section.id}>{section.body}</ReadableCopy>
       {section.subsections.map((sub) => <div className={s.subsection} id={sub.id} key={sub.id}>
-        <h3 className={s.riskHeading}><span aria-hidden="true">{sub.id === "section-2-1" ? <Globe /> : sub.id === "section-2-2" ? <Terminal /> : sub.id === "section-2-3" ? <KeyRound /> : sub.id === "section-2-4" ? <Database /> : sub.id === "section-2-5" ? <Brain /> : <PackageCheck />}</span>{sub.title}</h3><ReadableCopy sectionId={sub.id}>{sub.body}</ReadableCopy>
+        <h3 className={s.riskHeading}>{sub.title}</h3><ReadableCopy sectionId={sub.id}>{sub.body}</ReadableCopy>
         {sub.id === "section-2-4" ? <RiskCombination /> : null}
       </div>)}
       {section.id === "section-4" ? <DefenseWalkthrough /> : null}

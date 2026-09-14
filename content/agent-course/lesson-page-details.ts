@@ -268,7 +268,7 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
   "12": {
     "id": "12",
     "title": "安全控制",
-    "subtitle": "让 Agent 能做事，也让风险有边界。",
+    "subtitle": "防患于未然",
     "duration": "15 分钟",
     "series": "从 0 到 1 设计一个 Agent",
     "keyPoints": [
