@@ -1,0 +1,64 @@
+.opening { margin-top: 21px; color: #536070; font-size: .86rem; line-height: 1.8; }
+.opening p { margin: 0 0 11px; }
+.opening strong, .subsection h3, .costPart h3, .optimizationRows h3, .validationRows h3, .issueGrid h3 { color: #283c33; }
+.costPartGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.costPart { display: flex; gap: 12px; padding: 15px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
+.costPart > svg { flex: 0 0 auto; margin-top: 2px; color: var(--lesson-accent); }
+.costPart h3, .optimizationRows h3, .validationRows h3, .issueGrid h3 { margin: 0 0 5px; font-size: .86rem; line-height: 1.45; }
+.costPart p, .optimizationRows p, .validationRows p, .issueGrid p { margin: 0; color: #536070; font-size: .76rem; line-height: 1.65; }
+.costPart ul, .monitorGrid ul, .diagnosis ul { margin: 9px 0 0; padding-left: 17px; color: #65736b; font-size: .72rem; line-height: 1.7; }
+.subsection { margin-top: 27px; scroll-margin-top: 24px; }
+.subsection h3 { margin: 0 0 10px; font-size: .93rem; line-height: 1.5; }
+.subsection > p { margin: 0; color: #536070; font-size: .83rem; line-height: 1.72; }
+.tokenLines { display: grid; gap: 7px; margin-top: 13px; }
+.tokenLines span { padding: 10px 12px; border-left: 3px solid var(--lesson-accent); border-radius: 0 7px 7px 0; background: var(--lesson-accent-pale); color: #3b5a49; font-size: .75rem; line-height: 1.55; }
+.tableWrap { overflow-x: auto; margin-top: 14px; border: 1px solid #dce7df; border-radius: 8px; }
+.tableWrap table { width: 100%; min-width: 550px; border-collapse: collapse; font-size: .73rem; line-height: 1.55; }
+.tableWrap th, .tableWrap td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid #e8eeea; }
+.tableWrap thead th { background: var(--lesson-accent-pale); color: #283c33; font-weight: 700; }
+.tableWrap tbody tr:last-child th, .tableWrap tbody tr:last-child td { border-bottom: 0; }
+.tableWrap tbody th { width: 18%; color: #283c33; background: #fbfdfb; font-weight: 650; }
+.tableWrap td { color: #536070; }
+.optimizationFlow { display: flex; align-items: center; gap: 9px; margin: 18px 0 0; padding: 13px; border-radius: 8px; background: var(--lesson-accent-pale); list-style: none; }
+.optimizationFlow li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; align-items: center; gap: 0 8px; flex: 1; min-width: 0; color: var(--lesson-accent); }
+.optimizationFlow li > svg:first-child { grid-row: span 2; }
+.optimizationFlow strong { color: #283c33; font-size: .78rem; }
+.optimizationFlow span { color: #65736b; font-size: .68rem; line-height: 1.45; }
+.optimizationFlow li > svg:last-child { grid-column: 3; grid-row: 1 / 3; color: #8ab79b; }
+.monitorGrid { display: grid; grid-template-columns: 1fr 1fr .9fr; gap: 12px; margin-top: 14px; }
+.monitorGrid article, .diagnosis, .continuousGrid article { padding: 14px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
+.monitorGrid h4, .diagnosis h4 { margin: 0; color: var(--lesson-accent-dark); font-size: .78rem; }
+.monitorGrid strong { display: block; margin-top: 13px; color: var(--lesson-accent-dark); font-size: .79rem; line-height: 1.5; }
+.monitorGrid p { margin: 8px 0 0; color: #65736b; font-size: .72rem; line-height: 1.6; }
+.diagnosis { display: grid; grid-template-columns: 1.25fr .75fr; gap: 18px; margin-top: 14px; }
+.diagnosis ol { display: grid; gap: 8px; margin: 0; padding-left: 20px; color: #536070; font-size: .76rem; line-height: 1.6; }
+.diagnosis aside { padding: 12px; border-radius: 7px; background: #fff9f0; }
+.diagnosis aside h4 { color: #8a612d; }
+.optimizationRows, .validationRows { display: grid; gap: 10px; margin-top: 16px; }
+.optimizationRows article { display: grid; grid-template-columns: 38px 25px minmax(0, 1fr); gap: 12px; align-items: start; padding: 16px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
+.optimizationRows article > span, .validationRows article > span, .issueGrid article > span { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--lesson-accent); color: #fff; font-size: .7rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.optimizationRows article > svg { margin-top: 3px; color: var(--lesson-accent); }
+.optimizationRows strong, .validationRows strong { display: block; margin-top: 8px; color: var(--lesson-accent-dark); font-size: .73rem; line-height: 1.6; }
+.continuousGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; margin-top: 16px; }
+.continuousGrid article { display: grid; grid-template-columns: 25px 1fr; gap: 3px 10px; }
+.continuousGrid svg { grid-row: span 2; color: var(--lesson-accent); }
+.continuousGrid strong { color: #283c33; font-size: .78rem; line-height: 1.5; }
+.continuousGrid span { color: #65736b; font-size: .73rem; line-height: 1.6; }
+.validationRows article { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 12px; padding: 16px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
+.issueGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.issueGrid article { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 14px; border: 1px solid #dce7df; border-radius: 8px; }
+.exerciseList { display: grid; gap: 9px; margin: 15px 0 0; padding: 0; list-style: none; counter-reset: exercise; }
+.exerciseList li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; color: #536070; font-size: .78rem; line-height: 1.65; }
+.exerciseList li::before { display: inline-flex; align-items: center; justify-content: center; width: 23px; height: 23px; border-radius: 50%; background: var(--lesson-accent-soft); color: var(--lesson-accent-dark); content: counter(exercise); counter-increment: exercise; font-size: .7rem; font-weight: 700; }
+@media (max-width: 760px) {
+  .costPartGrid, .continuousGrid, .issueGrid { grid-template-columns: 1fr; }
+  .monitorGrid, .diagnosis { grid-template-columns: 1fr; }
+  .optimizationFlow { display: grid; grid-template-columns: 1fr 1fr; }
+  .optimizationFlow li > svg:last-child { display: none; }
+}
+@media (max-width: 520px) {
+  .costPart, .optimizationRows article, .validationRows article { padding: 13px; }
+  .optimizationRows article { grid-template-columns: 32px 22px minmax(0, 1fr); gap: 9px; }
+  .optimizationRows article > span, .validationRows article > span { width: 27px; height: 27px; }
+  .optimizationFlow { grid-template-columns: 1fr; }
+}

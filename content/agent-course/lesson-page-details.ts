@@ -351,6 +351,39 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
         "description": "继续学习如何管理模型、Token 与工具调用成本，在效果和预算之间找到平衡。"
     }
 },
+  "13": {
+    id: "13",
+    title: "成本优化",
+    subtitle: "成本不是只看 Token，而是让每一次有效任务都在可承受的预算内完成。",
+    duration: "12 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "一次任务的成本由模型 Token、工具调用、基础设施和失败重试共同构成",
+      "先按任务结果监控和定位成本，再针对高成本环节优化，而不是盲目压缩所有调用",
+      "用成功任务成本、质量与延迟共同判断方案是否真的更好"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "Agent 的成本由什么构成" },
+      { id: "section-1-1", number: "1.1", label: "Token", nested: true },
+      { id: "section-1-2", number: "1.2", label: "API 调用成本", nested: true },
+      { id: "section-1-3", number: "1.3", label: "本地部署与运维成本", nested: true },
+      { id: "section-1-4", number: "1.4", label: "API 和本地部署怎么选", nested: true },
+      { id: "section-2", number: "2", label: "如何进行成本优化" },
+      { id: "section-2-1", number: "2.1", label: "建立成本监控", nested: true },
+      { id: "section-2-2", number: "2.2", label: "找到成本高的环节", nested: true },
+      { id: "section-3", number: "3", label: "常见的成本优化方法" },
+      { id: "section-4", number: "4", label: "持续优化成本" },
+      { id: "section-5", number: "5", label: "怎么验证成本优化是否有效" },
+      { id: "section-6", number: "6", label: "常见问题" },
+      { id: "section-exercise", number: "7", label: "练习题" }
+    ],
+    output: "一份成本优化清单：包含成本基线、关键监控指标、高成本环节、优化策略与回归验证方式。",
+    nextLesson: {
+      id: "14",
+      title: "前端 UI 和人机协作",
+      description: "继续学习如何设计用户界面、交互反馈与人工介入机制。"
+    }
+  },
   "05": {
     id: "05",
     title: "系统提示词",
