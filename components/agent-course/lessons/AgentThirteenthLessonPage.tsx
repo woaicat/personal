@@ -119,7 +119,7 @@ export default function AgentThirteenthLessonPage({ detail }: { detail: AgentLes
 
     <AgentLessonSection id="section-5" title="5. 怎么验证成本优化是否有效">
       <p>优化之后，需要通过科学的方法验证效果。</p>
-      <div className={s.methodCards}>{validations.map((validation) => <ValidationCard key={validation.number} {...validation} />)}</div>
+      <div className={`${s.methodCards} ${s.validationCards}`}>{validations.map((validation) => <ValidationCard key={validation.number} {...validation} />)}</div>
     </AgentLessonSection>
 
     <AgentLessonSection id="section-6" title="6. 常见问题">

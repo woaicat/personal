@@ -44,6 +44,7 @@
 .diagnosis aside { padding: 12px; border-radius: 7px; background: #fff9f0; }
 .diagnosis aside h4 { color: #8a612d; }
 .methodCards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.validationCards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .methodCard { display: flex; min-width: 0; flex-direction: column; padding: 13px 10px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
 .methodCard h3 { margin: 0 0 8px; font-size: .76rem; line-height: 1.4; }
 .methodCard h3 > span { margin-right: 6px; font-variant-numeric: tabular-nums; }
