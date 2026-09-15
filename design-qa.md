@@ -35,3 +35,26 @@
 - [x] 桌面、移动端与大纲锚点检查
 
 final result: passed
+
+---
+
+# 第 13 课成本优化：第 3、5 节复核
+
+- source visual truth: `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-09f3890a-8a5f-40aa-a670-02e2e589456f.png`（第 3 节，1516 × 442）与 `/var/folders/y8/2ksmwl8100q83bcd3sglr9hw0000gn/T/codex-clipboard-eb2da32b-c5bd-4ac2-9b1e-2f857aeeeca6.png`（第 5 节，1518 × 398）。
+- implementation screenshot: `/tmp/lesson13-after-s3-top.png` 与 `/tmp/lesson13-after-s5-top.png`；浏览器地址为 `http://127.0.0.1:3000/zero-to-one/agent/13`。
+- implementation viewport: CSS `1600 × 691`，截图 `2880 × 1244`，device pixel ratio `1.8`；对照图与实现图已分别裁切到内容区域并合成为 `/tmp/lesson13-qa-comparison.png` 进行比较。
+- state: 第 13 课初始浏览状态，分别定位到第 3、5 节顶部。
+
+## 对照结果
+
+- 字体与层级：沿用详情页既有字体与章节层级；五个卡片标题、说明文字和可视化文字均保持独立层级。
+- 布局与节奏：第 3、5 节均为五个独立卡片并列展示，卡片内部内容按参考图分行；窄屏通过两列、一列响应式收拢。
+- 颜色与令牌：沿用课程绿色强调色、浅绿色信息面、蓝色变化内容面、细边框和圆角。
+- 图标与内容：使用项目已有 Lucide 图标实现文档、人员、勾选、菱形、箭头等可视化；未改造 3.1–3.5、5.1–5.5 序号，正文与图解文案按参考图落地。
+- 浏览器结构检查：第 3、5 节各显示五个卡片标题；旧的纵向长条结构已移除。
+
+## Findings
+
+无遗留的 P0、P1 或 P2 问题。由于参考图是无侧栏的宽幅内容截图，而详情页保留右侧课程大纲，当前实现按主内容区复现卡片结构与图解；这是页面框架差异，不是本次局部实现偏差。
+
+final result: passed

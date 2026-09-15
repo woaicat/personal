@@ -1,42 +1,46 @@
 import {
+  ArrowDown,
   ArrowRight,
   BarChart3,
   Bot,
   BrainCircuit,
+  Check,
   CheckCircle2,
   CloudCog,
   Database,
+  Diamond,
+  FileText,
   Gauge,
   Layers3,
-  ListTree,
   RefreshCw,
   ServerCog,
-  TimerReset,
+  Users,
   WalletCards,
   Zap
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 import AgentLessonShell, { AgentLessonSection } from "@/components/agent-course/AgentLessonShell";
 import s from "@/components/agent-course/styles/agent-cost.module.css";
 
-type Optimization = { number: string; icon: LucideIcon; title: string; description: string; action: string };
-type Validation = { number: string; title: string; description: string; signal: string };
+type OptimizationVisual = "routing" | "context" | "calls" | "cache" | "limits";
+type ValidationVisual = "baseline" | "test-set" | "compare" | "result" | "rollout";
+type Optimization = { number: string; title: string; description: string; visual: OptimizationVisual };
+type Validation = { number: string; title: string; description: string; visual: ValidationVisual };
 
 const optimizations: Optimization[] = [
-  { number: "3.1", icon: Bot, title: "模型路由", description: "按任务难度选择不同能力与价格的模型，不让每一步都使用最贵模型。", action: "简单分类、格式整理用轻量模型；复杂判断再升级。" },
-  { number: "3.2", icon: ListTree, title: "上下文管理", description: "只带入当前任务真正相关的信息，避免历史对话、文档与工具结果无上限累积。", action: "按需检索、摘要压缩，并设置上下文长度上限。" },
-  { number: "3.3", icon: Zap, title: "减少模型调用次数", description: "合并可一次完成的判断，避免 Agent 在没有新信息时继续反复思考或调用工具。", action: "为重复动作设缓存、去重和停止条件。" },
-  { number: "3.4", icon: Database, title: "使用缓存", description: "对可复用、变化慢的结果优先复用，减少相同问题的模型和工具消耗。", action: "缓存常见问答、规则检索结果和稳定工具结果，并设置失效时间。" },
-  { number: "3.5", icon: TimerReset, title: "设置 Agent 的执行限制", description: "在任务开始前明确预算、时间和最大调用次数，防止异常循环把成本持续放大。", action: "例如：最大 10 步、最多 2 次重试、任务超时 60 秒。" }
+  { number: "3.1", title: "模型路由", description: "根据任务的复杂度，选择不同的模型。", visual: "routing" },
+  { number: "3.2", title: "上下文管理", description: "控制输入的上下文长度，去除不必要的历史信息。", visual: "context" },
+  { number: "3.3", title: "减少模型调用次数", description: "通过优化提示词，合并请求等方式减少不必要的调用。", visual: "calls" },
+  { number: "3.4", title: "使用缓存", description: "对不变的内容进行缓存，减少重复的 token 消耗。", visual: "cache" },
+  { number: "3.5", title: "设置 Agent 的执行限制", description: "设置合理的执行限制，避免无限循环导致过多重试。", visual: "limits" }
 ];
 
 const validations: Validation[] = [
-  { number: "5.1", title: "建立基线", description: "在优化前记录任务成功率、耗时、Token、工具调用和单次任务成本。", signal: "建议优先关注 P90，避免平均值掩盖少量高成本任务。" },
-  { number: "5.2", title: "准备测试集", description: "使用覆盖常见、复杂和异常情况的固定样本，保证前后方案可比较。", signal: "样本应包含典型任务与边界场景。" },
-  { number: "5.3", title: "同时比较成本和效果", description: "不能只看降价；还要确认任务是否完成、答案是否准确、是否更慢。", signal: "对比成功率、cost / successful task、延迟与用户评价。" },
-  { number: "5.4", title: "判断优化结果", description: "只有质量不下降、成本下降或单位产出提升，优化才真正成立。", signal: "质量下降时，记录是哪类任务受影响，再调整策略。" },
-  { number: "5.5", title: "灰度上线", description: "先让部分真实流量使用新策略，观察线上数据后再扩大范围。", signal: "5% → 20% → 50% → 100%，逐步扩大并保留回退。" }
+  { number: "5.1", title: "建立基线", description: "在优化前记录关键指标作为对比基线。", visual: "baseline" },
+  { number: "5.2", title: "准备测试集", description: "使用相同的测试集进行前后对比，保证公平性。", visual: "test-set" },
+  { number: "5.3", title: "同时比较成本和效果", description: "不只要看成本是否下降，还要看效果是否有明显变化。", visual: "compare" },
+  { number: "5.4", title: "判断优化结果", description: "如果成本下降且效果不变或提升，则认为优化有效。", visual: "result" },
+  { number: "5.5", title: "灰度上线", description: "先在小范围用户中验证，再逐步扩大范围。", visual: "rollout" }
 ];
 
 const issues = [
@@ -46,6 +50,41 @@ const issues = [
   ["难以定位成本高的环节", "按模型、工具、检索、重试等维度拆分 Trace，而不是只看总价。"],
   ["优化效果不稳定", "使用固定测试集和线上灰度，区分模型波动、数据变化和策略问题。"]
 ];
+
+function OptimizationCard({ number, title, description, visual }: Optimization) {
+  return <article className={s.methodCard}>
+    <h3><span>{number}</span>{title}</h3>
+    <p>{description}</p>
+    <div className={s.methodVisual}>
+      {visual === "routing" && <div className={s.routingVisual}>
+        {["简单任务", "中等任务", "复杂任务"].map((task, index) => <div className={s.routingRow} key={task}><span>{task}</span><ArrowRight aria-hidden="true" size={17} /><span>{["小模型", "中等模型", "大模型"][index]}</span></div>)}
+      </div>}
+      {visual === "context" && <div className={s.contextVisual}><FileText aria-hidden="true" size={38} strokeWidth={1.7} /><div><span>保留关键信息</span><span>压缩历史对话</span><span>使用摘要替代全文</span></div></div>}
+      {visual === "calls" && <div className={s.iconList}>{["合并多个问题", "避免重复调用", "合理使用工具"].map((item) => <div key={item}><Users aria-hidden="true" size={20} strokeWidth={2.3} /><span>{item}</span></div>)}</div>}
+      {visual === "cache" && <div className={s.cacheVisual}>
+        <div className={`${s.cacheBox} ${s.cacheStable}`}><strong>稳定内容</strong><span>（前后不变/固定内容）</span></div>
+        <ArrowRight aria-hidden="true" size={17} />
+        <div className={`${s.cacheBox} ${s.cacheDynamic}`}><strong>变化内容</strong><span>（用户问题）</span></div>
+        <div className={s.cacheResult}><ArrowDown aria-hidden="true" size={17} /><span>结果缓存</span></div>
+      </div>}
+      {visual === "limits" && <div className={s.limitList}><span>最大执行步数：10</span><span>最大重试次数：2</span><span>任务超时：60 秒</span></div>}
+    </div>
+  </article>;
+}
+
+function ValidationCard({ number, title, description, visual }: Validation) {
+  return <article className={s.methodCard}>
+    <h3><span>{number}</span>{title}</h3>
+    <p>{description}</p>
+    <div className={s.methodVisual}>
+      {visual === "baseline" && <div className={s.baselineVisual}><strong>建议关注 p90</strong><span>即 90% 的用户完成任务，</span><span>低于此值，说明效果不稳定。</span></div>}
+      {visual === "test-set" && <div className={s.iconList}>{["覆盖常见场景", "包含边界情况", "保证前后结果稳定"].map((item) => <div key={item}><Check aria-hidden="true" size={20} strokeWidth={3} /><span>{item}</span></div>)}</div>}
+      {visual === "compare" && <div className={s.metricList}><h4>对比指标</h4><span><Check aria-hidden="true" size={17} strokeWidth={3} />总成本</span><span><Check aria-hidden="true" size={17} strokeWidth={3} />cost / successful task</span><span><Check aria-hidden="true" size={17} strokeWidth={3} />任务成功率 / 准确率</span></div>}
+      {visual === "result" && <div className={s.metricList}><h4>可能的结果</h4><span><Diamond aria-hidden="true" size={13} fill="currentColor" />成本下降，效果提升</span><span><Diamond aria-hidden="true" size={13} fill="currentColor" />成本下降，效果不变</span><span><Diamond aria-hidden="true" size={13} fill="currentColor" />成本下降，但效果变差</span></div>}
+      {visual === "rollout" && <div className={s.rolloutVisual}><div className={s.rolloutSteps}><span>5%</span><ArrowRight aria-hidden="true" size={15} /><span>20%</span><ArrowRight aria-hidden="true" size={15} /><span>50%</span><ArrowRight aria-hidden="true" size={15} /><span>100%</span></div><small>逐步扩大，降低风险。</small></div>}
+    </div>
+  </article>;
+}
 
 export default function AgentThirteenthLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return <AgentLessonShell detail={detail}>
@@ -69,8 +108,8 @@ export default function AgentThirteenthLessonPage({ detail }: { detail: AgentLes
     </AgentLessonSection>
 
     <AgentLessonSection id="section-3" title="3. 常见的成本优化方法">
-      <p>根据高成本环节选择手段。以下每一种方法都单独成行，便于阅读和逐项评审。</p>
-      <div className={s.optimizationRows}>{optimizations.map(({ number, icon: Icon, title, description, action }) => <article key={number}><span>{number}</span><Icon aria-hidden="true" size={23} strokeWidth={1.65} /><div><h3>{title}</h3><p>{description}</p><strong>{action}</strong></div></article>)}</div>
+      <p>根据实际情况，可以组合使用以下方法。</p>
+      <div className={s.methodCards}>{optimizations.map((optimization) => <OptimizationCard key={optimization.number} {...optimization} />)}</div>
     </AgentLessonSection>
 
     <AgentLessonSection id="section-4" title="4. 持续优化成本">
@@ -79,8 +118,8 @@ export default function AgentThirteenthLessonPage({ detail }: { detail: AgentLes
     </AgentLessonSection>
 
     <AgentLessonSection id="section-5" title="5. 怎么验证成本优化是否有效">
-      <p>不能只比较账单。每一步验证均单独成行，确保成本、效果和风险都有依据。</p>
-      <div className={s.validationRows}>{validations.map(({ number, title, description, signal }) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p><strong>{signal}</strong></div></article>)}</div>
+      <p>优化之后，需要通过科学的方法验证效果。</p>
+      <div className={s.methodCards}>{validations.map((validation) => <ValidationCard key={validation.number} {...validation} />)}</div>
     </AgentLessonSection>
 
     <AgentLessonSection id="section-6" title="6. 常见问题">
