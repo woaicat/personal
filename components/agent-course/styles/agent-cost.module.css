@@ -1,17 +1,26 @@
 .opening { margin-top: 21px; color: #536070; font-size: .86rem; line-height: 1.8; }
 .opening p { margin: 0 0 11px; }
-.opening strong, .subsection h3, .costPart h3, .optimizationRows h3, .validationRows h3, .issueGrid h3 { color: #283c33; }
-.costPartGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
-.costPart { display: flex; gap: 12px; padding: 15px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
-.costPart > svg { flex: 0 0 auto; margin-top: 2px; color: var(--lesson-accent); }
-.costPart h3, .optimizationRows h3, .validationRows h3, .issueGrid h3 { margin: 0 0 5px; font-size: .86rem; line-height: 1.45; }
-.costPart p, .optimizationRows p, .validationRows p, .issueGrid p { margin: 0; color: #536070; font-size: .76rem; line-height: 1.65; }
-.costPart ul, .monitorGrid ul, .diagnosis ul { margin: 9px 0 0; padding-left: 17px; color: #65736b; font-size: .72rem; line-height: 1.7; }
+.opening strong, .subsection h3, .optimizationRows h3, .validationRows h3, .issueGrid h3 { color: #283c33; }
+.optimizationRows h3, .validationRows h3, .issueGrid h3 { margin: 0 0 5px; font-size: .86rem; line-height: 1.45; }
+.optimizationRows p, .validationRows p, .issueGrid p { margin: 0; color: #536070; font-size: .76rem; line-height: 1.65; }
+.monitorGrid ul, .diagnosis ul { margin: 9px 0 0; padding-left: 17px; color: #65736b; font-size: .72rem; line-height: 1.7; }
 .subsection { margin-top: 27px; scroll-margin-top: 24px; }
 .subsection h3 { margin: 0 0 10px; font-size: .93rem; line-height: 1.5; }
 .subsection > p { margin: 0; color: #536070; font-size: .83rem; line-height: 1.72; }
-.tokenLines { display: grid; gap: 7px; margin-top: 13px; }
-.tokenLines span { padding: 10px 12px; border-left: 3px solid var(--lesson-accent); border-radius: 0 7px 7px 0; background: var(--lesson-accent-pale); color: #3b5a49; font-size: .75rem; line-height: 1.55; }
+.tokenFacts { margin: 11px 0 0; padding-left: 20px; color: #536070; font-size: .76rem; line-height: 1.75; }
+.formulaBand { margin-top: 14px; padding: 10px 13px; border-radius: 7px; background: var(--lesson-accent-pale); color: var(--lesson-accent-dark); font-size: .76rem; line-height: 1.6; }
+.apiCostGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin-top: 14px; }
+.apiCostGrid article, .deploymentGrid article { padding: 13px; border: 1px solid #dce7df; border-radius: 8px; background: #fff; }
+.apiCostGrid svg, .deploymentGrid svg { color: var(--lesson-accent); }
+.apiCostGrid h4, .deploymentGrid h4 { margin: 8px 0 6px; color: #283c33; font-size: .78rem; }
+.apiCostGrid p, .deploymentGrid p { margin: 0; color: #536070; font-size: .72rem; line-height: 1.6; }
+.apiCostGrid span { display: block; margin-top: 8px; color: #65736b; font-size: .67rem; line-height: 1.55; }
+.deploymentGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 14px; }
+.deploymentDecision { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 12px; align-items: stretch; }
+.localTip { display: flex; gap: 9px; padding: 14px; border-radius: 8px; background: var(--lesson-accent-pale); }
+.localTip > svg { flex: 0 0 auto; color: var(--lesson-accent); }
+.localTip h4 { margin: 0 0 7px; color: var(--lesson-accent-dark); font-size: .79rem; }
+.localTip ul { margin: 0; padding-left: 16px; color: #536070; font-size: .7rem; line-height: 1.65; }
 .tableWrap { overflow-x: auto; margin-top: 14px; border: 1px solid #dce7df; border-radius: 8px; }
 .tableWrap table { width: 100%; min-width: 550px; border-collapse: collapse; font-size: .73rem; line-height: 1.55; }
 .tableWrap th, .tableWrap td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid #e8eeea; }
@@ -51,13 +60,15 @@
 .exerciseList li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; color: #536070; font-size: .78rem; line-height: 1.65; }
 .exerciseList li::before { display: inline-flex; align-items: center; justify-content: center; width: 23px; height: 23px; border-radius: 50%; background: var(--lesson-accent-soft); color: var(--lesson-accent-dark); content: counter(exercise); counter-increment: exercise; font-size: .7rem; font-weight: 700; }
 @media (max-width: 760px) {
-  .costPartGrid, .continuousGrid, .issueGrid { grid-template-columns: 1fr; }
+  .apiCostGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deploymentDecision, .continuousGrid, .issueGrid { grid-template-columns: 1fr; }
   .monitorGrid, .diagnosis { grid-template-columns: 1fr; }
   .optimizationFlow { display: grid; grid-template-columns: 1fr 1fr; }
   .optimizationFlow li > svg:last-child { display: none; }
 }
 @media (max-width: 520px) {
-  .costPart, .optimizationRows article, .validationRows article { padding: 13px; }
+  .apiCostGrid, .deploymentGrid { grid-template-columns: 1fr; }
+  .optimizationRows article, .validationRows article { padding: 13px; }
   .optimizationRows article { grid-template-columns: 32px 22px minmax(0, 1fr); gap: 9px; }
   .optimizationRows article > span, .validationRows article > span { width: 27px; height: 27px; }
   .optimizationFlow { grid-template-columns: 1fr; }

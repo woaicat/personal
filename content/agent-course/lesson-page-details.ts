@@ -354,7 +354,7 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
   "13": {
     id: "13",
     title: "成本优化",
-    subtitle: "成本不是只看 Token，而是让每一次有效任务都在可承受的预算内完成。",
+    subtitle: "精打细算全家花",
     duration: "12 分钟",
     series: "从 0 到 1 设计一个 Agent",
     keyPoints: [

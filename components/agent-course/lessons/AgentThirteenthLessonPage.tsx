@@ -20,16 +20,8 @@ import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 import AgentLessonShell, { AgentLessonSection } from "@/components/agent-course/AgentLessonShell";
 import s from "@/components/agent-course/styles/agent-cost.module.css";
 
-type CostPart = { icon: LucideIcon; title: string; description: string; examples: string[] };
 type Optimization = { number: string; icon: LucideIcon; title: string; description: string; action: string };
 type Validation = { number: string; title: string; description: string; signal: string };
-
-const costParts: CostPart[] = [
-  { icon: BrainCircuit, title: "Token 成本", description: "输入、输出与推理过程消耗的模型用量。", examples: ["系统提示词与历史对话", "检索结果与工具返回", "模型生成的答案"] },
-  { icon: CloudCog, title: "API 调用成本", description: "模型之外，每次调用外部能力也会消耗预算。", examples: ["搜索与知识库检索", "地图、OCR、语音等服务", "第三方业务系统 API"] },
-  { icon: ServerCog, title: "基础设施成本", description: "承载 Agent 运行、存储与处理数据的资源。", examples: ["服务器与 GPU", "数据库与缓存", "日志、监控与队列"] },
-  { icon: RefreshCw, title: "失败与重试成本", description: "循环、无效调用和错误重试会放大单次任务成本。", examples: ["重复检索同一问题", "工具报错后反复重试", "过长上下文导致的低效推理"] }
-];
 
 const optimizations: Optimization[] = [
   { number: "3.1", icon: Bot, title: "模型路由", description: "按任务难度选择不同能力与价格的模型，不让每一步都使用最贵模型。", action: "简单分类、格式整理用轻量模型；复杂判断再升级。" },
@@ -55,25 +47,18 @@ const issues = [
   ["优化效果不稳定", "使用固定测试集和线上灰度，区分模型波动、数据变化和策略问题。"]
 ];
 
-function CostPartCard({ icon: Icon, title, description, examples }: CostPart) {
-  return <article className={s.costPart}><Icon aria-hidden="true" size={23} strokeWidth={1.65} /><div><h3>{title}</h3><p>{description}</p><ul>{examples.map((item) => <li key={item}>{item}</li>)}</ul></div></article>;
-}
-
 export default function AgentThirteenthLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return <AgentLessonShell detail={detail}>
     <div className={s.opening}>
-      <p>Agent 的成本不只是“模型用了多少 Token”。一次任务从理解请求、检索资料、调用工具到生成结果，每一步都可能消耗预算。</p>
-      <p>成本优化不是单纯把调用变少，而是在<strong>任务效果、响应速度、稳定性和预算</strong>之间找到可持续的平衡。</p>
+      <p>Agent 成本是指为了完成任务，模型和接口调用、运维以及其他成本。每一次模型调用、工具调用和缓存，都会带来实际的费用。</p>
+      <p>要做的事是：<strong>在有限预算下，用更少的成本完成更多有效任务。</strong></p>
     </div>
 
     <AgentLessonSection id="section-1" title="1. Agent 的成本由什么构成">
-      <p>先拆开一笔任务成本，才能知道应该从哪里优化。</p>
-      <div className={s.costPartGrid}>{costParts.map((part) => <CostPartCard key={part.title} {...part} />)}</div>
-
-      <div className={s.subsection} id="section-1-1"><h3>1.1 Token</h3><p>Token 是模型处理文本的基本单位。不同模型的切分方式不同；中文、英文、代码和表格的 Token 密度也不同。</p><div className={s.tokenLines}><span>输入 Token：系统提示词、历史对话、检索材料与工具返回</span><span>输出 Token：模型生成的回答、计划与结构化结果</span><span>推理 Token：部分推理模型在内部思考时额外消耗的用量</span></div></div>
-      <div className={s.subsection} id="section-1-2"><h3>1.2 API 调用成本</h3><p>Agent 往往会调用搜索、知识库、OCR、地图或业务系统。即使模型调用不贵，频繁、重复的工具调用也可能成为主要成本。</p></div>
-      <div className={s.subsection} id="section-1-3"><h3>1.3 本地部署与运维成本</h3><p>本地或私有化部署会减少按量 API 支出，但仍要考虑机器、GPU、存储、带宽、运维和故障处理。成本会从“每次调用”变成更固定的资源投入。</p></div>
-      <div className={s.subsection} id="section-1-4"><h3>1.4 API 和本地部署怎么选</h3><div className={s.tableWrap}><table><thead><tr><th>维度</th><th>对比调用 API</th><th>本地部署</th></tr></thead><tbody><tr><th>成本方式</th><td>按 Token、调用量与服务计费</td><td>前期投入高，后续主要是硬件与运维</td></tr><tr><th>初始投入</th><td>低</td><td>高</td></tr><tr><th>使用弹性</th><td>高，可随业务波动调整</td><td>受限于已有资源</td></tr><tr><th>运维成本</th><td>低，主要关注配置与监控</td><td>高，需要维护推理服务与资源</td></tr><tr><th>适合场景</th><td>试验、迭代快、业务量波动大</td><td>长期稳定、对数据和部署有强要求的业务</td></tr></tbody></table></div></div>
+      <div className={s.subsection} id="section-1-1"><h3>1.1 Token</h3><p>Token 是模型处理文本的基本单位。不同模型的 Token 划分方式略有不同。</p><ul className={s.tokenFacts}><li>英文中，1 个 Token 大约对应 4 个字符或 0.75 个单词。</li><li>中文中，一个汉字通常对应 1 个或多个 Token。</li><li>图片、PDF 等多模态内容也会按各自规则转换成 Token。</li></ul><div className={s.formulaBand}><strong>Token 数量 × 对应的 Token 单价</strong></div></div>
+      <div className={s.subsection} id="section-1-2"><h3>1.2 API 调用成本</h3><p>当使用调用 API 时，成本主要来自输入和输出的 Token，以及一些其他因素。</p><div className={s.apiCostGrid}><article><BrainCircuit aria-hidden="true" size={22} /><h4>输入 Token</h4><p>系统提示词、工具定义、历史对话、用户问题。</p><span>输入的 Token 越多，成本越高。</span></article><article><Bot aria-hidden="true" size={22} /><h4>输出 Token</h4><p>模型生成的回答、工具调用参数和结果。</p><span>限制输出长度，能直接减少费用。</span></article><article><Database aria-hidden="true" size={22} /><h4>缓存</h4><p>相同内容命中缓存时，可复用已处理结果。</p><span>例如 Prompt Cache、常见问答缓存。</span></article><article><CloudCog aria-hidden="true" size={22} /><h4>其他成本</h4><p>大模型推理、外部工具、第三方服务与网络资源。</p><span>还要关注检索、OCR、搜索等费用。</span></article></div><div className={s.formulaBand}><strong>单次任务成本 = ∑（每轮输入 Token × 输入单价 + 每轮输出 Token × 输出单价）+ 外部工具费用</strong></div></div>
+      <div className={s.subsection} id="section-1-3"><h3>1.3 本地部署与运维成本</h3><p>如果选择本地部署，成本重点在于硬件：</p><div className={s.deploymentGrid}><article><ServerCog aria-hidden="true" size={22} /><h4>硬件成本</h4><p>服务器、GPU / 服务器等硬件。</p></article><article><Layers3 aria-hidden="true" size={22} /><h4>机房和基础设施</h4><p>包括机房、电力、网络、存储等基础设施投入。</p></article><article><Bot aria-hidden="true" size={22} /><h4>运维成本</h4><p>需要专门的运维人员进行部署、监控和维护。</p></article><article><Gauge aria-hidden="true" size={22} /><h4>资源折旧率</h4><p>如果资源利用率不高，实际单次成本会变高。</p></article></div></div>
+      <div className={s.subsection} id="section-1-4"><h3>1.4 API 和本地部署怎么选</h3><p>两者各有优缺点，通常需要按实际业务需求选择。</p><div className={s.deploymentDecision}><div className={s.tableWrap}><table><thead><tr><th>对比项</th><th>调用 API</th><th>本地部署</th></tr></thead><tbody><tr><th>成本方式</th><td>按 Token 计算，使用多少付多少</td><td>前期投入高，后续主要是硬件与运维成本</td></tr><tr><th>初始投入</th><td>低</td><td>高</td></tr><tr><th>使用弹性</th><td>高，可随业务波动灵活调整</td><td>受限于已有资源</td></tr><tr><th>运维成本</th><td>低，无需关注底层推理服务</td><td>高，需要专门的运维团队</td></tr><tr><th>适合场景</th><td>试验、迭代快、业务量波动大的业务</td><td>长期稳定、对数据和部署有强要求的业务</td></tr></tbody></table></div><aside className={s.localTip}><Zap aria-hidden="true" size={21} /><div><h4>小结</h4><ul><li>如果试验、使用 API 更灵活。</li><li>如果对数据安全、长期成本和稳定性有要求，可以考虑本地部署。</li><li>实际选择时，往往需要结合评估。</li></ul></div></aside></div></div>
     </AgentLessonSection>
 
     <AgentLessonSection id="section-2" title="2. 如何进行成本优化">
