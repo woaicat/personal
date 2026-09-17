@@ -420,6 +420,27 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       description: "继续学习如何建立样本、指标、评测流程与迭代机制。"
     }
   },
+  "16": {
+    id: "16",
+    title: "搭建评测飞轮",
+    subtitle: "找到问题，有的放矢。",
+    duration: "30 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "评测的目标不是追求漂亮分数，而是找到高价值问题并验证改动是否有效",
+      "先评最终结果，再检查影响结果、安全、成本与可解释性的关键过程",
+      "用真实失败建立用例、组合评测方法并持续回归，形成可验证的改进飞轮"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "为什么需要评测" },
+      { id: "section-2", number: "2", label: "什么值得测" },
+      { id: "section-3", number: "3", label: "Agent 评测三步法" },
+      { id: "section-4", number: "4", label: "Agent 评测注意事项" },
+      { id: "section-5", number: "5", label: "搭建第一版评测飞轮" },
+      { id: "section-6", number: "6", label: "练习题" }
+    ],
+    output: "一份 Agent 评测方案，明确高价值评测任务、指标与用例、评测方法和工具，以及从真实问题进入持续迭代的评测飞轮。"
+  },
   "05": {
     id: "05",
     title: "系统提示词",

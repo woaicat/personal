@@ -33,7 +33,7 @@ export type AgentLessonPageDetail = {
   keyPoints: string[];
   outline: LessonOutlineItem[];
   output: string;
-  nextLesson: {
+  nextLesson?: {
     id: string;
     title: string;
     description: string;
