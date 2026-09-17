@@ -384,6 +384,42 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       description: "继续学习如何设计用户界面、交互反馈与人工介入机制。"
     }
   },
+  "15": {
+    id: "15",
+    title: "建立可观测性",
+    subtitle: "无法监控 就无法管理",
+    duration: "20 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "记录 Agent 的执行链路，才能定位工具、检索、模型判断和业务结果的问题",
+      "同时关注运行结果与业务结果，并用版本信息支持持续改进",
+      "从关键字段、核心指标、监控范围和选型方案开始建立可观测性"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "为什么需要可观测性" },
+      { id: "section-1-1", number: "1.1", label: "监控agent执行过程 定位问题", nested: true },
+      { id: "section-1-2", number: "1.2", label: "区分运行成功与任务成功", nested: true },
+      { id: "section-1-3", number: "1.3", label: "寻找优化空间 支持持续改进", nested: true },
+      { id: "section-2", number: "2", label: "需要记录什么" },
+      { id: "section-2-1", number: "2.1", label: "记录执行链路", nested: true },
+      { id: "section-2-2", number: "2.2", label: "保留关键字段", nested: true },
+      { id: "section-2-3", number: "2.3", label: "汇总核心指标", nested: true },
+      { id: "section-2-4", number: "2.4", label: "控制监控范围", nested: true },
+      { id: "section-3", number: "3", label: "有哪些可用方案" },
+      { id: "section-3-1", number: "3.1", label: "LangSmith", nested: true },
+      { id: "section-3-2", number: "3.2", label: "Langfuse", nested: true },
+      { id: "section-3-3", number: "3.3", label: "Arize Phoenix", nested: true },
+      { id: "section-3-4", number: "3.4", label: "Datadog", nested: true },
+      { id: "section-3-5", number: "3.5", label: "开源工具自建", nested: true },
+      { id: "section-4", number: "4", label: "如何开始" }
+    ],
+    output: "一份观测方案，明确需要记录的关键步骤与字段、关注的指标，以及采用的平台或自建方案。",
+    nextLesson: {
+      id: "16",
+      title: "搭建评测飞轮",
+      description: "继续学习如何建立样本、指标、评测流程与迭代机制。"
+    }
+  },
   "05": {
     id: "05",
     title: "系统提示词",
