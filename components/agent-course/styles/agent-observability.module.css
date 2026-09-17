@@ -11,7 +11,8 @@
 .copy strong { color: #283c33; font-weight: 650; }
 .copy ul { margin: 12px 0; padding-left: 21px; }
 .copy li + li { margin-top: 8px; }
-.copy a { color: var(--lesson-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+.referenceLink { color: var(--lesson-accent-dark); font-size: .78rem; line-height: 1.6; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.referenceLink:focus-visible { outline: 2px solid var(--lesson-accent); outline-offset: 3px; }
 .copy pre { margin: 17px 0; padding: 14px 16px; overflow-x: auto; border: 1px solid #dce7df; border-radius: 8px; background: #f8faf9; color: #283c33; font: .76rem/1.65 ui-monospace, SFMono-Regular, Menlo, monospace; }
 .copy code { font: inherit; }
 .copy table { width: 100%; border-collapse: collapse; min-width: 660px; margin: 17px 0; text-align: left; }
@@ -179,7 +180,6 @@
 .platformIcon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 8px; background: var(--lesson-accent-soft); color: var(--lesson-accent); }
 .platformHeading h3 { margin: 0; color: #283c33; font-size: .9rem; line-height: 1.4; }
 .platformHeading p { margin: 6px 0 0; color: #536070; font-size: .73rem; line-height: 1.65; }
-.platformHeading a, .platformCompare a { color: var(--lesson-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 .platformCompare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .platformCompare > div { padding: 12px; border: 1px solid var(--lesson-line); border-radius: 8px; background: #fbfdfb; }
 .platformCompare svg { color: var(--lesson-accent); vertical-align: middle; margin-right: 7px; }

@@ -44,7 +44,7 @@ import {
 import s from "@/components/agent-course/styles/agent-observability.module.css";
 
 function Markdown({ children }: { children: string }) {
-  return <div className={s.copy}><ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" /> }} >{children}</ReactMarkdown></div>;
+  return <div className={s.copy}><ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: ({ node: _node, children: label, ...props }) => <a className={s.referenceLink} {...props} target="_blank" rel="noreferrer">{label} ↗</a> }} >{children}</ReactMarkdown></div>;
 }
 
 const problemNodes = [
@@ -154,7 +154,7 @@ const platformIcons: Record<string, LucideIcon> = { link: Link2, bars: BarChart3
 
 function PlatformRow({ platform }: { platform: (typeof lessonFifteenSection3.platforms)[number] }) {
   const Icon = platformIcons[platform.icon];
-  return <article className={s.platformRow}><div className={s.platformHeading}><span className={s.platformIcon}><Icon size={24} aria-hidden="true" /></span><div><h3>{platform.number}&nbsp; {platform.name}</h3><p>{platform.description}{platform.linkLabel ? <> <a href={platform.link} target="_blank" rel="noreferrer">{platform.linkLabel}</a></> : null}</p></div></div><div className={s.platformCompare}><div><Check size={17} aria-hidden="true" /><strong>特点</strong><p>{platform.feature}</p></div><div><SlidersHorizontal size={19} aria-hidden="true" /><strong>取舍</strong><p>{platform.tradeoff}{platform.tradeoffLinks.length > 0 ? <> {platform.tradeoffLinks.map((item, index) => <span key={item.url}>{index > 0 ? "、" : ""}<a href={item.url} target="_blank" rel="noreferrer">{item.text}</a></span>)}</> : null}</p></div></div></article>;
+  return <article className={s.platformRow}><div className={s.platformHeading}><span className={s.platformIcon}><Icon size={24} aria-hidden="true" /></span><div><h3>{platform.number}&nbsp; {platform.name}</h3><p>{platform.description}{platform.linkLabel ? <> <a className={s.referenceLink} href={platform.link} target="_blank" rel="noreferrer">{platform.linkLabel} ↗</a></> : null}</p></div></div><div className={s.platformCompare}><div><Check size={17} aria-hidden="true" /><strong>特点</strong><p>{platform.feature}</p></div><div><SlidersHorizontal size={19} aria-hidden="true" /><strong>取舍</strong><p>{platform.tradeoff}{platform.tradeoffLinks.length > 0 ? <> {platform.tradeoffLinks.map((item, index) => <span key={item.url}>{index > 0 ? "、" : ""}<a className={s.referenceLink} href={item.url} target="_blank" rel="noreferrer">{item.text} ↗</a></span>)}</> : null}</p></div></div></article>;
 }
 
 function OpenSourcePipeline() {
