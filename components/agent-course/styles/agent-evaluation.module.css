@@ -237,9 +237,8 @@
 .signalLoop > p { grid-column: 1 / -1; margin: 0; color: #627068; font-size: 0.66rem; text-align: center; }
 
 .evaluatorSection { margin-top: 30px; }
-.visualSubheading { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-.visualSubheading > span { display: inline-flex; align-items: center; justify-content: center; min-width: 37px; height: 24px; border-radius: 999px; background: #318355; color: #fff; font-size: 0.66rem; font-weight: 750; }
-.visualSubheading h3 { margin: 0; color: #26312b; font-size: 0.96rem; line-height: 1.45; }
+.visualSubheading { margin-bottom: 12px; }
+.visualSubheading h3 { margin: 28px 0 10px; color: #26312b; font-size: 0.96rem; line-height: 1.5; }
 .visualSubheading p { margin: 4px 0 0; color: #69766e; font-size: 0.69rem; }
 .routerVisual { margin-top: 0; background: #f8fbf9; }
 .routerQuestion { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; color: #2c6b46; }

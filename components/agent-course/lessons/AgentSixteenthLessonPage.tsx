@@ -101,7 +101,7 @@ const evaluatorRoutes = [
 
 function EvaluatorRouter() {
   return <div className={s.evaluatorSection} id="section-3-3">
-    <div className={s.visualSubheading}><span>3.3</span><div><h3>第三步：方法和工具</h3><p>“人工 / 自动化”说明由谁执行；下面四张卡片说明具体怎么判断。</p></div></div>
+    <div className={s.visualSubheading}><h3>3.3 第三步：方法和工具</h3><p>“人工 / 自动化”说明由谁执行；下面四张卡片说明具体怎么判断。</p></div>
     <div className={s.routerVisual} aria-label="四种 Agent 评测方法对比">
       <div className={s.routerQuestion}><ClipboardCheck size={24} /><div><strong>从判断对象出发选择方法</strong><span>优先使用成本最低、能够可靠判断问题的方法，不追求形式更“高级”。</span></div></div>
       <div className={s.routeGrid}>{evaluatorRoutes.map(([Icon, title, fit, strengths, tradeoff], index) => <article key={title}><div className={s.cardTopline}><span><Icon size={21} /></span><em>0{index + 1}</em></div><strong>{title}</strong><p>{fit}</p><div className={s.methodTags}>{strengths.map((item) => <small key={item}>{item}</small>)}</div><div className={s.tradeoff}><AlertTriangle size={14} /><span>{tradeoff}</span></div></article>)}</div>
