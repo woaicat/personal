@@ -29,7 +29,6 @@
   border-radius: 8px;
   background: #fff;
 }
-.dataNote { color: #738078; font-size: .67rem; line-height: 1.4; white-space: nowrap; }
 .visualHeader, .dashboardTop, .traceHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--lesson-line); }
 .userQuestion { display: inline-flex; align-items: center; gap: 8px; color: #283c33; font-size: .78rem; font-weight: 650; }
 .problemFlow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 20px 16px 14px; }
