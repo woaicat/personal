@@ -122,22 +122,46 @@
 
 .reasonGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
 }
 
 .reasonGrid article {
   display: grid;
   align-content: start;
-  min-height: 168px;
-  padding: 15px;
+  grid-column: span 2;
+  min-height: 190px;
+  padding: 17px;
   border: 1px solid #e0e8e2;
   border-radius: 9px;
   background: #fff;
 }
 
-.reasonGrid article > span,
-.routeGrid article > span,
+.reasonGrid article:nth-child(n + 4) { grid-column: span 3; min-height: 170px; }
+
+.visualLead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e2e9e4;
+}
+
+.visualLead strong { color: #263b30; font-size: 0.9rem; }
+.visualLead p { max-width: 620px; margin: 0; color: #68756d; font-size: 0.72rem; line-height: 1.55; }
+
+.cardTopline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cardTopline em { color: #a3b2a8; font-size: 0.64rem; font-style: normal; font-weight: 750; }
+
+.reasonGrid .cardTopline > span,
+.routeGrid .cardTopline > span,
 .methodStep article > span {
   display: inline-flex;
   align-items: center;
@@ -150,9 +174,12 @@
   color: #297047;
 }
 
-.reasonGrid strong { color: #26362d; font-size: 0.82rem; }
-.reasonGrid p { margin: 7px 0 12px; color: #536159; font-size: 0.72rem; line-height: 1.55; }
-.reasonGrid small { margin-top: auto; color: #287149; font-size: 0.66rem; font-weight: 650; }
+.reasonGrid strong { color: #26362d; font-size: 0.84rem; }
+.reasonGrid p { margin: 8px 0 13px; color: #536159; font-size: 0.72rem; line-height: 1.6; }
+.reasonTags,
+.methodTags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; }
+.reasonTags small,
+.methodTags small { padding: 4px 7px; border-radius: 999px; background: #edf6f0; color: #287149; font-size: 0.61rem; font-weight: 650; }
 
 .miniLoop {
   display: flex;
@@ -209,29 +236,41 @@
 .signalLoop > svg { color: #397854; }
 .signalLoop > p { grid-column: 1 / -1; margin: 0; color: #627068; font-size: 0.66rem; text-align: center; }
 
-.routerVisual { margin-top: 18px; background: #f8fbf9; }
+.evaluatorSection { margin-top: 30px; }
+.visualSubheading { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.visualSubheading > span { display: inline-flex; align-items: center; justify-content: center; min-width: 37px; height: 24px; border-radius: 999px; background: #318355; color: #fff; font-size: 0.66rem; font-weight: 750; }
+.visualSubheading h3 { margin: 0; color: #26312b; font-size: 0.96rem; line-height: 1.45; }
+.visualSubheading p { margin: 4px 0 0; color: #69766e; font-size: 0.69rem; }
+.routerVisual { margin-top: 0; background: #f8fbf9; }
 .routerQuestion { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; color: #2c6b46; }
 .routerQuestion > div { display: grid; gap: 2px; }
 .routerQuestion strong { color: #2b4034; font-size: 0.8rem; }
 .routerQuestion span { color: #6c7871; font-size: 0.67rem; }
 .routeGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
-.routeGrid article { display: grid; align-content: start; min-height: 160px; padding: 14px; border: 1px solid #dfe8e1; border-radius: 9px; background: #fff; }
-.routeGrid article > span { width: 32px; height: 32px; margin-bottom: 10px; }
-.routeGrid strong { color: #2d4336; font-size: 0.73rem; }
-.routeGrid p { margin: 7px 0 11px; color: #58655e; font-size: 0.66rem; line-height: 1.5; }
-.routeGrid small { margin-top: auto; color: #2f754d; font-size: 0.61rem; font-weight: 650; }
+.routeGrid article { display: grid; align-content: start; min-height: 244px; padding: 15px; border: 1px solid #dfe8e1; border-radius: 9px; background: #fff; }
+.routeGrid .cardTopline > span { width: 32px; height: 32px; margin-bottom: 10px; }
+.routeGrid strong { color: #2d4336; font-size: 0.76rem; }
+.routeGrid p { margin: 8px 0 12px; color: #58655e; font-size: 0.66rem; line-height: 1.55; }
+.tradeoff { display: flex; align-items: flex-start; gap: 6px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #e7ece8; color: #996321; }
+.tradeoff svg { flex: 0 0 auto; margin-top: 1px; }
+.tradeoff span { color: #726a5f; font-size: 0.61rem; line-height: 1.45; }
 .combination { display: flex; align-items: flex-start; gap: 9px; margin-top: 12px; padding: 11px 13px; border-radius: 8px; background: #eaf4ed; color: #36704e; }
 .combination p { margin: 0; color: #526158; font-size: 0.67rem; line-height: 1.55; }
+.sourceLinks { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 11px; color: #748078; font-size: 0.62rem; }
+.sourceLinks span { font-weight: 700; }
+.sourceLinks a { color: #24734a; text-decoration: underline; text-decoration-color: #b9d7c5; text-underline-offset: 3px; }
 
 .guardrailTitle { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; color: #b46d2c; }
 .guardrailTitle div { display: grid; gap: 2px; }
 .guardrailTitle strong { color: #3c423e; font-size: 0.83rem; }
 .guardrailTitle span { color: #7b837e; font-size: 0.66rem; }
-.guardrailGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.guardrailGrid article { display: flex; gap: 11px; align-items: center; min-height: 62px; padding: 10px 12px; border: 1px solid #e1e7e2; border-radius: 8px; background: #fff; }
-.guardrailGrid em { color: #b6c1ba; font-size: 0.65rem; font-style: normal; font-weight: 700; }
-.guardrailGrid strong { color: #304238; font-size: 0.71rem; }
-.guardrailGrid p { margin: 2px 0 0; color: #66736b; font-size: 0.64rem; line-height: 1.4; }
+.guardrailGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.guardrailGrid article { display: flex; gap: 11px; align-items: flex-start; min-height: 145px; padding: 14px; border: 1px solid #e1e7e2; border-radius: 8px; background: #fff; }
+.guardrailGrid em { padding-top: 2px; color: #9bad9f; font-size: 0.65rem; font-style: normal; font-weight: 750; }
+.guardrailGrid article > div { display: grid; align-content: start; }
+.guardrailGrid small { margin-bottom: 6px; color: #2f7a4e; font-size: 0.59rem; font-weight: 750; letter-spacing: 0.04em; }
+.guardrailGrid strong { color: #304238; font-size: 0.72rem; line-height: 1.45; }
+.guardrailGrid p { margin: 7px 0 0; color: #66736b; font-size: 0.63rem; line-height: 1.55; }
 
 .flywheelVisual { position: relative; overflow: hidden; background: radial-gradient(circle at 50% 47%, #eef8f1 0, #eef8f1 13%, transparent 13.5%), #fbfdfb; }
 .flywheelCore { display: grid; justify-items: center; gap: 4px; margin: 3px auto 18px; color: #2f7a4e; }
@@ -255,7 +294,12 @@
 
 @media (max-width: 980px) {
   .reasonGrid,
-  .routeGrid { grid-template-columns: repeat(2, 1fr); }
+  .routeGrid,
+  .guardrailGrid { grid-template-columns: repeat(2, 1fr); }
+  .reasonGrid article,
+  .reasonGrid article:nth-child(n + 4) { grid-column: span 1; }
+  .reasonGrid article:last-child,
+  .guardrailGrid article:last-child { grid-column: span 2; }
   .scopeVisual { grid-template-columns: 1fr; }
   .flywheelVisual ol { grid-template-columns: repeat(2, 1fr); }
 }
@@ -278,6 +322,8 @@
   .exerciseCard ol { grid-template-columns: 1fr; }
   .reasonGrid article,
   .routeGrid article { min-height: 0; }
+  .reasonGrid article:last-child,
+  .guardrailGrid article:last-child { grid-column: span 1; }
   .miniLoop { align-items: stretch; flex-direction: column; }
   .miniLoop svg { transform: rotate(90deg); align-self: center; }
   .methodSteps { display: flex; flex-direction: column; align-items: stretch; }
