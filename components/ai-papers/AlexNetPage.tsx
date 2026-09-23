@@ -172,17 +172,18 @@ export default function AlexNetPage() {
           </div>
           <div className={styles.detailHeroFact}>
             <p>论文中的关键结果</p>
-            <div className={styles.comparison}><div><strong>15.3%</strong><span>AlexNet top-5 错误率</span></div><div><strong>26.2%</strong><span>当年第二名 top-5 错误率</span></div></div>
-            <small>正确答案没进模型最有把握的 5 个类别，就算一次错误；数字越低越好。<br />ILSVRC 2012 测试集 · 数值引自论文摘要</small>
+            <div className={styles.comparison}><div><strong>15.3%</strong><span>作者团队参赛系统 top-5 错误率</span></div><div><strong>26.2%</strong><span>当年第二名 top-5 错误率</span></div></div>
+            <small>正确答案没进模型最有把握的 5 个类别，就算一次错误；数字越低越好。<br />ILSVRC 2012 测试集 · 参赛成绩来自多个网络的预测组合</small>
           </div>
         </div>
 
         <section className={styles.plainExplanation} aria-labelledby="plain-explanation-title">
           <h2 id="plain-explanation-title">小学生也能看懂的解释</h2>
-          <p>先把图片想成一张由许多数字组成的方格纸，每个位置都记录着颜色。AlexNet 要做的事，是根据这些数字判断整张图片属于哪一类，比如猫、狗或汽车。它需要从大量已经标好答案的图片中学习，才能做出判断。</p>
-          <p>它会用一个小窗口在图片上移动，每次只看附近的一小块，找出边缘、颜色变化等线索。这种局部观察和计算叫“卷积”。窗口怎样找线索，是网络在训练中学出来的；前面的层找到简单线索，后面的层再把它们组合起来，逐渐形成判断物体所需的信息。AlexNet 连续用了五层卷积。</p>
-          <p>接下来，网络会缩小一部分中间结果，再用三层“全连接”把找到的线索汇总，给 1000 个类别分别打分。你可以把最后一步理解为：把看到的线索放在一起，判断它最像哪一类。下方交互里的 ReLU 是一种简单处理：把计算得到的负数变成 0。</p>
-          <p>这些观察方法不是人提前一条条写给它的。训练时，网络先猜答案，再和图片的正确类别比较，按错误调整每层内部的数字，反复练习。论文的突破也离不开大量训练图片、GPU 计算，以及让深层网络更容易训练的方法。下面的结构图和小实验，就是把这段过程拆开来看。</p>
+          <p>你可以把一张图片想成由很多小格子拼起来的画。电脑看到图片时，并不知道里面是猫、狗还是汽车，它一开始只能看到这些小格子的颜色。</p>
+          <p>AlexNet 会拿一个小方框，在图片上从左到右、从上到下慢慢移动。每到一个地方，它就看看这里有没有一些特别的样子，比如一条边、一块颜色，或者一个拐角。这个“小方框到处找特征”的过程，就叫卷积。</p>
+          <p>第一层找到的东西通常很简单，比如横线、竖线和颜色变化。到了后面的层，网络会把前面找到的小线索组合起来：几条线可能组成一个圆，一些圆和边可能组成一只眼睛，再往后，眼睛、耳朵和毛发这些线索组合起来，网络就越来越容易认出“这可能是一只猫”。</p>
+          <p>图片里的信息很多，没必要把每个细节都一直记着。所以中间还会做几次“精简”：保留比较重要的线索，把重复和不重要的信息丢掉。最后，AlexNet 把找到的所有线索放在一起，分别判断它有多像猫、多像狗、多像汽车……一共要在 1000 个类别里做选择，得分最高的就是它认为的答案。</p>
+          <p>当然，它一开始也不会认。训练时，人们会给它看大量已经写好答案的图片。它猜错了，就根据正确答案调整自己；再看下一张，再猜，再调整。看得足够多以后，它就慢慢学会了：看到什么样的线索，通常代表什么东西。</p>
         </section>
 
         <nav className={styles.detailSectionNav} aria-label="本页内容">
@@ -205,11 +206,11 @@ export default function AlexNetPage() {
         </section>
 
         <section id="impact" className={styles.detailSection}>
-          <div className={styles.detailSectionHead}><span>04 / 影响与边界</span><div><h2>真正改变了什么？</h2><p>突破来自网络结构、训练方法、大规模数据和 GPU 计算能力的共同作用。</p></div></div>
+          <div className={styles.detailSectionHead}><span>04 / 影响</span><div><h2>真正改变了什么？</h2><p>这篇论文把网络结构、训练方法、大规模图像数据和 GPU 算力结合起来。下面三点说明它解决了哪些难题，以及实验结果证明了什么。</p></div></div>
           <div className={styles.impactGrid}>
-            <div><span>01</span><h3>训练得动</h3><p>ReLU 让深层网络训练更快；论文还用两块 GPU 分担计算。</p></div>
-            <div><span>02</span><h3>减少死记硬背</h3><p>训练时让图片产生一些变化，也会随机暂时停用部分单元，帮助网络学规律，而不是只记住练习过的图片。</p></div>
-            <div><span>03</span><h3>看清边界</h3><p>这里验证的是图像分类能力。上方交互用于解释机制，不代表实时运行原始 AlexNet 模型。</p></div>
+            <div><span>01</span><h3>让深层网络训练得动</h3><p>AlexNet 有 5 层卷积和 3 层全连接，规模大、运算多。作者用 ReLU 加快学习，优化卷积计算，并把网络分到两块 GPU 上。论文报告训练一次约需 5～6 天，让在百万级图片上训练这种网络成为可行的实验。</p></div>
+            <div><span>02</span><h3>避免只记住训练图片</h3><p>网络有约 6000 万个可调整的参数，即使有大量训练图片，也容易只记住看过的例子。论文随机裁剪、翻转图片并改变颜色强度，还在训练全连接层时用 dropout 暂时停用部分单元。这些方法减少过拟合，让网络更能应对没见过的图片。</p></div>
+            <div><span>03</span><h3>在比赛中显著领先</h3><p>在 ILSVRC 2012 图像分类竞赛中，作者团队结合多个卷积网络的预测，得到 15.3% 的 top-5 错误率；第二名是 26.2%。相差 10.9 个百分点，说明深层卷积网络结合大量标注图片和 GPU 训练，在当时的大规模图像分类任务上取得了明显突破。</p></div>
           </div>
           <div className={styles.sourcePanel}><div><p className={styles.sectionEyebrow}>继续阅读</p><h3>回到论文，看作者如何描述实验</h3><p>ImageNet Classification with Deep Convolutional Neural Networks · NeurIPS 2012</p></div><a href={alexnet.sourceUrl} target="_blank" rel="noopener noreferrer">论文原文 <ExternalLink size={16} aria-hidden="true" /></a></div>
         </section>

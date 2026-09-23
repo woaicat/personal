@@ -360,7 +360,7 @@
 .comparison strong { color: #355b42; font-size: clamp(1.7rem, 2.4vw, 2.35rem); line-height: 1; letter-spacing: -.06em; }
 .comparison span { color: #6f7d72; font-size: .72rem; line-height: 1.5; }
 .detailHeroFact small { display: block; margin-top: 22px; color: #7c897e; font-size: .68rem; line-height: 1.5; }
-.plainExplanation { max-width: 780px; margin-top: 52px; padding: 34px 0 4px; border-top: 1px solid var(--paper-line); }
+.plainExplanation { margin-top: 52px; padding: 34px 0 4px; border-top: 1px solid var(--paper-line); }
 .plainExplanation h2 { margin: 0 0 22px; font-size: clamp(1.65rem, 2.5vw, 2.05rem); font-weight: 680; letter-spacing: -.04em; }
 .plainExplanation p { margin: 0 0 19px; color: #4d5f53; font-size: 1rem; line-height: 1.95; }
 .detailSectionNav { display: flex; gap: clamp(20px, 4vw, 62px); margin-top: 52px; padding: 15px 0; border-top: 1px solid var(--paper-line); border-bottom: 1px solid var(--paper-line); overflow-x: auto; }
@@ -431,8 +431,8 @@
 .impactGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 31px; }
 .impactGrid > div { padding: 25px 24px; border-top: 2px solid #97b89d; background: #f5f9f5; }
 .impactGrid span { color: #84a68b; font-size: .71rem; font-weight: 700; }
-.impactGrid h3 { margin: 11px 0 8px; font-size: 1.15rem; }
-.impactGrid p { margin: 0; color: #607265; font-size: .82rem; line-height: 1.7; }
+.impactGrid h3 { margin: 11px 0 8px; font-size: 1.2rem; }
+.impactGrid p { margin: 0; color: #536859; font-size: .9rem; line-height: 1.75; }
 .sourcePanel { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin-top: 34px; padding: 27px 30px; border: 1px solid var(--paper-line); border-radius: 12px; background: #fff; }
 .sourcePanel h3 { margin: 8px 0 3px; font-size: 1.16rem; }
 .sourcePanel p:last-child { margin: 0; color: #78877c; font-size: .76rem; }
@@ -448,6 +448,7 @@
   .paperRow { grid-template-columns: 62px minmax(0, 1fr) 130px; }
   .paperRowVisual { display: none; }
   .labFlow { gap: 10px; }
+  .impactGrid { grid-template-columns: 1fr; gap: 14px; }
 }
 
 @media (max-width: 720px) {
@@ -504,7 +505,6 @@
   .kernelGrid, .outputGrid { grid-template-columns: repeat(3, 42px); }
   .labInsight { grid-template-columns: 75px 1fr; gap: 12px; }
   .labInsight button { grid-column: 2; }
-  .impactGrid { grid-template-columns: 1fr; gap: 10px; }
   .sourcePanel { align-items: start; flex-direction: column; padding: 22px; }
   .detailEnd { flex-direction: column; }
 }

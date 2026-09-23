@@ -106,3 +106,15 @@ final result: passed
 - 在桌面 1440 × 900 与手机 390 × 844 视口检查；手机页面 `scrollWidth` 与 `clientWidth` 相等，浏览器错误日志为空；`npm run check:deploy` 通过。
 
 **final result: passed**
+
+---
+
+# 人工智能论文图解 · 通栏文案与影响章节修订（2026-09-23）
+
+- 将「小学生也能看懂的解释」替换为用户提供的五段原文，保留段落与标点；移除 780px 宽度限制，使文字和上下正文同宽。
+- 依据 AlexNet 论文第 3、4、6 节，重写「真正改变了什么？」的三项说明：训练效率、减少过拟合、2012 年竞赛结果。第三项不再混入页面交互的适用边界。
+- 更正 15.3% 的归属：它是作者团队结合多个网络预测所得的 ILSVRC 2012 参赛成绩。论文原文：`https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf`。
+- 加大影响卡片正文字号；在 1060px 以下改为纵向排列。实测 1154px 通栏解释宽度等于正文宽度；801px、390px 视口无页面横向溢出，浏览器错误日志为空。
+- 最终截图：`output/ai-papers-qa/alexnet-copy-fullwidth-1154.png`、`alexnet-impact-801.png`、`alexnet-impact-390.png`（均在同一目录下）。`npm run check:deploy` 通过。
+
+**final result: passed**
