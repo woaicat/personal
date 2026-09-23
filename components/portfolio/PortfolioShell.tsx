@@ -112,6 +112,15 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
               onMouseEnter={() => openMenu("other")}
             >
               <a
+                href="#knowledge"
+                onClick={() => {
+                  onTopTabClick("#knowledge");
+                  setOpenDropdown(null);
+                }}
+              >
+                知识库
+              </a>
+              <a
                 href="#media"
                 onClick={() => {
                   onTopTabClick("#media");
