@@ -58,3 +58,39 @@ final result: passed
 用户复核发现第 5 节五列布局下 5.5 的灰度比例图横向溢出；已将第 5 节改为 3 + 2 换行。最新浏览器检查确认 5.4、5.5 均完整显示，页面 `scrollWidth` 与 `clientWidth` 相等。由于参考图是无侧栏的宽幅内容截图，而详情页保留右侧课程大纲，当前实现按主内容区复现卡片结构与图解；这是页面框架差异，不是本次局部实现偏差。
 
 final result: passed
+
+---
+
+# 人工智能论文图解 · 设计验收
+
+## 对照材料
+
+- 目录页绿色参考图：`/Users/gaojiaxuan/.codex/generated_images/01a0cd26-b146-71d3-a6d1-06fe0453571d/exec-da269c0b-df57-4cc6-80b1-f01ec9513a0a.png`
+- 解读页绿色参考图：`/Users/gaojiaxuan/.codex/generated_images/01a0cd26-b146-71d3-a6d1-06fe0453571d/exec-c8a58144-18e9-4145-acdf-a31cdfe5d1c9.png`
+- 参考图尺寸均为 1487 × 1058；实现图在浏览器 1440 px 桌面视口下导出为 1425 × 1013。比较时按视口宽度观察整体比例、首屏密度、留白和模块次序，没有做逐像素重合检查。
+
+## 最终实现截图
+
+| 页面 | 桌面 | 手机 |
+| --- | --- | --- |
+| 论文目录 | `output/ai-papers-qa/catalog-1440-final.png` | `output/ai-papers-qa/catalog-390-final.png` |
+| AlexNet 解读 | `output/ai-papers-qa/alexnet-1440-final.png` | `output/ai-papers-qa/alexnet-390-final.png` |
+| 卷积交互局部 | 桌面解读页向下滚动可见 | `output/ai-papers-qa/alexnet-lab-390-final.png` |
+
+## 核对结果
+
+- **颜色与装饰：** 延续参考图的浅绿、米白、深绿文字和细描边；去掉用户不喜欢的大叶片及手写英文装饰。
+- **目录结构：** 保留从上到下逐篇追加的论文列表，按首次公开年份排序；新论文只需加入数据列表。首篇 AlexNet 有可进入的解读页，其余 11 篇先提供原论文入口。
+- **解读结构：** 保留参考图的宽松排版、分段阅读和图解卡片。参考图展示 Transformer；本轮按开发范围替换成 AlexNet，并将逐层结构导览放到首个阅读区。
+- **桌面首屏：** 调整目录顶部留白和解读页章节顺序后，目录首屏可看到前两篇论文，AlexNet 首屏可看到结构导览入口。
+- **手机布局：** 目录卡片与文字按窄屏重排；论文流程图可横向滑动并提供提示；卷积示例中的输入、卷积核、输出改为垂直排列。
+- **交互：** 验证目录主题筛选、进入 AlexNet、逐层选择、切换卷积核、选择输出格和 ReLU 开关；浏览器错误日志为空。
+- **文案与年份：** 页脚显示 2026。猫图和小矩阵均明确标注为教学示意，不暗示运行了原始 AlexNet 模型。
+
+## 验证
+
+- `npm run check:deploy`：通过，包含 lint、类型检查、内容检查与生产构建。
+- `git diff --check`：通过。
+- 本地生产预览：`http://127.0.0.1:3000/ai-papers` 与 `http://127.0.0.1:3000/ai-papers/alexnet`。
+
+**final result: passed**

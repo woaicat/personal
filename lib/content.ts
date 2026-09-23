@@ -50,6 +50,7 @@ function buildSite(): SiteContent {
       { label: "SQL学习", href: "/sql-learning" },
       { label: "文章创作", href: "#articles" },
       { label: "项目经历", href: "#projects" },
+      { label: "论文图解", href: "/ai-papers" },
       { label: "知识库", href: "#knowledge" }
     ]
   };

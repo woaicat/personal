@@ -49,7 +49,7 @@ export function PortfolioHeader({ site, activeTab, onTopTabClick }: PortfolioHea
           {site.topTabs.map((tab) => {
             const sectionId = tab.href.startsWith("#") ? tab.href.slice(1) : "";
             const isActive = sectionId !== "" && sectionId === activeTab;
-            const shouldOpenInNewTab = tab.href === "/sql-learning" || tab.href === "/ai-knowledge";
+            const shouldOpenInNewTab = tab.href === "/sql-learning" || tab.href === "/ai-knowledge" || tab.href === "/ai-papers";
 
             if (tab.label === "从0-1") {
               return (
