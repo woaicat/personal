@@ -118,3 +118,14 @@ final result: passed
 - 最终截图：`output/ai-papers-qa/alexnet-copy-fullwidth-1154.png`、`alexnet-impact-801.png`、`alexnet-impact-390.png`（均在同一目录下）。`npm run check:deploy` 通过。
 
 **final result: passed**
+
+---
+
+# 人工智能论文图解 · 第 04 节用户文案替换（2026-09-23）
+
+- 按用户浏览器批注原文替换第 04 节引言与 01–03 三项内容，保留用户给出的标题、表述、标点与原有章节层级。
+- 700px 视口下三项内容纵向阅读；1440px 视口下三栏展示。390px 手机视口的 `scrollWidth` 与 `clientWidth` 相等，浏览器错误日志为空。
+- 截图：`output/ai-papers-qa/alexnet-impact-user-copy-700.png`、`output/ai-papers-qa/alexnet-impact-user-copy-1440.png`。
+- `npm run check:deploy` 与 `git diff --check` 通过。
+
+**final result: passed**

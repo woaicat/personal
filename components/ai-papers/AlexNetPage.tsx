@@ -206,11 +206,11 @@ export default function AlexNetPage() {
         </section>
 
         <section id="impact" className={styles.detailSection}>
-          <div className={styles.detailSectionHead}><span>04 / 影响</span><div><h2>真正改变了什么？</h2><p>这篇论文把网络结构、训练方法、大规模图像数据和 GPU 算力结合起来。下面三点说明它解决了哪些难题，以及实验结果证明了什么。</p></div></div>
+          <div className={styles.detailSectionHead}><span>04 / 影响</span><div><h2>真正改变了什么？</h2><p>AlexNet 的意义不只是把 ImageNet 的错误率降了下来。更重要的是，它证明了一条新的技术路线确实可行，并改变了此后计算机视觉研究和工程实践的方向。</p></div></div>
           <div className={styles.impactGrid}>
-            <div><span>01</span><h3>让深层网络训练得动</h3><p>AlexNet 有 5 层卷积和 3 层全连接，规模大、运算多。作者用 ReLU 加快学习，优化卷积计算，并把网络分到两块 GPU 上。论文报告训练一次约需 5～6 天，让在百万级图片上训练这种网络成为可行的实验。</p></div>
-            <div><span>02</span><h3>避免只记住训练图片</h3><p>网络有约 6000 万个可调整的参数，即使有大量训练图片，也容易只记住看过的例子。论文随机裁剪、翻转图片并改变颜色强度，还在训练全连接层时用 dropout 暂时停用部分单元。这些方法减少过拟合，让网络更能应对没见过的图片。</p></div>
-            <div><span>03</span><h3>在比赛中显著领先</h3><p>在 ILSVRC 2012 图像分类竞赛中，作者团队结合多个卷积网络的预测，得到 15.3% 的 top-5 错误率；第二名是 26.2%。相差 10.9 个百分点，说明深层卷积网络结合大量标注图片和 GPU 训练，在当时的大规模图像分类任务上取得了明显突破。</p></div>
+            <div><span>01</span><h3>从“人工设计特征”转向“让网络自己学习特征”</h3><p>在 AlexNet 之前，图像识别通常需要工程师先设计规则，告诉计算机应该关注边缘、纹理、形状等特征，再把这些特征交给分类器判断。AlexNet 展示了另一条路线：直接把图片交给深层神经网络，让网络在训练过程中自己学会应该关注什么。前面的层学习简单的边缘和颜色，后面的层逐渐组合出眼睛、轮廓甚至完整物体。从此，图像识别的核心开始从“人怎么设计特征”转向“网络怎么学习特征”。</p></div>
+            <div><span>02</span><h3>大数据 + GPU + 深度网络成为一套可行的方法</h3><p>深层神经网络并不是 AlexNet 才出现，但过去一直很难在大规模图像任务上真正跑起来。AlexNet 把大规模标注数据、GPU 计算和深层卷积网络结合起来，同时使用 ReLU、数据增强、dropout 等方法解决训练速度和过拟合问题。它证明了一件很重要的事：只要有足够的数据、计算能力和合适的训练方法，更大的神经网络可以获得明显更好的效果。这种“数据 + 算力 + 模型”的思路，后来也成为深度学习发展的重要路线。</p></div>
+            <div><span>03</span><h3>计算机视觉进入深度学习时代</h3><p>AlexNet 在 ImageNet 上取得的结果，让整个计算机视觉领域开始快速转向深度神经网络。随后几年，VGG、GoogLeNet、ResNet 等模型不断出现，图像分类、目标检测、人脸识别、图像分割等任务也陆续采用深度学习方法。它影响的不只是一个比赛。从研究论文到真实产品，深度神经网络逐渐成为计算机视觉的主流技术基础。</p></div>
           </div>
           <div className={styles.sourcePanel}><div><p className={styles.sectionEyebrow}>继续阅读</p><h3>回到论文，看作者如何描述实验</h3><p>ImageNet Classification with Deep Convolutional Neural Networks · NeurIPS 2012</p></div><a href={alexnet.sourceUrl} target="_blank" rel="noopener noreferrer">论文原文 <ExternalLink size={16} aria-hidden="true" /></a></div>
         </section>
