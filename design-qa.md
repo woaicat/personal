@@ -94,3 +94,15 @@ final result: passed
 - 本地生产预览：`http://127.0.0.1:3000/ai-papers` 与 `http://127.0.0.1:3000/ai-papers/alexnet`。
 
 **final result: passed**
+
+---
+
+# 人工智能论文图解 · 目录批注与易读性修订（2026-09-23）
+
+- 按目录页三条浏览器批注，删除「从 AlexNet 开始」按钮、「首篇图解可阅读 · 后续论文持续补充」说明和「首篇图解」标签。AlexNet 卡片与目录条目仍提供明确的解读入口。
+- 在 AlexNet 论文基本信息与正文导航之间加入「小学生也能看懂的解释」，用四段纯文字解释图片数字、卷积、汇总分类和训练过程；收窄桌面阅读宽度。
+- 同步把逐层导览、top-5 错误率、问题描述、卷积实验说明及「过拟合」相关文案改为更容易理解的措辞。
+- 最终截图：`output/ai-papers-qa/catalog-feedback-1440.png`、`catalog-feedback-390.png`、`alexnet-explanation-1440.png`、`alexnet-explanation-390.png`（均在同一目录下）。
+- 在桌面 1440 × 900 与手机 390 × 844 视口检查；手机页面 `scrollWidth` 与 `clientWidth` 相等，浏览器错误日志为空；`npm run check:deploy` 通过。
+
+**final result: passed**

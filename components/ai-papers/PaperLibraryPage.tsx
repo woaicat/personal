@@ -27,13 +27,9 @@ export default function PaperLibraryPage() {
               <p className={styles.eyebrow}>用图解看懂人工智能</p>
               <h1 id="library-title">人工智能<br /><span>论文图解</span></h1>
               <p className={styles.libraryDescription}>用可视化的方式，拆解重要的 AI 论文。先看懂它解决的问题，再亲手试一试关键机制。</p>
-              <Link className={styles.primaryButton} href="/ai-papers/alexnet">
-                从 AlexNet 开始 <ArrowRight size={18} aria-hidden="true" />
-              </Link>
-              <p className={styles.heroFootnote}>首篇图解可阅读 · 后续论文持续补充</p>
             </div>
             <div className={styles.featuredPaper}>
-              <div className={styles.featuredTopline}><span>首篇图解</span><span>2012 · 视觉理解</span></div>
+              <p className={styles.featuredTopline}>2012 · 视觉理解</p>
               <div className={styles.featuredHeading}>
                 <div><h2>AlexNet</h2><p>ImageNet Classification with Deep Convolutional Neural Networks</p></div>
                 <span className={styles.featuredBadge}><Layers3 size={18} aria-hidden="true" /> 5 + 3 层</span>
