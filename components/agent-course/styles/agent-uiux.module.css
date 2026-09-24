@@ -106,7 +106,7 @@
 
 .principleCopy {
   display: grid;
-  grid-template-columns: 155px minmax(0, 1fr);
+  grid-template-columns: 220px minmax(0, 1fr);
   align-items: baseline;
   gap: 11px;
 }
@@ -1471,7 +1471,7 @@
 
 @media (max-width: 1100px) {
   .principleCopy {
-    grid-template-columns: 130px minmax(0, 1fr);
+    grid-template-columns: 220px minmax(0, 1fr);
   }
 
   .modelCompare > article > div > span {
@@ -1487,7 +1487,7 @@
 
 @media (max-width: 860px) {
   .principleCopy {
-    grid-template-columns: 140px minmax(0, 1fr);
+    grid-template-columns: 220px minmax(0, 1fr);
   }
 
   .patternExamples,

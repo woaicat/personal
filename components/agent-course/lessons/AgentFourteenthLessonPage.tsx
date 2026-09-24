@@ -34,11 +34,11 @@ import AgentLessonShell, { AgentLessonSection } from "@/components/agent-course/
 import s from "@/components/agent-course/styles/agent-uiux.module.css";
 
 const principles: Array<{ icon: LucideIcon; title: string; description: string }> = [
-  { icon: CheckCircle2, title: "意图清晰", description: "目标、约束、例外与禁区" },
-  { icon: FileText, title: "透明赋能", description: "解释关键判断，而非倾倒日志" },
-  { icon: SlidersHorizontal, title: "用户控制", description: "可暂停、可覆盖、可调整自主度" },
-  { icon: ShieldCheck, title: "反馈安全", description: "告诉用户发生了什么、为什么、下一步" },
-  { icon: Users, title: "协作而非替代", description: "AI 提建议，人类保留判断与介入" }
+  { icon: CheckCircle2, title: "原则一：确保意图清晰", description: "目标、约束、例外与禁区" },
+  { icon: FileText, title: "原则二：提供透明度，为用户赋能", description: "解释关键判断，而非倾倒日志" },
+  { icon: SlidersHorizontal, title: "原则三：维持用户控制", description: "可暂停、可覆盖、可调整自主度" },
+  { icon: ShieldCheck, title: "原则四：用反馈建立安全感", description: "告诉用户发生了什么、为什么、下一步" },
+  { icon: Users, title: "原则五：为协作而设计，而非替代", description: "AI 提建议，人类保留判断与介入" }
 ];
 
 const lifecyclePatterns: Array<{ icon: LucideIcon; phase: string; title: string; description: string }> = [
