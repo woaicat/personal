@@ -129,3 +129,15 @@ final result: passed
 - `npm run check:deploy` 与 `git diff --check` 通过。
 
 **final result: passed**
+
+---
+
+# 第 14 课 · 5.2 调研阶段布局批注修复（2026-09-24）
+
+- 对照参考图：`output/agent-course/lesson-14-visual/03-模态匹配与完整路径.png`；修复依据为用户在 `1029 × 792` 视口标出的第 5.2 节截图。
+- 问题原因：阶段卡片和连接箭头原来包在同一网格项中，导致第二张卡片落入仅 `24px` 宽的箭头列。
+- 修复：将三张卡片和两个箭头分为独立网格项，桌面按“三卡 + 两箭头”横向排列；窄屏继续按单列卡片与向下箭头排列。
+- 浏览器复核：当前本地预览定位在第 5.2 节；窄屏布局已显示三张完整卡片及向下连接箭头。用户可在桌面预览确认修复结果。
+- `npm run lint`、`npm run typecheck` 与 `git diff --check` 均通过。
+
+**final result: passed**

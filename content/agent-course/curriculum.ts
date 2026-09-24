@@ -121,11 +121,11 @@ export const agentCurriculum: AgentStage[] = [
       },
       {
         id: "14",
-        title: "前端 UI 和人机协作",
-        summary: "设计用户界面、交互反馈与人工介入机制。",
-        output: "交互原型要点",
-        whyItMatters: "好的 Agent 体验不仅是输出答案，还要让人知道它正在做什么、为什么停下以及如何接管。",
-        caseApplication: "设计客服工作台中的状态反馈、证据展示、转人工和高风险操作审批。"
+        title: "UI/UX与人机协作",
+        summary: "设计自主性、透明反馈与适配用户意图的交互模态。",
+        output: "Agent 人机协作设计清单",
+        whyItMatters: "好的 Agent 体验需要让用户理解系统行为、掌握介入方式，并在真实任务环境中顺畅协作。",
+        caseApplication: "围绕用户意图、风险和工作环境，设计可审阅、可接管、可恢复的 Agent 交互。"
       }
     ]
   },

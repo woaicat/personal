@@ -380,8 +380,46 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
     output: "一份成本优化清单：包含成本基线、关键监控指标、高成本环节、优化策略与回归验证方式。",
     nextLesson: {
       id: "14",
-      title: "前端 UI 和人机协作",
+      title: "UI/UX与人机协作",
       description: "继续学习如何设计用户界面、交互反馈与人工介入机制。"
+    }
+  },
+  "14": {
+    id: "14",
+    title: "UI/UX与人机协作",
+    subtitle: "我们不再设计工具，而是设计关系",
+    duration: "30 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "把自主性设计成可理解、可控制、可恢复的协作关系",
+      "用行动前、中、后的界面模式建立信任",
+      "让透明度与风险匹配，而不是展示所有过程"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "设计原则" },
+      { id: "section-2", number: "2", label: "设计模式" },
+      { id: "section-2-1", number: "2.1", label: "行动前", nested: true },
+      { id: "section-2-2", number: "2.2", label: "行动中", nested: true },
+      { id: "section-2-3", number: "2.3", label: "行动后", nested: true },
+      { id: "section-3", number: "3", label: "识别透明性时刻" },
+      { id: "section-3-1", number: "3.1", label: "决策节点审计", nested: true },
+      { id: "section-3-2", number: "3.2", label: "影响 / 风险矩阵", nested: true },
+      { id: "section-3-3", number: "3.3", label: "等等，为什么？测试", nested: true },
+      { id: "section-4", number: "4", label: "透明性的界面模式" },
+      { id: "section-4-1", number: "4.1", label: "状态更新公式", nested: true },
+      { id: "section-4-2", number: "4.2", label: "四种界面容器", nested: true },
+      { id: "section-4-3", number: "4.3", label: "失败处理", nested: true },
+      { id: "section-5", number: "5", label: "模态与用户意图" },
+      { id: "section-5-1", number: "5.1", label: "输入与输出模态", nested: true },
+      { id: "section-5-2", number: "5.2", label: "任务审计", nested: true },
+      { id: "section-5-3", number: "5.3", label: "对齐矩阵", nested: true },
+      { id: "section-5-4", number: "5.4", label: "多模态交接", nested: true }
+    ],
+    output: "一份 Agent 人机协作设计清单：原则、信任模式、透明性时刻、状态反馈与模态选择。",
+    nextLesson: {
+      id: "15",
+      title: "建立可观测性",
+      description: "记录执行链路，定位问题并持续改进。"
     }
   },
   "15": {
