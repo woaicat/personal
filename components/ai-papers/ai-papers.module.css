@@ -569,69 +569,41 @@
 .lickliderHero .detailHeroText h1 { font-size: clamp(3.6rem, 5.5vw, 5.4rem); }
 .lickliderFact blockquote { margin: 0; color: #365943; font-size: 1.02rem; font-weight: 620; line-height: 1.85; }
 .lickliderFact small { margin-top: 16px; }
-.lickliderPlain p:last-child { margin-bottom: 8px; }
-.lickliderProblemGrid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 18px; margin-top: 30px; }
-.lickliderProblemCard { display: flex; flex-direction: column; align-items: flex-start; min-height: 235px; padding: 25px 27px; border: 1px solid var(--paper-line); border-radius: 13px; background: #fff; }
-.lickliderProblemCard > span { color: #63806a; font-size: .72rem; font-weight: 700; }
-.lickliderProblemCard h3 { max-width: 470px; margin: 18px 0 10px; font-size: 1.3rem; line-height: 1.45; letter-spacing: -.025em; }
-.lickliderProblemCard p { margin: 0; color: #607166; font-size: .86rem; line-height: 1.8; }
-.lickliderTimeCard { background: #f2f8f2; }
-.lickliderTimeCard strong { margin: 13px 0 7px; color: #3c704f; font-size: clamp(3rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.07em; }
-.lickliderTimeCard small { margin-top: 15px; color: #78877c; font-size: .72rem; line-height: 1.7; }
-.lickliderRolesGrid { display: grid; grid-template-columns: minmax(0, 1fr) 94px minmax(0, 1fr); align-items: stretch; gap: 14px; margin-top: 30px; }
-.lickliderRoleCard { padding: 25px 27px 22px; border: 1px solid var(--paper-line); border-radius: 13px; background: #fff; }
-.lickliderRoleCard:last-child { background: #f3f8f3; }
-.lickliderRoleLabel { display: inline-flex; padding: 5px 9px; border-radius: 20px; background: #eaf4eb; color: #456d50; font-size: .7rem; font-weight: 700; }
-.lickliderRoleCard h3 { margin: 14px 0 13px; font-size: 1.24rem; }
-.lickliderRoleCard ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.lickliderRoleCard li { position: relative; padding-left: 17px; color: #5a6c5e; font-size: .84rem; line-height: 1.6; }
-.lickliderRoleCard li::before { position: absolute; top: .66em; left: 1px; width: 6px; height: 6px; border-radius: 50%; background: #82a88b; content: ""; }
-.lickliderRolesBridge { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #6d8c73; }
-.lickliderRolesBridge span { margin-top: 4px; font-size: .66rem; white-space: nowrap; }
-.lickliderRolesCaption { margin: 15px 0 0; color: #7b8a7e; font-size: .74rem; line-height: 1.6; }
-.lickliderDemo { margin-top: 30px; padding: 28px; border: 1px solid #dce8de; border-radius: 16px; background: #fff; box-shadow: 0 14px 36px rgba(48, 85, 55, .045); }
-.lickliderDemoHeading { display: flex; align-items: flex-start; justify-content: space-between; gap: 25px; }
-.lickliderDemoHeading h3 { margin: 8px 0 5px; font-size: 1.3rem; letter-spacing: -.025em; }
-.lickliderDemoHeading > div:first-child > p:last-child { max-width: 560px; margin: 0; color: #78867b; font-size: .78rem; line-height: 1.65; }
-.lickliderModeSwitch { display: flex; flex: 0 0 auto; gap: 5px; padding: 4px; border: 1px solid #e1eae2; border-radius: 10px; background: #f7faf7; }
-.lickliderModeButton { min-height: 36px; padding: 0 12px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: #657469; font: inherit; font-size: .73rem; font-weight: 620; cursor: pointer; }
-.lickliderModeButton:hover { color: var(--paper-green-dark); }
-.lickliderModeButtonActive, .lickliderModeButtonActive:hover { border-color: #cbdccd; background: #fff; color: #315a3d; box-shadow: 0 2px 5px rgba(35, 65, 42, .06); }
-.lickliderFlowSummary { margin: 23px 0 0; padding: 12px 15px; border-left: 3px solid #8daf93; background: #f4f8f4; color: #56695a; font-size: .81rem; line-height: 1.65; }
-.lickliderStepRail { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; gap: 10px; margin-top: 19px; }
-.lickliderStepSlot { position: relative; min-width: 0; padding-right: 11px; }
-.lickliderStepButton { display: flex; width: 100%; min-height: 140px; height: 100%; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 12px; border: 1px solid #dce8de; border-radius: 10px; background: #fbfcfa; color: #354a3a; text-align: left; font: inherit; cursor: pointer; }
-.lickliderStepButton:hover { border-color: #97b99e; }
-.lickliderStepButtonActive, .lickliderStepButtonActive:hover { border-color: #6f9878; background: #eef6ef; box-shadow: inset 0 0 0 1px #6f9878; }
-.lickliderStepNumber { color: #87a28b; font-size: .65rem; font-weight: 750; letter-spacing: .08em; }
-.lickliderStepActor { color: #6c8270; font-size: .66rem; font-weight: 650; }
-.lickliderStepButton strong { font-size: .8rem; line-height: 1.5; }
-.lickliderStepArrow { position: absolute; z-index: 1; top: 50%; right: -5px; color: #87a28d; transform: translateY(-50%); }
-.lickliderStepDetail { display: grid; grid-template-columns: 95px 150px minmax(0, 1fr); align-items: center; gap: 18px; margin-top: 19px; padding: 17px 19px; border-radius: 10px; background: #f0f7f1; }
-.lickliderStepDetail > div { display: flex; flex-direction: column; gap: 5px; }
-.lickliderStepDetail > div > span { color: #75877a; font-size: .65rem; }
-.lickliderStepDetail > div > strong { color: #42654b; font-size: .8rem; }
-.lickliderStepDetail h4 { margin: 0; color: #365841; font-size: .96rem; }
-.lickliderStepDetail > p { margin: 0; color: #576b5b; font-size: .79rem; line-height: 1.7; }
-.lickliderLoopNote { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; color: #507459; font-size: .75rem; font-weight: 620; }
-.lickliderLoopNote svg { flex: 0 0 auto; }
-.lickliderPrereqGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; margin-top: 30px; }
-.lickliderPrereqGrid article { min-height: 185px; padding: 22px 23px; border: 1px solid #e0e9e1; border-radius: 11px; background: #fff; }
-.lickliderPrereqGrid article > span { color: #80a086; font-size: .68rem; font-weight: 750; letter-spacing: .06em; }
-.lickliderPrereqGrid h3 { margin: 11px 0 8px; font-size: 1.05rem; letter-spacing: -.02em; }
-.lickliderPrereqGrid p { margin: 0; color: #637267; font-size: .79rem; line-height: 1.75; }
-.lickliderSpeechNote { background: #f1f7f2 !important; }
-.lickliderSpeechNote > span { display: inline-flex; padding: 4px 7px; border-radius: 12px; background: #e1eee3; color: #55745b !important; }
-.lickliderImpactGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
-.lickliderImpactGrid article { padding: 25px 27px; border-top: 2px solid #91b398; background: #f4f8f4; }
-.lickliderImpactGrid article > span { color: #6b8c72; font-size: .69rem; font-weight: 720; }
-.lickliderImpactGrid h3 { margin: 11px 0 9px; font-size: 1.17rem; line-height: 1.45; }
-.lickliderImpactGrid p { margin: 0; color: #586c5d; font-size: .84rem; line-height: 1.8; }
+.lickliderOpening { margin-top: 42px; padding: 23px 27px; border-left: 3px solid #8db196; background: linear-gradient(105deg, #f2f8f2 0%, #fbfcf9 100%); }
+.lickliderOpening p { margin: 0; color: #405548; font-size: 1rem; line-height: 1.95; }
+.lickliderPlain { margin-top: 46px; }
+.lickliderPlain > .sectionEyebrow { margin: 0 0 10px; }
+.lickliderPlain h2 { margin-bottom: 20px; }
+.lickliderBodyCopy p { margin: 0 0 20px; color: #4d5f53; font-size: .96rem; line-height: 1.95; }
+.lickliderBodyCopy p:last-child { margin-bottom: 0; }
+.lickliderBodyCopy strong { color: #315f3e; font-weight: 720; }
+.lickliderStatEmphasis { padding: 0 .08em; color: #2f7043 !important; font-size: 1.16em; letter-spacing: -.04em; }
+.lickliderLongSection .detailSectionHead { margin-bottom: 22px; }
+.lickliderArticlePart { margin-top: 29px; padding-top: 22px; border-top: 1px solid #dfe8e0; }
+.lickliderArticlePart h3 { margin: 0 0 14px; font-size: clamp(1.15rem, 2vw, 1.42rem); font-weight: 660; letter-spacing: -.025em; line-height: 1.5; }
+.lickliderQuotePart { padding: 23px 25px; border-left: 3px solid #8eb398; background: #f2f8f3; }
+.lickliderQuotePart h3 { margin-bottom: 12px; }
+.lickliderLoopFigure { scroll-margin-top: 100px; margin: 34px 0 0; padding: 20px 0; border-top: 1px solid #dfe8e0; border-bottom: 1px solid #dfe8e0; }
+.lickliderLoopDiagram { display: grid; grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr); align-items: center; gap: 18px; }
+.lickliderLoopNode { display: flex; min-height: 90px; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 15px 19px; border: 1px solid #dce8de; border-radius: 10px; background: #fff; text-align: center; }
+.lickliderLoopNode span { color: #6a8a70; font-size: .75rem; font-weight: 700; }
+.lickliderLoopNode strong { color: #344d39; font-size: .95rem; line-height: 1.6; }
+.lickliderLoopMachine { background: #f0f7f1; }
+.lickliderLoopExchange { display: flex; flex-direction: column; align-items: center; color: #6c9274; }
+.lickliderLoopExchange svg + svg { margin-top: -5px; }
+.lickliderLoopFigure figcaption { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 13px; color: #65806a; font-size: .76rem; line-height: 1.6; }
+.lickliderObstacle, .lickliderImpactPart { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 20px; padding: 25px 0; border-top: 1px solid #dfe8e0; }
+.lickliderObstacle h3, .lickliderImpactPart h3 { margin: 0 0 14px; font-size: clamp(1.12rem, 2vw, 1.37rem); font-weight: 660; line-height: 1.5; letter-spacing: -.025em; }
+.lickliderOrdinal, .lickliderImpactPart > span { padding-top: 3px; color: #7ea287; font-size: 1rem; font-weight: 730; letter-spacing: .04em; }
+.lickliderImpactPart { grid-template-columns: 50px minmax(0, 1fr); padding: 28px 0; }
+.lickliderImpactPart > div { min-width: 0; }
+.lickliderTakeaway { margin-top: 38px; padding-top: 28px; border-top: 2px solid #b8ccb9; }
+.lickliderTakeawayHeading { margin-bottom: 18px; }
+.lickliderTakeawayHeading span { color: #52765a; font-size: .76rem; font-weight: 720; letter-spacing: .05em; }
+.lickliderTakeawayHeading h2 { margin: 7px 0 0; font-size: clamp(1.55rem, 2.8vw, 2.05rem); line-height: 1.4; letter-spacing: -.045em; }
 
 @media (max-width: 1060px) {
-  .lickliderStepRail { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 13px; }
-  .lickliderStepSlot:nth-child(3) .lickliderStepArrow { display: none; }
-  .lickliderPrereqGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lickliderBodyCopy p { font-size: .94rem; }
 }
 
 @media (max-width: 720px) {
@@ -644,29 +616,18 @@
   .symbiosisHeroExchange svg { width: 14px; height: 14px; }
   .lickliderMain { padding-top: 42px; }
   .lickliderHero .detailHeroText h1 { font-size: 3.55rem; }
-  .lickliderProblemGrid, .lickliderImpactGrid { grid-template-columns: 1fr; }
-  .lickliderProblemCard { min-height: 0; padding: 22px; }
-  .lickliderRolesGrid { grid-template-columns: 1fr; gap: 10px; }
-  .lickliderRolesBridge { flex-direction: row; gap: 5px; min-height: 34px; }
-  .lickliderRolesBridge svg:last-of-type { margin-left: -9px; }
-  .lickliderRolesBridge span { margin: 0 0 0 4px; }
-  .lickliderRoleCard { padding: 22px; }
-  .lickliderDemo { padding: 19px 16px; }
-  .lickliderDemoHeading { flex-direction: column; gap: 16px; }
-  .lickliderModeSwitch { display: grid; width: 100%; grid-template-columns: 1fr 1fr; }
-  .lickliderModeButton { padding-inline: 6px; font-size: .69rem; }
-  .lickliderFlowSummary { margin-top: 17px; }
-  .lickliderStepRail { grid-template-columns: 1fr; gap: 0; margin-top: 16px; }
-  .lickliderStepSlot { padding: 0 0 18px; }
-  .lickliderStepSlot:last-child { padding-bottom: 0; }
-  .lickliderStepButton { display: grid; grid-template-columns: 37px minmax(0, 1fr); align-items: center; gap: 3px 9px; min-height: 0; padding: 12px; }
-  .lickliderStepNumber { grid-row: 1 / 3; align-self: center; font-size: .78rem; }
-  .lickliderStepActor { font-size: .62rem; }
-  .lickliderStepButton strong { font-size: .78rem; }
-  .lickliderStepArrow { top: auto; right: 50%; bottom: -1px; transform: translate(50%, 50%) rotate(90deg); }
-  .lickliderStepSlot:nth-child(3) .lickliderStepArrow { display: block; }
-  .lickliderStepDetail { grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px; }
-  .lickliderStepDetail > p { grid-column: 1 / -1; }
-  .lickliderPrereqGrid { grid-template-columns: 1fr; gap: 10px; }
-  .lickliderPrereqGrid article { min-height: 0; padding: 19px 20px; }
+  .lickliderOpening { margin-top: 31px; padding: 18px 17px; }
+  .lickliderOpening p, .lickliderBodyCopy p { font-size: .91rem; line-height: 1.9; }
+  .lickliderPlain { margin-top: 37px; }
+  .lickliderArticlePart { margin-top: 24px; padding-top: 18px; }
+  .lickliderQuotePart { padding: 19px 17px; }
+  .lickliderLoopFigure { margin-top: 26px; padding: 17px 0; }
+  .lickliderLoopDiagram { grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr); gap: 7px; }
+  .lickliderLoopNode { min-height: 78px; padding: 12px 7px; }
+  .lickliderLoopNode strong { font-size: .77rem; }
+  .lickliderLoopExchange svg { width: 16px; height: 16px; }
+  .lickliderLoopFigure figcaption { align-items: flex-start; font-size: .7rem; }
+  .lickliderObstacle, .lickliderImpactPart { grid-template-columns: 33px minmax(0, 1fr); gap: 12px; padding: 21px 0; }
+  .lickliderOrdinal, .lickliderImpactPart > span { font-size: .83rem; }
+  .lickliderTakeaway { margin-top: 29px; padding-top: 22px; }
 }
