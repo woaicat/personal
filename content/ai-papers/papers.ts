@@ -1,4 +1,4 @@
-export type PaperTopic = "视觉理解" | "生成模型" | "语言模型" | "多模态" | "推理与检索";
+export type PaperTopic = "人机协作" | "视觉理解" | "生成模型" | "语言模型" | "多模态" | "推理与检索";
 
 export type Paper = {
   slug: string;
@@ -11,8 +11,18 @@ export type Paper = {
   explainerUrl?: string;
 };
 
-// Add new papers as entries; the catalogue sorts by year and remains a simple vertical list.
+// Add new papers as entries; the catalogue sorts them by year.
 export const papers: Paper[] = [
+  {
+    slug: "licklider",
+    year: 1960,
+    title: "Man-Computer Symbiosis",
+    shortTitle: "人机共生",
+    summary: "提出让人和计算机紧密往返协作，帮助人形成问题并实时思考。",
+    topic: "人机协作",
+    sourceUrl: "https://ieeexplore.ieee.org/document/4503259",
+    explainerUrl: "/ai-papers/licklider"
+  },
   {
     slug: "alexnet",
     year: 2012,
@@ -124,6 +134,6 @@ export const papers: Paper[] = [
   }
 ];
 
-export const paperTopics: Array<"全部" | PaperTopic> = ["全部", "视觉理解", "生成模型", "语言模型", "多模态", "推理与检索"];
+export const paperTopics: Array<"全部" | PaperTopic> = ["全部", "人机协作", "视觉理解", "生成模型", "语言模型", "多模态", "推理与检索"];
 
 export const chronologicalPapers = [...papers].sort((first, second) => first.year - second.year);

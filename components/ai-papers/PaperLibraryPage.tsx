@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpenText, Layers3 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpenText, Layers3, Monitor, RefreshCw, UserRound } from "lucide-react";
 import type { Route } from "next";
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
@@ -73,7 +73,13 @@ export default function PaperLibraryPage() {
                       <div><h2>{paper.shortTitle}</h2><p>{paper.title}</p></div>
                       {paper.slug === "alexnet" && <span className={styles.featuredBadge}><Layers3 size={18} aria-hidden="true" /> 5 + 3 层</span>}
                     </div>
-                    <p className={styles.featuredLead}>{paper.slug === "alexnet" ? "一张图片，怎样在神经网络里逐层变成可识别的特征？" : "从问题出发，一步步看懂这篇论文的核心机制。"}</p>
+                    <p className={styles.featuredLead}>
+                      {paper.slug === "alexnet"
+                        ? "一张图片，怎样在神经网络里逐层变成可识别的特征？"
+                        : paper.slug === "licklider"
+                          ? "人提出目标与判断，计算机协助检索和推演，再把结果送回共同讨论。"
+                          : "从问题出发，一步步看懂这篇论文的核心机制。"}
+                    </p>
                     {paper.slug === "alexnet" ? (
                       <div className={styles.heroFlow} aria-label="AlexNet 的图像分类流程示意">
                         <div className={styles.heroFlowImage} role="img" aria-label="橘白色猫的示例照片" />
@@ -84,11 +90,44 @@ export default function PaperLibraryPage() {
                         <ArrowRight size={20} aria-hidden="true" />
                         <div className={styles.heroFlowResult}><span>1000</span><small>个类别</small></div>
                       </div>
+                    ) : paper.slug === "licklider" ? (
+                      <div
+                        className={styles.symbiosisHeroDiagram}
+                        role="img"
+                        aria-label="人提出目标、假设并评价结果；计算机检索资料、计算和模拟；结果返回给人继续修正。"
+                      >
+                        <div className={styles.symbiosisHeroPair}>
+                          <div className={`${styles.symbiosisHeroNode} ${styles.symbiosisHeroHuman}`}>
+                            <UserRound size={20} aria-hidden="true" />
+                            <strong>人</strong>
+                            <small>目标 · 假设 · 评价</small>
+                          </div>
+                          <div className={styles.symbiosisHeroExchange} aria-hidden="true">
+                            <ArrowRight size={17} /><ArrowLeft size={17} />
+                          </div>
+                          <div className={`${styles.symbiosisHeroNode} ${styles.symbiosisHeroMachine}`}>
+                            <Monitor size={20} aria-hidden="true" />
+                            <strong>计算机</strong>
+                            <small>检索 · 计算 · 模拟</small>
+                          </div>
+                        </div>
+                        <div className={styles.symbiosisHeroReturn}>
+                          <RefreshCw size={15} aria-hidden="true" />
+                          <span>共同看见结果，再修正下一步</span>
+                        </div>
+                      </div>
                     ) : (
                       <div className={styles.featuredSummary}><BookOpenText size={25} aria-hidden="true" /><p>{paper.summary}</p></div>
                     )}
                     <div className={styles.featuredBottom}>
-                      <span>{paper.slug === "alexnet" ? "结构示意 · 可在解读页逐层探索" : "阅读图解，了解论文的关键思路"}{paper.slug === "alexnet" && <span className={styles.mobileSwipeHint}>左右滑动查看完整流程</span>}</span>
+                      <span>
+                        {paper.slug === "alexnet"
+                          ? "结构示意 · 可在解读页逐层探索"
+                          : paper.slug === "licklider"
+                            ? "概念示意 · 回到人手中继续判断"
+                            : "阅读图解，了解论文的关键思路"}
+                        {paper.slug === "alexnet" && <span className={styles.mobileSwipeHint}>左右滑动查看完整流程</span>}
+                      </span>
                       <Link href={paper.explainerUrl as Route}>进入图解 <ArrowUpRight size={16} aria-hidden="true" /></Link>
                     </div>
                   </article>
