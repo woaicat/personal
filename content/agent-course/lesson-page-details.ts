@@ -1,6 +1,41 @@
 import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 
 export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
+  "17": {
+    id: "17",
+    title: "Skill",
+    subtitle: "工具让 Agent 有能力，Skill 让 Agent 懂行。",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "把做事经验打包成可发现、可加载、可复用的能力单元",
+      "用五层结构与渐进式披露管理指令和上下文",
+      "写清判断标准，并建立召回、评测与版本管理闭环"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "Skill 是什么" },
+      { id: "section-1-1", number: "1.1", label: "定义", nested: true },
+      { id: "section-1-2", number: "1.2", label: "Skill 的三个特点", nested: true },
+      { id: "section-1-3", number: "1.3", label: "Skill 和工具的区别：剪刀 vs 剪窗花", nested: true },
+      { id: "section-1-4", number: "1.4", label: "工具和 Skill 的区别", nested: true },
+      { id: "section-1-5", number: "1.5", label: "Prompt、Skill、Workflow 三者关系", nested: true },
+      { id: "section-2", number: "2", label: "Skill 的构成" },
+      { id: "section-2-1", number: "2.1", label: "最小 Skill：一个提示词", nested: true },
+      { id: "section-2-2", number: "2.2", label: "完整 Skill 的五层结构", nested: true },
+      { id: "section-2-3", number: "2.3", label: "渐进式披露：能不加载就不加载", nested: true },
+      { id: "section-2-4", number: "2.4", label: "例子：把网站发布部署做成 Skill", nested: true },
+      { id: "section-3", number: "3", label: "Skill 的作用" },
+      { id: "section-4", number: "4", label: "编写 Skill 的注意事项" },
+      { id: "section-5", number: "5", label: "管理 Skill" },
+      { id: "section-5-1", number: "5.1", label: "工程层：从一开始就可检索", nested: true },
+      { id: "section-5-2", number: "5.2", label: "产品设计层：给用户确认权和知情权", nested: true },
+      { id: "section-5-3", number: "5.3", label: "模型层：提升意图识别与召回能力", nested: true },
+      { id: "section-5-4", number: "5.4", label: "指标监控与专项评测", nested: true },
+      { id: "section-6", number: "6", label: "本课小结" },
+      { id: "section-7", number: "7", label: "课后思考题" }
+    ],
+    output: "一份可复用的 Skill 草案，以及召回、验收与管理检查清单。",
+    nextLesson: { id: "18", title: "自进化的智能体", description: "让 Agent 从经验中持续改进行为与知识。" }
+  },
   "18": {
     id: "18",
     title: "自进化的智能体",
@@ -502,7 +537,8 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-5", number: "5", label: "搭建第一版评测飞轮" },
       { id: "section-6", number: "6", label: "练习题" }
     ],
-    output: "一份 Agent 评测方案，明确高价值评测任务、指标与用例、评测方法和工具，以及从真实问题进入持续迭代的评测飞轮。"
+    output: "一份 Agent 评测方案，明确高价值评测任务、指标与用例、评测方法和工具，以及从真实问题进入持续迭代的评测飞轮。",
+    nextLesson: { id: "17", title: "Skill", description: "把做事经验沉淀成可被 Agent 发现和复用的技能。" }
   },
   "05": {
     id: "05",

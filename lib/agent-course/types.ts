@@ -28,7 +28,7 @@ export type AgentLessonPageDetail = {
   id: string;
   title: string;
   subtitle: string;
-  duration: string;
+  duration?: string;
   series: string;
   keyPoints: string[];
   outline: LessonOutlineItem[];

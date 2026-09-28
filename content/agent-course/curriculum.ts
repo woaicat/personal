@@ -168,6 +168,14 @@ export const agentCurriculum: AgentStage[] = [
     description: "继续探索 Agent 的进化与能力扩展。",
     lessons: [
       {
+        id: "17",
+        title: "Skill",
+        summary: "把做事经验打包为可发现、可加载、可复用的能力单元。",
+        output: "Skill 草案与管理检查清单",
+        whyItMatters: "工具让 Agent 有能力，Skill 让 Agent 懂行，让个人经验变成可复用的组织资产。",
+        caseApplication: "通过会议纪要、网站部署与技能召回案例，设计五层结构、判断标准和管理闭环。"
+      },
+      {
         id: "18",
         title: "自进化的智能体",
         summary: "让 Agent 从经验中学习，持续改进行为与知识。",
