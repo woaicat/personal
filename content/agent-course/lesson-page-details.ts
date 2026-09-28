@@ -4,7 +4,8 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
   "17": {
     id: "17",
     title: "Skill",
-    subtitle: "工具让 Agent 有能力，Skill 让 Agent 懂行。",
+    subtitle: "工具让 Agent 有能力，Skill 让 Agent 懂经验。",
+    duration: "20 分钟",
     series: "从 0 到 1 设计一个 Agent",
     keyPoints: [
       "把做事经验打包成可发现、可加载、可复用的能力单元",

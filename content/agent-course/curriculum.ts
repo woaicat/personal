@@ -172,7 +172,7 @@ export const agentCurriculum: AgentStage[] = [
         title: "Skill",
         summary: "把做事经验打包为可发现、可加载、可复用的能力单元。",
         output: "Skill 草案与管理检查清单",
-        whyItMatters: "工具让 Agent 有能力，Skill 让 Agent 懂行，让个人经验变成可复用的组织资产。",
+        whyItMatters: "工具让 Agent 有能力，Skill 让 Agent 懂经验，让个人经验变成可复用的组织资产。",
         caseApplication: "通过会议纪要、网站部署与技能召回案例，设计五层结构、判断标准和管理闭环。"
       },
       {
