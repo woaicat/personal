@@ -1,6 +1,31 @@
 import type { AgentLessonPageDetail } from "@/lib/agent-course/types";
 
 export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
+  "18": {
+    id: "18",
+    title: "自进化的智能体",
+    subtitle: "Agent 解决了今天的问题，明天遇到类似的问题，会表现得更好吗？",
+    duration: "20 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "从运行轨迹中总结可复用经验",
+      "先改进上下文、技能和知识，再考虑模型权重",
+      "为长期影响 Agent 的更新设置审核与评估"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "什么是自进化 Agent" },
+      { id: "section-2", number: "2", label: "自进化从哪里开始" },
+      { id: "section-3", number: "3", label: "行为进化：把经验变成可以复用的技能" },
+      { id: "section-4", number: "4", label: "知识进化：让 Agent 持续维护自己对环境的理解" },
+      { id: "section-5", number: "5", label: "知识进化同样需要闭环" },
+      { id: "section-6", number: "6", label: "为什么自进化需要人工审核" },
+      { id: "section-7", number: "7", label: "什么时候需要修改模型" },
+      { id: "section-8", number: "8", label: "自进化 Agent 的三个层次" },
+      { id: "section-9", number: "9", label: "构建自进化 Agent 时需要注意什么" },
+      { id: "section-10", number: "10", label: "总结" }
+    ],
+    output: "理解自进化 Agent 如何从行为、知识和模型三个层次持续改进。"
+  },
   "01": {
     id: "01",
     title: "认识智能体",

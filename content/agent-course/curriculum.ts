@@ -160,6 +160,22 @@ export const agentCurriculum: AgentStage[] = [
         caseApplication: "为商品咨询、物流解释、退换货判断和转人工建立样本集、指标与问题归因流程。"
       }
     ]
+  },
+  {
+    id: "other",
+    label: "附加内容",
+    title: "其他",
+    description: "继续探索 Agent 的进化与能力扩展。",
+    lessons: [
+      {
+        id: "18",
+        title: "自进化的智能体",
+        summary: "让 Agent 从经验中学习，持续改进行为与知识。",
+        output: "自进化 Agent 的三个层次",
+        whyItMatters: "理解行为、知识与模型如何逐层改进，并建立人工审核和评估闭环。",
+        caseApplication: "从运行轨迹中总结技能，维护知识，并评估是否需要调整模型。"
+      }
+    ]
   }
 ];
 

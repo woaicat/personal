@@ -132,6 +132,15 @@ export default function AgentCoursePage() {
                 <p>{stage.description}</p>
               </div>
               <div className={styles.lessonList}>
+                {stage.id === "other" && (
+                  <div className={styles.lessonRow} aria-label="第17课 Skill，内容待准备">
+                    <span className={styles.lessonNumber}>17</span>
+                    <span className={styles.lessonCopy}><strong>Skill</strong><span>内容待准备</span></span>
+                    <span className={styles.lessonOutput}>敬请期待</span>
+                    <span className={styles.lessonVisualSpace} aria-hidden="true" />
+                    <span className={styles.lessonStatus}>待准备</span>
+                  </div>
+                )}
                 {stage.lessons.map((lesson) => {
                   const status = getLessonStatus(progress, lesson.id);
 
