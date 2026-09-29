@@ -60,7 +60,31 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-9", number: "9", label: "构建自进化 Agent 时需要注意什么" },
       { id: "section-10", number: "10", label: "总结" }
     ],
-    output: "理解自进化 Agent 如何从行为、知识和模型三个层次持续改进。"
+    output: "理解自进化 Agent 如何从行为、知识和模型三个层次持续改进。",
+    nextLesson: { id: "19", title: "Agent 参与支付和交易", description: "理解机器支付协议、用户授权与交易治理。" }
+  },
+  "19": {
+    id: "19",
+    title: "Agent 参与支付和交易",
+    subtitle: "当 Agent 开始花钱，支付系统需要认识机器、理解意图并落实授权。",
+    duration: "20 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "理解机器支付为何需要结构化协议，而不只是支付按钮",
+      "区分 MPP、APOP 与支付宝平台各自解决的问题",
+      "把金额、期限、商户和服务范围落实为系统授权，并考虑交易留痕与争议处理"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "当今支付流程存在的问题" },
+      { id: "section-2", number: "2", label: "已有的解决方案" },
+      { id: "section-2-1", number: "2.1", label: "MPP", nested: true },
+      { id: "section-2-2", number: "2.2", label: "APOP 智能体支付开放协议框架", nested: true },
+      { id: "section-2-3", number: "2.3", label: "支付宝的 AI 支付开放平台", nested: true },
+      { id: "section-3", number: "3", label: "Agent 参与支付和交易带来的变化和问题" },
+      { id: "section-3-1", number: "3.1", label: "授权不能只写在 Prompt 里", nested: true },
+      { id: "section-3-2", number: "3.2", label: "退款与争议处理", nested: true }
+    ],
+    output: "理解三类方案的分工，并能设计有边界、可追溯的 Agent 交易授权闭环。"
   },
   "01": {
     id: "01",

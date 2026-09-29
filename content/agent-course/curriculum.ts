@@ -182,6 +182,14 @@ export const agentCurriculum: AgentStage[] = [
         output: "自进化 Agent 的三个层次",
         whyItMatters: "理解行为、知识与模型如何逐层改进，并建立人工审核和评估闭环。",
         caseApplication: "从运行轨迹中总结技能，维护知识，并评估是否需要调整模型。"
+      },
+      {
+        id: "19",
+        title: "Agent 参与支付和交易",
+        summary: "理解机器支付协议、用户授权与交易治理。",
+        output: "有边界、可追溯的 Agent 交易授权闭环",
+        whyItMatters: "当 Agent 开始花钱，支付系统需要认识机器、理解意图并落实授权。",
+        caseApplication: "通过 API 按次付费、购买文章与预订酒店，理解支付协商、意图校验和交易留痕。"
       }
     ]
   }

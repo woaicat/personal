@@ -1,0 +1,132 @@
+.copy, .card p, .note p {
+  margin: 0;
+  color: #536070;
+  font-size: .83rem;
+  line-height: 1.72;
+  overflow-wrap: anywhere;
+}
+.twoColumns, .threeColumns, .fourColumns {
+  display: grid;
+  gap: 12px;
+  margin-top: 17px;
+}
+.twoColumns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.threeColumns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fourColumns { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card, .panel, .platformPanel {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+.card { display: flex; align-items: flex-start; gap: 11px; min-height: 62px; }
+.card > div { flex: 1; min-width: 0; }
+.card h4, .platformHeading h4, .authorizationComparison > h4 {
+  margin: 0 0 7px;
+  color: #171e2c;
+  font-size: .76rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+.card p + p { margin-top: 5px; }
+.card .cardSummary { margin-bottom: 5px; color: #344354; font-weight: 600; }
+.icon { display: inline-flex; flex: 0 0 auto; color: var(--lesson-accent); }
+.panel > .card, .governanceLimits > .card { min-height: 0; padding: 0; border: 0; background: transparent; }
+.panel .card p { font-size: .73rem; line-height: 1.45; }
+.warningPanel, .warningCard { border-color: #eedec7; background: #fffaf3; }
+.warningPanel > .card > .icon, .warningCard > .icon { color: #bd781c; }
+.problemGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 17px; }
+.problem { display: grid; justify-items: center; align-content: start; gap: 9px; padding: 10px 7px; border: 1px solid #f0dfc7; border-radius: 8px; color: #344354; text-align: center; }
+.problem strong { font-size: .73rem; line-height: 1.45; }
+.flow { display: flex; margin: 17px 0 0; padding: 0; list-style: none; }
+.flow > li { display: flex; flex: 1 1 0; align-items: center; min-width: 0; }
+.flow > li:last-child { flex: 1 1 0; }
+.flowCard { display: grid; flex: 1; min-width: 0; align-content: start; justify-items: center; gap: 8px; height: 100%; padding: 12px 8px; border: 1px solid #dce7df; border-radius: 8px; color: var(--lesson-accent); background: #fff; text-align: center; }
+.flowCard strong { color: #25352d; font-size: .76rem; line-height: 1.45; overflow-wrap: anywhere; }
+.flowCard span { color: #536070; font-size: .73rem; line-height: 1.45; overflow-wrap: anywhere; }
+.arrow, .gateArrow { flex: 0 0 auto; width: 18px; margin: 0 6px; color: #82909c; }
+.compactFlow .flowCard { gap: 9px; padding: 8px 4px; border: 0; background: transparent; }
+.compactFlow .flowCard strong { font-size: .73rem; }
+.note { display: flex; align-items: flex-start; gap: 11px; margin-top: 17px; padding: 12px; border-radius: 8px; color: var(--lesson-accent-dark); background: var(--lesson-accent-soft); }
+.note > svg { flex: 0 0 auto; color: var(--lesson-accent); }
+.note > div { min-width: 0; }
+.note strong { font-size: .83rem; line-height: 1.72; }
+.note p { margin-top: 3px; }
+.blockHeading { margin: 24px 0 8px; color: var(--lesson-accent-dark); font-size: .89rem; line-height: 1.45; }
+.authorizationNote { margin-top: 17px; padding: 12px; border-radius: 8px; background: var(--lesson-accent-soft); }
+.authorizationNote .note { padding: 0; margin: 0; }
+.limitPills, .limitCards, .scenarios { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.limitPills li, .limitCards li, .scenarios li { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 10px; border: 1px solid #dce7df; border-radius: 8px; color: #344354; background: #fff; font-size: .73rem; line-height: 1.45; }
+.limitPills svg, .limitCards svg, .scenarios svg { flex: 0 0 auto; color: var(--lesson-accent); }
+.limitPills { padding-left: 36px; }
+.paymentGate { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 17px; }
+.paymentGate .flow { margin-top: 0; }
+.gatePreparation { display: flex; align-items: stretch; min-width: 0; padding-top: 47px; }
+.gatePreparation .flow { flex: 1; min-width: 0; }
+.gateArrow { align-self: center; margin-right: 0; }
+.gateExecution { min-width: 0; padding-left: 12px; border-left: 1px dashed #d5933a; }
+.gateWarning { display: flex; align-items: flex-start; gap: 7px; min-height: 47px; padding: 7px 8px; margin-bottom: 8px; border: 1px solid #eedec7; border-radius: 8px; color: #995f19; background: #fffaf3; font-size: .73rem; line-height: 1.45; }
+.gateWarning svg { flex: 0 0 auto; }
+.benefit { display: inline-flex; align-items: center; gap: 7px; padding: 5px 8px; margin-top: 8px; border-radius: 8px; color: var(--lesson-accent-dark); background: var(--lesson-accent-soft); font-size: .73rem; font-weight: 650; }
+.intentFlow { display: flex; margin: 12px 0 0; padding: 0; list-style: none; }
+.intentFlow li { display: flex; flex: 1; align-items: center; gap: 8px; min-width: 0; }
+.intentFlow strong { flex: 1; padding: 9px 8px; border: 1px solid #dce7df; border-radius: 8px; background: var(--lesson-accent-pale); color: #344354; font-size: .73rem; line-height: 1.45; text-align: center; }
+.intentFlow svg { flex: 0 0 auto; margin-right: 8px; color: #82909c; }
+.intentExample { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1.5fr); gap: 8px; align-items: center; margin-top: 17px; }
+.intentExample .arrow { margin: 0; }
+.intentExample .card { align-items: center; }
+.warningCard h4 { color: #995f19; }
+.scenarios li { flex: 1; background: #fafcfb; }
+.platformPanel { background: #fafcfb; }
+.platformHeading { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.platformHeading h4 { flex: 1 1 170px; }
+.platformHeading > span { padding: 3px 5px; border: 1px solid #dce7df; border-radius: 8px; color: var(--lesson-accent-dark); background: var(--lesson-accent-soft); font-size: .67rem; line-height: 1.45; }
+.platformPanel .flow { gap: 6px; }
+.platformPanel .flow > li { position: relative; }
+.platformPanel .flowCard { padding: 12px 4px; }
+.platformPanel .flowCard strong { font-size: .73rem; }
+.platformPanel .arrow { width: 12px; margin: 0 2px; }
+.governance { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; margin-top: 17px; padding: 12px; border: 1px solid #dce7df; border-radius: 8px; }
+.governance > .note { grid-column: 1 / -1; margin: 0; }
+.authorizationComparison { min-width: 0; padding-left: 12px; border-left: 1px dashed #d5933a; }
+.authorizationComparison .threeColumns { gap: 8px; margin-top: 12px; }
+.authorizationComparison .card { flex-direction: column; gap: 7px; padding: 8px; }
+.authorizationComparison .card p { font-size: .73rem; line-height: 1.45; }
+.limitCards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.limitCards li { flex-direction: column; padding: 10px 4px; gap: 10px; text-align: center; }
+@media (max-width: 1100px) {
+  .fourColumns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .twoColumns:has(> .platformPanel) { grid-template-columns: minmax(0, 1fr); }
+  .governance { grid-template-columns: minmax(0, 1fr); }
+  .authorizationComparison { padding: 12px 0 0; border-top: 1px dashed #d5933a; border-left: 0; }
+}
+@media (max-width: 680px) {
+  .twoColumns, .threeColumns, .fourColumns { grid-template-columns: minmax(0, 1fr); }
+  .problemGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flow { flex-direction: column; align-items: stretch; gap: 8px; }
+  .flow > li { flex-direction: column; flex: auto; gap: 8px; }
+  .flow > li:last-child { flex: auto; }
+  .flowCard { width: 100%; }
+  .compactFlow .flowCard { display: flex; justify-content: flex-start; padding: 8px; border: 1px solid #dce7df; background: #fff; text-align: left; }
+  .compactFlow .flowCard svg { flex: 0 0 auto; }
+  .arrow, .gateArrow { margin: 0; transform: rotate(90deg); }
+  .limitPills { padding-left: 0; }
+  .paymentGate { grid-template-columns: minmax(0, 1fr); }
+  .gatePreparation { flex-direction: column; align-items: stretch; padding-top: 0; gap: 8px; }
+  .gateArrow { align-self: center; }
+  .gateExecution { padding: 12px 0 0; border-top: 1px dashed #d5933a; border-left: 0; }
+  .gateWarning { min-height: 0; margin-bottom: 12px; }
+  .intentFlow { flex-direction: column; gap: 8px; }
+  .intentFlow li { flex-direction: column; gap: 8px; }
+  .intentFlow strong { width: 100%; }
+  .intentFlow svg { transform: rotate(90deg); margin: 0; }
+  .intentExample { grid-template-columns: minmax(0, 1fr); justify-items: stretch; }
+  .intentExample .arrow { justify-self: center; }
+  .scenarios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .limitCards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .limitCards li { flex-direction: row; gap: 8px; }
+  .authorizationComparison .threeColumns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .platformPanel .flowCard { padding: 12px; }
+  .platformPanel .arrow { width: 18px; }
+}

@@ -142,3 +142,46 @@ final result: passed
 - `npm run lint`、`npm run typecheck` 与 `git diff --check` 均通过。
 
 **final result: passed**
+
+---
+
+# 第 19 课 · Agent 参与支付和交易（2026-09-29）
+
+## 对照材料与状态
+
+- source visual truth：`output/agent-course/lesson-19-ui/lesson-19-ui-01-overview.png`（1586 × 992）、`lesson-19-ui-02-mpp-apop.png`（1585 × 992）、`lesson-19-ui-03-alipay-governance.png`（1586 × 992）。
+- implementation screenshots：`/tmp/lesson19-desktop-overview.png`、`/tmp/lesson19-desktop-mpp.png`、`/tmp/lesson19-desktop-apop.png`、`/tmp/lesson19-desktop-governance.png`、`/tmp/lesson19-mobile-overview.png`。
+- 桌面 CSS 视口 1586 × 992，devicePixelRatio 1，截图输出 1571 × 983；手机 CSS 视口 390 × 844，devicePixelRatio 1，截图输出 375 × 812。截图接口输出包含缩放与 JPEG 压缩，不作为逐像素字号或颜色测量依据；CSS 规格由 DOM 读取确认。
+- state：课程首屏、MPP 与 APOP 章节、交易治理章节；未新增支付操作或实时交易交互。
+- full-view comparison：原图与实现截图已组合为 `/tmp/lesson19-overview-comparison.jpg`，核对首屏的正文模块、卡片次序与完整文案。
+- focused region comparison：`/tmp/lesson19-mpp-apop-comparison.jpg` 核对付款闸门、支付案例、APOP 身份与意图校验；`/tmp/lesson19-governance-comparison.jpg` 核对授权范围、三方案对照与交易留痕链路。
+
+## 五项视觉核对
+
+- 字体与层级：顶部、本课要点、右侧栏、正文一级 / 二级标题直接使用课程共用组件和样式；正文沿用中文字体回退、rem 字号和既有阅读行高。
+- 布局与节奏：桌面正文加右侧大纲，正文比较卡与流程沿用参考图的结构；统一框架和章节留白造成的页面高度差异按用户要求保留。手机多列与流程改为纵向，无页面横向溢出。
+- 颜色与令牌：绿色使用统一课程令牌，普通卡片为细边框与 8px 圆角，警示内容为浅琥珀语义颜色；未覆盖页面级令牌。
+- 图标与资产：参考图内容由现有 Lucide 图标和可访问 HTML 文本实现，没有新增光栅插画需求，也没有用整张截图替代正文。
+- 文案与内容：保留三部分正文、三类方案、金额超限案例、五项授权范围与退款争议链路；最后一课使用课程框架的完成课程 / 返回目录入口。
+
+## 交互与快速检查
+
+- 八个大纲锚点均有对应元素；实际点击 APOP 大纲后章节顶部进入视口。
+- 实际点击第 18 课下一课进入第 19 课；第 19 课返回目录与目录进入第 19 课正常。
+- 桌面与手机 `scrollWidth` 均等于 `clientWidth`；浏览器 error 日志为空，没有 Next.js 错误覆盖层。
+- 修改文件 ESLint、`npm run typecheck`、`git diff --check` 通过。
+
+## Findings 与比较记录
+
+没有发现需要修复的 P0、P1、P2 布局问题。首屏、两级标题、侧栏与页脚优先采用统一规范，属于用户明确指定的差异。首次正文对照通过，未因对照结果修改视觉实现。
+
+## Implementation checklist
+
+- [x] 三部分正文、目录与第 18 → 19 课衔接
+- [x] 固定框架和两级标题复用统一规格
+- [x] 桌面 / 手机布局、大纲链接与课程入口快速检查
+- [x] 并列首屏 / 正文区域对照
+
+范围：快速检查，不含全面 E2E、生产构建、协议事实调研或逐像素视觉验收。
+
+**final result: passed**

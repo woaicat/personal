@@ -36,6 +36,7 @@ import AgentFifteenthLessonPage from "@/components/agent-course/lessons/AgentFif
 import AgentSixteenthLessonPage from "@/components/agent-course/lessons/AgentSixteenthLessonPage";
 import AgentSeventeenthLessonPage from "@/components/agent-course/lessons/AgentSeventeenthLessonPage";
 import AgentEighteenthLessonPage from "@/components/agent-course/lessons/AgentEighteenthLessonPage";
+import AgentNineteenthLessonPage from "@/components/agent-course/lessons/AgentNineteenthLessonPage";
 
 const toolNames = ["Codex", "Claude Code", "Workbuddy", "豆包工作"];
 
@@ -146,6 +147,10 @@ export default function AgentLessonPage({ lesson }: AgentLessonPageProps) {
 
   if (lesson.id === "18") {
     return <AgentEighteenthLessonPage detail={detail} />;
+  }
+
+  if (lesson.id === "19") {
+    return <AgentNineteenthLessonPage detail={detail} />;
   }
 
   if (lesson.id !== "01") {
