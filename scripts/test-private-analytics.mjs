@@ -16,6 +16,9 @@ try {
         process.execPath,
         [
           "--test",
+          ...(await readdir("tests/private-analytics"))
+            .filter((name) => name.endsWith(".test.mjs"))
+            .map((name) => path.resolve("tests/private-analytics", name)),
           ...(await readdir(path.join(build, "tests/private-analytics")))
             .filter((name) => name.endsWith(".test.js"))
             .map((name) => path.join(build, "tests/private-analytics", name)),

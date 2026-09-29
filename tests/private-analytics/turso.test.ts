@@ -343,6 +343,21 @@ test("libSQL empty/uninitialized schema and fail-closed production connection co
     assert.equal(analyticsConfig().source, "turso-test");
     assert.equal(trackingEnabled(), true);
     for (const url of [
+      "libsql://analytics-test.aws-ap-northeast-1.turso.io",
+      "https://analytics-test.aws-ap-northeast-1.turso.io",
+    ]) {
+      assert.equal(
+        tursoConnection(url, "t".repeat(64)).url,
+        new URL(url).toString(),
+      );
+      process.env.TURSO_DATABASE_URL = url;
+      assert.equal(trackingEnabled(), true);
+    }
+    for (const url of [
+      "https://analytics-test.turso.io.evil.example",
+      "https://analytics-test.not-turso.io",
+      "https://analytics-test..turso.io",
+      "https://-analytics-test.turso.io",
       "http://analytics-test.turso.io",
       "https://evil.example",
       "https://x.turso.io?q=secret",

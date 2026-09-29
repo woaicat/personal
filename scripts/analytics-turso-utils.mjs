@@ -3,7 +3,9 @@ export function connection(urlValue, authToken) {
   const url = new URL(urlValue || "");
   if (
     !["libsql:", "https:"].includes(url.protocol) ||
-    !/^[a-z0-9-]+\.turso\.io$/i.test(url.hostname) ||
+    !/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+turso\.io$/i.test(
+      url.hostname,
+    ) ||
     url.username ||
     url.password ||
     url.port ||

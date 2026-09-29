@@ -10,7 +10,7 @@
 
 在 Turso 控制台创建专用数据库，建议名称 `personal-analytics-test`，选择 Free 套餐下的 **libSQL** 数据库，区域尽量靠近现有 Vercel 函数区域。当前代码使用 `@libsql/client`，不要选择另一套 Turso Database Rust 引擎；若界面只提供新引擎，先核对类型再操作。官方仍支持 libSQL 的 SDK。[SDK说明](https://docs.turso.tech/sdk/ts/reference)
 
-创建后在数据库详情取得 **Database URL**（通常以 `libsql://` 开头）并生成仅用于该测试数据库的读写 **数据库 Token**。不使用组织级或账号管理Token。若设置Token有效期，应记录到期时间，过期前轮换；正式生产再单独确定轮换策略。
+创建后在数据库详情取得 **Database URL**（以 `libsql://` 或 `https://` 开头，可包含区域子域名，如 `数据库名.aws-ap-northeast-1.turso.io`）并生成仅用于该测试数据库的读写 **数据库 Token**。不使用组织级或账号管理Token。若设置Token有效期，应记录到期时间，过期前轮换；正式生产再单独确定轮换策略。
 
 官方 CLI 的 libSQL 建库方式是 `turso db create personal-analytics-test`；不要带创建新引擎的 `--tursodb` 标记。本步骤也可以直接在控制台完成，不要求安装CLI。[官方入门](https://docs.turso.tech/quickstart)
 
@@ -67,3 +67,7 @@ Vercel Production 服务端变量：
 正式上线前仍需补齐：可信Vercel入口的地域编码及中文映射（目前真实采集地域为“未知”）、实际读写与响应时延验证、Token轮换/备份恢复方案、异常采集观察、生产域名和正式采集起点。保留策略目前不自动删除统计历史，过期限流和登录会话按需约每小时清理一次。
 
 生产发布需所有者明确授权。正式库从发布后的首条有效访问开始统计；本地假数据、测试库数据以及旧Vercel Analytics数据均不导入。
+
+## 地址校验修复（2026-09-29）
+
+配置脚本及运行时原先仅允许 `数据库名.turso.io`，会误拒绝带区域子域名的真实Turso地址。现已允许合法的多级 `.turso.io` 子域名，同时保留TLS、域名边界、无嵌入凭据/端口/路径/查询参数等限制。新增CLI回归测试及运行时用例，共15项测试与代码检查通过。配置失败发生在写入前，原本地配置保持不变；重新运行配置命令即可，不需要因本次校验错误重新生成Token。
