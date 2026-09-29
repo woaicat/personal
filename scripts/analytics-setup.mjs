@@ -57,6 +57,7 @@ try {
 }
 const config = {
   ANALYTICS_STORAGE: "local-sqlite",
+  ANALYTICS_DATA_MODE: "test",
   ANALYTICS_SQLITE_PATH: ".local/private-analytics.sqlite",
   ANALYTICS_ENABLED: "true",
   ANALYTICS_DEV_ENABLED: "true",

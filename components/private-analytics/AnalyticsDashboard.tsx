@@ -183,7 +183,15 @@ export default function AnalyticsDashboard() {
               <LockKeyhole size={15} />
               仅管理员可见
             </span>
-            <strong>本地测试数据</strong>
+            <strong>
+              {!data
+                ? "等待数据"
+                : data.meta.source === "production"
+                  ? "生产数据"
+                  : data.meta.source === "turso-test"
+                    ? "云端测试数据"
+                    : "本地测试数据"}
+            </strong>
             <span>
               {data
                 ? `更新于 ${new Date(data.meta.generatedAt).toLocaleTimeString("zh-CN", { timeZone: "Asia/Shanghai", hour: "2-digit", minute: "2-digit" })}`
@@ -389,7 +397,9 @@ export default function AnalyticsDashboard() {
                 </div>
                 <DistributionChart rows={data.regionDistribution} horizontal />
                 <p className="admin-chart-note">
-                  本地演示属地可包含模拟记录，真实本地访问显示“未知”。
+                  {data.meta.source === "local"
+                    ? "本地演示属地可包含模拟记录，真实本地访问显示“未知”。"
+                    : "属地为粗粒度估算；未解析到的信息归入“未知”。"}
                 </p>
               </section>
               <section className="admin-panel">
@@ -408,10 +418,13 @@ export default function AnalyticsDashboard() {
             <footer className="admin-dashboard-footer">
               时间口径：北京时间 · 每30秒刷新 ·{" "}
               {data.meta.firstCollected
-                ? `本地采集起点：${dateLabel(data.meta.firstCollected)}`
+                ? `采集起点：${dateLabel(data.meta.firstCollected)}`
                 : "尚未采集数据"}
               <br />
-              匿名访客为近似统计；仅计算可见、获得焦点且最近5分钟有活动的停留时间。测试记录不进入生产。
+              去重访客为近似统计；仅计算可见、获得焦点且最近5分钟有活动的停留时间。
+              {data.meta.source !== "production"
+                ? "当前为测试数据，不进入正式统计。"
+                : null}
             </footer>
           </>
         ) : !loading && !error ? (

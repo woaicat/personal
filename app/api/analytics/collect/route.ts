@@ -1,7 +1,7 @@
 import { getClientIp } from "@/lib/security/guards";
 import { trackingEnabled } from "@/lib/private-analytics/config";
 import { identityDigest, isAdmin } from "@/lib/private-analytics/auth";
-import { analyticsRepository } from "@/lib/private-analytics/sqlite";
+import { analyticsRepository } from "@/lib/private-analytics/store";
 import { publicPageName } from "@/lib/private-analytics/pages";
 import {
   validateEvent,
@@ -28,8 +28,8 @@ export async function POST(request: Request) {
   try {
     if (request.headers.get("dnt") === "1" || isBot(agent) || (await isAdmin()))
       return new Response(null, { status: 204, headers: PRIVATE_HEADERS });
-    const repository = analyticsRepository();
-    const limit = repository.reserveAttempt(
+    const repository = await analyticsRepository();
+    const limit = await repository.reserveAttempt(
       identityDigest(getClientIp(request.headers), "collect"),
       240,
       60000,
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
         typeof invalid.visitor_id === "string" &&
         invalid.visitor_id.length <= 36
       )
-        repository.markInvalidTiming(
+        await repository.markInvalidTiming(
           invalid.page_view_id,
           identityDigest(invalid.visitor_id, "visitor"),
         );
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
     const name = publicPageName(event.path);
     if (!name) return json({ error: "Invalid page" }, 400);
     // Local adapter never trusts spoofable geo headers; production adapter will use the trusted hosting edge.
-    repository.ingest(
+    await repository.ingest(
       event,
       identityDigest(event.visitor_id, "visitor"),
       name,

@@ -1,7 +1,7 @@
 import { createHmac, randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
 import { analyticsConfig } from "./config";
-import { analyticsRepository } from "./sqlite";
+import { analyticsRepository } from "./store";
 
 export const COOKIE = "jiaxuan_admin";
 export const SESSION_AGE = 7 * 86400;
@@ -21,17 +21,16 @@ export function sessionDigest(token: string) {
 export async function isAdmin() {
   const token = (await cookies()).get(COOKIE)?.value;
   if (!token || !/^[a-f0-9]{64}$/.test(token)) return false;
-  return analyticsRepository().hasAdminSession(
+  return (await analyticsRepository()).hasAdminSession(
     sessionDigest(token),
     Date.now(),
   );
 }
-export function createSession() {
+export async function createSession() {
   const token = randomBytes(32).toString("hex");
-  analyticsRepository().createAdminSession(
-    sessionDigest(token),
-    Date.now() + SESSION_AGE * 1000,
-  );
+  await (
+    await analyticsRepository()
+  ).createAdminSession(sessionDigest(token), Date.now() + SESSION_AGE * 1000);
   return token;
 }
 export const cookieOptions = {

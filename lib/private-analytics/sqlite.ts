@@ -2,7 +2,7 @@ import { DatabaseSync } from "node:sqlite";
 import { randomUUID } from "node:crypto";
 import { mkdirSync, chmodSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { analyticsConfig } from "./config";
+import schema from "./schema.json";
 import {
   InvalidEvent,
   MissingPageView,
@@ -17,23 +17,14 @@ import type {
   Snapshot,
 } from "./types";
 
-const SCHEMA = `
-PRAGMA journal_mode = WAL;
-PRAGMA foreign_keys = ON;
-PRAGMA busy_timeout = 5000;
-CREATE TABLE IF NOT EXISTS sessions(id TEXT PRIMARY KEY,visitor TEXT NOT NULL,started INTEGER NOT NULL,lastActivity INTEGER NOT NULL);
-CREATE INDEX IF NOT EXISTS sessions_visitor ON sessions(visitor,lastActivity);
-CREATE TABLE IF NOT EXISTS views(id TEXT PRIMARY KEY,visitor TEXT NOT NULL,session TEXT NOT NULL REFERENCES sessions(id),path TEXT NOT NULL,name TEXT NOT NULL,started INTEGER NOT NULL,region TEXT NOT NULL,device TEXT NOT NULL,ended INTEGER,tab TEXT NOT NULL);
-CREATE INDEX IF NOT EXISTS views_time ON views(started);
-CREATE INDEX IF NOT EXISTS views_path_time ON views(path,started);
-CREATE INDEX IF NOT EXISTS views_session ON views(session);
-CREATE TABLE IF NOT EXISTS events(id TEXT PRIMARY KEY,view TEXT NOT NULL REFERENCES views(id),sequence INTEGER NOT NULL,UNIQUE(view,sequence));
-CREATE TABLE IF NOT EXISTS activities(view TEXT NOT NULL REFERENCES views(id),session TEXT NOT NULL REFERENCES sessions(id),start INTEGER NOT NULL,end INTEGER NOT NULL,UNIQUE(view,start,end));
-CREATE INDEX IF NOT EXISTS activity_session ON activities(session,start);
-CREATE TABLE IF NOT EXISTS admin_sessions(digest TEXT PRIMARY KEY,expires INTEGER NOT NULL);
-CREATE TABLE IF NOT EXISTS rate_limits(key TEXT PRIMARY KEY,count INTEGER NOT NULL,resetAt INTEGER NOT NULL);
-CREATE TABLE IF NOT EXISTS timing_quality(view TEXT PRIMARY KEY REFERENCES views(id));
-PRAGMA user_version = 1;`;
+const SCHEMA =
+  [
+    "PRAGMA journal_mode=WAL",
+    "PRAGMA foreign_keys=ON",
+    "PRAGMA busy_timeout=5000",
+    ...schema.statements,
+    `PRAGMA user_version=${schema.version}`,
+  ].join(";\n") + ";";
 
 export class SqliteAnalyticsRepository implements AnalyticsRepository {
   private db: DatabaseSync;
@@ -248,19 +239,4 @@ export class SqliteAnalyticsRepository implements AnalyticsRepository {
       )
       .run(view, visitor);
   }
-}
-
-const localGlobal = globalThis as typeof globalThis & {
-  privateAnalyticsStore?: { file: string; repo: SqliteAnalyticsRepository };
-};
-export function analyticsRepository(): AnalyticsRepository {
-  const { file } = analyticsConfig();
-  if (localGlobal.privateAnalyticsStore?.file !== file) {
-    localGlobal.privateAnalyticsStore?.repo.close();
-    localGlobal.privateAnalyticsStore = {
-      file,
-      repo: new SqliteAnalyticsRepository(file),
-    };
-  }
-  return localGlobal.privateAnalyticsStore.repo;
 }

@@ -66,6 +66,7 @@ export type AnalyticsResult = {
     firstCollected: number | null;
     granularity: string;
     local: boolean;
+    source?: "local" | "turso-test" | "production";
     durationUnit: string;
     invalidDurationVisits: number;
   };
