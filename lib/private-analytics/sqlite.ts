@@ -23,6 +23,7 @@ const SCHEMA =
     "PRAGMA foreign_keys=ON",
     "PRAGMA busy_timeout=5000",
     ...schema.statements,
+    `INSERT INTO analytics_schema(id,version) VALUES(1,${schema.version}) ON CONFLICT(id) DO UPDATE SET version=excluded.version`,
     `PRAGMA user_version=${schema.version}`,
   ].join(";\n") + ";";
 

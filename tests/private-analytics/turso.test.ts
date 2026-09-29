@@ -56,7 +56,13 @@ async function fixture() {
   const client = createClient({ url, intMode: "number" });
   await client.execute("PRAGMA journal_mode=WAL");
   await client.batch(
-    [...schema.statements, `PRAGMA user_version=${schema.version}`],
+    [
+      ...schema.statements,
+      {
+        sql: "INSERT INTO analytics_schema(id,version) VALUES(1,?)",
+        args: [schema.version],
+      },
+    ],
     "write",
   );
   const repo = new TursoAnalyticsRepository(client);
@@ -308,6 +314,10 @@ test("libSQL empty/uninitialized schema and fail-closed production connection co
       (await f.repo.snapshot(start, start + DAY)).firstCollected,
       null,
     );
+    await f.client.execute(
+      "UPDATE analytics_schema SET version=999 WHERE id=1",
+    );
+    await assert.rejects(f.repo.verifySchema());
   } finally {
     f.close();
   }

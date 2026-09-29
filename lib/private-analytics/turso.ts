@@ -25,8 +25,10 @@ export class TursoAnalyticsRepository implements AnalyticsRepository {
     this.client.close();
   }
   async verifySchema() {
-    const result = await this.client.execute("PRAGMA user_version");
-    if (Number(result.rows[0]?.user_version) !== schema.version)
+    const result = await this.client.execute(
+      "SELECT version FROM analytics_schema WHERE id=1",
+    );
+    if (Number(result.rows[0]?.version) !== schema.version)
       throw new Error("Analytics schema has not been initialized");
   }
   private async write<T>(fn: (tx: Transaction) => Promise<T>): Promise<T> {

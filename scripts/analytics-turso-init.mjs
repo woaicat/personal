@@ -19,23 +19,28 @@ try {
   });
   const tx = await client.transaction("write");
   try {
-    const version = Number(
-      (await tx.execute("PRAGMA user_version")).rows[0]?.user_version,
-    );
+    const tables = (
+      await tx.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'",
+      )
+    ).rows;
+    const hasMetadata = tables.some((row) => row.name === "analytics_schema");
+    const version = hasMetadata
+      ? Number(
+          (await tx.execute("SELECT version FROM analytics_schema WHERE id=1"))
+            .rows[0]?.version,
+        )
+      : 0;
     if (version !== 0 && version !== schema.version)
       throw new Error("Unsupported schema");
-    if (
-      version === 0 &&
-      (
-        await tx.execute(
-          "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'",
-        )
-      ).rows.length
-    )
+    if (version === 0 && tables.length)
       throw new Error("Requires an empty dedicated database");
     await tx.batch([
       ...schema.statements,
-      `PRAGMA user_version=${schema.version}`,
+      {
+        sql: "INSERT INTO analytics_schema(id,version) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET version=excluded.version",
+        args: [schema.version],
+      },
     ]);
     await tx.commit();
   } catch (error) {
