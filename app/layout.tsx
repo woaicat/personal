@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Source_Serif_4 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
 import "./ai-knowledge/ai-knowledge.css";
 import "./personal-space.css";
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${spaceGrotesk.variable} ${sourceSerif.variable}`}>
         {children}
         <Analytics />
+        <Script src="/private-analytics.js" strategy="afterInteractive" />
       </body>
     </html>
   );

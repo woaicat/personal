@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "target": "ES2022", "module": "CommonJS", "moduleResolution": "Node", "strict": true, "esModuleInterop": true, "skipLibCheck": true, "rootDir": "../..", "types": ["node"], "noEmit": false },
+  "include": ["analytics.test.ts"]
+}

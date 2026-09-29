@@ -12,7 +12,11 @@
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run content:check",
-    "check:deploy": "npm run check && npm run build"
+    "check:deploy": "npm run check && npm run build",
+    "predev": "node scripts/analytics-routes.mjs",
+    "prebuild": "node scripts/analytics-routes.mjs",
+    "test:analytics": "node scripts/test-private-analytics.mjs",
+    "analytics:setup": "node scripts/analytics-setup.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

@@ -43,9 +43,16 @@ export function middleware(request: NextRequest) {
   }
 
   if (!pathname.startsWith("/api/")) {
-    return NextResponse.next();
+    const response = NextResponse.next();
+    if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+      response.headers.set("Cache-Control", "private, no-store");
+      response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    }
+    return response;
   }
 
+  // These endpoints have database-backed shared limits (login also protects slow hashing).
+  if (pathname === "/api/admin/login" || pathname === "/api/analytics/collect") return NextResponse.next();
   const identity = `${getClientIp(request.headers)}:${pathname}`;
   const result = consumeRateLimit(identity, API_RATE_LIMIT, API_RATE_LIMIT_WINDOW_MS);
 
