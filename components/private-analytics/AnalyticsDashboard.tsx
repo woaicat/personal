@@ -367,7 +367,10 @@ export default function AnalyticsDashboard() {
                     <p>统计单位：{data.meta.durationUnit}</p>
                   </div>
                 </div>
-                <DistributionChart rows={data.durationDistribution} />
+                <DistributionChart
+                  rows={data.durationDistribution}
+                  unit={data.meta.durationUnit}
+                />
                 <p className="admin-chart-note">
                   按单次访问的有效停留时长统计，进行中的访问可能变化。
                   {data.meta.invalidDurationVisits > 0
