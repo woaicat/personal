@@ -3,6 +3,7 @@ import { trackingEnabled } from "@/lib/private-analytics/config";
 import { identityDigest, isAdmin } from "@/lib/private-analytics/auth";
 import { analyticsRepository } from "@/lib/private-analytics/store";
 import { publicPageName } from "@/lib/private-analytics/pages";
+import { regionFromHeaders } from "@/lib/private-analytics/geography";
 import {
   validateEvent,
   deviceFromAgent,
@@ -64,12 +65,11 @@ export async function POST(request: Request) {
     }
     const name = publicPageName(event.path);
     if (!name) return json({ error: "Invalid page" }, 400);
-    // Local adapter never trusts spoofable geo headers; production adapter will use the trusted hosting edge.
     await repository.ingest(
       event,
       identityDigest(event.visitor_id, "visitor"),
       name,
-      "未知",
+      regionFromHeaders(request.headers),
       deviceFromAgent(agent),
       Date.now(),
     );
