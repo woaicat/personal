@@ -16,7 +16,8 @@
     "predev": "node scripts/analytics-routes.mjs",
     "prebuild": "node scripts/analytics-routes.mjs",
     "test:analytics": "node scripts/test-private-analytics.mjs",
-    "analytics:setup": "node scripts/analytics-setup.mjs"
+    "analytics:setup": "node scripts/analytics-setup.mjs",
+    "analytics:demo": "node scripts/analytics-demo.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

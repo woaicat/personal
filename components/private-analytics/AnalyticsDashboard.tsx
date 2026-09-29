@@ -389,7 +389,7 @@ export default function AnalyticsDashboard() {
                 </div>
                 <DistributionChart rows={data.regionDistribution} horizontal />
                 <p className="admin-chart-note">
-                  本地没有可信属地信息，真实访问显示“未知”。
+                  本地演示属地可包含模拟记录，真实本地访问显示“未知”。
                 </p>
               </section>
               <section className="admin-panel">
