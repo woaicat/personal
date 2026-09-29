@@ -19,7 +19,9 @@
     "analytics:setup": "node scripts/analytics-setup.mjs",
     "analytics:demo": "node scripts/analytics-demo.mjs",
     "analytics:turso:configure": "node scripts/analytics-turso-configure.mjs",
-    "analytics:turso:init": "node scripts/analytics-turso-init.mjs"
+    "analytics:turso:init": "node scripts/analytics-turso-init.mjs",
+    "analytics:production:configure": "node scripts/analytics-production-configure.mjs",
+    "analytics:production:init": "node scripts/analytics-production-init.mjs"
   },
   "dependencies": {
     "@libsql/client": "0.17.4",

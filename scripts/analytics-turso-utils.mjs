@@ -20,5 +20,5 @@ export function connection(urlValue, authToken) {
 }
 export function requireLocal() {
   if (process.env.VERCEL || process.env.NODE_ENV === "production")
-    throw new Error("此设置脚本仅供本地终端连接云端测试库");
+    throw new Error("此设置脚本仅供本地终端运行，不在部署环境执行");
 }

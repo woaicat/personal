@@ -1,6 +1,6 @@
 import { createClient } from "@libsql/client/web";
 import nextEnv from "@next/env";
-import schema from "../lib/private-analytics/schema.json" with { type: "json" };
+import { initializeAnalyticsSchema } from "./analytics-turso-schema.mjs";
 import { connection, requireLocal } from "./analytics-turso-utils.mjs";
 
 let client;
@@ -17,45 +17,9 @@ try {
     ...connection(process.env.TURSO_DATABASE_URL, process.env.TURSO_AUTH_TOKEN),
     intMode: "number",
   });
-  const tx = await client.transaction("write");
-  try {
-    const tables = (
-      await tx.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'",
-      )
-    ).rows;
-    const hasMetadata = tables.some((row) => row.name === "analytics_schema");
-    const version = hasMetadata
-      ? Number(
-          (await tx.execute("SELECT version FROM analytics_schema WHERE id=1"))
-            .rows[0]?.version,
-        )
-      : 0;
-    if (version !== 0 && version !== schema.version)
-      throw new Error("Unsupported schema");
-    if (version === 0 && tables.length)
-      throw new Error("Requires an empty dedicated database");
-    await tx.batch([
-      ...schema.statements,
-      {
-        sql: "INSERT INTO analytics_schema(id,version) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET version=excluded.version",
-        args: [schema.version],
-      },
-    ]);
-    await tx.commit();
-  } catch (error) {
-    try {
-      await tx.rollback();
-    } catch {
-      /* Preserve original error. */
-    }
-    throw error;
-  } finally {
-    tx.close();
-  }
-  const result = await client.execute("SELECT COUNT(*) AS n FROM views");
+  const result = await initializeAnalyticsSchema(client);
   console.log(
-    `云端测试库已初始化（结构版本${schema.version}，已有PV ${result.rows[0]?.n}）。没有上传本地模拟数据，也没有修改生产环境。`,
+    `云端测试库已初始化（结构版本${result.version}，已有PV ${result.pv}）。没有上传本地模拟数据，也没有修改生产环境。`,
   );
 } catch {
   console.error(

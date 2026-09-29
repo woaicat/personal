@@ -41,11 +41,31 @@ npm run dev
 - 无配置、无Token、错误类型或未初始化库显示不可用；公共页面继续正常，错误不显示为零访问。
 - 记录真实远程响应时延、读取/写入行数和一次访问的事件数量，确认免费额度与实际流量匹配。当前后台每30秒刷新，并读取所选范围内原始记录在服务端聚合；长时间范围可能增加行读取和内存。先实测，必要时再增加缓存或聚合表，不能仅凭PV估算数据库开销。
 
-15项自动测试使用真实SDK本地libSQL库验证存储契约、并发限流、去重及地址校验。另已完成真实远程小规模读写及鉴权验证；这不等于长期流量、额度和大范围查询性能已验证。
+19项自动测试使用真实SDK本地libSQL库验证存储契约、并发限流、去重及地址校验。另已完成真实远程小规模读写及鉴权验证；这不等于长期流量、额度和大范围查询性能已验证。
 
 ## 4. 生产准备（另一步）
 
-云端测试通过后再创建独立的空生产数据库，建议名称 `personal-analytics-prod`，单独Token与密钥。正式库初始化需要另行执行受控迁移，当前测试初始化脚本不会操作 `production` 模式。开发或Preview不能连接正式数据库，也不能复用正式Token；代码无法从URL判断人为配置错的库，应依靠独立命名、连接配置和核对隔离。
+所有者已完成独立正式库、专用Token及生产配置录入。2026-09-29已执行正式初始化：连接成功，结构版本1，PV 0；未导入模拟数据或测试访问，采集仍关闭。
+
+在项目终端运行：
+
+```sh
+npm run analytics:production:configure
+```
+
+按提示填写正式数据库名称（名称为 `personal-analytics-prod` 时可直接回车）、正式库URL、专用Token、自己设置的正式后台密码（至少12个字符）及再次确认密码。Token和密码输入不显示，也不通过命令行或聊天传入。脚本校验数据库名称与URL匹配，拒绝当前测试库地址及test/preview/dev命名的库。
+
+配置单独保存为 `.local/private-analytics-production.json`，权限0600，Git忽略；文件包含URL、Token、scrypt密码哈希及两项新随机密钥，不含明文密码。密码哈希用原始 `$` 分隔符保存在JSON中，不需要dotenv转义。现有 `.env.local`、测试密码、测试库及演示数据保持不变；Next.js不会自动加载这个文件。已有生产配置拒绝覆盖，避免意外重置访客去重密钥或密码。后续轮换连接或密码需保留正式访客ID密钥，通过受控更新处理。
+
+保存成功后由开发者运行：
+
+```sh
+npm run analytics:production:init
+```
+
+初始化读取专用JSON配置，验证正式库与测试库不同，仅接受空的专用库或没有访问记录的已初始化库。建表后只读检查结构及PV 0，不写测试浏览，不清空已有记录，不开启采集，也不发布网站。测试初始化命令仍只使用测试配置。
+
+准备阶段 `ANALYTICS_ENABLED=false`，`ANALYTICS_DEV_ENABLED=false`、`ANALYTICS_PREVIEW_ENABLED=false`；上线时再明确开启正式采集。专用脚本仅在本地终端运行，不会让开发服务器或Preview使用正式库。
 
 Vercel Production 服务端变量：
 
@@ -58,7 +78,7 @@ Vercel Production 服务端变量：
 | ADMIN_PASSWORD_HASH | 正式管理员密码scrypt哈希 |
 | ADMIN_SESSION_SECRET | 独立随机密钥，至少32字符 |
 | ANALYTICS_ID_SECRET | 独立随机密钥，至少32字符，保持稳定以维持UV口径 |
-| ANALYTICS_ENABLED | true，验收后明确开启 |
+| ANALYTICS_ENABLED | 准备时false；发布并启用正式采集时设true |
 | ANALYTICS_PREVIEW_ENABLED | false；不把正式变量关联Preview |
 | ANALYTICS_DEV_ENABLED | false |
 
@@ -80,4 +100,32 @@ Vercel Production 服务端变量：
 - 管理员登录200，统计响应200且数据源为 `turso-test`，私有响应 `private, no-store`；未登录401，退出200且退出后统计请求401。密码与Token不出现在验证日志、文档或源码。
 - 15项测试、ESLint/TypeScript/内容检查、65页面生产构建通过。浏览器未捕获页面脚本错误。开发服务已恢复，后台标记云端测试数据；切换数据库后原SQLite登录会话不会沿用，应重新登录。
 
-还未配置正式库、Vercel生产变量或发布生产；地域解析、实际用量/大范围性能、正式密码与密钥、备份恢复仍按生产准备阶段落实。
+当次测试库验证时尚未配置正式库、Vercel生产变量或发布生产；后续正式库准备状态见下文，地域解析、实际用量/大范围性能与备份恢复仍待落实。
+
+## 生产配置脚本验证（2026-09-29）
+
+已完成专用配置/初始化脚本，19项测试与代码检查通过。新增测试覆盖正式配置独立密钥、密码哈希/明文不保存、测试库误用拒绝、文件0600及拒绝覆盖、建表重复执行和不清空已有访问。隔离临时目录中的真实终端交互验证已通过，使用虚构URL/Token，没有连接正式库，没有回显Token或密码。共享初始化流程已在现有云端测试库回归验证。
+
+本节为配置脚本验证记录；后续真实正式库初始化结果见下一节。没有升级套餐或发布生产。
+
+## 正式库初始化及Vercel配置交接（2026-09-29）
+
+所有者通过终端完成生产配置录入后，执行 `npm run analytics:production:init` 成功：正式库结构版本1、PV 0。未写入测试访问，未改本地测试配置，未开启采集或发布。生产JSON为Git忽略文件。
+
+已在本地准备 `.local/vercel-production.env`，包含上述10项生产变量，权限0600且Git忽略，未输出凭据；与专用JSON逐项核对一致，密码哈希保留原始美元符号。这个文件只供Vercel导入，不放在项目根目录，不被Next.js自动加载，不替换本地 `.env.local`。Vercel CLI未安装且无本地CLI登录凭据；本次未修改Vercel变量。
+
+所有者操作：
+
+1. 在Vercel打开现有 `jiaxuan` 项目，进入Settings / Environment Variables。
+2. 添加环境变量，使用Import .env功能选取该文件；文件选择器可用Command+Shift+G定位项目 `.local` 目录。若界面提供批量粘贴，终端执行下列命令，将内容复制到剪贴板，再在批量输入区域粘贴。
+
+   ```sh
+   cd "/Users/gaojiaxuan/Desktop/我的想法/个人作品集"
+   pbcopy < ".local/vercel-production.env"
+   ```
+
+3. 所有10项只选择Production，取消Preview和Development；保留采集及开发/预览开关false。敏感值不截图、不贴聊天，开启界面可用的Sensitive选项。
+4. 保存。若提示同名变量已存在，核对名称并只更新对应Production项，保留其他环境。不要立即点击Redeploy。
+5. 告知开发者导入完成。后续还需完成地域解析、正式域名/用量/备份等上线核对，再授权发布和启用采集。
+
+变量修改只对后续部署生效，旧部署不自动变化。[Vercel官方说明](https://vercel.com/docs/environment-variables/managing-environment-variables)
