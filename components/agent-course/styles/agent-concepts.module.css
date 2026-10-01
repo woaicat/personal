@@ -1,0 +1,80 @@
+.intro {
+  margin: 24px 0 0;
+  color: #536070;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.intro strong {
+  color: #256743;
+  font-weight: 700;
+}
+
+.conceptBody {
+  display: grid;
+  gap: 18px;
+  margin-top: 19px;
+}
+
+.copyBlock h3,
+.example h3,
+.references h3 {
+  margin: 0 0 7px;
+  color: #256743;
+  font-size: 0.89rem;
+  font-weight: 700;
+}
+
+.copyBlock p,
+.example p {
+  margin: 0;
+  color: #536070;
+  font-size: 0.85rem;
+  line-height: 1.78;
+}
+
+.example {
+  padding: 14px 18px;
+  border-left: 3px solid #318355;
+  border-radius: 0 8px 8px 0;
+  background: #f6fbf7;
+}
+
+.references ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.references a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  color: #16805a;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.references a:hover,
+.references a:focus-visible {
+  color: #256743;
+}
+
+.references a svg {
+  flex: none;
+  transform: translateY(2px);
+}
+
+@media (max-width: 640px) {
+  .intro {
+    margin-top: 20px;
+  }
+
+  .example {
+    padding: 13px 15px;
+  }
+}

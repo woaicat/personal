@@ -84,7 +84,26 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-3-1", number: "3.1", label: "授权不能只写在 Prompt 里", nested: true },
       { id: "section-3-2", number: "3.2", label: "退款与争议处理", nested: true }
     ],
-    output: "理解三类方案的分工，并能设计有边界、可追溯的 Agent 交易授权闭环。"
+    output: "理解三类方案的分工，并能设计有边界、可追溯的 Agent 交易授权闭环。",
+    nextLesson: { id: "20", title: "Agent 概念辨析", description: "辨析 Agent Loop、Agent Harness 和 Agent Runtime。" }
+  },
+  "20": {
+    id: "20",
+    title: "Agent 概念辨析",
+    subtitle: "从循环过程、控制程序和运行环境三个角度，理解 Agent 怎样持续完成任务。",
+    duration: "5 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "Agent Loop 描述 Agent 依据行动结果反复判断下一步的过程",
+      "Agent Harness 组织模型、上下文和工具，让循环按规则运行",
+      "Agent Runtime 承载执行、会话和资源，让 Agent 稳定运行"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "Agent Loop" },
+      { id: "section-2", number: "2", label: "Agent Harness" },
+      { id: "section-3", number: "3", label: "Agent Runtime" }
+    ],
+    output: "分清 Agent Loop、Agent Harness 与 Agent Runtime 的职责，并获得可继续阅读的参考资料。"
   },
   "01": {
     id: "01",

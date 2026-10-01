@@ -190,6 +190,14 @@ export const agentCurriculum: AgentStage[] = [
         output: "有边界、可追溯的 Agent 交易授权闭环",
         whyItMatters: "当 Agent 开始花钱，支付系统需要认识机器、理解意图并落实授权。",
         caseApplication: "通过 API 按次付费、购买文章与预订酒店，理解支付协商、意图校验和交易留痕。"
+      },
+      {
+        id: "20",
+        title: "Agent 概念辨析",
+        summary: "辨析 Agent Loop、Agent Harness 和 Agent Runtime，并用生活例子理解三者关系。",
+        output: "三个核心运行概念的解释与参考资料",
+        whyItMatters: "这三个名词都在描述 Agent 如何工作，但分别指向循环过程、控制程序和运行环境。",
+        caseApplication: "用同一间餐厅的做菜过程、出餐系统和厨房设施，理解三个概念的分工。"
       }
     ]
   }
