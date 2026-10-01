@@ -20,8 +20,8 @@ const concepts = [
     explanation: "Agent Harness 是围绕模型搭建的控制程序，让模型能按规则完成任务。它准备上下文、驱动 Agent Loop、安排工具调用并把结果交还模型，也可以管理状态、权限和停止条件。模型负责提出下一步，Harness 负责把这些步骤组织成可执行、可控制的过程。",
     analogy: "像餐厅的出餐系统：它接收订单，把菜谱和过敏提醒交给厨师，安排可用的厨具，并记录菜做到哪一步。厨师判断怎么做菜，出餐系统让这件事有顺序、有记录，也不会漏掉必要的检查。",
     references: [
-      { label: "OpenAI｜The next evolution of the Agents SDK", href: "https://openai.com/index/the-next-evolution-of-the-agents-sdk/" },
-      { label: "Anthropic｜Scaling Managed Agents: Decoupling the brain from the hands", href: "https://www.anthropic.com/engineering/managed-agents" }
+      { label: "OpenAI｜Unlocking the Codex harness: how we built the App Server", href: "https://openai.com/index/unlocking-the-codex-harness/" },
+      { label: "OpenAI｜Harness engineering: leveraging Codex in an agent-first world", href: "https://openai.com/index/harness-engineering/" }
     ]
   },
   {
@@ -38,7 +38,6 @@ const concepts = [
 
 export default function AgentTwentiethLessonPage({ detail }: { detail: AgentLessonPageDetail }) {
   return <AgentLessonShell detail={detail}>
-    <p className={styles.intro}>可以先记住一条线索：<strong>Loop 是反复推进任务的过程，Harness 是组织这个过程的程序，Runtime 是承载程序运行的环境。</strong>下面用同一间餐厅的例子说明。</p>
     {concepts.map((concept, index) => <AgentLessonSection key={concept.id} id={concept.id} title={`${index + 1}. ${concept.title}`}>
       <div className={styles.conceptBody}>
         <div className={styles.copyBlock}><h3>概念解释</h3><p>{concept.explanation}</p></div>

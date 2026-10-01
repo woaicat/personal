@@ -142,7 +142,7 @@ export default function AgentCoursePage() {
                         <strong>{lesson.title}</strong>
                         <span>{lesson.summary}</span>
                       </span>
-                      <span className={styles.lessonOutput}>本课产出：{lesson.output}</span>
+                      {lesson.output ? <span className={styles.lessonOutput}>本课产出：{lesson.output}</span> : <span aria-hidden="true" />}
                       <span className={styles.lessonVisualSpace} aria-hidden="true" />
                       <span className={`${styles.lessonStatus} ${styles[`status-${status}`]}`}>{getStatusLabel(status)}</span>
                     </a>

@@ -922,6 +922,10 @@
   padding-top: 27px;
 }
 
+.lessonFooterWithoutOutput {
+  justify-content: flex-end;
+}
+
 .lessonOutputSummary {
   display: flex;
   align-items: center;

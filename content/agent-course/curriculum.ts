@@ -195,7 +195,7 @@ export const agentCurriculum: AgentStage[] = [
         id: "20",
         title: "Agent 概念辨析",
         summary: "辨析 Agent Loop、Agent Harness 和 Agent Runtime，并用生活例子理解三者关系。",
-        output: "三个核心运行概念的解释与参考资料",
+        output: "",
         whyItMatters: "这三个名词都在描述 Agent 如何工作，但分别指向循环过程、控制程序和运行环境。",
         caseApplication: "用同一间餐厅的做菜过程、出餐系统和厨房设施，理解三个概念的分工。"
       }
