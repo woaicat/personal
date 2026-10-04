@@ -78,7 +78,9 @@ export default function PaperLibraryPage() {
                         ? "一张图片，怎样在神经网络里逐层变成可识别的特征？"
                         : paper.slug === "licklider"
                           ? "人提出目标与判断，计算机协助检索和推演，再把结果送回共同讨论。"
-                          : "从问题出发，一步步看懂这篇论文的核心机制。"}
+                          : paper.slug === "scaling-laws"
+                            ? "把模型、数据与算力的旋钮拧大，测试损失会怎样变化？"
+                            : "从问题出发，一步步看懂这篇论文的核心机制。"}
                     </p>
                     {paper.slug === "alexnet" ? (
                       <div className={styles.heroFlow} aria-label="AlexNet 的图像分类流程示意">
@@ -116,6 +118,12 @@ export default function PaperLibraryPage() {
                           <span>共同看见结果，再修正下一步</span>
                         </div>
                       </div>
+                    ) : paper.slug === "scaling-laws" ? (
+                      <div className={styles.scalingHeroDiagram} role="img" aria-label="模型参数、训练数据、训练算力一起增加时，语言模型测试损失下降的规模定律示意">
+                        <div className={styles.scalingHeroInputs}><span>模型参数 N <b>↑</b></span><span>训练数据 D <b>↑</b></span><span>训练算力 C <b>↑</b></span></div>
+                        <ArrowRight size={23} aria-hidden="true" />
+                        <div className={styles.scalingHeroResult}><strong>测试损失</strong><span>沿幂律曲线下降 ↘</span></div>
+                      </div>
                     ) : (
                       <div className={styles.featuredSummary}><BookOpenText size={25} aria-hidden="true" /><p>{paper.summary}</p></div>
                     )}
@@ -125,7 +133,9 @@ export default function PaperLibraryPage() {
                           ? "结构示意 · 可在解读页逐层探索"
                           : paper.slug === "licklider"
                             ? "概念示意 · 回到人手中继续判断"
-                            : "阅读图解，了解论文的关键思路"}
+                            : paper.slug === "scaling-laws"
+                              ? "三张插图解释 · 可亲手调节规模曲线"
+                              : "阅读图解，了解论文的关键思路"}
                         {paper.slug === "alexnet" && <span className={styles.mobileSwipeHint}>左右滑动查看完整流程</span>}
                       </span>
                       <Link href={paper.explainerUrl as Route}>进入图解 <ArrowUpRight size={16} aria-hidden="true" /></Link>

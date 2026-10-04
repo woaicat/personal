@@ -58,7 +58,8 @@ export const papers: Paper[] = [
     shortTitle: "Scaling Laws",
     summary: "刻画语言模型损失与规模、数据和算力的关系。",
     topic: "语言模型",
-    sourceUrl: "https://arxiv.org/abs/2001.08361"
+    sourceUrl: "https://arxiv.org/abs/2001.08361",
+    explainerUrl: "/ai-papers/scaling-laws"
   },
   {
     slug: "rag",

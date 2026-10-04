@@ -379,6 +379,13 @@
 .catalogNote { margin: 22px 0 0; color: #7b897f; font-size: .79rem; }
 .siteFooter { display: flex; justify-content: space-between; align-items: center; gap: 18px; min-height: 76px; border-top: 1px solid var(--paper-line); color: #7b877e; font-size: .76rem; }
 .siteFooter a { display: inline-flex; align-items: center; gap: 6px; color: var(--paper-green-dark); font-weight: 650; }
+.scalingHeroDiagram { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 3vw, 42px); min-height: 145px; padding: 16px; border: 1px solid #e1ede3; border-radius: 14px; background: #f8fbf8; color: #668d70; }
+.scalingHeroInputs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.scalingHeroInputs span { padding: 13px 16px; border: 1px solid #d8e8db; border-radius: 9px; background: #eaf4ec; color: #335c42; font-size: .85rem; font-weight: 660; white-space: nowrap; }
+.scalingHeroInputs b { margin-left: 5px; color: #568568; }
+.scalingHeroResult { display: grid; gap: 6px; min-width: 155px; padding: 15px; border: 1px solid #b7d6c0; border-radius: 9px; background: #fff; color: #315e43; text-align: center; }
+.scalingHeroResult strong { font-size: 1.12rem; }
+.scalingHeroResult span { font-size: .75rem; }
 
 .detailMain { padding-top: 58px; padding-bottom: 76px; }
 .detailHero { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(270px, .7fr); align-items: end; gap: 48px; }
