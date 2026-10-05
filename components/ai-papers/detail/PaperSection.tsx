@@ -1,13 +1,12 @@
 import type { ReactNode } from "react";
 import styles from "./paper-detail.module.css";
 
-export default function PaperSection({ id, number, label, title, description, wide = false, children }: {
+export default function PaperSection({ id, number, label, title, description, children }: {
   id: string;
   number: string;
   label: string;
   title: string;
   description?: string;
-  wide?: boolean;
   children: ReactNode;
 }) {
   return (
@@ -17,7 +16,7 @@ export default function PaperSection({ id, number, label, title, description, wi
         <h2 id={`${id}-title`}>{title}</h2>
         {description ? <p className={styles.sectionDescription}>{description}</p> : null}
       </header>
-      <div className={wide ? styles.wideContent : styles.sectionContent}>{children}</div>
+      <div className={styles.sectionContent}>{children}</div>
     </section>
   );
 }

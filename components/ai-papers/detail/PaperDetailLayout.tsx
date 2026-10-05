@@ -27,7 +27,7 @@ export default function PaperDetailLayout({
   const next = index >= 0 ? readablePapers[index + 1] : undefined;
 
   return (
-    <div className={`${shared.paperSite} ${styles.site}`} id="paper-top">
+    <div className={`${shared.paperSite} ${styles.site}`} id="paper-top" data-contents={contents.length ? "true" : undefined}>
       <a className={styles.skipLink} href="#paper-content">跳到正文</a>
       <PaperSiteHeader onDetail />
       <main className={styles.main}>

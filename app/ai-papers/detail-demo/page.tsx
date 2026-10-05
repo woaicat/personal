@@ -46,7 +46,7 @@ export default function PaperDetailDemoPage() {
         </PaperProse>
       </PaperSection>
 
-      <PaperSection id={contents[1].id} number="02" label="图解协作" title="一个问题，如何在人与计算机之间流动？" description="把持续往返的合作拆开，可以看到三个相互衔接的步骤。" wide>
+      <PaperSection id={contents[1].id} number="02" label="图解协作" title="一个问题，如何在人与计算机之间流动？" description="把持续往返的合作拆开，可以看到三个相互衔接的步骤。">
         <CollaborationFigure />
       </PaperSection>
 
