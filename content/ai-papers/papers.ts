@@ -132,7 +132,8 @@ export const papers: Paper[] = [
     shortTitle: "InstructGPT",
     summary: "用监督微调与人类反馈训练更善于遵循指令的模型。",
     topic: "语言模型",
-    sourceUrl: "https://arxiv.org/abs/2203.02155"
+    sourceUrl: "https://arxiv.org/abs/2203.02155",
+    explainerUrl: "/ai-papers/instructgpt"
   }
 ];
 
