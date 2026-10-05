@@ -1,0 +1,52 @@
+.heroArt { position: relative; overflow: hidden; padding: 30px; border: 1px solid #dfe8dd; border-radius: 12px; background: #f0f5ec; }
+.heroArt::before { position: absolute; inset: 0; background-image: linear-gradient(#7598790d 1px, transparent 1px), linear-gradient(90deg, #7598790d 1px, transparent 1px); background-size: 24px 24px; content: ""; pointer-events: none; }
+.heroArt > * { position: relative; }
+.artTop { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: var(--detail-green); font-size: var(--detail-small); line-height: 1.7; }
+.artTop span:last-child { color: var(--detail-muted); font-variant-numeric: tabular-nums; }
+.artNodes { display: grid; grid-template-columns: 1fr 42px 1fr; align-items: center; gap: 10px; margin-top: 36px; }
+.artNode { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 22px 8px; border: 1px solid #cfdfcc; border-radius: 10px; background: #fbfcf8; color: var(--detail-green); }
+.artNode:last-child { border-color: #b3cbb5; background: #dcead9; }
+.artNode strong { font-size: var(--detail-body); font-weight: 650; }
+.artNode span { color: var(--detail-muted); font-size: var(--detail-small); }
+.artArrow { width: 100%; color: #77967a; }
+.artCaption { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #d8e4d4; color: var(--detail-green); font-size: var(--detail-body); line-height: var(--detail-leading); text-align: center; }
+.figure { margin: 0; }
+.diagram { padding: 30px 36px; border: 1px solid var(--detail-line); border-radius: 12px; background: #f3f7f0; }
+.diagramTop { display: flex; justify-content: space-between; gap: 14px; color: var(--detail-green); font-size: var(--detail-small); line-height: 1.7; }
+.diagramTop > span:last-child { color: var(--detail-muted); }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }
+.steps button { position: relative; display: flex; align-items: center; justify-content: center; gap: 15px; min-height: 100px; padding: 24px 16px; border: 1px solid #d4e0d1; border-radius: 9px; background: #fbfcf9; color: var(--detail-green); font: inherit; font-size: var(--detail-body); font-weight: 600; cursor: pointer; }
+.steps button:hover { border-color: #76977d; }
+.steps button[aria-pressed="true"] { border-color: var(--detail-green); background: var(--detail-green); color: #fff; }
+.stepNumber { position: absolute; top: 9px; left: 12px; font-size: var(--detail-small); font-weight: 400; opacity: .8; }
+.stepArrow { position: absolute; right: -18px; z-index: 1; color: #6f8b73; }
+.steps button:last-child .stepArrow { display: none; }
+.loopLine { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 16px auto 24px; color: var(--detail-muted); font-size: var(--detail-small); line-height: 1.7; }
+.loopLine::before, .loopLine::after { flex: 1; max-width: 140px; height: 1px; margin-inline: 12px; background: #d2dfcf; content: ""; }
+.explanation { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 20px; align-items: start; min-height: 224px; padding: 28px 32px; border: 1px solid #e0e8dc; border-radius: 9px; background: #fff; }
+.explanationIcon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #edf4e9; color: var(--detail-green); }
+.explanation .role { margin: 0 0 8px; color: var(--detail-muted); font-size: var(--detail-small); }
+.explanation h3 { margin: 0 0 10px; color: var(--detail-ink); font-size: var(--detail-subheading); font-weight: 650; line-height: 1.5; letter-spacing: -.025em; }
+.explanation p { margin: 0; color: var(--detail-body-ink); font-size: var(--detail-body); line-height: var(--detail-leading); }
+.explanation .example { margin-top: 12px; color: var(--detail-muted); font-size: var(--detail-small); }
+.figure figcaption { margin-top: 14px; color: var(--detail-muted); font-size: var(--detail-small); line-height: 1.7; text-align: center; }
+
+@media (max-width: 900px) {
+  .heroArt { padding: 24px 20px; }
+  .artNodes { grid-template-columns: 1fr 28px 1fr; gap: 6px; }
+}
+
+@media (max-width: 720px) {
+  .heroArt { padding: 24px; }
+  .artNodes { grid-template-columns: 1fr 36px 1fr; margin-top: 26px; }
+  .diagram { padding: 22px 16px; }
+  .diagramTop { flex-direction: column; gap: 3px; }
+  .steps { gap: 9px; margin-top: 20px; }
+  .steps button { flex-direction: column; gap: 10px; min-height: 124px; padding: 30px 6px 14px; }
+  .stepNumber { top: 6px; left: 8px; }
+  .stepArrow { right: -13px; width: 13px; }
+  .loopLine::before, .loopLine::after { margin-inline: 0; }
+  .explanation { grid-template-columns: 1fr; gap: 16px; padding: 22px 18px; min-height: 372px; }
+  .explanationIcon { width: 44px; height: 44px; }
+  .figure figcaption { text-align: left; }
+}
