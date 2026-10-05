@@ -1,6 +1,6 @@
 # 个人作品集（Next.js + Vercel）
 
-这是一个可直接部署到 Vercel 的 Next.js 项目。首页作品集数据保存在 TypeScript 中；AI 知识库、论文图解和课程内容按模块存放在独立的内容目录中。目前没有在线内容管理后台或服务端内容数据库。
+这是一个可直接部署到 Vercel 的 Next.js 项目。首页作品集数据及 AI 知识库、论文图解和课程内容由仓库中的 TypeScript、Markdown、JSON 等文件维护；网站不提供在线内容管理后台。项目另有独立的私有分析后台，分析数据使用本地 SQLite（开发）或配置后的 Turso 存储，不用于内容管理。
 
 ## 技术栈
 
@@ -18,6 +18,7 @@
 | SQL 学习 | `/sql-learning` | `app/sql-learning/`、`components/sql-learning/`、`content/sql-learning/`、`lib/sql-learning/` |
 | 从 0 到 1 设计一个 Agent | `/zero-to-one/agent` | `app/zero-to-one/agent/`、`components/agent-course/`、`content/agent-course/`、`lib/agent-course/` |
 | Personal Space | `/personal-space` | `app/personal-space/`、`components/personal-space/`、`public/personal-space/` |
+| 私有分析后台 | `/admin/analytics` | `app/admin/`、`app/api/admin/`、`app/api/analytics/`、`components/private-analytics/`、`lib/private-analytics/` |
 
 ## 目录约定
 
@@ -62,7 +63,7 @@ npm run start
 npm run check:deploy
 ```
 
-该命令会依次执行类型检查和生产构建。
+该命令会依次运行 ESLint、TypeScript 检查、AI 知识库内容检查和 Next.js 生产构建。私有分析模块的自动化测试通过 `npm run test:analytics` 单独运行；仓库 CI 会同时执行这两组检查。
 
 ## 数据维护
 
@@ -103,23 +104,27 @@ npm run content:check
 
 ## 环境变量
 
-复制 `.env.example` 为 `.env.local`（本地）或在 Vercel 中配置：
+复制 `.env.example` 为 `.env.local`（本地）或在 Vercel 中配置站点地址：
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
+
+私有分析功能默认关闭。需要本地演示时运行 `npm run analytics:setup`；Turso 测试库和生产库的服务端变量配置见 [`docs/private-analytics/Turso接入与上线.md`](docs/private-analytics/Turso接入与上线.md)。数据库 Token、管理员密码哈希和签名密钥只能使用服务端环境变量，不能使用 `NEXT_PUBLIC_` 前缀。
 
 ## 部署到 Vercel
 
 1. 将该目录推送到 GitHub 仓库
 2. 在 Vercel 导入仓库
 3. Framework Preset 选择 `Next.js`
-4. 保持默认构建设置即可部署
+4. 保持默认构建设置即可部署内容网站
 5. 在 Vercel 项目设置里补充 `NEXT_PUBLIC_SITE_URL`
+
+私有分析后台需要另行配置 Turso 和管理员相关的服务端变量；未配置时分析功能保持关闭。生产环境设置步骤见 [`docs/private-analytics/Turso接入与上线.md`](docs/private-analytics/Turso接入与上线.md)。
 
 ## 安全部署
 
 - 已内置基础安全响应头：`X-Frame-Options`、`X-Content-Type-Options`、`Referrer-Policy`、`Permissions-Policy` 和最小 CSP。
-- 已对 `/api/*` 做轻量限流，当前实现是无外部依赖的内存级别限流，适合基础防刷，不适合作为强一致的生产级防护。
+- API 限流按接口分层：中间件对大多数 `/api/*` 路由执行进程内存限流；`/api/admin/login` 和 `/api/analytics/collect` 使用数据库共享限流并跳过中间件限流。进程内存限流不在多个服务实例之间共享。
 - 已对明显恶意 UA 和不支持的方法做基础拦截。
-- 如果后续增加登录、写入接口或后台管理，建议再补一层 Vercel Firewall / WAF、验证码、持久化限流和鉴权。
+- 私有分析后台使用登录会话鉴权；登录和数据采集接口校验请求来源。若需更强的边缘层抗滥用能力，可再配置 Vercel Firewall / WAF。
