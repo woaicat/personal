@@ -49,7 +49,8 @@ export const papers: Paper[] = [
     shortTitle: "Transformer",
     summary: "以注意力机制重构序列建模的方式。",
     topic: "语言模型",
-    sourceUrl: "https://arxiv.org/abs/1706.03762"
+    sourceUrl: "https://arxiv.org/abs/1706.03762",
+    explainerUrl: "/ai-papers/transformer"
   },
   {
     slug: "scaling-laws",
