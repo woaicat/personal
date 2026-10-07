@@ -40,6 +40,7 @@ export const papers: Paper[] = [
     shortTitle: "GAN",
     summary: "让生成器与判别器在对抗中学习数据分布。",
     topic: "生成模型",
+    explainerUrl: "/ai-papers/gan",
     sourceUrl: "https://proceedings.neurips.cc/paper_files/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html"
   },
   {
