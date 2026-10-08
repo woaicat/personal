@@ -80,6 +80,8 @@ export default function PaperLibraryPage() {
                           ? "人提出目标与判断，计算机协助检索和推演，再把结果送回共同讨论。"
                           : paper.slug === "scaling-laws"
                             ? "把模型、数据与算力的旋钮拧大，测试损失会怎样变化？"
+                            : paper.slug === "gpt-3"
+                              ? "不再为每个任务重新微调：给出说明和少量示例，模型能跟上吗？"
                             : "从问题出发，一步步看懂这篇论文的核心机制。"}
                     </p>
                     {paper.slug === "alexnet" ? (
@@ -133,8 +135,10 @@ export default function PaperLibraryPage() {
                           ? "结构示意 · 可在解读页逐层探索"
                           : paper.slug === "licklider"
                             ? "概念示意 · 回到人手中继续判断"
-                            : paper.slug === "scaling-laws"
-                              ? "三张插图解释 · 可亲手调节规模曲线"
+                          : paper.slug === "scaling-laws"
+                            ? "三张插图解释 · 可亲手调节规模曲线"
+                            : paper.slug === "gpt-3"
+                              ? "切换零样本、单样本与少样本提示"
                               : "阅读图解，了解论文的关键思路"}
                         {paper.slug === "alexnet" && <span className={styles.mobileSwipeHint}>左右滑动查看完整流程</span>}
                       </span>

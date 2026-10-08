@@ -77,9 +77,10 @@ export const papers: Paper[] = [
     year: 2020,
     title: "Language Models are Few-Shot Learners",
     shortTitle: "GPT-3",
-    summary: "展示大规模语言模型的少样本学习能力。",
+    summary: "把任务说明和少量示例放进输入，在不针对任务微调的情况下完成多种语言任务。",
     topic: "语言模型",
-    sourceUrl: "https://arxiv.org/abs/2005.14165"
+    sourceUrl: "https://arxiv.org/abs/2005.14165",
+    explainerUrl: "/ai-papers/gpt-3"
   },
   {
     slug: "ddpm",
