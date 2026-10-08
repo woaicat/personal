@@ -68,9 +68,10 @@ export const papers: Paper[] = [
     year: 2020,
     title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
     shortTitle: "RAG",
-    summary: "把外部文档检索接入生成过程。",
+    summary: "先从维基百科检索相关片段，再让生成模型综合片段作答；比较整句与逐词使用证据的两种方式。",
     topic: "推理与检索",
-    sourceUrl: "https://arxiv.org/abs/2005.11401"
+    sourceUrl: "https://arxiv.org/abs/2005.11401",
+    explainerUrl: "/ai-papers/rag"
   },
   {
     slug: "gpt-3",
