@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { agentCurriculum, allAgentLessons } from "@/content/agent-course/curriculum";
@@ -14,6 +13,7 @@ import {
   type LessonProgressMap
 } from "@/lib/agent-course/storage/lessonProgress";
 import styles from "@/components/agent-course/styles/agent-course.module.css";
+import ZeroToOneHeader from "@/components/zero-to-one/ZeroToOneHeader";
 
 const firstLessonId = allAgentLessons[0]?.id ?? "01";
 
@@ -69,18 +69,7 @@ export default function AgentCoursePage() {
 
   return (
     <div className={styles.coursePage}>
-      <header className={styles.courseHeader}>
-        <div className={styles.courseHeaderInner}>
-          <Link className={styles.breadcrumb} href="/" aria-label="返回 JiaXuan 个人作品集首页">
-            jiaxuan <span aria-hidden="true">·</span> 从 0 到 1
-          </Link>
-          <nav className={styles.courseNav} aria-label="课程导航">
-            <Link className={styles.courseNavActive} href="/zero-to-one/agent" aria-current="page">
-              Agent
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <ZeroToOneHeader active="agent" />
 
       <main>
         <section className={styles.hero} aria-labelledby="agent-course-title">

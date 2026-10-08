@@ -1,0 +1,56 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #e7eceb;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  font-family: var(--font-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.inner {
+  display: flex;
+  align-items: stretch;
+  gap: 2.8rem;
+  width: min(1160px, calc(100% - 88px));
+  min-height: 47px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  gap: 0.55rem;
+  color: #313841;
+  font-size: 0.91rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.brand span { color: #a2aaa9; }
+
+.nav { display: flex; align-items: stretch; gap: 2.5rem; }
+
+.nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.1rem;
+  color: #59646c;
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav a:hover, .nav a:focus-visible, .nav a.active { color: #1a2029; }
+.nav a:focus-visible { outline: 2px solid #2c5fe6; outline-offset: -3px; }
+.nav a.active::after { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: #2c5fe6; content: ""; }
+
+@media (max-width: 960px) { .inner { width: min(100% - 64px, 760px); } }
+@media (max-width: 680px) {
+  .inner { width: min(100% - 32px, 520px); min-height: 52px; gap: clamp(0.9rem, 5vw, 2rem); }
+  .brand { font-size: 0.82rem; white-space: nowrap; }
+  .nav { gap: clamp(0.8rem, 3vw, 1.5rem); }
+  .nav a { font-size: 0.84rem; white-space: nowrap; }
+}
