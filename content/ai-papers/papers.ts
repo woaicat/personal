@@ -96,9 +96,10 @@ export const papers: Paper[] = [
     year: 2020,
     title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
     shortTitle: "ViT",
-    summary: "把图像切成块，让 Transformer 处理视觉任务。",
+    summary: "把图像切成 patch token 交给 Transformer；大规模预训练后迁移到多种图像分类任务。",
     topic: "视觉理解",
-    sourceUrl: "https://arxiv.org/abs/2010.11929"
+    sourceUrl: "https://arxiv.org/abs/2010.11929",
+    explainerUrl: "/ai-papers/vit"
   },
   {
     slug: "clip",

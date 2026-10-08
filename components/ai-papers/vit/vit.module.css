@@ -1,0 +1,103 @@
+.cardArt, .heroArt, .methodFigure { color: #294b3a; }
+
+.cardArt { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 126px; margin-top: 20px; padding: 16px 20px; border: 1px solid #d5e3d6; border-radius: 12px; background: #f2f6ef; }
+.cardImage, .cardTokens, .cardOutput { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
+.cardImage small, .cardTokens small, .cardTokens > span, .cardOutput small { color: #6a806f; font-size: .72rem; line-height: 1.4; text-align: center; }
+.cardPatchGrid { display: grid; grid-template-columns: repeat(4, 10px); gap: 2px; padding: 3px; border: 1px solid #a9c3ad; border-radius: 4px; background: #e1ecdf; }
+.cardPatchGrid span { width: 10px; height: 10px; border-radius: 2px; background: #88ad8f; }
+.cardPatchGrid span:nth-child(4n + 1), .cardPatchGrid span:nth-child(4n + 4) { background: #bfd5bc; }
+.cardTokens > div { display: flex; align-items: center; gap: 4px; }
+.cardTokens > div > * { display: inline-flex; align-items: center; justify-content: center; min-width: 25px; height: 25px; padding-inline: 4px; border: 1px solid #b7ccbb; border-radius: 5px; background: #fff; color: #44674d; font-size: .67rem; font-style: normal; }
+.cardTokens > div > b { background: #d8e8d8; color: #2b5738; }
+.cardArrow { color: #719279; font-size: 1.2rem; line-height: 1; }
+.cardOutput { gap: 9px; padding: 13px 12px; border: 1px solid #b9cdbb; border-radius: 8px; background: #fff; text-align: center; }
+.cardOutput strong { font-size: .78rem; font-weight: 650; }
+
+.heroArt { width: 100%; padding: 22px; border: 1px solid #d7e3d6; border-radius: 15px; background: linear-gradient(145deg, #f2f6ef, #eaf1e8); }
+.artTopline { display: flex; justify-content: space-between; gap: 10px; color: #718576; font-size: .67rem; font-weight: 650; letter-spacing: .08em; }
+.heroFlow { display: grid; grid-template-columns: minmax(60px, .8fr) 16px minmax(126px, 1.6fr) 16px minmax(88px, 1fr); align-items: center; gap: 7px; margin-top: 24px; }
+.heroImageStage, .heroTokenStage, .heroEncoderStage { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; text-align: center; }
+.heroPatchGrid { display: grid; grid-template-columns: repeat(4, 12px); gap: 2px; padding: 3px; border: 1px solid #9db99f; border-radius: 4px; background: #e2ebdf; }
+.heroPatchGrid span { width: 12px; height: 12px; border-radius: 2px; background: #82a98b; }
+.heroPatchGrid span:nth-child(4n + 2), .heroPatchGrid span:nth-child(4n + 3) { background: #c3d7c1; }
+.heroImageStage strong, .heroTokenStage strong, .heroEncoderStage strong { color: #2b4935; font-size: .72rem; font-weight: 650; line-height: 1.4; }
+.heroImageStage small, .heroTokenStage small, .heroEncoderStage small { color: #738476; font-size: .64rem; line-height: 1.4; }
+.heroTokens { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+.heroTokens > * { display: inline-flex; align-items: center; justify-content: center; min-width: 25px; height: 23px; padding-inline: 4px; border: 1px solid #b7cdb9; border-radius: 5px; background: rgba(255,255,255,.8); color: #496a50; font-size: .62rem; font-style: normal; }
+.heroTokens > b { background: #dbeada; color: #285336; }
+.heroArrow { color: #79947d; font-size: 1.15rem; }
+.heroEncoderStage { gap: 7px; padding: 12px 8px; border: 1px solid #c1d2c1; border-radius: 8px; background: rgba(255,255,255,.65); }
+.heroEncoderStage > span { width: 100%; padding: 5px 3px; border-radius: 4px; background: #e8f0e6; color: #4d6c52; font-size: .63rem; line-height: 1.3; }
+.heroCaption { margin: 20px 0 0; color: #607565; font-size: .75rem; line-height: 1.5; text-align: center; }
+
+.methodFigure { margin: 0 0 28px; }
+.methodFlow { display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1.25fr) 28px minmax(0, 1fr); align-items: stretch; gap: 10px; padding: 22px; border: 1px solid #dce7dc; border-radius: 12px; background: #f4f7f2; }
+.methodStage { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; min-width: 0; padding: 18px 14px; border: 1px solid #d8e3d6; border-radius: 9px; background: #fff; }
+.methodStage > small { color: #6c856f; font-size: .76rem; font-weight: 650; line-height: 1.5; }
+.methodStage > strong { color: #2c4936; font-size: .92rem; font-weight: 650; line-height: 1.4; }
+.methodStage > span { color: #6b7d6e; font-size: .78rem; line-height: 1.55; }
+.methodPatchGrid { display: grid; grid-template-columns: repeat(4, 13px); gap: 2px; padding: 4px; border: 1px solid #abc3ab; border-radius: 4px; background: #e5eee2; }
+.methodPatchGrid span { width: 13px; height: 13px; border-radius: 2px; background: #83a98a; }
+.methodPatchGrid span:nth-child(4n + 2), .methodPatchGrid span:nth-child(4n + 3) { background: #c0d4bd; }
+.methodTokenRow { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.methodTokenRow > * { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 28px; padding-inline: 5px; border: 1px solid #bfd1be; border-radius: 5px; background: #f7faf5; color: #4a6b50; font-size: .72rem; font-style: normal; }
+.methodTokenRow > b { background: #dcebd9; color: #2f5839; }
+.encoderStack { display: grid; width: 100%; gap: 5px; }
+.encoderStack > span { padding: 7px 8px; border: 1px solid #c6d9c5; border-radius: 5px; background: #eff5ec; color: #496b4e; font-size: .74rem; text-align: center; }
+.encoderStack > i { color: #758775; font-size: .7rem; font-style: normal; text-align: center; }
+.methodArrow { display: grid; place-items: center; color: #78967e; font-size: 1.35rem; }
+.methodFigure figcaption { margin-top: 12px; color: #718174; font-size: .78rem; line-height: 1.65; }
+
+.results { margin: 24px 0 16px; overflow-x: auto; border: 1px solid #dce7dc; border-radius: 10px; background: #fff; }
+.results table { width: 100%; border-collapse: collapse; color: #44594a; font-size: .82rem; }
+.results caption { padding: 15px 18px; color: #607564; font-size: .78rem; line-height: 1.6; text-align: left; }
+.results th, .results td { padding: 13px 14px; border-top: 1px solid #e6eee5; text-align: left; vertical-align: middle; }
+.results thead th { color: #526a57; font-size: .73rem; font-weight: 650; }
+.results tbody th { min-width: 120px; color: #2f4c38; font-weight: 650; }
+.score { min-width: 145px; }
+.scoreValue { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 6px; color: #758476; font-size: .68rem; }
+.scoreValue strong { color: #365a40; font-size: .74rem; font-weight: 650; white-space: nowrap; }
+.scoreTrack { display: block; height: 5px; overflow: hidden; border-radius: 99px; background: #e9efe8; }
+.scoreTrack > span { display: block; height: 100%; border-radius: inherit; background: #648e69; }
+.baseline .scoreTrack > span { background: #a2b9a2; }
+.resultsNote { margin-top: 0; color: #708174; font-size: .78rem; line-height: 1.65; }
+
+@media (max-width: 700px) {
+  .cardArt { gap: 6px; min-height: 112px; padding: 12px 10px; }
+  .cardPatchGrid { grid-template-columns: repeat(4, 8px); }
+  .cardPatchGrid span { width: 8px; height: 8px; }
+  .cardTokens > div { gap: 2px; }
+  .cardTokens > div > * { min-width: 20px; height: 22px; font-size: .6rem; }
+  .cardImage small, .cardTokens small, .cardTokens > span, .cardOutput small { font-size: .64rem; }
+  .cardOutput { padding: 10px 7px; }
+  .cardOutput strong { font-size: .68rem; }
+  .heroArt { padding: 18px 14px; }
+  .heroPatchGrid { grid-template-columns: repeat(4, 10px); }
+  .heroPatchGrid span { width: 10px; height: 10px; }
+  .heroTokens > * { min-width: 22px; height: 21px; font-size: .58rem; }
+  .heroEncoderStage { padding: 10px 6px; }
+  .heroEncoderStage > span { font-size: .59rem; }
+  .methodFlow { grid-template-columns: 1fr; gap: 8px; padding: 14px; }
+  .methodStage { align-items: center; padding: 16px; text-align: center; }
+  .methodArrow { height: 20px; transform: rotate(90deg); }
+  .methodStage > span { text-align: center; }
+  .encoderStack { max-width: 260px; }
+  .results { overflow-x: hidden; }
+  .results table { min-width: 0; table-layout: fixed; }
+  .results th, .results td { padding: 11px 7px; }
+  .results thead th:first-child, .results tbody th { width: 25%; min-width: 0; }
+  .results thead th:nth-child(2), .results thead th:nth-child(3) { width: 37.5%; }
+  .score { min-width: 0; }
+  .scoreValue { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .scoreValue span { font-size: .62rem; overflow-wrap: anywhere; }
+  .scoreValue strong { font-size: .66rem; white-space: normal; }
+}
+
+@media (max-width: 1080px) {
+  .heroFlow { grid-template-columns: minmax(48px, .65fr) 14px minmax(0, 1.35fr); gap: 5px; }
+  .heroFlow > :nth-child(4) { display: none; }
+  .heroEncoderStage { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; gap: 6px; }
+  .heroEncoderStage::before { content: "↓"; grid-column: 1 / -1; color: #79947d; font-size: 1rem; line-height: 1; }
+  .heroEncoderStage > strong, .heroEncoderStage > small { grid-column: 1 / -1; }
+  .heroEncoderStage > strong { overflow-wrap: anywhere; }
+}
