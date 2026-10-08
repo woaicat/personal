@@ -301,6 +301,18 @@
 .featuredSummary svg { flex: 0 0 auto; }
 .featuredSummary p { margin: 0; line-height: 1.65; }
 
+.gpt3HeroDiagram { display: grid; grid-template-columns: minmax(0, 1.2fr) 20px minmax(0, .9fr) 20px minmax(0, .8fr); align-items: center; gap: 10px; min-height: 110px; padding: 12px 16px; border: 1px solid #e5eee7; border-radius: 12px; background: #f8fbf8; }
+.gpt3Prompt, .gpt3Model, .gpt3Output { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; min-height: 78px; padding: 9px; border: 1px solid #ccdfd0; border-radius: 9px; text-align: center; }
+.gpt3Prompt { flex-direction: row; flex-wrap: wrap; background: #fff; }
+.gpt3Prompt small { flex-basis: 100%; color: #6a806e; font-size: .68rem; }
+.gpt3Prompt span { padding: 5px 7px; border-radius: 5px; background: #eaf4eb; color: #315b40; font-size: .75rem; font-weight: 650; white-space: nowrap; }
+.gpt3Model { background: #e3f0e6; }
+.gpt3Model strong { color: #315b40; font-size: 1rem; }
+.gpt3Model small, .gpt3Output small { color: #6a806e; font-size: .68rem; }
+.gpt3Output { background: #fff; }
+.gpt3Output strong { color: #315b40; font-size: .88rem; }
+.gpt3FlowArrow { color: #73917c; }
+
 .featuredBottom {
   gap: 14px;
   margin-top: 18px;
@@ -508,6 +520,9 @@
   .heroFlowBlock { min-width: 77px; }
   .heroFlowResult { min-width: 55px; flex-basis: 55px; }
   .heroFlow > svg { width: 13px; }
+  .gpt3HeroDiagram { gap: 5px; padding: 10px 8px; }
+  .gpt3Prompt, .gpt3Model, .gpt3Output { min-height: 72px; padding: 7px 4px; }
+  .gpt3FlowArrow { width: 14px; }
   .mobileSwipeHint { display: block; margin-top: 4px; color: #5f8268; }
   .librarySection { padding-top: 42px; }
   .libraryToolbar { align-items: start; flex-direction: column; gap: 8px; }
@@ -548,6 +563,12 @@
   .labInsight button { grid-column: 2; }
   .sourcePanel { align-items: start; flex-direction: column; padding: 22px; }
   .detailEnd { flex-direction: column; }
+}
+
+@media (max-width: 420px) {
+  .gpt3HeroDiagram { grid-template-columns: minmax(0, 1fr); }
+  .gpt3Prompt, .gpt3Model, .gpt3Output { min-height: 48px; }
+  .gpt3FlowArrow { justify-self: center; transform: rotate(90deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {

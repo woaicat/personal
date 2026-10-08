@@ -126,6 +126,14 @@ export default function PaperLibraryPage() {
                         <ArrowRight size={23} aria-hidden="true" />
                         <div className={styles.scalingHeroResult}><strong>测试损失</strong><span>沿幂律曲线下降 ↘</span></div>
                       </div>
+                    ) : paper.slug === "gpt-3" ? (
+                      <div className={styles.gpt3HeroDiagram} role="img" aria-label="任务说明和少量示例组成输入上下文，交给参数不变的 GPT-3，模型继续预测答案。">
+                        <div className={styles.gpt3Prompt}><small>输入上下文</small><span>任务说明</span><span>少量示例</span></div>
+                        <ArrowRight className={styles.gpt3FlowArrow} size={20} aria-hidden="true" />
+                        <div className={styles.gpt3Model}><strong>GPT-3</strong><small>参数不变</small></div>
+                        <ArrowRight className={styles.gpt3FlowArrow} size={20} aria-hidden="true" />
+                        <div className={styles.gpt3Output}><small>继续预测</small><strong>答案</strong></div>
+                      </div>
                     ) : (
                       <div className={styles.featuredSummary}><BookOpenText size={25} aria-hidden="true" /><p>{paper.summary}</p></div>
                     )}
