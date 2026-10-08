@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "lang": "zh",
+  "project": "从 0 到 1 设计一个 Agent · 实战案例",
+  "brief": "在同一网页的实战案例目录中，先阅读本期推荐，再按标签浏览 Agent 开发与设计案例。案例展示中文标题、来源、内容形式和约 3–4 行的价值简介；插图表达具体主题且全页风格统一。",
+  "round": "02",
+  "candidates": [
+    {
+      "id": "research-journal",
+      "name": "研究手记",
+      "concept": "把案例当作可反复查阅的研究资料；本期推荐是一张放大的技术图版。",
+      "typography": "宋体展示标题 76/42px，中文无衬线正文 15–17px，英文索引 12–13px",
+      "palette": ["#f8f7f2", "#152126", "#2c5fe6", "#ee7655"],
+      "traits": ["蓝底技术图版承担首屏主视觉", "案例为双栏长简介而非小卡片", "细线与编号延续研究手记语言"],
+      "kind": "html",
+      "source": "01-research-journal.html"
+    },
+    {
+      "id": "studio-bulletin",
+      "name": "实践公告",
+      "concept": "像一份有鲜明编辑判断的实践刊物；推荐内容先声夺人，目录保留深入阅读空间。",
+      "typography": "重磅中文无衬线标题 82/39px，正文 16–17px，英文刊物索引 12–13px",
+      "palette": ["#f3f5ef", "#182b37", "#2c5fe6", "#d9ee82"],
+      "traits": ["深色推荐海报与层叠流程插图", "大幅统一图符引导横向案例列表", "高对比粗线与方角形成控件语法"],
+      "kind": "html",
+      "source": "02-studio-bulletin.html"
+    }
+  ]
+}
