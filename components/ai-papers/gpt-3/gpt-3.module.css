@@ -1,10 +1,26 @@
 .heroArt { padding: 26px; border: 1px solid var(--detail-line); border-radius: 20px; background: var(--detail-soft); color: var(--detail-ink); }
 .heroTop { display: flex; justify-content: space-between; gap: 16px; color: var(--detail-green); font-size: var(--detail-small); letter-spacing: .07em; }
-.heroSteps { display: grid; gap: 10px; margin: 28px 0 20px; }
-.heroStep { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; border: 1px solid var(--detail-line); border-radius: 10px; background: white; }
-.heroStep span { color: var(--detail-muted); font-size: var(--detail-small); }
-.heroStep strong { color: var(--detail-green); font-size: var(--detail-body); }
-.heroArt p { margin: 0; color: var(--detail-body-ink); font-size: var(--detail-body); line-height: var(--detail-leading); }
+.heroDiagram { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1.05fr) 18px minmax(0, .8fr); grid-template-rows: 90px 90px; align-items: center; gap: 8px; margin: 24px 0 18px; }
+.heroCorpus, .heroPrompt, .heroOutput { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; min-height: 84px; padding: 8px 5px; border: 1px solid var(--detail-line); border-radius: 10px; background: white; text-align: center; }
+.heroCorpus { grid-column: 1; grid-row: 1; }
+.heroCorpus small, .heroPrompt small, .heroOutput small, .heroModel small { color: var(--detail-muted); font-size: .7rem; line-height: 1.3; }
+.heroPages { position: relative; width: 54px; height: 40px; }
+.heroPages span { position: absolute; width: 34px; height: 32px; border: 1px solid #9cbaa4; border-radius: 4px; background: #e9f3e9; }
+.heroPages span:nth-child(1) { left: 1px; top: 1px; }
+.heroPages span:nth-child(2) { left: 10px; top: 5px; }
+.heroPages span:nth-child(3) { left: 19px; top: 9px; background: linear-gradient(#c5dcc8 0 2px, transparent 2px 8px, #c5dcc8 8px 10px, transparent 10px 16px, #c5dcc8 16px 18px, transparent 18px), white; background-size: 20px 22px; background-repeat: no-repeat; background-position: center; }
+.heroArrow { color: #72977b; font-size: 1.4rem; text-align: center; }
+.heroTrainArrow { grid-column: 2; grid-row: 1; }
+.heroPrompt { grid-column: 1; grid-row: 2; background: #f9fcf8; }
+.heroPrompt span { display: block; width: min(100%, 88px); padding: 2px 5px; border-radius: 4px; background: #e6f1e7; color: var(--detail-green); font-size: .7rem; font-weight: 650; }
+.heroPromptArrow { grid-column: 2; grid-row: 2; }
+.heroModel { grid-column: 3; grid-row: 1 / 3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-width: 0; }
+.heroModelCore { display: grid; place-items: center; width: min(100%, 98px); aspect-ratio: 1; border: 4px solid #c5dcc9; border-radius: 50%; background: #dfedde; box-shadow: 0 0 0 8px rgba(217, 233, 218, .7); color: var(--detail-green); font-size: 1.05rem; font-weight: 750; }
+.heroOutputArrow { grid-column: 4; grid-row: 2; }
+.heroOutput { grid-column: 5; grid-row: 2; }
+.heroOutput strong { color: var(--detail-green); font-size: var(--detail-body); }
+.heroOutput > span { width: 42px; height: 3px; border-radius: 3px; background: #a8c6af; }
+.heroStatus { margin: 0; padding-top: 12px; border-top: 1px solid var(--detail-line); color: var(--detail-body-ink); font-size: var(--detail-small); line-height: 1.6; text-align: center; }
 .figure { margin: 0; }
 .figure figcaption, .evidence figcaption { margin-top: 14px; color: var(--detail-muted); font-size: var(--detail-small); line-height: 1.7; }
 .demo { padding: 22px; border: 1px solid var(--detail-line); border-radius: 16px; background: var(--detail-soft); }
@@ -41,8 +57,15 @@
 .scoreRow { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px solid var(--detail-line); color: var(--detail-body-ink); font-size: var(--detail-body); }
 .scoreRow strong { color: var(--detail-green); font-variant-numeric: tabular-nums; }
 .scoreRow:last-child { font-weight: 650; }
+@media (max-width: 1100px) {
+  .heroArt { padding: 18px; }
+}
 @media (max-width: 720px) {
   .heroArt { padding: 20px; }
+  .heroDiagram { grid-template-columns: minmax(0, 1fr) 15px minmax(0, 1fr) 15px minmax(0, .8fr); gap: 5px; }
+  .heroCorpus, .heroPrompt, .heroOutput { padding: 7px 3px; }
+  .heroModelCore { width: min(100%, 84px); font-size: .88rem; }
+  .heroArrow { font-size: 1.1rem; }
   .demo { padding: 16px; }
   .modeButtons { gap: 5px; }
   .modeButtons button { flex-direction: column; gap: 2px; padding: 7px 3px; }

@@ -33,12 +33,29 @@ export default function GPT3Page() {
         visual={
           <div className={styles.heroArt} role="img" aria-label="预训练后的同一个模型读取任务说明与示例，再续写答案；评估时模型参数不更新。">
             <div className={styles.heroTop}><span>IN-CONTEXT LEARNING</span><span>2020</span></div>
-            <div className={styles.heroSteps}>
-              <div className={styles.heroStep}><span>01 / 预训练</span><strong>获得通用语言能力</strong></div>
-              <div className={styles.heroStep}><span>02 / 输入上下文</span><strong>说明任务 · 展示示例</strong></div>
-              <div className={styles.heroStep}><span>03 / 继续预测</span><strong>生成目标答案</strong></div>
+            <div className={styles.heroDiagram}>
+              <div className={styles.heroCorpus}>
+                <div className={styles.heroPages} aria-hidden="true"><span /><span /><span /></div>
+                <small>预训练语料</small>
+              </div>
+              <span className={`${styles.heroArrow} ${styles.heroTrainArrow}`} aria-hidden="true">→</span>
+              <div className={styles.heroPrompt}>
+                <small>任务输入</small>
+                <span>任务说明</span><span>少量示例</span>
+              </div>
+              <span className={`${styles.heroArrow} ${styles.heroPromptArrow}`} aria-hidden="true">→</span>
+              <div className={styles.heroModel}>
+                <div className={styles.heroModelCore}>GPT-3</div>
+                <small>同一个模型</small>
+              </div>
+              <span className={`${styles.heroArrow} ${styles.heroOutputArrow}`} aria-hidden="true">→</span>
+              <div className={styles.heroOutput}>
+                <small>输出</small>
+                <strong>答案</strong>
+                <span aria-hidden="true" />
+              </div>
             </div>
-            <p>新任务放进文本上下文，评估时不更新参数。</p>
+            <p className={styles.heroStatus}>预训练之后，推理时只改变输入 · 参数不变</p>
           </div>
         }
       />
