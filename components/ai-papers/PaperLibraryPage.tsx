@@ -8,6 +8,7 @@ import { chronologicalPapers, paperTopics, type PaperTopic } from "@/content/ai-
 import PaperSiteHeader from "./PaperSiteHeader";
 import { ViTCardDiagram } from "./vit/ViTDiagrams";
 import { RagCardDiagram } from "./rag/RagDiagrams";
+import { LatentDiffusionCardDiagram } from "./latent-diffusion/LatentDiffusionDiagrams";
 import styles from "./ai-papers.module.css";
 
 type Filter = "全部" | PaperTopic;
@@ -18,7 +19,8 @@ const featuredLeads: Record<string, string> = {
   "scaling-laws": "把模型、数据与算力的旋钮拧大，测试损失会怎样变化？",
   "gpt-3": "不再为每个任务重新微调：给出说明和少量示例，模型能跟上吗？",
   vit: "把图像切成 patch，变成 Transformer 可以处理的 token 序列。",
-  rag: "模型回答前查阅外部片段，再综合候选证据生成答案。"
+  rag: "模型回答前查阅外部片段，再综合候选证据生成答案。",
+  "latent-diffusion": "先压缩图像，再在较小的潜空间学习逐步去噪。"
 };
 const featuredCaptions: Record<string, string> = {
   alexnet: "结构示意 · 可在解读页逐层探索",
@@ -26,7 +28,8 @@ const featuredCaptions: Record<string, string> = {
   "scaling-laws": "三张插图解释 · 可亲手调节规模曲线",
   "gpt-3": "切换零样本、单样本与少样本提示",
   vit: "patch → token → 分类 · 实验结果与适用边界",
-  rag: "问题 → 检索 → 生成 · 比较两种 RAG 概率模型"
+  rag: "问题 → 检索 → 生成 · 比较两种 RAG 概率模型",
+  "latent-diffusion": "压缩 → 潜空间去噪 → 还原 · 两阶段生成"
 };
 
 export default function PaperLibraryPage() {
@@ -146,6 +149,8 @@ export default function PaperLibraryPage() {
                       <ViTCardDiagram />
                     ) : paper.slug === "rag" ? (
                       <RagCardDiagram />
+                    ) : paper.slug === "latent-diffusion" ? (
+                      <LatentDiffusionCardDiagram />
                     ) : (
                       <div className={styles.featuredSummary}><BookOpenText size={25} aria-hidden="true" /><p>{paper.summary}</p></div>
                     )}

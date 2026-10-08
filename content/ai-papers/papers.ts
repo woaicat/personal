@@ -115,10 +115,11 @@ export const papers: Paper[] = [
     slug: "latent-diffusion",
     year: 2021,
     title: "High-Resolution Image Synthesis with Latent Diffusion Models",
-    shortTitle: "Latent Diffusion",
-    summary: "在压缩后的潜空间中完成扩散生成。",
+    shortTitle: "潜扩散模型",
+    summary: "先学压缩与重建，再在较小的潜空间逐步去噪，降低高分辨率图片生成的计算成本。",
     topic: "生成模型",
-    sourceUrl: "https://arxiv.org/abs/2112.10752"
+    sourceUrl: "https://arxiv.org/abs/2112.10752",
+    explainerUrl: "/ai-papers/latent-diffusion"
   },
   {
     slug: "chain-of-thought",
