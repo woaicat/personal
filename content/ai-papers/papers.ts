@@ -87,10 +87,11 @@ export const papers: Paper[] = [
     slug: "ddpm",
     year: 2020,
     title: "Denoising Diffusion Probabilistic Models",
-    shortTitle: "DDPM",
-    summary: "通过逐步加噪与反向去噪生成图像。",
+    shortTitle: "DDPM 扩散模型",
+    summary: "从图片逐步加噪，训练网络预测噪声；生成时从新抽取的噪声逐步得到图片。",
     topic: "生成模型",
-    sourceUrl: "https://arxiv.org/abs/2006.11239"
+    sourceUrl: "https://arxiv.org/abs/2006.11239",
+    explainerUrl: "/ai-papers/ddpm"
   },
   {
     slug: "vit",

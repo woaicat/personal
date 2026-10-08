@@ -9,6 +9,7 @@ import PaperSiteHeader from "./PaperSiteHeader";
 import { ViTCardDiagram } from "./vit/ViTDiagrams";
 import { RagCardDiagram } from "./rag/RagDiagrams";
 import { LatentDiffusionCardDiagram } from "./latent-diffusion/LatentDiffusionDiagrams";
+import { DdpmCardDiagram } from "./ddpm/DdpmDiagrams";
 import styles from "./ai-papers.module.css";
 
 type Filter = "全部" | PaperTopic;
@@ -20,6 +21,7 @@ const featuredLeads: Record<string, string> = {
   "gpt-3": "不再为每个任务重新微调：给出说明和少量示例，模型能跟上吗？",
   vit: "把图像切成 patch，变成 Transformer 可以处理的 token 序列。",
   rag: "模型回答前查阅外部片段，再综合候选证据生成答案。",
+  ddpm: "先给图片加噪，再学习从新噪声一步步生成图片。",
   "latent-diffusion": "先压缩图像，再在较小的潜空间学习逐步去噪。"
 };
 const featuredCaptions: Record<string, string> = {
@@ -29,6 +31,7 @@ const featuredCaptions: Record<string, string> = {
   "gpt-3": "切换零样本、单样本与少样本提示",
   vit: "patch → token → 分类 · 实验结果与适用边界",
   rag: "问题 → 检索 → 生成 · 比较两种 RAG 概率模型",
+  ddpm: "真实图片 → 加噪；随机噪声 → 逐步生成",
   "latent-diffusion": "压缩 → 潜空间去噪 → 还原 · 两阶段生成"
 };
 
@@ -149,6 +152,8 @@ export default function PaperLibraryPage() {
                       <ViTCardDiagram />
                     ) : paper.slug === "rag" ? (
                       <RagCardDiagram />
+                    ) : paper.slug === "ddpm" ? (
+                      <DdpmCardDiagram />
                     ) : paper.slug === "latent-diffusion" ? (
                       <LatentDiffusionCardDiagram />
                     ) : (
