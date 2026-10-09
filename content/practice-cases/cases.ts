@@ -1,7 +1,7 @@
-export const practiceCaseTags = ["Agent 设计", "Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索"] as const;
+export const practiceCaseTags = ["Agent 设计", "Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索", "产品管理"] as const;
 
 export type PracticeCaseTag = (typeof practiceCaseTags)[number];
-export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection" | "data-agent";
+export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection" | "data-agent" | "product-management";
 
 export type PracticeCase = {
   id: string;
@@ -17,6 +17,18 @@ export type PracticeCase = {
 
 // 标题直译自原文；简介根据原文内容撰写。新增案例时先核对原文与链接。
 export const practiceCases: readonly PracticeCase[] = [
+  {
+    id: "lenny-ai-product-management",
+    title: "AI 将如何影响产品管理",
+    originalTitle: "How AI will impact product management",
+    source: "Lenny’s Newsletter",
+    format: "文章",
+    url: "https://www.lennysnewsletter.com/p/how-ai-will-impact-product-management",
+    summary:
+      "Lenny 在公开节选中认为，AI 将深刻影响产品战略、愿景和目标设定，并辅助 PRD、用户洞察与路线图；产品感、沟通、创造力和跨团队协调则会更重要。产品经理需要学会用 AI 增强自己的判断与协作。",
+    tags: ["产品管理"],
+    artwork: "product-management"
+  },
   {
     id: "openai-data-agent",
     title: "OpenAI 如何构建其数据 Agent",
