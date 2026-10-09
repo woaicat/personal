@@ -17,7 +17,7 @@
 
 .featureLabel { display: flex; align-items: center; gap: 14px; padding-bottom: 15px; color: #2c5fe6; font-size: 14px; font-weight: 700; }
 .featureLabel::before { width: 32px; height: 2px; background: #2c5fe6; content: ""; }
-.feature { display: grid; grid-template-columns: 46% 54%; min-height: 426px; border: 1px solid #d8e0da; background: #fff; box-shadow: 12px 12px 0 #e3ece5; }
+.feature { display: grid; grid-template-columns: 54% 46%; min-height: 426px; border: 1px solid #d8e0da; background: #fff; box-shadow: 12px 12px 0 #e3ece5; }
 .featureArt, .caseArt { position: relative; overflow: hidden; display: block; background: #1236a2; }
 .featureArt { min-height: 426px; }
 .featureArt::before { display: none; }
@@ -79,6 +79,8 @@
   .introSide { margin: 0; }
   .introSide p { font-size: 16px; line-height: 1.6; }
   .feature { grid-template-columns: 1fr; }
+  .featureArt { order: 1; }
+  .featureCopy { order: 2; }
   .featureArt { min-height: 260px; }
   .featureCopy { padding: 25px 25px 26px; }
   .feature h2 { margin-top: 18px; font-size: 29px; }

@@ -23,6 +23,15 @@ export default function PracticeCasesPage() {
         {featuredPracticeCase && <>
           <div className={styles.featureLabel}>本期推荐</div>
           <section className={styles.feature} aria-label="本期推荐">
+            <div className={styles.featureCopy}>
+              <p className={styles.issue}><span aria-hidden="true" />编辑精选 · {featuredPracticeCase.tags[0]}</p>
+              <h2>{featuredPracticeCase.title}</h2>
+              <p className={styles.featureSummary}>{featuredPracticeCase.summary}</p>
+              <div className={styles.metaRow}>
+                <span className={styles.source}>{featuredPracticeCase.source}<span aria-hidden="true">·</span>{featuredPracticeCase.format}<span aria-hidden="true">·</span>深度阅读</span>
+                <a className={styles.read} href={featuredPracticeCase.url} target="_blank" rel="noopener noreferrer" aria-label={`阅读本期推荐：${featuredPracticeCase.title}，在新标签页打开`}>查看推荐内容 <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
             <div className={styles.featureArt}>
               <Image
                 className={styles.featureImage}
@@ -32,15 +41,6 @@ export default function PracticeCasesPage() {
                 priority
                 sizes="(max-width: 820px) 100vw, 46vw"
               />
-            </div>
-            <div className={styles.featureCopy}>
-              <p className={styles.issue}><span aria-hidden="true" />编辑精选 · {featuredPracticeCase.tags[0]}</p>
-              <h2>{featuredPracticeCase.title}</h2>
-              <p className={styles.featureSummary}>{featuredPracticeCase.summary}</p>
-              <div className={styles.metaRow}>
-                <span className={styles.source}>{featuredPracticeCase.source}<span aria-hidden="true">·</span>{featuredPracticeCase.format}<span aria-hidden="true">·</span>深度阅读</span>
-                <a className={styles.read} href={featuredPracticeCase.url} target="_blank" rel="noopener noreferrer" aria-label={`阅读本期推荐：${featuredPracticeCase.title}，在新标签页打开`}>查看推荐内容 <span aria-hidden="true">↗</span></a>
-              </div>
             </div>
           </section>
         </>}
