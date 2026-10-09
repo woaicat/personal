@@ -1,6 +1,7 @@
+import Image from "next/image";
 import ZeroToOneHeader from "@/components/zero-to-one/ZeroToOneHeader";
 import { catalogPracticeCases, featuredPracticeCase } from "@/content/practice-cases/cases";
-import CaseArtwork from "./CaseArtwork";
+import featuredPracticeCaseIllustration from "@/public/practice-cases/featured-ai-evaluation.png";
 import PracticeCaseCatalog from "./PracticeCaseCatalog";
 import styles from "./practice-cases.module.css";
 
@@ -22,7 +23,16 @@ export default function PracticeCasesPage() {
         {featuredPracticeCase && <>
           <div className={styles.featureLabel}>本期推荐</div>
           <section className={styles.feature} aria-label="本期推荐">
-            <div className={styles.featureArt}><CaseArtwork kind={featuredPracticeCase.artwork} variant="feature" /></div>
+            <div className={styles.featureArt}>
+              <Image
+                className={styles.featureImage}
+                src={featuredPracticeCaseIllustration}
+                alt="蓝图风格的 AI 产品评测流程插图"
+                fill
+                priority
+                sizes="(max-width: 820px) 100vw, 46vw"
+              />
+            </div>
             <div className={styles.featureCopy}>
               <p className={styles.issue}><span aria-hidden="true" />编辑精选 · {featuredPracticeCase.tags[0]}</p>
               <h2>{featuredPracticeCase.title}</h2>

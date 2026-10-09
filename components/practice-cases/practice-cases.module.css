@@ -20,6 +20,8 @@
 .feature { display: grid; grid-template-columns: 46% 54%; min-height: 426px; border: 1px solid #d8e0da; background: #fff; box-shadow: 12px 12px 0 #e3ece5; }
 .featureArt, .caseArt { position: relative; overflow: hidden; display: block; background: #1236a2; }
 .featureArt { min-height: 426px; }
+.featureArt::before { display: none; }
+.featureImage { object-fit: cover; }
 .featureArt::before, .caseArt::before { position: absolute; inset: 0; background-image: linear-gradient(#ffffff19 1px, transparent 1px), linear-gradient(90deg, #ffffff19 1px, transparent 1px); background-size: 34px 34px; content: ""; }
 .featureArt svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .featureCopy { display: flex; flex-direction: column; padding: 42px clamp(28px, 4vw, 60px) 38px; }
