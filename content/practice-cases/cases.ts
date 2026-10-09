@@ -1,4 +1,4 @@
-export const practiceCaseTags = ["Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索"] as const;
+export const practiceCaseTags = ["Agent 设计", "Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索"] as const;
 
 export type PracticeCaseTag = (typeof practiceCaseTags)[number];
 export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection" | "data-agent";
@@ -26,7 +26,7 @@ export const practiceCases: readonly PracticeCase[] = [
     url: "https://blog.bytebytego.com/p/how-openai-built-its-data-agent",
     summary:
       "OpenAI 的数据 Agent 汇集表结构、可信历史查询、人工注释与 Codex 对管道代码的解读，构建检索上下文；再用单一模型和少量精选工具选表、生成、执行并校验 SQL，返回答案、语句及所用表。",
-    tags: ["工作流设计"],
+    tags: ["Agent 设计"],
     artwork: "data-agent"
   },
   {
