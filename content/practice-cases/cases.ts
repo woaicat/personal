@@ -1,14 +1,14 @@
-export const practiceCaseTags = ["Agent 设计", "Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索", "产品管理"] as const;
+export const practiceCaseTags = ["Agent 设计", "人机协作", "Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索", "产品管理"] as const;
 
 export type PracticeCaseTag = (typeof practiceCaseTags)[number];
-export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection" | "data-agent" | "product-management";
+export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection" | "data-agent" | "product-management" | "planning-agents";
 
 export type PracticeCase = {
   id: string;
   title: string;
   originalTitle: string;
   source: string;
-  format: "文章" | "课程" | "视频" | "论文";
+  format: "文章" | "课程" | "视频" | "论文" | "演讲稿";
   url: string;
   summary: string;
   tags: readonly PracticeCaseTag[];
@@ -17,6 +17,18 @@ export type PracticeCase = {
 
 // 标题直译自原文；简介根据原文内容撰写。新增案例时先核对原文与链接。
 export const practiceCases: readonly PracticeCase[] = [
+  {
+    id: "maggie-planning-agents",
+    title: "与 Agent 一起规划：分隔的世界、边界对象与更厚的界面",
+    originalTitle: "Planning with Agents: Divided Worlds, Boundary Objects, and Thicker Interfaces",
+    source: "Maggie Appleton",
+    format: "演讲稿",
+    url: "https://maggieappleton.com/planning-agents",
+    summary:
+      "长串问答和 Markdown 审批让人难以与 Agent 共同规划。Maggie 主张用可视、可操作的“边界对象”连接双方，让 Agent 先试做并比较方案，再由团队共同决策；Chopin 是相关原型。",
+    tags: ["Agent 设计", "人机协作"],
+    artwork: "planning-agents"
+  },
   {
     id: "lenny-ai-product-management",
     title: "AI 将如何影响产品管理",
