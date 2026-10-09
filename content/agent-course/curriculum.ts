@@ -194,10 +194,10 @@ export const agentCurriculum: AgentStage[] = [
       {
         id: "20",
         title: "Agent 概念辨析",
-        summary: "辨析 Agent Loop、Agent Harness 和 Agent Runtime，并用生活例子理解三者关系。",
+        summary: "区分 Agent Loop、Agent Harness、Agent Runtime、KV Cache 与 Prompt Cache，并用生活例子理解它们的作用。",
         output: "",
-        whyItMatters: "这三个名词都在描述 Agent 如何工作，但分别指向循环过程、控制程序和运行环境。",
-        caseApplication: "用同一间餐厅的做菜过程、出餐系统和厨房设施，理解三个概念的分工。"
+        whyItMatters: "这些名词分别描述 Agent 的运行循环、控制程序、执行环境，以及模型生成和提示词处理中的计算复用。",
+        caseApplication: "结合餐厅工作流程、作文续写和重复考题，分清执行机制与缓存优化。"
       }
     ]
   }

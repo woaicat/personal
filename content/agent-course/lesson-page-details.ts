@@ -85,19 +85,21 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-3-2", number: "3.2", label: "退款与争议处理", nested: true }
     ],
     output: "理解三类方案的分工，并能设计有边界、可追溯的 Agent 交易授权闭环。",
-    nextLesson: { id: "20", title: "Agent 概念辨析", description: "辨析 Agent Loop、Agent Harness 和 Agent Runtime。" }
+    nextLesson: { id: "20", title: "Agent 概念辨析", description: "辨析 Agent Loop、Agent Harness、Agent Runtime、KV Cache 与 Prompt Cache。" }
   },
   "20": {
     id: "20",
     title: "Agent 概念辨析",
     subtitle: "一些容易混淆或者难理解的概念解释",
-    duration: "5 分钟",
+    duration: "8 分钟",
     series: "从 0 到 1 设计一个 Agent",
     keyPoints: [],
     outline: [
       { id: "section-1", number: "1", label: "Agent Loop" },
       { id: "section-2", number: "2", label: "Agent Harness" },
-      { id: "section-3", number: "3", label: "Agent Runtime" }
+      { id: "section-3", number: "3", label: "Agent Runtime" },
+      { id: "section-4", number: "4", label: "KV Cache（KV 缓存）" },
+      { id: "section-5", number: "5", label: "Prompt Cache（提示词缓存）" }
     ],
     output: ""
   },

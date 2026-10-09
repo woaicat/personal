@@ -33,6 +33,25 @@ const concepts = [
       { label: "Google Cloud｜Agent Executor, Google’s distributed Agent Runtime", href: "https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-googles-distributed-agent-runtime/" },
       { label: "AWS｜The new AgentCore runtime", href: "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/" }
     ]
+  },
+  {
+    id: "section-4",
+    title: "KV Cache（KV 缓存）",
+    explanation: "KV Cache（Key-Value Cache）保存模型在当前上下文中已经计算出的注意力 Key、Value 状态。生成下一个 token 时，模型可以复用历史 token 的缓存状态，避免每一步都重新计算整段历史；新生成的 token 会继续加入缓存。它缓存的是中间计算状态，不是已经写出的答案。上下文越长，KV Cache 通常占用的显存也越多。",
+    analogy: "像在一场考试里写作文：没有缓存时，每写下一句都从作文开头重新读起，反复梳理已经写过的内容；有 KV 缓存时，已处理过的题目和段落对应的关键信息会留在草稿纸上，继续写时直接接着用，不必重新计算已经处理过的内容，再根据现有上下文生成下一句。它帮助模型在同一段生成中持续往下写。",
+    references: [
+      { label: "Hugging Face｜KV cache 缓存策略", href: "https://huggingface.co/docs/transformers/main/kv_cache" }
+    ]
+  },
+  {
+    id: "section-5",
+    title: "Prompt Cache（提示词缓存）",
+    explanation: "Prompt Cache 通常指把已处理的提示词前缀对应的 KV 状态保留下来，供后续请求复用。可以把它理解为：KV Cache 主要复用当前生成中的历史状态，Prompt Cache 则尝试让后续请求复用相同提示词前缀的处理结果。当请求使用相同模型和兼容设置，且开头的内容完全一致时，系统可以跳过这段共享前缀的重复处理，继续处理后面的新内容并生成回答。它复用的是输入处理的中间结果，不是缓存并返回旧答案；具体命中规则和保留时间会因模型服务而异。",
+    analogy: "像参加两场不同的考试，第二场又出现与第一场完全相同的题目。第一次做题时，你已经读懂并整理了题目背景；第二次可以复用这份“读题笔记”，少花时间重新读懂题干，再根据本场要求作答。注意，复用的是已处理的题目内容，不是把上一场的答案复制过来；如果题干、前置说明或规则有改动，对应部分就可能无法复用。",
+    references: [
+      { label: "OpenAI｜Prompt caching", href: "https://developers.openai.com/api/docs/guides/prompt-caching" },
+      { label: "vLLM｜Automatic Prefix Caching", href: "https://docs.vllm.ai/en/v0.31.0/features/automatic_prefix_caching/" }
+    ]
   }
 ] as const;
 
@@ -43,6 +62,49 @@ export default function AgentTwentiethLessonPage({ detail }: { detail: AgentLess
         <div className={styles.copyBlock}><h3>概念解释</h3><p>{concept.explanation}</p></div>
         <div className={styles.example}><h3>生活中的例子</h3><p>{concept.analogy}</p></div>
         <div className={styles.references}><h3>参考材料</h3><ul>{concept.references.map((reference) => <li key={reference.href}><a href={reference.href} target="_blank" rel="noopener noreferrer">{reference.label}<ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.8} /></a></li>)}</ul></div>
+        {concept.id === "section-5" ? (
+          <div className={styles.comparison}>
+            <h3>KV Cache 与 Prompt Cache 对比</h3>
+            <div className={styles.comparisonTableWrap}>
+              <table className={styles.comparisonTable}>
+                <thead>
+                  <tr>
+                    <th scope="col">对比项</th>
+                    <th scope="col">KV Cache</th>
+                    <th scope="col">Prompt Cache</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">可以理解成</th>
+                    <td><strong>当前答题时的草稿本</strong></td>
+                    <td><strong>下次答题可以重复用的笔记</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">主要发生在哪里</th>
+                    <td>一次推理/生成过程中</td>
+                    <td>多次请求之间</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">解决什么问题</th>
+                    <td>不重复计算已经生成过的 Token</td>
+                    <td>不重复处理相同的 Prompt</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">最明显的效果</th>
+                    <td><strong>让生成速度更快</strong></td>
+                    <td><strong>降低重复长 Prompt 的延迟和成本</strong></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">特别适合</th>
+                    <td>所有文本生成</td>
+                    <td>长 System Prompt、长文档、固定知识库、Agent 工具说明</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ) : null}
       </div>
     </AgentLessonSection>)}
   </AgentLessonShell>;
