@@ -12,11 +12,11 @@ export default function PracticeCasesPage() {
       <main className={styles.main}>
         <section className={styles.intro} aria-labelledby="practice-cases-title">
           <div>
-            <p className={styles.eyebrow}>AGENT FIELD NOTES / 01</p>
+            <p className={styles.eyebrow}>AGENT FIELD NOTES</p>
             <h1 id="practice-cases-title">实战案例</h1>
           </div>
           <div className={styles.introSide}>
-            <p>精选值得反复拆解的 Agent 实践，看看一个方法解决了什么问题，又如何落到真实产品。</p>
+            <p>精选值得了解和学习的Agent落地实践</p>
           </div>
         </section>
 
