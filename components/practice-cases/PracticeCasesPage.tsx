@@ -17,6 +17,7 @@ export default function PracticeCasesPage() {
           </div>
           <div className={styles.introSide}>
             <p>精选值得了解和学习的Agent落地实践</p>
+            <p className={styles.readingNote}>最好逐字逐句阅读原文，而不是直接让AI总结，后者总是会省略许多经验和细节。</p>
           </div>
         </section>
 
