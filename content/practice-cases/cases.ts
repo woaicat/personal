@@ -1,14 +1,14 @@
-export const practiceCaseTags = ["Agent 评测", "成本优化", "安全控制", "工作流设计"] as const;
+export const practiceCaseTags = ["Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索"] as const;
 
 export type PracticeCaseTag = (typeof practiceCaseTags)[number];
-export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow";
+export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset";
 
 export type PracticeCase = {
   id: string;
   title: string;
   originalTitle: string;
   source: string;
-  format: "文章" | "课程" | "视频";
+  format: "文章" | "课程" | "视频" | "论文";
   url: string;
   summary: string;
   tags: readonly PracticeCaseTag[];
@@ -17,6 +17,18 @@ export type PracticeCase = {
 
 // 标题直译自原文；简介根据原文内容撰写。新增案例时先核对原文与链接。
 export const practiceCases: readonly PracticeCase[] = [
+  {
+    id: "hyset-set-level-tool-retrieval",
+    title: "工具不是孤岛：通过查询条件化的超边预测实现大语言模型智能体的集合级工具检索",
+    originalTitle: "Tools Are Not Islands: Set-Level Tool Retrieval for LLM Agents via Query-Conditioned Hyperedge Prediction",
+    source: "上海交通大学 / 香港理工大学",
+    format: "论文",
+    url: "https://arxiv.org/abs/2607.25718",
+    summary:
+      "Agent 任务常需多工具协作，逐个排序容易漏掉互补项。HYSET 对候选工具组整体评分，并按组大小建模配合，再将选出的集合交给现有 Agent。论文在 ToolBench 基准中报告了更高的完整工具集覆盖率与任务通过率。",
+    tags: ["工具检索"],
+    artwork: "hyset"
+  },
   {
     id: "doordash-llm-testing",
     title: "DoorDash 如何构建评估大语言模型的测试系统",

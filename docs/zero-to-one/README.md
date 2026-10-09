@@ -5,7 +5,7 @@
 | 板块 | 地址 | 内容职责 |
 | --- | --- | --- |
 | Agent 课程 | `/zero-to-one/agent` | 按课学习、课程进度与课内互动 |
-| 实战案例 | `/zero-to-one/practice-cases` | 外部文章、课程和视频的策展目录与定期推荐 |
+| 实战案例 | `/zero-to-one/practice-cases` | 外部文章、论文、课程和视频的策展目录与定期推荐 |
 
 两个目录页共用 `components/zero-to-one/ZeroToOneHeader.tsx`。导航使用站内 `Link`，点击「实战案例」会在当前标签页切换页面；案例原文是外部链接，会在新标签页打开。课程详情页仍保持原有沉浸式阅读布局。
 
@@ -29,7 +29,7 @@ docs/zero-to-one/                     # 两板块的维护约定
 2. 在 `content/practice-cases/cases.ts` 增加一条资料：稳定 `id`、中文标题、原题、来源、形式、原文链接、简介、标签及插图类型。简介建议 3–4 行，说明实践背景、做法与值得参考的地方；没有读到的事实不要写。
 3. 标签从 `practiceCaseTags` 中选择；只有至少一篇案例使用的标签才会出现在筛选区。新增标签先加入词表，再用于案例，避免近义词重复。
 4. 轮换「本期推荐」时仅修改 `featuredPracticeCaseId`。被推荐的文章仍保留在完整目录的末尾，避免两处内容紧挨着重复。
-5. 插图在 `components/practice-cases/CaseArtwork.tsx` 维护。保留统一的蓝图网格、纸白面板与暖橙节点；新增内容可以复用现有图案，若增加图案类型须同步更新 `PracticeCaseArtwork` 类型。
+5. 配图沿用页面的暖白、钴蓝与少量暖色点缀，但每篇应根据内容设计独立的主体与构图，不复用现有三张卡片的蓝图网格和横向流程底板。可在 `components/practice-cases/` 增加独立图形，或把生成图片保存到 `public/practice-cases/`；新增图案类型时同步更新 `PracticeCaseArtwork` 类型和渲染入口。
 
 ## 开发约定
 
