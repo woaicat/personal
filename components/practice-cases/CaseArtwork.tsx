@@ -1,6 +1,7 @@
 import type { PracticeCaseArtwork } from "@/content/practice-cases/cases";
 import HysetArtwork from "./HysetArtwork";
 import PromptInjectionArtwork from "./PromptInjectionArtwork";
+import DataAgentArtwork from "./DataAgentArtwork";
 
 type Props = { kind: PracticeCaseArtwork; variant?: "feature" | "card" };
 
@@ -8,6 +9,7 @@ type Props = { kind: PracticeCaseArtwork; variant?: "feature" | "card" };
 export default function CaseArtwork({ kind, variant = "card" }: Props) {
   if (kind === "hyset") return <HysetArtwork />;
   if (kind === "prompt-injection") return <PromptInjectionArtwork />;
+  if (kind === "data-agent") return <DataAgentArtwork />;
 
   const prefix = `${kind}-${variant}`;
 

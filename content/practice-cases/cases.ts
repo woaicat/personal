@@ -1,7 +1,7 @@
 export const practiceCaseTags = ["Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索"] as const;
 
 export type PracticeCaseTag = (typeof practiceCaseTags)[number];
-export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection";
+export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection" | "data-agent";
 
 export type PracticeCase = {
   id: string;
@@ -17,6 +17,18 @@ export type PracticeCase = {
 
 // 标题直译自原文；简介根据原文内容撰写。新增案例时先核对原文与链接。
 export const practiceCases: readonly PracticeCase[] = [
+  {
+    id: "openai-data-agent",
+    title: "OpenAI 如何构建其数据 Agent",
+    originalTitle: "How OpenAI Built Its Data Agent",
+    source: "ByteByteGo",
+    format: "文章",
+    url: "https://blog.bytebytego.com/p/how-openai-built-its-data-agent",
+    summary:
+      "OpenAI 的数据 Agent 汇集表结构、可信历史查询、人工注释与 Codex 对管道代码的解读，构建检索上下文；再用单一模型和少量精选工具选表、生成、执行并校验 SQL，返回答案、语句及所用表。",
+    tags: ["工作流设计"],
+    artwork: "data-agent"
+  },
   {
     id: "openai-prompt-injection-resistance",
     title: "优化 AI 智能体设计：提升对“提示注入”的免疫力",
