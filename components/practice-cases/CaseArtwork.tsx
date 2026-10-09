@@ -1,11 +1,13 @@
 import type { PracticeCaseArtwork } from "@/content/practice-cases/cases";
 import HysetArtwork from "./HysetArtwork";
+import PromptInjectionArtwork from "./PromptInjectionArtwork";
 
 type Props = { kind: PracticeCaseArtwork; variant?: "feature" | "card" };
 
 // 三幅插图共用蓝图网格、纸白图形和暖橙节点，分别对应评测、路由与工作流。
 export default function CaseArtwork({ kind, variant = "card" }: Props) {
   if (kind === "hyset") return <HysetArtwork />;
+  if (kind === "prompt-injection") return <PromptInjectionArtwork />;
 
   const prefix = `${kind}-${variant}`;
 

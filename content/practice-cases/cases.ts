@@ -1,7 +1,7 @@
 export const practiceCaseTags = ["Agent 评测", "成本优化", "安全控制", "工作流设计", "工具检索"] as const;
 
 export type PracticeCaseTag = (typeof practiceCaseTags)[number];
-export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset";
+export type PracticeCaseArtwork = "evaluation" | "routing" | "workflow" | "hyset" | "prompt-injection";
 
 export type PracticeCase = {
   id: string;
@@ -17,6 +17,18 @@ export type PracticeCase = {
 
 // 标题直译自原文；简介根据原文内容撰写。新增案例时先核对原文与链接。
 export const practiceCases: readonly PracticeCase[] = [
+  {
+    id: "openai-prompt-injection-resistance",
+    title: "优化 AI 智能体设计：提升对“提示注入”的免疫力",
+    originalTitle: "优化 AI 智能体设计：提升对“提示注入”的免疫力",
+    source: "OpenAI",
+    format: "文章",
+    url: "https://openai.com/zh-Hans-CN/index/designing-agents-to-resist-prompt-injection/",
+    summary:
+      "OpenAI 将提示注入视为社会工程学风险：不可信内容可能诱导 Agent 调用危险能力。文章提出限制权限，并结合 Source–Sink 分析与 Safe URL，在敏感信息外传前确认或阻断，控制被误导后的影响。",
+    tags: ["安全控制"],
+    artwork: "prompt-injection"
+  },
   {
     id: "hyset-set-level-tool-retrieval",
     title: "工具不是孤岛：通过查询条件化的超边预测实现大语言模型智能体的集合级工具检索",
