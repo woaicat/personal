@@ -108,9 +108,10 @@ export const papers: Paper[] = [
     year: 2021,
     title: "Learning Transferable Visual Models From Natural Language Supervision",
     shortTitle: "CLIP",
-    summary: "用图文对比学习建立可迁移的视觉表示。",
+    summary: "从 4 亿组图文配对中学习对应关系，再用文字描述类别，直接为新图片做零样本分类。",
     topic: "多模态",
-    sourceUrl: "https://arxiv.org/abs/2103.00020"
+    sourceUrl: "https://arxiv.org/abs/2103.00020",
+    explainerUrl: "/ai-papers/clip"
   },
   {
     slug: "latent-diffusion",

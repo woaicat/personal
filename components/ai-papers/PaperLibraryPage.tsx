@@ -10,6 +10,7 @@ import { ViTCardDiagram } from "./vit/ViTDiagrams";
 import { RagCardDiagram } from "./rag/RagDiagrams";
 import { LatentDiffusionCardDiagram } from "./latent-diffusion/LatentDiffusionDiagrams";
 import { DdpmCardDiagram } from "./ddpm/DdpmDiagrams";
+import { ClipCardDiagram } from "./clip/ClipDiagrams";
 import styles from "./ai-papers.module.css";
 
 type Filter = "全部" | PaperTopic;
@@ -22,7 +23,8 @@ const featuredLeads: Record<string, string> = {
   vit: "把图像切成 patch，变成 Transformer 可以处理的 token 序列。",
   rag: "模型回答前查阅外部片段，再综合候选证据生成答案。",
   ddpm: "先给图片加噪，再学习从新噪声一步步生成图片。",
-  "latent-diffusion": "先压缩图像，再在较小的潜空间学习逐步去噪。"
+  "latent-diffusion": "先压缩图像，再在较小的潜空间学习逐步去噪。",
+  clip: "哪段文字属于哪张图片？先学配对，再用文字指定新类别。"
 };
 const featuredCaptions: Record<string, string> = {
   alexnet: "结构示意 · 可在解读页逐层探索",
@@ -32,7 +34,8 @@ const featuredCaptions: Record<string, string> = {
   vit: "patch → token → 分类 · 实验结果与适用边界",
   rag: "问题 → 检索 → 生成 · 比较两种 RAG 概率模型",
   ddpm: "真实图片 → 加噪；随机噪声 → 逐步生成",
-  "latent-diffusion": "压缩 → 潜空间去噪 → 还原 · 两阶段生成"
+  "latent-diffusion": "压缩 → 潜空间去噪 → 还原 · 两阶段生成",
+  clip: "图文配对矩阵 · 从对比学习到零样本分类"
 };
 
 export default function PaperLibraryPage() {
@@ -156,6 +159,8 @@ export default function PaperLibraryPage() {
                       <DdpmCardDiagram />
                     ) : paper.slug === "latent-diffusion" ? (
                       <LatentDiffusionCardDiagram />
+                    ) : paper.slug === "clip" ? (
+                      <ClipCardDiagram />
                     ) : (
                       <div className={styles.featuredSummary}><BookOpenText size={25} aria-hidden="true" /><p>{paper.summary}</p></div>
                     )}

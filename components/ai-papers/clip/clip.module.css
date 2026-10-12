@@ -1,0 +1,72 @@
+.card, .hero, .trainingDiagram, .zeroShotDiagram { border: 1px solid var(--detail-line, #dbe6dd); border-radius: 12px; background: #f7fbf7; color: #345741; }
+.card { padding: 12px 16px; }
+.cardCaption, .heroTop, .cardLegend, .heroBottom { display: flex; justify-content: space-between; gap: 10px; color: #62806b; font-size: var(--detail-small, .75rem); line-height: 1.5; }
+.cardCaption span:first-child, .heroTop span:first-child { font-weight: 700; letter-spacing: .05em; }
+.cardLegend { justify-content: center; margin-top: 8px; }
+.legendMatch { color: #286143; font-weight: 700; }
+.matrix { display: grid; grid-template-columns: minmax(64px, .85fr) repeat(3, minmax(48px, 1fr)); gap: 5px; max-width: 360px; margin: 14px auto 0; text-align: center; }
+.matrixCorner, .matrixColumn, .matrixRowLabel { display: grid; place-items: center; min-height: 34px; color: #5d7866; font-size: var(--detail-small, .75rem); line-height: 1.25; }
+.matrixCorner { font-size: .69rem; }
+.matrixRow { display: contents; }
+.match, .nonMatch { display: grid; place-items: center; min-height: 35px; border: 1px solid #dceade; border-radius: 6px; font-size: 1.12rem; line-height: 1; }
+.match { border-color: #9cc7a7; background: #cfe8d3; color: #286143; font-weight: 750; }
+.nonMatch { background: #fff; color: #b6c6b9; }
+.matrixCompact { max-width: 340px; margin-top: 3px; gap: 3px; }
+.matrixCompact .matrixCorner, .matrixCompact .matrixColumn, .matrixCompact .matrixRowLabel { min-height: 24px; font-size: .69rem; }
+.matrixCompact .match, .matrixCompact .nonMatch { min-height: 27px; }
+.hero { padding: 20px; }
+.heroTop { font-size: .7rem; }
+.encoders { display: grid; grid-template-columns: 1fr 14px 1fr 14px 1fr; align-items: center; gap: 5px; margin-top: 16px; }
+.encoders > div { display: grid; justify-items: center; gap: 3px; min-height: 81px; padding: 8px 2px; border: 1px solid #d7e6db; border-radius: 8px; background: #fff; }
+.encoders strong { font-size: .79rem; }
+.encoders small { color: #718575; font-size: .62rem; white-space: nowrap; }
+.encoderIcon { color: #4a865d; font-size: 1.15rem; font-weight: 700; line-height: 1; }
+.encoders .encoderCenter { display: grid; place-items: center; min-height: 70px; padding: 6px; border-radius: 8px; background: #e3f1e6; color: #315e43; font-size: .75rem; font-weight: 700; line-height: 1.4; text-align: center; }
+.encoderArrow { color: #6e9878; text-align: center; }
+.heroBottom { margin: 14px 0 0; font-size: .7rem; }
+.trainingFigure, .zeroShotFigure { margin: 28px 0; }
+.trainingDiagram { padding: 24px; }
+.trainingInputs { display: grid; grid-template-columns: 1fr .8fr 1fr; gap: 12px; max-width: 570px; margin-inline: auto; }
+.trainingInputs > div { display: grid; align-content: start; gap: 7px; padding: 13px; border: 1px solid #dbe9dd; border-radius: 9px; background: #fff; text-align: center; }
+.trainingInputs small { margin-bottom: 5px; color: #5d7866; font-size: var(--detail-small, .875rem); }
+.trainingInputs span, .trainingInputs strong { padding: 6px; border-radius: 5px; background: #eaf4ec; color: #315e43; font-size: .83rem; font-weight: 600; }
+.trainingInputs > div:nth-child(2) { align-content: center; background: #e7f2e9; }
+.trainingInputs > div:nth-child(2) strong { background: #fff; }
+.trainingArrow { margin: 16px 0 4px; color: #4c7557; font-size: .83rem; font-weight: 650; text-align: center; }
+.trainingRule { display: flex; justify-content: center; gap: 20px; margin-top: 16px; color: #6c8070; font-size: .83rem; }
+.trainingRule strong { color: #286143; }
+.zeroShotDiagram { display: grid; grid-template-columns: minmax(100px, .6fr) 24px minmax(0, 1.4fr); align-items: center; gap: 18px; padding: 25px; }
+.queryImage { display: grid; justify-items: center; gap: 7px; padding: 18px 9px; border: 1px solid #d5e5d9; border-radius: 10px; background: #fff; text-align: center; }
+.queryImage span { color: #4a865d; font-size: 2.3rem; line-height: 1; }
+.queryImage strong { color: #315e43; font-size: .9rem; }
+.queryImage small { color: #738a78; font-size: .72rem; }
+.queryArrow { color: #779b7f; font-size: 1.4rem; text-align: center; }
+.candidates { display: grid; gap: 9px; }
+.candidates > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(30px, .65fr) 64px; align-items: center; gap: 8px; min-height: 43px; padding: 7px 9px; border: 1px solid #e1ebe2; border-radius: 7px; background: #fff; color: #5d7464; font-size: .78rem; }
+.candidates .candidateWinner { border-color: #a4cdae; background: #e7f4e9; color: #2e6442; }
+.candidates i { display: block; width: 45%; height: 7px; border-radius: 10px; background: #c7d7ca; }
+.candidateWinner i { width: 92%; background: #73b282; }
+.candidates strong, .candidates small { font-size: .69rem; text-align: right; white-space: nowrap; }
+.trainingFigure figcaption, .zeroShotFigure figcaption { margin-top: 10px; color: var(--detail-muted, #627569); font-size: var(--detail-small, .875rem); line-height: 1.7; }
+.results { margin: 28px 0; overflow-x: auto; }
+.results table { width: 100%; min-width: 640px; border-collapse: collapse; color: var(--detail-body-ink, #4d5f53); font-size: var(--detail-small, .875rem); line-height: 1.6; text-align: left; }
+.results caption { margin-bottom: 10px; color: var(--detail-muted, #627569); text-align: left; }
+.results th, .results td { padding: 12px 13px; border-bottom: 1px solid var(--detail-line, #dbe6dd); vertical-align: top; }
+.results thead th { background: #edf5ee; color: #345741; font-weight: 700; }
+.results tbody th { width: 24%; color: #345741; font-weight: 650; }
+.results tbody td:nth-child(2) { width: 30%; font-weight: 650; }
+.results figcaption { margin-top: 10px; color: var(--detail-muted, #627569); font-size: var(--detail-small, .875rem); line-height: 1.7; }
+@media (max-width: 720px) {
+  .hero { padding: 16px; }
+  .trainingDiagram { padding: 16px 12px; }
+  .trainingInputs { gap: 6px; }
+  .trainingInputs > div { gap: 5px; padding: 8px 4px; }
+  .trainingInputs span, .trainingInputs strong { padding: 6px 2px; font-size: .7rem; }
+  .trainingInputs small { font-size: .7rem; }
+  .zeroShotDiagram { grid-template-columns: 1fr; gap: 9px; padding: 16px; }
+  .queryImage { grid-template-columns: auto 1fr; justify-items: start; column-gap: 10px; padding: 10px 12px; text-align: left; }
+  .queryImage span { grid-row: span 2; font-size: 1.6rem; }
+  .queryImage strong, .queryImage small { align-self: end; }
+  .queryArrow { transform: rotate(90deg); }
+  .candidates > div { grid-template-columns: minmax(0, 1fr) 45px 58px; font-size: .72rem; }
+}
