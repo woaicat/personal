@@ -11,6 +11,7 @@ import { RagCardDiagram } from "./rag/RagDiagrams";
 import { LatentDiffusionCardDiagram } from "./latent-diffusion/LatentDiffusionDiagrams";
 import { DdpmCardDiagram } from "./ddpm/DdpmDiagrams";
 import { ClipCardDiagram } from "./clip/ClipDiagrams";
+import { ChainOfThoughtCardDiagram } from "./chain-of-thought/ChainOfThoughtDiagrams";
 import styles from "./ai-papers.module.css";
 
 type Filter = "全部" | PaperTopic;
@@ -24,7 +25,8 @@ const featuredLeads: Record<string, string> = {
   rag: "模型回答前查阅外部片段，再综合候选证据生成答案。",
   ddpm: "先给图片加噪，再学习从新噪声一步步生成图片。",
   "latent-diffusion": "先压缩图像，再在较小的潜空间学习逐步去噪。",
-  clip: "哪段文字属于哪张图片？先学配对，再用文字指定新类别。"
+  clip: "哪段文字属于哪张图片？先学配对，再用文字指定新类别。",
+  "chain-of-thought": "示例只给答案，和示例写出中间步骤，会让模型怎样答题？"
 };
 const featuredCaptions: Record<string, string> = {
   alexnet: "结构示意 · 可在解读页逐层探索",
@@ -35,7 +37,8 @@ const featuredCaptions: Record<string, string> = {
   rag: "问题 → 检索 → 生成 · 比较两种 RAG 概率模型",
   ddpm: "真实图片 → 加噪；随机噪声 → 逐步生成",
   "latent-diffusion": "压缩 → 潜空间去噪 → 还原 · 两阶段生成",
-  clip: "图文配对矩阵 · 从对比学习到零样本分类"
+  clip: "图文配对矩阵 · 从对比学习到零样本分类",
+  "chain-of-thought": "题目 → 步骤 → 答案 · 比较两种少样本提示"
 };
 
 export default function PaperLibraryPage() {
@@ -161,6 +164,8 @@ export default function PaperLibraryPage() {
                       <LatentDiffusionCardDiagram />
                     ) : paper.slug === "clip" ? (
                       <ClipCardDiagram />
+                    ) : paper.slug === "chain-of-thought" ? (
+                      <ChainOfThoughtCardDiagram />
                     ) : (
                       <div className={styles.featuredSummary}><BookOpenText size={25} aria-hidden="true" /><p>{paper.summary}</p></div>
                     )}

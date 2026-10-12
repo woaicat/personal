@@ -127,10 +127,11 @@ export const papers: Paper[] = [
     slug: "chain-of-thought",
     year: 2022,
     title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
-    shortTitle: "Chain-of-Thought",
-    summary: "用中间推理步骤提升复杂任务表现。",
+    shortTitle: "思维链提示（CoT）",
+    summary: "在少样本例题里写出中间步骤，引导大模型先分解问题再给答案；收益取决于模型规模和任务。",
     topic: "推理与检索",
-    sourceUrl: "https://arxiv.org/abs/2201.11903"
+    sourceUrl: "https://arxiv.org/abs/2201.11903",
+    explainerUrl: "/ai-papers/chain-of-thought"
   },
   {
     slug: "instructgpt",

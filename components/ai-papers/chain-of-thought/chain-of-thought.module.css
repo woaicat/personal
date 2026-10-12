@@ -1,0 +1,78 @@
+.card, .hero, .methodDiagram, .ablationDiagram, .results { border: 1px solid var(--detail-line, #dbe6dd); border-radius: 12px; background: #f7fbf7; color: #345741; }
+.card { display: grid; gap: 8px; min-height: 128px; padding: 12px 15px; }
+.cardTop, .heroTop { display: flex; justify-content: space-between; gap: 10px; color: #5c7c65; font-size: .71rem; line-height: 1.5; }
+.cardTop strong, .heroTop span:first-child { font-weight: 700; }
+.cardRow { display: grid; grid-template-columns: 76px minmax(0, 1fr); align-items: center; gap: 7px; }
+.cardRow small { color: #5d7866; font-size: .68rem; white-space: nowrap; }
+.flow { display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 0; }
+.flow > span:not(.arrow) { display: grid; place-items: center; min-width: 0; padding: 7px 6px; border: 1px solid #d6e6d9; border-radius: 6px; background: #fff; color: #45634e; font-size: .69rem; font-weight: 650; white-space: nowrap; }
+.flow .stepNode { border-color: #add1b5 !important; background: #e0f0e3 !important; color: #2e6440 !important; }
+.flow .answerNode { border-color: #9fc6a8 !important; }
+.arrow { flex: 0 0 auto; color: #7ba389; font-size: .8rem; }
+.hero { padding: 20px; }
+.heroTop { letter-spacing: .05em; }
+.heroExample, .heroNew { margin-top: 17px; padding: 13px 10px; border: 1px solid #d6e6d9; border-radius: 9px; background: #fff; }
+.heroExample small, .heroNew small { display: block; margin-bottom: 10px; color: #66816d; font-size: .72rem; }
+.heroExample > div, .heroNew > div { display: flex; align-items: center; justify-content: center; gap: 5px; }
+.heroExample span, .heroNew span { min-width: 0; padding: 7px 5px; border-radius: 6px; background: #f1f6f1; color: #3d6549; font-size: .72rem; font-weight: 650; text-align: center; white-space: nowrap; }
+.heroExample .highlight, .heroNew .highlight { background: #d9eddd; color: #2d6640; }
+.heroExample i, .heroNew i { color: #87a991; font-style: normal; }
+.heroModel { display: grid; justify-items: center; gap: 2px; margin: 8px 0 0; text-align: center; }
+.heroModel > span { color: #85a68c; line-height: 1; }
+.heroModel strong { padding: 7px 18px; border-radius: 99px; background: #d5ead9; color: #2f6641; font-size: .81rem; }
+.heroModel small { color: #718976; font-size: .65rem; }
+.heroNew { margin-top: 6px; }
+.hero p { margin: 12px 0 0; color: #768a79; font-size: .68rem; text-align: center; }
+.methodFigure, .ablationFigure { margin: 28px 0; }
+.methodDiagram { padding: 23px; }
+.methodPanel { display: grid; gap: 12px; padding: 17px 20px; border: 1px solid #dce9df; border-radius: 10px; background: #fff; }
+.methodPanel small { color: #5f7e69; font-size: var(--detail-small, .875rem); font-weight: 700; }
+.methodPanel > strong { color: #2f4f39; font-size: var(--detail-body, 1rem); line-height: 1.6; }
+.reasonSteps { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.reasonSteps span { padding: 12px; border: 1px solid #bedcc4; border-radius: 8px; background: #e6f3e9; color: #346447; font-size: .84rem; font-weight: 600; line-height: 1.5; }
+.methodPanel b { color: #2b6640; font-size: .87rem; }
+.methodConnector { display: grid; justify-items: center; gap: 2px; margin: 8px 0; color: #638b6d; text-align: center; }
+.methodConnector span { line-height: 1; }
+.methodConnector strong { font-size: .81rem; }
+.methodConnector small { font-size: .69rem; }
+.ablationDiagram { display: grid; gap: 8px; padding: 20px; }
+.ablationDiagram > div { display: grid; grid-template-columns: 130px minmax(30px, 1fr) 125px; align-items: center; gap: 10px; min-height: 38px; padding: 7px 12px; border: 1px solid #e0eae1; border-radius: 8px; background: #fff; font-size: .83rem; }
+.ablationDiagram span { color: #4f6d58; font-weight: 600; }
+.ablationDiagram small { color: #718676; font-size: .72rem; }
+.ablationDiagram i { display: block; height: 8px; border-radius: 8px; }
+.shortLine { width: 38%; background: #c5d7c9; }
+.longLine { width: 85%; background: #6eb17e; }
+.ablationDiagram .ablationWinner { border-color: #acd1b4; background: #e9f5eb; }
+.ablationWinner strong { color: #2e6842; font-size: .74rem; }
+.methodFigure figcaption, .ablationFigure figcaption, .results figcaption { margin-top: 10px; color: var(--detail-muted, #627569); font-size: var(--detail-small, .875rem); line-height: 1.7; }
+.results { margin: 28px 0; padding: 20px; }
+.resultTitle { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 20px; color: #42624b; font-size: .81rem; }
+.resultTitle strong { font-weight: 700; }
+.resultRows { display: grid; gap: 19px; }
+.resultRow { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 14px; align-items: center; }
+.resultRow > strong { color: #3c6047; font-size: .84rem; }
+.resultBars { display: grid; gap: 6px; }
+.resultBars > div { display: grid; grid-template-columns: 30px minmax(0, 1fr) 54px; align-items: center; gap: 7px; font-size: .7rem; }
+.resultBars span { color: #67806d; }
+.resultBars i { display: block; min-width: 3px; height: 12px; border-radius: 4px; background: #b9d1bf; }
+.resultBars .cotBar { background: #70af7f; }
+.resultBars b { color: #315e40; font-size: .72rem; text-align: right; }
+@media (max-width: 720px) {
+  .cardRow { grid-template-columns: 1fr; gap: 3px; }
+  .cardRow small { font-size: .72rem; }
+  .flow { justify-content: flex-start; }
+  .flow > span:not(.arrow) { font-size: .75rem; }
+  .hero { padding: 16px; }
+  .methodDiagram { padding: 12px; }
+  .methodPanel { padding: 14px; }
+  .reasonSteps { grid-template-columns: 1fr; gap: 7px; }
+  .reasonSteps span { padding: 9px; }
+  .ablationDiagram { padding: 11px; }
+  .ablationDiagram > div { grid-template-columns: 96px minmax(20px, 1fr) 71px; gap: 6px; padding: 7px; font-size: .72rem; }
+  .ablationDiagram small, .ablationWinner strong { font-size: .64rem; }
+  .results { padding: 14px; }
+  .resultTitle { flex-wrap: wrap; margin-bottom: 16px; }
+  .resultRow { grid-template-columns: 76px minmax(0, 1fr); gap: 7px; }
+  .resultRow > strong { font-size: .75rem; }
+  .resultBars > div { grid-template-columns: 24px minmax(0, 1fr) 40px; gap: 5px; }
+}
