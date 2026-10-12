@@ -75,7 +75,7 @@ export default function PaperLibraryPage() {
           <div className={styles.libraryHeroInner}>
             <div className={styles.libraryIntro}>
               <h1 id="library-title">人工智能<br /><span>论文图解</span></h1>
-              <p className={styles.libraryDescription}>用可视化的方式，拆解重要的 AI 论文。先看懂它解决的问题，再亲手试一试关键机制。</p>
+              <p className={styles.libraryDescription}>用可视化的方式，拆解重要的 AI 论文。</p>
             </div>
             <div className={styles.featuredCarousel}>
               <div
