@@ -101,7 +101,44 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-4", number: "4", label: "KV Cache（KV 缓存）" },
       { id: "section-5", number: "5", label: "Prompt Cache（提示词缓存）" }
     ],
-    output: ""
+    output: "",
+    nextLesson: { id: "21", title: "企业 Agent", description: "理解 Agent 如何从个人助手走向组织协作。" }
+  },
+  "21": {
+    id: "21",
+    title: "企业 Agent",
+    subtitle: "从个人助手走向组织协作，理解共享 Agent 的价值、架构与治理挑战。",
+    duration: "25 分钟",
+    series: "从 0 到 1 设计一个 Agent",
+    keyPoints: [
+      "认识企业 Agent，理解组织协作的新形态",
+      "看懂共享 Agent 如何连接员工、知识、系统、流程与权限治理",
+      "通过 Every、Actively、Dust 的实践分析价值与落地挑战"
+    ],
+    outline: [
+      { id: "section-1", number: "1", label: "什么是企业 Agent？" },
+      { id: "section-2", number: "2", label: "为什么最近开始受到关注？" },
+      { id: "section-2-1", number: "2.1", label: "个人 Agent 提升了个人效率，却难以沉淀组织能力", nested: true },
+      { id: "section-2-2", number: "2.2", label: "企业真正复杂的工作需要多人协作", nested: true },
+      { id: "section-2-3", number: "2.3", label: "Agent 的技术基础设施正在成熟", nested: true },
+      { id: "section-3", number: "3", label: "能为企业带来什么价值？" },
+      { id: "section-3-1", number: "3.1", label: "减少重复解释背景和交接信息的成本", nested: true },
+      { id: "section-3-2", number: "3.2", label: "让优秀的工作方法可以被整个团队复用", nested: true },
+      { id: "section-3-3", number: "3.3", label: "让组织的 AI 能力持续积累", nested: true },
+      { id: "section-4", number: "4", label: "有哪些实际应用案例？" },
+      { id: "section-4-1", number: "4.1", label: "Every：让整个公司共享一个 AI 同事", nested: true },
+      { id: "section-4-2", number: "4.2", label: "Actively：为多个员工提供共享的客户业务记忆", nested: true },
+      { id: "section-4-3", number: "4.3", label: "Dust：通过共享工作空间组织多人和多个 Agent", nested: true },
+      { id: "section-5", number: "5", label: "需要怎样的技术架构？" },
+      { id: "section-6", number: "6", label: "落地还面临哪些挑战？" },
+      { id: "section-6-1", number: "6.1", label: "如何平衡共享记忆与数据安全？", nested: true },
+      { id: "section-6-2", number: "6.2", label: "如何保证共享能力的可靠性？", nested: true },
+      { id: "section-6-3", number: "6.3", label: "当多人共同使用 Agent，谁来承担责任？", nested: true },
+      { id: "section-6-4", number: "6.4", label: "如何衡量企业 Agent 的真实价值？", nested: true },
+      { id: "section-7", number: "7", label: "未来会是什么样？" },
+      { id: "section-references", number: "↗", label: "参考资料" }
+    ],
+    output: "理解企业 Agent 的产品形态、价值、架构与治理问题。"
   },
   "01": {
     id: "01",

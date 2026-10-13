@@ -918,6 +918,12 @@
   border-left: 1px solid var(--lesson-line);
 }
 
+.lessonAsideScrollable {
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
 .lessonOutline h2,
 .lessonContinue h2 {
   display: flex;
@@ -1896,6 +1902,11 @@
     padding: 28px 0 0;
     border-top: 1px solid var(--lesson-line);
     border-left: 0;
+  }
+
+  .lessonAsideScrollable {
+    max-height: none;
+    overflow: visible;
   }
 
   .lessonContinue {

@@ -1,0 +1,206 @@
+.figure {
+  margin: 31px 0 0;
+  padding: 10px 10px 7px;
+  border: 1px solid var(--lesson-line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.figure a {
+  display: block;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.figure a:focus-visible {
+  outline: 2px solid var(--lesson-accent);
+  outline-offset: 3px;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure figcaption {
+  padding: 9px 4px 2px;
+  color: #76828d;
+  font-size: 0.73rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.opening {
+  padding: 31px 0 35px;
+  border-bottom: 1px solid var(--lesson-line);
+}
+
+.copy {
+  color: #536070;
+  font-size: 0.83rem;
+  line-height: 1.72;
+}
+
+.copy p {
+  margin: 0;
+}
+
+.copy p + p,
+.copy h3 + p,
+.copy p + h3 {
+  margin-top: 18px;
+}
+
+.copy .articleTitle {
+  margin: 0 0 17px;
+  color: #171e2c;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.45;
+}
+
+.copy h3 {
+  margin: 26px 0 8px;
+  scroll-margin-top: 24px;
+  color: #273343;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.copy strong {
+  color: #273343;
+  font-weight: 700;
+}
+
+.copy ul,
+.copy ol {
+  margin: 12px 0;
+  padding-left: 22px;
+}
+
+.copy li + li {
+  margin-top: 7px;
+}
+
+.citation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6em;
+  margin: 0 0.09em;
+  padding: 0 0.2em;
+  transform: translateY(-0.35em);
+  border: 1px solid #8fceaa;
+  border-radius: 4px;
+  background: #e5f7ec;
+  color: #087c43;
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.32;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.citation:hover,
+.citation:focus-visible {
+  border-color: #087c43;
+  background: #d3f1de;
+  outline: none;
+}
+
+.sourceLink {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  max-width: 100%;
+  color: #16805a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.sourceLink:hover,
+.sourceLink:focus-visible {
+  color: var(--lesson-accent-dark);
+}
+
+.sourceLink svg {
+  flex: none;
+  transform: translateY(2px);
+}
+
+.referenceList {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.referenceList li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  padding: 14px 16px;
+  scroll-margin-top: 24px;
+  border: 1px solid #dce7df;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.referenceList li:target {
+  border-color: var(--lesson-accent);
+  background: var(--lesson-accent-pale);
+}
+
+.referenceNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--lesson-accent-soft);
+  color: var(--lesson-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.referenceList .copy p + p {
+  margin-top: 7px;
+}
+
+.sourceNote {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--lesson-accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--lesson-accent-pale);
+}
+
+.sourceNote .copy {
+  font-size: 0.78rem;
+}
+
+@media (max-width: 600px) {
+  .figure {
+    margin-top: 27px;
+    padding: 5px 5px 7px;
+  }
+
+  .referenceList li {
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .referenceNumber {
+    width: 22px;
+    height: 22px;
+  }
+}

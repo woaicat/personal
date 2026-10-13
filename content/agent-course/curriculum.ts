@@ -198,6 +198,14 @@ export const agentCurriculum: AgentStage[] = [
         output: "",
         whyItMatters: "这些名词分别描述 Agent 的运行循环、控制程序、执行环境，以及模型生成和提示词处理中的计算复用。",
         caseApplication: "结合餐厅工作流程、作文续写和重复考题，分清执行机制与缓存优化。"
+      },
+      {
+        id: "21",
+        title: "企业 Agent",
+        summary: "从个人助手走向组织协作，理解共享 Agent 的价值、架构与治理挑战。",
+        output: "理解企业 Agent 的产品形态与落地问题",
+        whyItMatters: "个人效率提升不等于组织能力积累。企业需要解决共享上下文、权限、交接与持续治理。",
+        caseApplication: "结合 Every、Actively 和 Dust 的实践，分析企业 Agent 如何连接员工、知识与业务流程。"
       }
     ]
   }
