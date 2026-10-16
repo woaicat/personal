@@ -61,8 +61,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
     contacts: [
       { platform: "人人都是产品经理", account: "猫猫观察员的AI思考" },
       { platform: "微信公众号", account: "猫猫观察员的AI思考" },
-      { platform: "谷歌邮箱", account: "gjx19990911@gmail.com" },
-      { platform: "微信", account: "g13520327967" }
+      { platform: "谷歌邮箱", account: "gjx19990911@gmail.com" }
     ],
     articles: {
       intro: {
