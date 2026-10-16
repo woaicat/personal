@@ -17,19 +17,9 @@ function buildSite(): SiteContent {
           caption: "做价值驱动的产品经理"
         },
         {
-          image: "/hero-slide-04.jpg",
-          alt: "家中橘白色猫的生活照片，作为个人作品集首页轮播图",
-          caption: "2021年摄于家中"
-        },
-        {
           image: "/hero-top.png",
           alt: "个人作品集首页展示图，表达用实验和指标推动产品快速迭代",
           caption: "用实验和指标推动产品快速迭代"
-        },
-        {
-          image: "/hero-slide-01.jpg",
-          alt: "2026年4月烟台海边照片，作为个人作品集首页轮播图",
-          caption: "2026年4月摄于烟台"
         },
         {
           image: "/hero-slide-02.jpg",
@@ -179,7 +169,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
         description: "围绕智能体、效率工具和内容产品持续构建项目，用真实场景验证需求、体验与可持续增长模型。",
         ctaText: "浏览项目",
         ctaUrl: "#projects-content",
-        stats: [{ label: "项目", value: "4" }],
+        stats: [{ label: "项目", value: "3" }],
         featured: {
           eyebrow: "精选项目",
           title: "评测方案设计智能体",
@@ -205,17 +195,6 @@ export async function getPortfolioData(): Promise<PortfolioData> {
           projectUrl: "https://github.com/woaicat/-",
           detailUrl: "https://github.com/woaicat/-",
           tags: ["AI智能体", "评测方案", "LangGraph", "FastAPI"]
-        },
-        {
-          id: "project-2",
-          status: "已上线",
-          title: "营销材料审核",
-          summary:
-            "面向营销材料合规场景设计 AI 助审流程 通过提示词迭代与评测体系搭建平衡召回率与精确率 上线后审核时长下降约50% 并显著降低人工负担。",
-          videoUrl: "",
-          projectUrl: "",
-          detailUrl: "",
-          tags: ["AI合规", "营销审核", "提示词优化", "评测体系"]
         },
         {
           id: "project-3",
