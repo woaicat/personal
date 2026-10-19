@@ -85,13 +85,13 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-3-2", number: "3.2", label: "退款与争议处理", nested: true }
     ],
     output: "理解三类方案的分工，并能设计有边界、可追溯的 Agent 交易授权闭环。",
-    nextLesson: { id: "20", title: "Agent 概念辨析", description: "辨析 Agent Loop、Agent Harness、Agent Runtime、KV Cache 与 Prompt Cache。" }
+    nextLesson: { id: "20", title: "Agent 概念辨析", description: "辨析 Agent 的运行、缓存与上下文管理概念。" }
   },
   "20": {
     id: "20",
     title: "Agent 概念辨析",
     subtitle: "一些容易混淆或者难理解的概念解释",
-    duration: "8 分钟",
+    duration: "12 分钟",
     series: "从 0 到 1 设计一个 Agent",
     keyPoints: [],
     outline: [
@@ -99,7 +99,10 @@ export const agentLessonPageDetails: Record<string, AgentLessonPageDetail> = {
       { id: "section-2", number: "2", label: "Agent Harness" },
       { id: "section-3", number: "3", label: "Agent Runtime" },
       { id: "section-4", number: "4", label: "KV Cache（KV 缓存）" },
-      { id: "section-5", number: "5", label: "Prompt Cache（提示词缓存）" }
+      { id: "section-5", number: "5", label: "Prompt Cache（提示词缓存）" },
+      { id: "section-6", number: "6", label: "Context Window（上下文窗口）" },
+      { id: "section-7", number: "7", label: "Context（上下文）" },
+      { id: "section-8", number: "8", label: "Context Engineering（上下文工程）" }
     ],
     output: "",
     nextLesson: { id: "21", title: "企业 Agent", description: "理解 Agent 如何从个人助手走向组织协作。" }

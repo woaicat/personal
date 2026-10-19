@@ -52,6 +52,36 @@ const concepts = [
       { label: "OpenAI｜Prompt caching", href: "https://developers.openai.com/api/docs/guides/prompt-caching" },
       { label: "vLLM｜Automatic Prefix Caching", href: "https://docs.vllm.ai/en/v0.31.0/features/automatic_prefix_caching/" }
     ]
+  },
+  {
+    id: "section-6",
+    title: "Context Window（上下文窗口）",
+    explanation: "Context Window 是模型一次请求中能够处理的 token 总量上限。输入的指令、对话历史、工具结果等会占用空间，模型生成的输出也需要空间；对一些推理模型，推理过程使用的 token 同样计入。窗口大小由所用模型决定，并不表示窗口内放满信息后模型就一定能准确利用每一部分。Agent 运行越久，历史和工具结果越可能挤占窗口，因此需要为后续回答预留空间并管理过长的内容。",
+    analogy: "像餐厅的出餐台一次只能摆放有限数量的订单和备餐单。旧订单、当前订单、过敏提醒都要占位置，还得留出空间放新出炉的菜。台面有多大，决定这一轮最多能摆多少东西；但把台面堆满，也不代表厨师就能更快找到眼前最重要的订单。",
+    references: [
+      { label: "OpenAI｜Conversation state：Managing the context window", href: "https://developers.openai.com/api/docs/guides/conversation-state" },
+      { label: "Anthropic｜Effective context engineering for AI agents", href: "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" }
+    ]
+  },
+  {
+    id: "section-7",
+    title: "Context（上下文）",
+    explanation: "Context 是模型在当前这一步实际收到、可用于理解任务和决定下一步的信息。它可以包括系统指令、用户需求、相关对话、工具说明、检索到的资料与工具返回结果。上下文窗口说的是容量，上下文说的是放进窗口的内容；信息存放在外部文件或数据库里，不等于模型此刻已经看到了它，只有在需要时读取并送入模型，才成为这一轮的上下文。",
+    analogy: "像厨师眼前拿到的这一单资料：客人点了什么、不要放什么、哪些菜已经做好。餐厅档案里也许还有很多其他记录，但厨师没有收到的内容，不会自动帮助他处理这一单。出餐台是能摆资料的地方，这一单实际摆上去的资料才是当前的上下文。",
+    references: [
+      { label: "Anthropic｜Effective context engineering for AI agents", href: "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" },
+      { label: "OpenAI｜From model to agent: Equipping the Responses API with a computer environment", href: "https://openai.com/index/equip-responses-api-computer-environment/" }
+    ]
+  },
+  {
+    id: "section-8",
+    title: "Context Engineering（上下文工程）",
+    explanation: "Context Engineering 是围绕任务目标，选择、组织并持续更新模型每一步所需上下文的做法。它不仅涉及怎么写提示词，还要决定何时检索资料、提供哪些工具说明、保留哪些历史、如何压缩过长内容，以及怎样把新的行动结果交给模型。目标是在有限的上下文窗口里提供足够、准确且相关的信息，让 Agent 能据此做出下一步判断；内容越多并不一定越好。",
+    analogy: "像餐厅的领班管理每一单的备餐信息：接单时只把当前菜品、忌口和必要做法交给厨师；做菜中途有改动，就及时更新；已完成的步骤则简要记录，不让旧纸条盖住新要求。领班并没有扩大出餐台，而是在有限台面上安排每一步最该出现的信息。",
+    references: [
+      { label: "Anthropic｜Effective context engineering for AI agents", href: "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" },
+      { label: "OpenAI｜Conversation state：Managing the context window", href: "https://developers.openai.com/api/docs/guides/conversation-state" }
+    ]
   }
 ] as const;
 

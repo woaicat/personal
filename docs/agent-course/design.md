@@ -187,7 +187,7 @@
 
 ## 13. 第二十课 Agent 概念辨析
 
-- 本课先收录 Agent Loop、Agent Harness、Agent Runtime 三个术语。每节按“概念解释、生活中的例子、参考材料”排列，例子统一使用餐厅场景，参考材料优先链接科技公司的原始博客或官方文档。
+- 本课收录 Agent Loop、Agent Harness、Agent Runtime、KV Cache、Prompt Cache、Context Window、Context、Context Engineering 八个术语。每节按“概念解释、生活中的例子、参考材料”排列；运行与上下文概念使用餐厅场景，缓存概念使用考试场景，参考材料优先链接原始博客或官方文档。
 - 固定顶部、本课要点、右侧大纲、继续学习与一级标题复用 `AgentLessonShell` 和 `AgentLessonSection`；正文以文字为主，生活例子仅用轻量浅绿提示块，不增加复杂可视化。
 - 实现：`lessons/AgentTwentiethLessonPage.tsx`；专属样式：`styles/agent-concepts.module.css`。目录新增附加内容第 20 课，第 19 课继续学习指向第 20 课。
-- 第 20 课的本课要点仅保留标题，具体条目暂空；移除正文导语与本课产出区，保留完成课程入口。Harness 参考材料使用 OpenAI 关于 Codex Harness 的专题文章。
+- 第 20 课的本课要点仅保留标题，具体条目暂空；移除正文导语与本课产出区，继续学习指向第 21 课。Harness 参考材料使用 OpenAI 关于 Codex Harness 的专题文章；新增上下文相关概念以 OpenAI 与 Anthropic 的原始资料为依据。
