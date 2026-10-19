@@ -186,6 +186,15 @@
   line-height: 1.45;
 }
 
+.stage-practice .stageIntro {
+  padding-right: 8px;
+}
+
+.stage-practice .stageIntro > p:last-child {
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
 .lessonList {
   min-width: 0;
 }

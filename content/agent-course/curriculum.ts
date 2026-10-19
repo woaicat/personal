@@ -208,6 +208,23 @@ export const agentCurriculum: AgentStage[] = [
         caseApplication: "结合 Every、Actively 和 Dust 的实践，分析企业 Agent 如何连接员工、知识与业务流程。"
       }
     ]
+  },
+  {
+    id: "practice",
+    label: "实战练习",
+    title: "案例分析",
+    description: "用具体案例拆解 Agent 设计",
+    lessons: [
+      {
+        id: "practice-01",
+        displayNumber: "1",
+        title: "B2B 销售助手 Agent",
+        summary: "从客户研究和销售开发资料准备出发，设计嵌入 CRM 的销售助手 Agent。",
+        output: "B2B 销售助手 Agent 产品需求说明",
+        whyItMatters: "沿着销售人员处理线索的真实工作流程，判断哪些交给 CRM，哪些交给 Agent。",
+        caseApplication: "用虚构客户案例，拆解客户研究、潜在需求分析、开发资料生成和设计验证。"
+      }
+    ]
   }
 ];
 

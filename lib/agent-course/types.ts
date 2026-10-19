@@ -2,6 +2,7 @@ export type LessonStatus = "not-started" | "in-progress" | "completed";
 
 export interface AgentLesson {
   id: string;
+  displayNumber?: string;
   title: string;
   summary: string;
   output: string;

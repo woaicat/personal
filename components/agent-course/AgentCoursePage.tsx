@@ -6,10 +6,9 @@ import { useEffect, useMemo, useState } from "react";
 import { agentCurriculum, allAgentLessons } from "@/content/agent-course/curriculum";
 import courseHeroIllustration from "@/public/agent-course/images/agent-course-hero.png";
 import {
-  AGENT_LAST_LESSON_KEY,
-  AGENT_PROGRESS_KEY,
   getLessonStatus,
   getStatusLabel,
+  readLessonProgress,
   type LessonProgressMap
 } from "@/lib/agent-course/storage/lessonProgress";
 import styles from "@/components/agent-course/styles/agent-course.module.css";
@@ -38,10 +37,8 @@ export default function AgentCoursePage() {
   useEffect(() => {
     const refreshProgress = () => {
       try {
-        const savedProgress = window.localStorage.getItem(AGENT_PROGRESS_KEY);
-        const savedLastLesson = window.localStorage.getItem(AGENT_LAST_LESSON_KEY);
-
-        setProgress(savedProgress ? JSON.parse(savedProgress) as LessonProgressMap : {});
+        const { progress: savedProgress, lastLessonId: savedLastLesson } = readLessonProgress();
+        setProgress(savedProgress);
         setLastLessonId(savedLastLesson);
       } catch {
         setProgress({});
@@ -126,7 +123,7 @@ export default function AgentCoursePage() {
 
                   return (
                     <a className={styles.lessonRow} href={`/zero-to-one/agent/${lesson.id}`} key={lesson.id}>
-                      <span className={styles.lessonNumber}>{lesson.id}</span>
+                      <span className={styles.lessonNumber}>{lesson.displayNumber ?? lesson.id}</span>
                       <span className={styles.lessonCopy}>
                         <strong>{lesson.title}</strong>
                         <span>{lesson.summary}</span>
